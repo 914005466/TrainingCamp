@@ -12,6 +12,9 @@
     <div class="btn">
         开始
     </div>
+    <div class="btn1">
+        结束
+    </div>
     <script>
         const name = document.querySelector('.name');
         let btn = document.querySelector('.btn');
@@ -22,16 +25,18 @@
             let g = Math.floor(Math.random() * 256);
             let b = Math.floor(Math.random() * 256);
         }
-         timer = btn.addEventListener('click', () => {
-            setInterval(() => {
+        btn.addEventListener('click', () => {
+            timer = setInterval(() => {
                 let name1 = Math.floor(Math.random() * arr.length)
                 name.innerText = arr[name1]
             }, 100);
         })
+        btn1.addEventListener('click', () => {
         end.onclick = function () {
 
             clearInterval(timer)
         }
+        })
     </script>
 </body>
 
