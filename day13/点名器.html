@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 485606b9d8882105e56365dd413647b2802d1f9f
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>点名器</title>
 </head>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 485606b9d8882105e56365dd413647b2802d1f9f
 <body>
     <div class="name"></div>
     <div class="btn">
         开始
     </div>
+<<<<<<< HEAD
     <div class="btn1">
         结束
     </div>
+=======
+>>>>>>> 485606b9d8882105e56365dd413647b2802d1f9f
     <script>
         const name = document.querySelector('.name');
         let btn = document.querySelector('.btn');
         let timer = null;
+<<<<<<< HEAD
         let arr = ['小美', '小帅', '丧彪', '大胡子', '小个子'];
         function color() {
             let r = Math.floor(Math.random() * 256);
@@ -40,4 +50,21 @@
     </script>
 </body>
 
+=======
+        let arr = ['小美','小帅','丧彪','大胡子','小个子'];
+        function color() {
+            let r = Math.floor(Math.random()*256);
+            let g = Math.floor(Math.random()*256);
+            let b = Math.floor(Math.random()*256);
+        }
+        btn.addEventListener('click',()=>{
+            setInterval(() => {
+            let name1 =Math.floor(Math.random()*arr.length)
+            name.innerText = arr[name1]
+        }, 100);
+        })
+       
+    </script>
+</body>
+>>>>>>> 485606b9d8882105e56365dd413647b2802d1f9f
 </html>
