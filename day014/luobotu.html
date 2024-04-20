@@ -75,6 +75,16 @@
             }, 1000);
        
     }
+    piev.onclick=()=>{
+        setInterval(() => {
+            n=n+1;
+            if(n==3){
+                n=0;
+            }
+            wp.style.marginLeft=400*n+"px"
+            }, 1000);
+       
+    }
 </script>
 </body>
 </html>
