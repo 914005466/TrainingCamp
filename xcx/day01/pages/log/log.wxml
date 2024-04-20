@@ -1,0 +1,3 @@
+<!--pages/log/log.wxml-->
+<text>按钮</text>
+<button type="primary" loading="true">页面主操作 Loading</button>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+</head>
+
+<body>
+    <div class="name"></div>
+    <div class="btn">
+        开始
+    </div>
+    <script>
+        const name = document.querySelector('.name');
+        let btn = document.querySelector('.btn');
+        let timer = null;
+        let arr = ['小美', '小帅', '丧彪', '大胡子', '小个子'];
+        function color() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+        }
+         timer = btn.addEventListener('click', () => {
+            setInterval(() => {
+                let name1 = Math.floor(Math.random() * arr.length)
+                name.innerText = arr[name1]
+            }, 100);
+        })
+        end.onclick = function () {
+
+            clearInterval(timer)
+        }
+    </script>
+</body>
+
+</html>

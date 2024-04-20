@@ -1,0 +1,273 @@
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+body {
+    font-size: 14px;
+}
+.banner,.hot-movie,.new-movie {
+    background-color: #f5f6f5;
+}
+/* 顶部导航开始 */
+.top-nav {
+    height: 31px;
+    border-bottom: 1px solid #ccc;
+    line-height: 31px;
+    margin-bottom: 20px;
+}
+.top-nav .container {
+    display: flex;
+    justify-content: space-between;
+}
+.top-nav span {
+    font-size: 12px;
+    color: #777;
+}
+.top-nav .container span .a{
+    color: #ff0000;
+}
+.top-nav .container span a:hover{
+    text-decoration: underline;
+}
+/* 顶部导航结束 */
+
+/* logo 搜索开始 */
+.logo-search .container{
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-search .logo {
+    height: 55px;
+    width: 200px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.logo-search .container .search {
+    display: flex;
+}
+.logo-search .text{
+    width: 185px;
+    height: 34px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+}
+.logo-search .submit {
+    width: 54px;
+    height: 34px;
+    border: none;
+    color: #fff;
+    background-color: rgb(51, 122, 183);
+    font-size: 14px;
+}
+.logo-search .submit:hover {
+    background-color: rgb(40, 96, 144)
+}
+/* logo 搜索结束 */
+
+/* 中部导航开始 */
+.center-nav {
+    height: 50px;
+    background-color:  rgb(7, 167, 225);
+    margin-top: 20px;
+}
+.center-nav .container {
+    display: flex;
+}
+.center-nav a {
+    color: #fff;
+    font-size: 14px;
+    padding: 0 15px;
+    line-height: 50px;
+}
+.center-nav a:nth-child(1){
+    font-size: 18px;
+}
+.center-nav a:nth-child(1):hover {
+    color: #333;
+}
+.center-nav a:nth-child(n+2):hover {
+    background-color: #0095bb;
+}
+.center-nav a:nth-child(2) {
+    background-color: #0095bb;
+}
+/* 中部导航结束 */
+    
+/* <!-- 轮播图开始 --> */
+.banner .container {
+    padding-top: 20px;
+    height: 427px;
+}
+.banner .container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+/* <!-- 轮播图结束 --> */
+
+/* <!-- 热播电影开始 --> */
+.hot-movie .container {
+    height: 310px;
+    background-color: #fff;
+}
+
+.hot-movie .container .top, .new-movie .container .top{
+    height: 56px;
+    /* background-color: aqua; */
+    position: relative;
+    
+}
+.hot-movie .container .top h3, .new-movie .container .top h3{
+    font-size: 24px;
+    padding-left: 20px;
+    border-left: 8px solid #00A6DE;
+    position: absolute;
+    top: 12px;
+    font-weight: 400;
+}
+.hot-movie .container .movie-img {
+    display: flex;
+}
+.hot-movie .container .movie-img a {
+    color: #333;    
+}
+.hot-movie .container .movie-img .img {
+    width: 160px;
+    height: 255px;
+    padding: 10px;
+    /* background-color: #777; */
+    font-size: 14px;
+}
+.hot-movie .container .movie-img img {
+    width: 140px;
+    height: 196px;
+}
+.hot-movie .container .movie-img .img:hover{
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+}
+.hot-movie .container .movie-img .img span {
+    background-color: #dfdfdf;
+    padding-left: 3px;
+    padding-right: 15px;
+    color: #008000;
+}
+/* <!-- 热播电影结束  --> */
+/* <!-- 最新电影开始 --> */
+.new-movie .container {
+    background-color: #fff;
+}
+.new-movie .container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.new-movie .container li {
+    width: 228px;
+    height: 351px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.new-movie .container li:hover{
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+}
+.new-movie .container li .img{
+    width: 208px;
+    height: 285px;
+    padding: 2px;
+    display: block;
+    border: 1px solid #ccc;
+}
+.new-movie .container li img {
+    width: 100%;
+    height: 100%;
+}
+.new-movie .container li .span1 {
+    color: #999;
+}
+.new-movie .container .title {
+    font-size: 12px;
+    color: #7e7e7e;
+}
+.new-movie .container li .a1 {
+    color: #888;
+    background-color: #d8d8d8;
+    padding: 2px 4px;
+}
+.new-movie .container .title a:nth-child(n+2){
+    color: #337ab7;
+}
+/* <!-- 热门电影结束 --> */
+
+/* <!-- 更多电影开始 --> */
+
+
+/* <!-- 更多电影结束 --> */
+.more-movie {
+    background-color: #f5f6f5;
+}
+.more-movie .container {
+    background-color: #fff;
+}
+.more-movie .container span {
+    display: block;
+    height: 34px;
+    background-color: #337ab7;
+    border-radius: 5px;
+}
+.more-movie .container span p {
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+}
+/* <!-- 友情链接开始 --> */
+.youqing {
+    background-color: #f5f6f5;
+    height: 100px;
+}
+.youqing .container {
+    height: 80px;
+    background-color: #fff;
+}
+.youqing .container .top{
+    height: 40px;
+    /* background-color: aqua; */
+    position: relative;
+    
+}
+.youqing .container .top h3{
+    font-size: 18px;
+    padding-left: 20px;
+    border-left: 8px solid #00A6DE;
+    position: absolute;
+    top: 8px;
+    font-weight: 400;
+}
+.youqing .container .lianjie {
+    height: 40px;
+}
+.youqing .container  .a {
+    margin-left: 10px;
+    color: #337ab7;
+}
+.youqing .container  .a:hover {
+    text-decoration: underline;
+}
+/* <!-- 友情链接结束 --> */
+.bottom {
+    height: 150px;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+}
+.p {
+    padding-top: 20px;
+    text-align: center;
+    color: #666;
+    line-height: 12px; 
+}
+.p a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}

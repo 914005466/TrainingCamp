@@ -1,0 +1,19 @@
+<!--pages/log1/log1.wxml-->
+<text>pages/log1/log1.wxml</text>
+<view class="box">
+<swiper 	indicator-dots="true" autoplay="true" interval="3000" circular="true" >
+  <swiper-item>
+      <view></view>
+  </swiper-item>
+  <swiper-item>
+      <view></view>
+  </swiper-item>
+  <swiper-item>
+      <view></view>
+  </swiper-item>
+</swiper>
+<view class=".img">
+  <image src="./imgaes/zhutu.jpg" mode="widthFix"/>
+</view>
+
+</view>

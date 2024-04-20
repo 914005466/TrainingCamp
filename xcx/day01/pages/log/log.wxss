@@ -1,0 +1,6 @@
+/* pages/log/log.wxss */
+button {
+  width: 80vh;
+  height: 10vh;
+  font-size: small;
+}

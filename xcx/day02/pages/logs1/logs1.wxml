@@ -1,0 +1,8 @@
+<!--pages/logs1/logs1.wxml-->
+<view class="container">
+  <view class="dmq"> {{dianm}}</view>
+  <view>
+  <button type="{{type}}" bindtap="DianMingQi" class="flag">{{but}}
+  </button>
+  </view>
+</view>

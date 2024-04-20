@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: beige;
+            font-size: 20px;
+        }
+        .div {
+            background-color: aliceblue;
+            margin: 200px auto;
+            height: 400px;
+            width: 500px;
+            box-shadow: 2px 2px 2px #999;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+        .div1 {
+            display: flex;
+            width: 350px;
+            height: 100px;
+            justify-content: space-around;
+        }
+        .conter {
+            width: 350px;
+            background-color: rgb(33, 233, 25);
+            height: 100px;
+            border-radius: 30px;
+            display: block;
+           line-height: 100px;
+           text-align: center;
+           font-size: 40px;
+        }
+        p {
+            width: 150px;
+            background-color: antiquewhite;
+            height: 50px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <div class="conter">
+            <span></span>
+        </div>
+        <div class="div1">
+            <p class="strat">开始</p>
+            <p class="end">结束</p>
+        </div>
+           
+    </div>
+    <script>
+        let arr = ['小美','小帅','大强','丧彪','胡子哥','长发妹'] ;
+        let strat =  document.querySelector('.strat');
+        let conter =  document.querySelector('.conter');
+        let end =  document.querySelector('.end');
+        let timer = null;
+
+        function color() {
+            let  r = Math.floor(Math.random()*256);
+            let  g = Math.floor(Math.random()*256);
+            let  b = Math.floor(Math.random()*256);
+            return `rgb(${r},${g},${b})`
+        }
+
+        strat.onclick =function () {
+            
+        timer =  setInterval(function(){
+                conter.style.color = color();
+                conter.style.backgroundColor = color(); 
+                let name = Math.floor(Math.random()*arr.length);
+                conter.innerText = arr[name]
+              
+        },100);
+
+        } 
+        end.onclick =function(){
+
+            clearInterval(timer)
+        }
+    </script>
+</body>
+</html>

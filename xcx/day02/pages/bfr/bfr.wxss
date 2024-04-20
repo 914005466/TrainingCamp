@@ -1,0 +1,11 @@
+/* pages/bfr/bfr.wxss */
+input {
+  width: 400rpx;
+  height: 50rpx;
+  border: 2rpx solid lightgreen;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+}
+.top view {
+  display: flex;
+}
