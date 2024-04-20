@@ -1,0 +1,6 @@
+<!--pages/text/text.wxml-->
+
+<view>{{Joke}}</view>
+<button type="primary" bind:tap="newJoke">获取一条新句子</button>
+<view>{{newt}}</view>
+<button type="primary" bind:tap="newtext">获取一条新笑话</button>

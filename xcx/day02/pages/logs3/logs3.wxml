@@ -1,0 +1,9 @@
+<!--pages/logs3/logs3.wxml-->
+<view class="container">
+{{food}} 
+</view>
+<textarea placeholder='请输入想增加的种类'  bindinput="addNewFood"  hidden="{{xianshi}}"/>
+<button bind:tap="new" >添加</button>
+<button type="{{type}}" bind:tap="submit" class="flag">
+{{eat}}
+</button>

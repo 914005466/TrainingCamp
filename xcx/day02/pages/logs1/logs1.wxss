@@ -1,0 +1,17 @@
+/* pages/logs1/logs1.wxss */
+.dmq {
+  width: 500rpx;
+  height: 300rpx;
+  background-color: beige;
+  text-align: center;
+  line-height: 300rpx;
+  border-radius: 20px;
+  font-size: 20px;
+  margin: 100rpx auto;  
+}
+button {
+  margin: 50rpx;
+}
+.container {
+margin: 100rpx auto;  
+}

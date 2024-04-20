@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说</title>
+    <style>
+        div {
+            width: 800px;
+            height: 800px;
+            background-color: beige;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            秦沉介不俭秦普视嗣秦耳，车王自书才游反担放土壬登德，乐未越他畴向子找临天司，我。
+        </p>
+        
+    </div>
+        <button id="big">大</button>
+        <button id="small">小</button>
+        <button id="pink">粉色 </button>
+        <button id="huise">灰色</button>
+        <br>
+        <button class="big">大 </button>
+        <button class="center">中</button>
+        <button class="small">小</button>
+    <script>
+        let div  = document.querySelector('div')
+
+        let big = document.querySelector('#big')
+        let small = document.querySelector('#small')
+        let pink =  document.querySelector('#pink')
+        let huise =  document.querySelector('#huise')
+        let da =  document.querySelector('.big')
+        let zhong =  document.querySelector('.center')
+        let xiao =  document.querySelector('.small')
+        let fontsize = 16;
+        big.onclick = function(){
+            fontsize +=10;
+            div.style.fontSize = fontsize+"px";
+        };
+
+        small.onclick = function(){
+            fontsize -=10;
+            div.style.fontSize = fontsize+"px";  
+        };
+
+        pink.onclick = function () {
+            div.style.backgroundColor='pink'
+        }
+        
+       
+        huise.onclick = function () {
+            div.style.backgroundColor='#999'
+        }
+
+        da.onclick = function () {
+            div.style.fontSize=40+'px';
+        }
+
+        zhong.onclick = function () {
+            div.style.fontSize=20+'px';
+        }
+
+        xiao.onclick = function () {
+            div.style.fontSize=5+'px';
+        }
+
+    </script>
+</body>
+</html>

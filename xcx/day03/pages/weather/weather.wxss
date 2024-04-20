@@ -1,0 +1,19 @@
+/* pages/weather/weather.wxss */
+input {
+  width: 400rpx;
+  height: 80rpx;
+  border: 2rpx solid lightseagreen;
+  margin-left: 50rpx;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom {
+  margin-left: 50rpx;
+}
+image {
+  width: 100rpx;
+  height: 100rpx;
+}

@@ -1,0 +1,4 @@
+/* pages/index/index.json.wxss */
+button {
+margin-bottom: 20rpx;
+}

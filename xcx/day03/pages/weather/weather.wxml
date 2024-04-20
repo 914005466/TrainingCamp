@@ -1,0 +1,12 @@
+<!--pages/weather/weather.wxml-->
+<view class="nav">
+  <input type="text"  model:value="{{city}}"/>
+<button type="primary" bind:tap="get" size="mini">查询天气</button>
+</view>
+
+<view class="bottom" wx:if="{{bot}}">
+<view>城市:{{fcity}}</view>
+<view><image src="/weather_img/{{code}}@1x.png" mode=""/></view>
+<view>温度:{{temperature}}°C</view>
+<view>天气:{{text}}</view>
+</view>

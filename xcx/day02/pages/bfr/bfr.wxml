@@ -1,0 +1,19 @@
+<!--pages/bfr/bfr.wxml-->
+<view class="top">
+<!-- modle:value 双向关联 -->
+  <view>身高：<input type="unmber"  placeholder="请输入身高（单位：cm）" modle:value="{{height}}"/></view>
+  <view>体重：<input type="unmber" placeholder="请输入体重（单位：kg）" modle:value="{{weight}}"/></view>
+  <view>年龄：<input type="unmber" placeholder="请输入年龄" modle:value="{{age}}"/></view>
+  <view>
+  <radio-group bindchange="radioChange">   
+    <label for="">男：
+    <radio value="1"  checked="true"/>
+    </label>
+    <label for="">女：
+    <radio value="0"/>
+    </label>    
+  </radio-group>
+  </view>
+  <button type="primary">查询体脂率</button>
+
+</view>

@@ -1,0 +1,37 @@
+body {
+    background-color: #b0b0b0;
+}
+.box {
+    width: 120px;
+    height: 40px;
+    background-color: #424242;
+    margin:  0 auto;
+    /* 父代相对定位 */
+    position: relative;  
+    text-align: center;
+    line-height: 40px;  
+    color: #fff;
+}
+.son {
+    width: 306px;
+    height: 120px;
+    background-color: #fff;
+    /* 子代绝对定位 */
+    position: absolute;
+    right: 0;
+    top: 40px;
+    /* display: none 隐藏 */
+    display: none;
+}   
+.icon-gouwuche .box{
+    font-size: 12px;
+}
+.box:hover .son {
+    /* 出现 */
+    display: block;
+}
+.box .son {
+    color: #333;
+    text-align: center;
+    line-height: 120px;
+}

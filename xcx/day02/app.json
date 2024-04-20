@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs3/logs3",
+    "pages/logs1/logs1",
+    "pages/index1/index1",
+    "pages/bfr/bfr",
+    "pages/weather/weather",
+    "pages/text/text"
+
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "云和数据",
+    "navigationBarBackgroundColor": "#f5f6f5",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/iconimage/index.png",
+        "selectedIconPath": "/iconimage/index_select.png"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "text": "天气",
+        "iconPath": "/iconimage/category.png",
+        "selectedIconPath": "/iconimage/category_select.png"
+      },
+      {
+        "pagePath": "pages/logs1/logs1",
+        "text": "购物车",
+        "iconPath": "/iconimage/cart.png",
+        "selectedIconPath": "/iconimage/cart_select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

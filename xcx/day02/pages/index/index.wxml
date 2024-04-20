@@ -1,0 +1,6 @@
+<!--pages/index/index.wxml-->
+<button type="primary" bind:tap="redirectToxh">来个笑话</button>
+<button type="primary" bind:tap="redirectToWeather">查询天气</button>
+<button type="primary" bind:tap="redirectTobrf">体脂率</button>
+<button type="primary" bind:tap="redirectToEat">吃什么</button>
+<button type="primary" bind:tap="redirectToDian">点名</button>

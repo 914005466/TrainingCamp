@@ -1,0 +1,34 @@
+.img {
+    width: 280px;
+    height: 49px;
+    margin: 100px auto 50px auto;
+}
+.img img {
+    width: 100%;
+    height: 100%;
+}
+.input {
+    width: 580px;
+    height: 33px;
+    display: flex;
+    margin: 0 auto;
+}
+#text {
+    width: 480px;
+    height: 100%;
+    border: 1px solid #b8c3c9;
+    outline: none;
+    padding-left: 20px;
+    
+}
+#submit {
+    width: 100px;
+    height: 100%;
+    border: none;
+    background-image: url(/images/icon_index2.png);
+    background-size: 100px ;
+}
+#submit:hover {
+    background-image: url(/images/icon_index2.png);
+    background-position: 0 -70px;
+}
