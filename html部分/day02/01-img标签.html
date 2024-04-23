@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img标签</title>
+</head>
+<body>
+    <!-- 
+        img 用来展示图片的标签,他是一个单标签
+        属性
+            src用来设置图片的路径
+            width 设置图片的宽
+            height 设置图片的高度
+            alt 设置当前图片的内容，如果图片没有显示的时候，可以给用户文字提示,并且有利于SEO搜索引擎的访问
+            title 属性，所有的标签都具有的一个属性，当鼠标经过的时候，显示文字提示，作用是提高用户体验，如果和img结合使用，可以对img的alt内容做出进一步解释
+
+            面试题： alt和title的区别
+
+        三种路径
+            1.网络路径:网络地址
+            2.相对路径:相对于当前文件的路径地址,当前文件所在的地址为./
+            3.绝对路径:指的是相对于当前计算机（服务器）的路径地址
+     -->
+     <!-- 
+        设置img的宽高，一般仅设置一个数值就行，因为另一个值会按比例缩放
+      -->
+     <!-- 
+        绝对路径
+      -->
+     <img src="/day10/images/h1.jpg" style="margin: 100px 100px;" width="200px" height="300px" alt="赵凌盈">
+     <!-- 
+        网络路径
+      -->
+     <img src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" style="margin: 100px 100px;" alt="赵凌盈" title="赵凌盈赵凌盈">
+     <!-- 
+        绝对路径 本地服务器的绝对路径 / 代表本地服务器的根目录
+      -->
+      <img src="./01-img标签.html" style="margin: 100px 100px;" width="200px" height="300px" alt="赵凌盈" title="赵凌盈赵凌盈">
+</body>
+</html>

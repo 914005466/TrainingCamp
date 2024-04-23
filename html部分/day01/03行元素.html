@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        span标签
+        span 的含义是标记,可以理解为无意义的标签  
+
+        mark 标签,标记标签 ,h5新标签
+     -->
+     <span>
+        司马昭
+     </span>
+     <span>
+        司马炎
+     </span>
+     <span>
+        司马毛
+     </span>
+     <mark>司马毛</mark>
+     <hr>
+
+     <!-- 
+        a 标签超链接标签
+        href 属性，表示要跳转的地址
+        target属性,设置新标签页的打开方式
+        _blank 新标签页打开页面
+        _self 当前标签页打开页面 ,默认
+
+        a 标签做下载功能
+            只需要设置href的值设置为下载的文件地址
+      -->
+      <a href="http://www.baidu.com" target="_blank">百度</a>
+      <a href="./01html简介.html">跳转</a>
+      <!-- 
+        锚点
+       -->
+       <div id="a" style="background-color: lightgoldenrodyellow;height: 800px;"></div>
+       <div id="b" style="background-color: #f5f6f5;height: 800px;"></div>
+       <a href="#a">调到a</a>
+       <a href="#b">调到b</a>
+       <a href="#">回到顶部</a>
+       <!-- a的href属性不能为空 
+            设置href不跳转的方法
+
+            a标签做下载功能
+                只需要设置 href的值为下载的文件地址
+                如果是 音频,视频,图片的下载,需要先压缩,然后把压缩的地址设置到href上
+                如果非音频,视频,图片的下载,直接把文件地址设置到href上
+        -->
+       <a href="">孙悟空</a>
+       <a href="javascript:viod(0)">孙悟空</a>
+       <hr>
+       <a href="/张祥悦/images/logo_index_sosox2.zip">下载</a>
+       <!-- 
+        i em strong var 都是起强调作用
+        strong 文本加粗
+        i , em ,var 斜体
+        表示语气的权重
+        em>i>var
+        -->
+        <hr>
+        <strong>
+            林黛玉
+        </strong>
+        <i>贾宝玉</i>
+        <em>林黛玉</em>
+        <var>贾宝玉</var>
+        <!-- q标签,引用标签,他是及其简短的引用,一般的引入一句话
+            blockquote 引用, 一般引入的是文献中的一段内容
+
+            q为行属性
+            blockquote 为块属性
+         -->
+        <p>子曰:<q>学而时习之</q>
+        </p>
+</body>
+</html>
