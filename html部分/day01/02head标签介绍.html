@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        meta 标签,一般用来设置网站的源信息
+
+        charset 设置文档的编码集
+            utf-8 万国码,最常用
+            GB2312 ,gbk 中文码
+            iso-8859-1  :阿拉伯码
+        name 设置meta 的功能名字
+        content 设置功能对应的值
+        author 设置作者
+        keywords 设置关键字 关键字最好不要超过10个
+        description 设置网页描述 不能超过150字
+     -->
+    <!-- 
+        title 用来设置整个页面的标题 ,seo权重极高 ,不能随意设置
+      -->
+    <!-- 
+        body 用户浏览的内容,都会写在body里面
+       -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="zgg" />
+    <meta keywords="小狗,小猫,小鱼" />
+    <title>基础标签</title>
+    <meta name="description" content="这是一个网页关于宠物的">
+    <meta rel="icon" href="https://www.baidu.com/favicon.ico">
+</head>
+
+<body>
+    <p>卤煮火烧</p>
+    <!-- 
+        标签分为:块属性标签和行属性标签
+     -->
+    <!-- 
+        div 标签,没有任何意义,常用来布局
+      -->
+    <div style="border: 1px solid #000;">休息是留给死人的</div>
+    <div style="border: 1px solid #000;">休息是留给死人的</div>
+    <!-- 
+        h1-h6 设置标题
+        h1:SEO 权限是极高的, 需要慎重使用,只有再logo和大标题的时候使用,整个页面不能超过两个
+        h2:权重仅次于h1,一个页面最多不要超过20个
+        h3-h6:不限制次数
+      -->
+    <h1>拉面</h1>
+    <h2>拉面</h2>
+    <h3>拉面</h3>
+    <h4>拉面</h4>
+    <h5>拉面</h5>
+    <h6>拉面</h6>
+    <!-- 
+        p标签:段落标签,一般包裹一段文字
+        不能相互嵌套
+
+       -->
+    <div>
+        <div>
+            <p>吾日三省吾身</p>
+        </div>
+    </div>
+    <!-- ol li 序列表 
+    list-style-type 设置图标样式
+    disc默认
+    lower-alpha 小写英文
+    upper-alpha 大学英文
+    upper-roman 大写罗马纹
+    lower-roman 小写罗马纹
+
+    
+    -->
+    <ol style="list-style-type: lower-roman;">
+        <li>王昭君</li>
+        <li>西施</li>
+        <li>杨玉环</li>
+    </ol>
+    <!-- ul li
+        list-style-type 设置图标样式
+        disc 默认
+        circle空心圆
+        square 矩形
+        none 没有图标样式
+
+        一般用来渲染列表使用,并且ul的第一个子元素,必须是li
+    -->
+    <ul style="list-style-type: circle;">
+        <li>王昭君</li>
+        <li>西施</li>
+        <li>杨玉环</li>
+    </ul>
+    <!-- 
+        dl 定义列表
+        dt 被解释的列表项
+        dd 列表的解释项
+
+        ul.ol.li.dl.dt.dd 都是块属性标签
+    -->
+    <dl>
+        <dt>早餐</dt>
+        <dd>胡辣汤</dd>
+        <dd>豆浆</dd>
+        <dt>午餐</dt>
+        <dd>大米</dd>
+        <dd>卤面</dd>
+        <dt>晚餐</dt>
+        <dd>小米粥</dd>
+        <dd>大米盒饭</dd>
+    </dl>
+    <!-- 
+        hr 分割线
+        br 换行
+        都是单标签
+        sup上角标
+        sub下角标
+     -->
+     <hr/>
+     三才者,天地人<br>
+     三光者,日月星<br>
+
+     3<sup>2</sup>+4<sup>2</sup>=5<sup>2</sup><br>
+     3<sub>2</sub>+4<sub>2</sub>=5<sub>2</sub><br>
+     <!-- 地址标签 专门用来书写地址  块属性-->
+     <address>河南省郑州市金水区</address>
+     <address>河南省郑州市金水区</address>
+     <!--blockquote引用标签 
+        cite 属性表示引用 源    
+    -->
+     <blockquote cite="蒹葭">蒹葭苍苍</blockquote>
+     <!-- 
+        iframe 框架
+        src 设置框架引用的内容
+      -->
+     <iframe src="http://www.taobao.com" frameborder="0" width="600"></iframe>
+</body>
+
+</html>
