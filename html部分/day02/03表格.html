@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+</head>
+<body>
+    <!-- 
+        表格的用法
+        1.table 布局，现在不再使用该布局方式
+        2.作为表格用来显示数据，页面中的表格
+
+        表格 table双标签
+        table的子标签是 tbody。但是tbody可以不写，在渲染的时候自动渲染在table中
+        tr标签： 代表的是table中的一行
+        th标签： 代表的是table的标题，一个th代表一列，默认字体加粗，居中
+        td标签： 代表的是table的展示项，一个td可以展示表格的一个内容，既是单元格
+
+        td和tr 的宽度会随着table的宽度的改变而改变
+
+     -->
+     <!-- 
+        表格的使用规范
+        1.table的子元素是tr 
+        1.tr th td table 都是块元素
+
+        caption 标签，代表表格的标题，一般不用
+
+        table的属性
+        border 设置表格的边框，如果为0表示没边框
+        cellspacing 单元格之间的距离
+        cellpadding 设置单元格的内边距
+
+        合并单元格
+        colspan 合并列，他的值是合并的列数
+        rowspan 合并列，他的值是合并的行数
+
+        设置 th和ed的 height.width 属性，可以直接设置值和百分比
+        width 属性影响的是一列的宽度
+        height 属性影响的是一行的高度
+
+        当 cellspacing的值为0的时候，border之间没有缝隙，但是两个border在一起显示的是两个border的宽度，可以使用css border-collapse来解决，意思是是否合并单元格边框
+        border-collapse：collapse ；合并单元格边框
+      -->
+
+     <table border="1" width="100%">
+        <tr>
+            <th>序号</th>
+            <th>年龄</th>
+            <th>姓名</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td width="200" height="50">1</td>
+            <td>18</td>
+            <td>张祥悦</td>
+            <td>男</td>
+        </tr>
+     </table>
+</body>
+</html>
