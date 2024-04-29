@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+
+<body>
+    <!-- 
+        表单from
+        表单一般用来提交数据
+        用来收集用户的信息
+        属性：
+            action 设置数据提交地址，可以简单理解为提交接口
+            method 设置数据的提交方式，一般的都get和post
+                get请求不加密 提交的数据会拼在url上，不安全，并且提交的数据量很小
+                post请求加密，提交的数据不在url上显示，比较安全，并且提交的数据量大
+         
+        input  标签 
+            标签属性
+            value 当前input的值
+            name 当前input的字段名
+            placeholder 当前inpnt为输入类型时的提示文字
+            type：设置input的类型
+                text 文本
+                submit 提交按钮
+                number 数字输入框  同时可以设置step属性，表示步长
+                password 密码输入框  
+                reset 重置按钮   
+                button 普通按钮
+                radio 单选按钮
+                checkbox 多选
+                hidden 隐藏文本框，专门用来提交数据使用
+                image 图片型提交按钮
+                color 取色器
+                email 邮箱输入框
+                url 网络地址
+                range 滑杆 默认值是50 取值范围是0-100
+                data 日历
+            maxlength 设置输入最大长度
+            disabled设置是否禁用
+            readonly 只读属性
+            required 必填项
+            autofocus 自动聚焦
+            checked 默认选中
+     -->
+    <form action="http://baidu.com" method="get">
+        姓名：<input type="text" value="" name="username" disabled>
+        密码：<input type="password" value="" name="psw" readonly autofocus>
+        年龄：<input type="number" step="10" value="" name="age" required ><br>
+        性别：
+        <label><input type="radio" checked value="男" name="sex">男</label>
+        <label ><input type="radio" value="女" name="sex">女</label><br>
+        爱好：<label><input type="checkbox" name="love" value="跑步">跑步</label>
+        <label><input type="checkbox" name="love" value="打游戏">打游戏</label>
+        <label><input type="checkbox" name="love" value="追剧">追剧</label>
+        <label><input type="checkbox" name="love" value="炒面">炒面</label><br>
+
+        头像： <input type="file" value=""><br>
+        <!-- 提交文件file -->
+        隐藏： <input type="hidden" value="100"><br>
+        <input type="image" src="/day10/images/h2.jpg" width="200px">
+        取色器： <input type="color" value=""><br>
+        邮箱： <input type="email" value=""><br>
+        网址： <input type="url" value=""><br>
+        滑杆： <input type="range" value=""><br>
+        日历： <input type="data" value=""><br>
+        月份 <input type="month" value=""><br>
+        第几周 <input type="week" value=""><br>
+        时间 <input type="time" value=""><br>
+        <input type="submit" value="提交">
+        <input type="button" value="普通按钮">
+        <button>button标签</button>
+    </form>
+</body>
+
+</html>
