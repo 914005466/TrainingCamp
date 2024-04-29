@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单2</title>
+</head>
+<body>
+    <!-- 
+        select 下拉选择框
+            option 标签是选择项 具有value属性，value的值用来提交数据
+        datalist 数据提示列表，配合input使用，制作数据的模糊查询效果
+            使用方式，再input上设置list属性，list属性值和datalist的id值关联
+        textarea 多行文本输入框
+            cols 设置文本域的列数
+            rows 设置文本域的行数
+     -->
+    <form action="###" method="get">
+        <label>选择学科</label>
+        <select>
+            <option value="1">语文</option>
+            <option value="2">数学</option>
+            <option value="3">英语</option>
+            <option value="4">化学</option>
+        </select><br>
+        <input type="text" value="" 
+        list="show">
+        <datalist id="show">
+            <option value="男枪"></option>
+            <option value="女枪"></option>
+            <option value="女警"></option>
+        </datalist>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </form>
+</body>
+</html>
