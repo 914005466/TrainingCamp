@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他标签</title>
+</head>
+<body>
+    <!-- 
+        meter 用电量标签
+         value 属性,设置当前值
+         min 属性设置最小值,默认是0
+         max属性 设置最大值,默认是1
+         low 属性 设置最低警告值
+         high 属性 设置最高警告值
+     -->
+    <meter value="60" max="100"></meter>
+    <meter value="60" low="20" max="100"></meter>
+    <!-- 进度条标签 progress
+        value 当前进度条的值
+        max 进度条的最大值
+        进度条没有min属性
+    -->
+    <progress value="50" max="100"></progress>
+    <!-- 
+        details 折叠效果标签
+        他的标题是 使用 summary 标签 包裹
+        标题详情可以是其他标签
+     -->
+    <details>
+        <summary>三国</summary>
+        <p>邢道荣</p>
+        <p>吕布</p>
+    </details>
+    <!-- 
+        h5 新增的布局标签
+        他们和div的用法是一样,只是增加了标签的语义化
+        nav 导航标签
+        header 用来设置页面的头部区域
+        footer 底部区域
+        aside 侧边栏
+        section 区域的外层,类似与div
+        article 一般被包裹在section中使用表示是一个功能的内容
+     -->
+     <nav>导航</nav>
+     <header>头部区域</header>
+     <footer>底部区域</footer>
+     <aside>侧边栏</aside>
+     <section></section>
+     <article>设置某个功能的内容区域</article>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音视频</title>
+</head>
+<body>
+    <!-- 
+        播放音频
+        audio  标签,专门用来播放音频的标签
+            src 音频的储存路径
+            controls 设置是否显示控制条
+            autoplay 设置是否自动播放
+            loop 设置是否循环播放
+            muted 设置是否静音
+            preload 预加载属性
+                值
+                auto 默认值,在网页加载玩的时候,自动预加载
+                metadata 只预加载音频的源文件
+                none 不加载音频资源,可以减少服务器的压力,同事可能会有卡顿
+
+     -->
+     <audio src="./img/Change - 泫雅;龙俊亨.mp3" controls autoplay="autoplay"></audio>
+
+     <!-- 
+        结合source标签,给浏览器的兼容
+        一个source 就代表一个播放器,如果浏览器支持,就会显示当前source,其他source就会忽略
+        source通常来解决不同浏览器对不同音频格式的兼容问题
+      -->
+      <audio controls>
+        <source src="./img/月下 _苏运荧.mp3">
+        <source src="./img/月下 _苏运荧.mp3">
+      </audio>
+
+    <hr>
+    <!-- 
+        video视频播放
+        支持三种格式
+        MP4 ogg webm
+        src 视频地址
+        controls 控制条
+        width 视频宽 常用css控制
+        height 视频高,常用css控制
+        loop循环播放
+        poster 视频还没有播放签的展位图,即视频封面
+     -->
+    <video src="./img/美女唱歌.mp4" controls width="200" height="400" muted poster="/day10/images/h1.jpg"></video>
+
+    <br>
+    <video width="500" controls>
+        <source src="./img/美女唱歌.mp4">
+        <source src="./img/美女唱歌.ogg">
+        <source src="./img/美女唱歌.webm">
+        <source src="./img/1.mp4">
+    </video>
+    <video width="500" controls>
+        <source src="./img/1.mp4">
+    </video>
+</body>
+</html>
