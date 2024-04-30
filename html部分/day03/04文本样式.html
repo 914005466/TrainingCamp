@@ -50,8 +50,60 @@
         可以设置的值
         1.英文单词
         2.16进制
-        3.rgb，rgba
+        3.rgb，rgba rbg表示三原色 a表示透明读
+        该设置方式是css3新加的方法
       -->
       <p style="color:skyblue;">安能辨我是雌雄</p>
+      <!-- 
+        文本排布
+        text-align
+        值
+            center 文本居中，最常用
+            left 文本居左，默认
+            right 文本居右
+        给块元素添加 text-align: center 可以对块中的行元素起作用
+       -->
+       <p style="text-align: center;">将军百战死，壮士十年归</p>
+       <!-- 
+        文本修饰
+        text-decoration
+            值
+                underline 下划线
+                line-through 删除线
+                overline 上划线
+                none 没有修饰（常用来删除a标签的下划线）
+        -->
+        <p> 
+            <a href="" style="text-decoration:none;"></a>
+        </p>
+        <!-- 
+            文本转换text-transform
+                uppercase 全部转化为大写
+                lowercase 全部转化为小写
+                capitalize 首字母大写
+         -->
+         <p style="text-transform: uppercase;">qwertty</p>
+         <!-- 
+            行高 line-height
+            对于单行文本,line-height 等于元素的高度,可以设置文本垂直居中
+            对于多行文本,line-height 可以设置行间距
+          -->
+          <p style="height: 30px; border: 1px solid skyblue;line-height: 30px;">对入看说的，王他得用助什了若法师家偶他。</p>
+          <!-- 
+            设置文本方向
+                direction
+                    rtl=>right to left
+                    ltr=> left to right
+            文本缩进
+                text-indent :值是具体数据
+           -->
+           <p style="direction: rtl;">
+                锄禾日当午
+           </p>
+           <!-- 
+            word-spacing 设置词间距
+            letter-spacing 设置字间距
+            -->
+           <p style=" border: 1px solid skyblue;letter-spacing: 40px;">朝为田舍郎,暮登天子堂</p>
 </body>
 </html>
