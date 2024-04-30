@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+    <!-- 通过link方式引入css -->
+    <!-- <link rel="stylesheet" href="./css/03.css"> -->
+    <style>
+        /* 通过import */
+        @import url('./css/03.css');
+    </style>
+</head>
+<body>
+    <!-- 
+        css 层叠样式表
+        css的引入方式
+        1.行间样式表
+            通过标签的style属性,设置样式,通常不适用该方式设置css 因为样式结构不分离操作麻烦,还有css的权重极高,不能通过外部样式修改
+        2.内部样式表
+            如果样式表只对单个文件起作用,可以使用内部样式表
+        3. 外部样式表
+            该样式设置在页面的外部,可以对多个页面同时添加,一般在开发的时候常用
+         
+        link和 @import的区别
+
+        1.@import 是css2.1之后推出的引入方式,部分低版本浏览器不支持该引入方式
+        link没有不兼容的wenti
+        2.link 不仅仅可以引入css,也能够引入其他的文件类型
+        推荐使用link
+     -->
+     <div class="txt">啊啊啊啊啊啊</div>
+     <div style="width: 200px;height: 100px;background-color: skyblue;">唧唧复唧唧</div>
+     <div style="width: 200px;height: 100px;background-color: lightgreen;">木兰当户织</div>
+</body>
+</html>
