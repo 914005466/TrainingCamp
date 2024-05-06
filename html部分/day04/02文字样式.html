@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字样式</title>
+    <style>
+        .wp {
+            width: 100px;
+            height: 100px;
+            border: 1px solid skyblue;
+            overflow: auto;
+        }
+        .txt {
+            /* 行高 单行文字垂直居中 多行文字行间距 */
+            line-height: 30px;
+            white-space: nowrap;
+            width: 200px;
+            height: 30px;
+            background-color: aquamarine;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .tip {
+            line-height: 30px;
+            border: 1px solid limegreen;
+            /* 文本样式 */
+            font-style: italic;
+            font-weight: 100;
+            font-size: 50px;
+            font-family: serif;
+        }
+        /* 
+        font-style: 设置文本样式
+            normal  默认文字样式,一般用来设置文字为正写(可以把斜体转正)
+            italic 设置文字为斜体,一般用来设置支持斜体的文字
+            oblique 设置文字强制斜体
+        
+        font-weight: 设置文本是否加粗
+            normal 正常
+            bold    加粗
+            bolder  比较级,但是浏览器渲染不出更粗的效果
+            
+            也可以设置100-900的整百数字
+            400=normal
+            700=bold
+            900=bolder
+
+        font-size:设置具体字号
+            注意:标准浏览器默认的字号是16px
+        
+        font-family:字体族
+            sans-serif 默认
+            serif   有衬线
+            可以设置多个字体,通过英文逗号隔开,渲染的时候从前向后依次渲染,一旦渲染成功,就不会渲染后面那些字体
+        
+        font 是一个复合型属性
+        顺序
+        font: font-style font-weight font-size font-family;
+        如果没有特殊的设置,可以简写
+        font: font-size font-family;font的复合写法必须有font-size和font-family
+        */
+    </style>
+</head>
+<body>
+    <!-- 
+        overflow 属性,用来设置超出父元素内容的状态
+            值
+            hidden 超出隐藏(最常用)
+            auto    在需要添加滚动条的方向添加滚动条
+            scroll 添加滚动条,包含x轴和y轴
+
+        overflow-x 设置x轴方向的样式
+        overflow-y 设置y轴方向的样式
+        
+        white-space:设置文本是否换行
+            nowrap  强制文本不换行
+            normal  默认文本换行
+        text-overflow:超出文本的裁剪方式
+            clip    直接把多余的部分裁剪掉
+            ellipsis    把多余的部分变为省略号
+        总结,单行文本超出变为省略号需要以下代码
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+     -->
+    <div class="wp">
+        <p>清谢房，才娟圣竟欲娟和幕话于归王考千没生说梵，力的为后开何，孔仍畴穿了投主此负中认但几负应原，馆读。<span>千金散尽还复来</span></p>
+    </div>
+    <div class="wp">
+        <p class="txt">花间一壶酒花间一壶酒花间一壶酒</p>
+    </div>
+
+    <p class="tip">月薪过万不是梦</p>
+</body>
+</html>

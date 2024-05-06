@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display属性</title>
+    <style>
+        /* * {
+            font-size: 50px;
+        } */
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: aquamarine;
+            display: inline-block;
+            font-size: 20px;
+            /* display: inline; */
+            /* display: block; */
+        }
+        .wp1 {
+            width: 200px;
+            height: 200px;
+            background: aquamarine;
+            display: inline-block;
+            font-size: 20px;
+            /* display: inline;
+            display: block; */
+        }
+
+        /* 
+        display 设置一个元素的标签属性
+            block 可以把行元素的属性修改为块元素属性
+            inline 可以把块元素或者行内快元素的属性修改为行元素属性
+            inline-block 可以把一个元素的属性修改为行内块属性
+            none 隐藏元素
+
+        display:inline-block的行内块元素之间会有缝隙,该缝隙是由回车导致的
+            1.去掉回车
+            2.给当前父元素设置 font-size 为0
+            3.
+        */
+    </style>
+</head>
+
+<body>
+    <div class="wp">三国演义</div>
+    <div class="wp">水浒传</div>
+    <div class="wp">西游记</div>
+    <span class="wp1" style="display: none;">吕布</span>
+    <span class="wp1">及时雨</span>
+    <span class="wp1">孙悟空</span>
+</body>
+
+</html>
