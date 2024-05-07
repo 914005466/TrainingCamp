@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* 
+        伪类选择器:是系统已经创建完成的类,不需要刻意创建,他表示的是一个元素的不同状态,根据不同的状态设置样式
+
+        本节课只讨论a的伪类
+        a的伪类 包含 link visited hover active 4种,表示的是a标签的四种伪类
+        link 值得是元素没有被访问时候的状态
+        visited 值得是元素被访问后的状态
+        hover 指的是鼠标悬浮时候的元素的状态
+        active 值得是鼠标按下时候元素的状态
+
+        hover 用法
+            可以用在任何元素上
+        */
+        /* link是还没被点击时的状态 */
+        a:link{
+            color: aqua;
+        }
+        a:visited {
+            color: azure;
+        }
+        a:hover {
+            color:salmon;
+        }
+        a:active{
+            color: darkgreen;
+        }
+        input[type="text"]:focus {
+            width: 400px;
+            height: 40px;
+        }
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: #f8f8f8;
+        }
+        div.wp {
+            background: #a2a2a2;
+        }
+        div.wp:hover {
+            width: 400px;
+            height: 400px;
+            color: aqua;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="###">百度</a>
+    <input type="text">
+    <div class="wp">
+        <p>收拾旧山河</p>
+    </div>
+</body>
+</html>

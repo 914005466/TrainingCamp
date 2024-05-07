@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器的优先级</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .wp {
+            width: 200px;
+            height: 200px;
+            background-color: #0f0;
+        }
+        .col1 {
+            background: #f00;
+        }
+        #div {
+            background: salmon;
+        }
+        /* 
+        选择器的优先级
+        什么时候需要考虑?
+        不同的选择器,绑定在同一个标签上,并且这些选择器对标签的同一个css属性做了不同设置
+        选择器优先级顺序
+        1!IMPORTANT
+        2.行间样式(style内联样式)
+        3.id选择器
+        4.class选择器.伪类选择器,属性选择器
+        5.标签(元素)名选择器,伪元素选择器
+        6.通配选择器(*)
+        7.标签的默认演示
+
+        注意:当相同的选择器,作用在同一个标签上的时候,后来者居上
+
+        对于层级选择器,可以根据以下选择器的数值进行比较
+        !important 10000
+        行间选择器 1000
+        id选择器 100
+        class   10
+        标签名 1
+        */
+    </style>
+</head>
+<body>
+    <div id="div" class=" col1 wp"></div>
+</body>
+</html>

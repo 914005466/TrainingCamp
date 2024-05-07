@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景扩充</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .wp {
+            height: 400px;
+            background: #f70 url(./img/favicon.ico) no-repeat  0 0 ;
+            background-size: 50% auto;
+        }
+        /*
+        background-size 可以设置背景图的大小 
+        background-size x轴大小 y轴大小
+        如果只写一个值表示同时设置xy轴
+            设置方式
+            1.直接设置具体数值 例如100px 200px
+            2.设置百分比,相对于当前元素的百分比
+            3.设置auto 会根据另一边的按比例自动缩放
+         */
+        .wp1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ff9;
+            background: url(./img/favicon.ico) no-repeat 0 0,url(./img/favicon.ico) no-repeat right top,url(./img/favicon.ico) no-repeat right bottom,url(./img/favicon.ico) no-repeat left bottom;
+            background-color: #f70;
+        }
+        /*  
+        同事设置多个背景图,需要在background 属性上设置多个图片,妹妹一个图片用英文逗号隔开
+        */       
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+    <!-- <div style="height: 1000px;"></div> -->
+    <div class="wp1"></div>
+</body>
+</html>

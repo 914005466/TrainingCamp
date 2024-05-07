@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        1.通配选择器*{padding:0;}
+        2.标签元素选择器,一旦设置了标签选啊择期,整个页面的标签都会起作用
+        3.类选择器 通过标签的class属性绑定的选择器
+        4.id选择器
+        5.群组选择器.a1,.a2,.a3{}
+
+        层次选择器
+        1.后代选择器
+        2.父子选择器
+        3.兄弟选择器
+        4.相邻兄弟选择器
+
+        */
+        div {
+            color: #999;
+            font-size: 30px;
+        }
+        /* 工作中id选择器尽可能不用,因为id的css权重较高,无法被后置的css覆盖 
+            注意,一个标签上的类名选择器中,最多绑定五个类名
+        */
+        #show {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 255, 0, 0.3);
+        }
+        .show {
+            background: #f60;
+        }
+        .wp1,.wp2,.wp3 {
+            color: skyblue;
+        }
+        .list li span{
+            color: #f60;
+            border: 1px solid #999999;
+        }
+        /* 父子选择器 */
+        .list > li > span {
+            display: block;
+            background:#333;
+            margin-bottom: 10px;
+        }
+        /* 
+        兄弟选择器
+        #son~li 获取的是id为son的li后面所有的li标签
+        */
+        #son~li {
+            background: rgba(0, 255, 0, 0.3);
+        }
+        /* 
+        相邻兄弟选择器
+            #son+li 获取的是id为son的li下一个兄弟元素
+        */
+        #son+li {
+            height: 50px;
+            margin-bottom: 10px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="show" class="show wp1">颜先人谭。</div>
+    <div>其二、人非，能而小。</div>
+    <span class="wp2">
+        考法他人所。
+    </span>
+    <ul class="list">
+        <li><span>天地玄黄</span></li>
+        <li id="son"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
