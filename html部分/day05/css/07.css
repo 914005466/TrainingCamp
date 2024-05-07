@@ -1,0 +1,193 @@
+/* 设置全局默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* 设置头部 */
+header {
+    height: 100px;
+    background: #4a4a4a;
+}
+.head {
+    width: 1100px;
+    height: 100px;
+    margin: 0 auto;
+}
+.logo {
+    display: inline-block;
+    margin-top: 35px;
+    width: 354px;
+}
+nav {
+    display: inline-block;
+    height: 100px;
+    color: #000;
+    vertical-align: top;
+}
+nav a {
+    color: #fff;
+    font-size: 18px;
+}
+nav span {
+    display: inline-block;
+    height: 16px;
+    border-left: 1px solid #999;
+    margin: 50px 19px 0;
+}
+nav a:hover {
+    color: #00a0e9;
+}
+/* 内容部分 */
+.cont {
+    width: 1100px;
+    margin: 80px auto 0;
+    height: 1800px;
+    font-size: 0;
+}
+.tit {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 400;
+}
+.left {
+    width: 750px;
+    height: 100%;
+    display: inline-block;
+    margin-right: 50px;
+    vertical-align: top;
+}
+.right {
+    width: 250px;
+    padding-left: 49px;
+    height: 100%;
+    display: inline-block;
+    border-left: 1px solid #dedede;
+}
+.tips {
+    height: 70px;
+    line-height: 60px;
+    border-bottom: 1px solid #dedede;
+    font-size: 14px;
+}
+.tips span {
+    color: #999;
+    padding-right: 45px;
+}
+.tips a {
+    color: #00a0e9;
+}
+/* 详情部分 */
+.cont .head {
+    text-align: center;
+}
+.cont h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+.cont .head span{
+    font-size: 18px;
+    color: #999;
+    line-height: 40px;
+}
+.cont .img {
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    background-image: url(../img/图层-15.png);
+}
+.font {
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 172px;
+}
+.font span {
+    font-size: 14px;
+    line-height: 30px;
+    color: #999;
+}
+.img2{
+    width: 1100px;
+    height: 830px;
+    padding: 50px 0;
+    border-top: 1px solid #999;
+}
+.img2 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-content: space-between; */
+    
+}
+.img2 li {
+    width: 328px;
+    height: 238px;
+    padding: 10px;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+}
+.img2 li img {
+    width: 328px;
+    height: 238px;
+}
+/* 底部内容 */
+footer {
+    height: 300px;
+    background: #4a4a4a;
+   
+}
+.foot {
+    width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    display: flex;
+}
+.le {
+    width: 750px;
+    height: 100%;
+    margin-right: 50px;
+    /* vertical-align: top; */
+}
+.foot .p1 {
+    padding-top: 90px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #999;
+    border-bottom: 1px solid #959595;
+    width: 415px;
+    padding-bottom: 5px;
+
+}
+.foot a {
+    font-size: 14px;
+    color: #00a0e9;
+    padding: 0 7px;
+}
+.foot span {
+    font-size: 14px;
+    color: #999;
+    line-height: 26px;
+}
+.foot p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999;
+}
+
+.rig {
+    width: 180px;
+    padding-left: 130px;
+    height: 100%;
+    display: inline-block;
+    margin-top: 60px;
+}
+.rig .img {
+    width: 178px;
+    height: 178px;
+}
