@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            height: 200px;
+            width: 200px;
+            margin-bottom: 40px;
+            background-color: aqua;
+        }
+        .bra {
+            height: 200px;
+            width: 200px;
+            margin-top: 20px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        margin bug
+        1.父子嵌套bug
+            父标签嵌套子标签,子标签具有margin-top值,该值会通过字标传递给父标签
+            解决方法:
+            1.给父标签添加border-top
+            2.给父坐标一个overflow:hadden;
+        2.上下两个兄弟标签的塌陷问题
+            上边标签的下margin和下面标签的上margin,它们两者不是相加的关系,会渲染较大的margin值
+            解决方法
+            给下面的标签添加 display:inline-block;
+     -->
+     <div class="one"></div>
+     <div class="bra"></div>
+</body>
+</html>
