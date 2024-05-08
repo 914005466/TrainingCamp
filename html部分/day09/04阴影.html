@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阴影</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            background: #000;
+        }
+        .wp ,.wp1 {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            margin: 100px auto;
+            box-shadow: 5px 5px 5px 5px #999  inset;
+        }
+        .wp2 {
+            width: 200px;
+            height: 200px;
+            background: #000;
+            margin: 100px auto;
+            box-shadow: 47px -38px 25px -2px #fff inset,-12px 4px 14px -5px #fff;
+            border-radius: 50%;
+        }
+        /* 
+        阴影设置 box-shaow
+         box-shadow:x轴偏移量 y轴偏移量 阴影的模糊度(发散度) 阴影宽度 阴影颜色
+         inset 内阴影
+        设置多个阴影,用英文逗号隔开
+        */
+    </style>
+</head>
+<body>
+    <!-- <div class="wp"></div>
+    <div class="wp1"></div> -->
+    <div class="wp2"></div>
+</body>
+</html>

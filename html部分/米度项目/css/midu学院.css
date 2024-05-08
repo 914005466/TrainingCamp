@@ -1,0 +1,114 @@
+iframe {
+    width: 100%;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+#iframpage {
+    width: 100%;
+}
+/* 内容区域 */
+.head1 {
+    height: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.head1 .yuan {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    color: #999;
+    text-align: center;
+    line-height: 120px;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+.head1 .yuan1 {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #999;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.head1 .yuan:nth-child(1) {
+    background: #99cc00;
+    color: #fff;
+    border: none;
+}
+.head1 .box {
+    height: 60px;
+    width: 1100px;
+    border-bottom:  1px solid #999;
+    position: absolute;
+    z-index:-10;
+    top: 60px;
+}
+.nav {
+    width: 100%;
+    height: 470px;
+    background: #57b7a5;
+}
+.nav img {
+    width: 100%;
+    height: 100%;
+}
+.cont {
+    width: 1100px;
+    margin: 0 auto ;
+    height: auto;
+    
+}
+.box1 {   
+    height: 300px;
+    padding: 80px 0;
+    display: flex;
+}
+.cont .img {
+    width: 300px;
+    height: 300px;
+    background: url(../images/图层-30.png);
+    border-radius: 10px;
+    margin-right: 40px;
+}
+.right {
+    width: 760px;
+    height: 100%;
+}
+.right1 {
+    width: 760px;
+    height: 70px;
+    border-bottom: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+.right span {
+    color: #999;
+    line-height: 70px;
+}
+.right2  h3{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+}
+.right2 p {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #999;
+}
+.box666 {
+
+    height: 460px;
+    background: #f6f6f6;
+}

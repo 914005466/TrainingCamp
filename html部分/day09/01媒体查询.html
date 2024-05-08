@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒体查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+        媒体查询 使用 关键字 @media
+        only 指定兼容媒体查询的唯一设备
+        screen 指的是电脑屏幕,ipad,手机屏幕中的一种
+            print 打印机
+            all 指所有设备
+        and 链接后面括号中的查询条件
+        () 括号中设置媒体查询的条件
+
+        媒体查询不具有优先级,因此需要把普通设置的css放在最上面
+        媒体查询一般写在最下面
+        从大到小写
+
+        也可以通过css引入的方式,加载媒体查询的css样式表
+        <link rel="stylesheet" href="./css/a.css" media="only screen and (min-wodth:800px) and (max-width:1000px)">
+        在引入不同样式的时候,先引入基本的css样式,然后再引入媒体查询样式引入媒体查询样式也是按照数值的先后大小引入
+        */
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+        .bar {
+            height: 100px;
+            background: rgb(43, 69, 171);
+        }
+        @media only screen and (min-width:800px) and (max-width:1000px) {
+            .wp {
+                background: lightsalmon;
+            }
+        }
+
+        @media only screen and (max-width:800px) {
+            .wp {
+                background: lemonchiffon;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/a.css" media="only screen and (min-wodth:800px) and (max-width:1000px)" />
+    <link rel="stylesheet" href="./css/b.css" media="only screen and (max-width:800px)" />
+</head>
+
+<body>
+    <div class="wp"></div>
+    <div class="bar"></div>
+</body>
+
+</html>

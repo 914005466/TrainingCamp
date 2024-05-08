@@ -1,0 +1,77 @@
+iframe {
+    width: 100%;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+#iframpage {
+    width: 100%;
+}
+/* 内容区域 */
+.nav {
+    width: 100%;
+    height: 595px;
+    background: #57b7a5;
+}
+.nav img {
+    width: 100%;
+    height: 100%;
+}
+.cont {
+    width: 1100px;
+    margin: 0 auto ;
+    height: auto;
+    
+}
+.box1 {   
+    height: 440px;
+    padding: 80px 0;
+    display: flex;
+}
+.cont .img {
+    width: 300px;
+    height: 300px;
+    background: url(../images/图层-30.png);
+    border-radius: 10px;
+    margin-right: 40px;
+}
+.right {
+    width: 760px;
+    height: 100%;
+}
+.right1 {
+    width: 760px;
+    height: 70px;
+    border-bottom: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+.right span {
+    color: #999;
+    font-weight: 700;
+    line-height: 70px;
+}
+.right2  h3{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+}
+.right2 p {
+    font-size: 14px;
+    line-height: 30px;
+    color: #999;
+}
+.box {
+
+    height: 600px;
+    background: #f6f6f6;
+}

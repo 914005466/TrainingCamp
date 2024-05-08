@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置文本垂直</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: rgba(200, 200, 200, 1);
+            opacity: 0.5;
+        }
+        /* 
+       opacity 设置元素透明,取值是0-1之间
+        */
+        .hi {
+            height: 100px;
+            width: 400px;
+            border: 1px solid red;
+            margin: 0 auto;
+        } 
+        .h1 * {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .h1 div {
+            height: 100px;
+        }
+        /*
+        设置对齐方式 
+        vertical-align:
+            值
+            top 顶部对齐
+            middle中线对齐
+            baseline 基线对齐
+            bottom 底线对齐
+
+         vertical-align 只对行元素和内联块元素起作用
+         
+        */
+    </style>
+</head>
+<body>
+    <div class="wp">凄凄惨惨戚戚,</div>
+    <div class="hi">
+        <span>李煜</span>
+        <a href="###">赵光义</a>
+        <span>赵匡义</span>
+        <a href="###">花蕊夫人</a>
+        <span>小周后</span>
+        
+    </div>
+</body>
+</html>

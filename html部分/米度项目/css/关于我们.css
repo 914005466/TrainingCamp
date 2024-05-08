@@ -1,0 +1,138 @@
+iframe {
+    width: 100%;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+#iframpage {
+    width: 100%;
+}
+/* 内容 */
+.cont {
+    width: 1100px;
+    margin: 80px auto 0;
+    height: auto;
+    font-size: 0;
+}
+.cont .head {
+    text-align: center;
+}
+.cont h2 {
+    font-size: 48px;
+    font-weight: 400;
+}
+.cont .head span{
+    font-size: 18px;
+    color: #999;
+    line-height: 40px;
+}
+.font {
+    width: 800px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.font span {
+    font-size: 14px;
+    line-height: 30px;
+    color: #999;
+}
+.cont .box {
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+}
+.cont .box .box1,.cont .box .box2 {
+    width: 525px;
+    height: 450px;
+    background: #f6f6f6;
+}
+.box img {
+    height: 270px;
+    width: 445px;
+    
+}
+.box .box11 {
+    padding: 40px;
+    position: relative;
+}
+.box h2{
+    padding-top: 40px;
+    font-size: 36px;
+    color: #333;
+}
+ span {
+    font-size: 18px;
+    color: #999;
+}
+.box .btu {
+    background: #00a0e9;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    position: absolute;
+    right: 40px;
+    bottom: 50px;
+    color: #fff;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+}
+.box3 {
+    height: 170px;
+    border: 1px solid #999;
+    display: flex;
+}
+.box4 {
+    width: 160px;
+    height: 170px;
+    background: #f6f6f6;
+    border-right: 1px solid #999;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.box4 h2 {
+    font-size: 36px;
+    color: #333;
+}
+.box5 {
+    display: flex;
+}
+.box6 {
+    width: 365px;
+    height: 170px;
+    padding: 23px 0 23px 40px;
+    box-sizing: border-box;
+}
+.box6 span {
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+}
+.box7 {
+    margin: 50px 0;
+    height: 50px;
+    border: 1px solid #999;
+    display: flex;
+    align-items: center;
+}
+.box8,.box9,.box10 {
+    flex: 1;
+    text-align: center;
+}
+.box7 span {
+    /* display: block; */
+    /* height: 50px; */
+    padding-left: 37px;   
+}
+.box8 span {    
+    background: url(../images/微信图片_20240511114648.png) no-repeat 0 0px;
+}
+.box9 span {
+    background: url(../images/微信图片_20240511114648.png) no-repeat 0 -180px;
+}
+.box10 span {
+    background: url(../images/微信图片_20240511114648.png) no-repeat 0 -90px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位的基础</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        /* 
+        定位的应用场景:在同一个文档流区域,同时需要渲染多个标签
+        定位的原理:定位的元素脱离文档流
+        定位的步骤:
+            1.通过position 设置定位的参照物
+            2.通过left top right bottom 这些css属性来设置定位的方向上的距离,该距离是距离定位参照物的相对值
+
+            定位属性 position
+                值 relative absolute fixed static
+                relative 相对定位,参照物是当前元素所在的位置,相对定位元素的位置存在于文档流上
+                absolute 绝对定位,参照物是,具有定位属性的最近的一个祖先元素,如果他所有的祖先级元素都没有定位属性,则参照物是网页浏览窗口
+                fixed 固定定位,他的参照物是网页的浏览窗口,相对于网页浏览窗口定位
+                static 静态定位,没有参照物,不定位,相当于不写
+
+                权重 left>right top>bottom
+        */
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+        .wp1 {
+            width: 200px;
+            height: 200px;
+            background: lightgreen;
+            /* 相对定位 */
+            position: relative;
+            left: 100px;
+            top: 100px;
+        }
+        .wp2 {
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+            /* 绝对定位 */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">张飞</div>
+    <div class="wp1">典韦</div>
+    <div class="wp2">吕布</div>
+</body>
+</html>

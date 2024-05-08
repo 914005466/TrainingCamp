@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .wp {
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            margin: 50px auto;
+        }
+        .far {
+            height: 300px;
+            width: 300px;
+            background-color: skyblue;
+            position: relative;
+        }
+        .son {
+            height: 100px;
+            width: 100px;
+            background-color: rgb(52, 128, 91);
+            /* 绝对定位 */
+            position: absolute;
+            right: 100px;
+            bottom: 100px;
+        }
+        .txt {
+            border: 1px solid skyblue;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            left: 0;
+            top: 0;
+            
+        }
+        .ruan {
+            border: 1px solid lightpink;
+            position: absolute;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            right: 0;
+            top: 0;
+        }
+        /* 
+        总结
+        相对定位
+        1.元素设置了相对定位之后,对元素本身没有影响
+        2.元素设置了相对定位之后,依然脱离文档流,但是元素所在的位置仍然占据文档流的空间
+        3.元素设置了相对定位之后,会提高元素的层级
+        4.元素设置了相对定位之后,可以通过left top right bottom 来设置元素的定位位置
+        5.相对定位的元素是相对于该元素之前所在的位置定位
+
+        绝对定位
+        1.绝对定位的元素脱离文档流,不占据原来的空间,提升层级
+        2.行元素设置了绝对定位之后,可以设置宽和高,支持上下padding 和上下 margin
+        3.块元素设置了绝对定位之后,宽和高由内容撑开,并且自动margin消失
+        4.绝对定位元素是相对于该元素最近的具有定位属性的祖先元素定位,如果没有符合条件的祖先元素,则相对于浏览器窗口定位
+        5.如果对一个元素设置了绝对定位,则该元素的父元素需要设置宽高
+
+        如果需要一个元素的绝对定位,则它的父元素最好 具有relative 或者 absolute ,一般常用 position:relative
+        */
+    </style>
+</head>
+<body style="border: 1px solid red;">
+    <div class="wp">
+        <div class="far">
+            <div class="son"></div>
+        </div>
+    </div>
+    <!-- <div style="height: 1000px;"></div> -->
+    <span class="txt">嵇康猖狂</span>
+    <div class="ruan">阮籍</div>
+</body>
+</html>

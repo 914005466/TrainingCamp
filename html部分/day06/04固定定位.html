@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        a{
+            width: 100px;
+            height: 100px;
+            /* 固定定位 */
+            position: fixed;
+            right: 0;
+            bottom: 100px;
+            background-color: aqua;
+        }
+        .wp1,.wp2 {
+            width: 200px;
+            height: 200px;
+            background: wheat;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        .wp2 {
+            background: violet;
+            left: 0;
+            top: 0;
+        }
+        /* 
+        固定定位:参照物是浏览器窗口,相对于浏览器窗口定位
+        特点:
+        1.脱离文档流
+        2.提升元素层级
+        3.低版本浏览器不支持(<=ie8)
+
+        定位的层级
+        z-index 属性
+            z-index:  1000;
+            他的值越大,层级越高
+            元素设置了定位之后,刚开始的z-index 的值均为0,但是后渲染的元素会覆盖首先渲染的元素
+            两个定位元素比较z-index 必须是同一层级才能比较
+        */
+    </style>
+</head>
+<body>
+    <div class="wp1" style="z-index: 100;">1</div>
+    <div class="wp2" style="z-index: 200;">2</div>
+    <a href="#">回到顶部</a>
+</body>
+</html>

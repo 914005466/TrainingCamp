@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性布局</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        /* 
+        弹性布局,他是css3新增的布局方式,兼容所有移动端,pc端低版本不支持
+        使用弹性布局,需要吧一个元素转化为弹性容器
+
+        块->弹性容器: display:flex;
+        行->弹性容器:display:inline-flex;
+
+        弹性布局 是根据主轴方向对其子元素进行顺序排列的,从而完成布局
+
+        弹性布局的使用属性分为两大类
+        1.针对弹性容器的设置的属性(很常用)
+            
+        flex-direction:设置主轴方向
+            row 默认,主轴沿x轴,方向从左到右
+            row-reverse 主轴沿x轴,方向为从右到左
+            column 主轴沿y轴,方向为从上到下
+
+        flex-wrap : 设置子内容是否换行,默认是不换行
+            nowrap 默认,不换行
+            wrap 换行
+            wrap-reverse 翻转换行
+
+        flex-flow:direction wrap;和写 flex-direction 和 flex-warp
+
+        弹性容器中,分为主轴和侧轴
+        align-content 用来调整多行之间的间距,只有具有多行的时候该属性才生效
+            flex-start 沿着垂直主轴方向的轴方向排列行内容
+            flex-end 沿侧轴方向的反方向排列行内容
+            center 内容行居中
+            space-between 沿侧轴两边排列行,注意首行和尾行紧贴弹性容器
+            space-around 平分行间距
+        justify-content 设置子元素再主轴方向的对齐方式
+            flex-start 默认,从主轴开始方向渲染
+            flex-end 从主轴末尾方向渲染
+            center 居中
+            space-between 两端对齐,每一个子元素之间间隔相同
+
+        align-items 设置子元素在侧轴方向的对齐方式
+            center 居中
+            flex-start 沿侧轴开始方向对其
+            flex-end 沿侧轴结束方向对齐
+            stretch 默认,如果子元素,没有设置高或者为auto,则自动拉伸至充满弹性容器
+
+        */
+        .wp {
+            width: 500px;
+            height: 200px;
+            border: 1px solid skyblue;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-around;
+            /* flex-wrap: wrap; */
+            /* flex-direction: row-reverse; */
+        }
+        .wp div {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp">
+        <div>东胜神洲</div>
+        <div>南瞻部洲</div>
+        <div>西牛贺洲</div>
+        <div>北俱芦洲</div>
+        <!-- <div>东胜神洲</div>
+        <div>南瞻部洲</div>
+        <div>西牛贺洲</div>
+        <div>北俱芦洲</div>
+        <div>东胜神洲</div>
+        <div>南瞻部洲</div>
+        <div>西牛贺洲</div>
+        <div>北俱芦洲</div>
+        <div>东胜神洲</div>
+        <div>南瞻部洲</div>
+        <div>西牛贺洲</div>
+        <div>北俱芦洲</div> -->
+    </div>
+</body>
+
+</html>
