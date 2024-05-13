@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过度动画</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+       /* 
+       过度动画
+        过度动画的触发方式
+        1.通过伪类选择器触发
+        2.媒体查询触发过渡动画
+        3.通过js触发
+
+
+        transition-property 用来设置需要进行过渡动画的css属性
+            一般的可以使用all ,代替所有属性都需要使用过渡动画
+
+        transition-duration 用来设置过渡动画的持续时间,单位是s
+
+        transition-delay 用来设置过度动画的延迟时间,单位是s
+
+        transition-timing-function 设置动画的运动曲线
+        常见的有以下几个
+            ease 默认值,运动先快后慢
+            liner 匀速运动
+            ease-in 刚开始运动的时候慢,后来变快,最后趋于匀速(淡入)
+            ease-out 刚开始运动的时候快,后来变慢,最后趋于匀速(淡出)
+            ease-in-out 开始和结束的时候慢,中间运动快(淡入淡出)
+
+        transition 可以合写
+            触发动画的css属性 持续时间  动画曲线 延迟时间
+            transition: property duration timing-function delay;
+            后面两个可以省略
+       */
+
+
+       .wp {
+        width: 200px;
+        height: 200px;
+        background: skyblue;
+        color: #fff;
+        margin: 100px auto;
+        /* 设置需要使用过渡动画的属性 */
+        transition-property: all;
+        /* 设置动画的持续时间 */
+        transition-duration: 2s;
+        /* 设置动画的延迟时间 */
+        transition-delay: 0s;
+        /* 设置动画的贝塞尔曲线 */
+        transition-timing-function: ease-in-out;
+       }
+       .wp:hover {
+        width: 400px;
+        height: 400px;
+       }
+    </style>
+
+</head>
+
+<body>
+    <div class="wp">
+        梦回吹角连营,八百里分麾下炙.
+    </div>
+</body>
+
+</html>

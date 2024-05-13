@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用单位</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        html {
+            font-size: 10px;
+        }
+        .wp {
+            width:200px;
+            height: 100vh;
+            border:1px #f00 solid;
+            font-size:20px;
+        }
+        .wp p {
+            font-size:2em;
+        }
+        @media only screen  and{
+            
+        }
+        /* 
+        em 是一个相对单位,他是相对于父元素font-size的倍数 例如
+        父元素设置 font-size:10px,子元素中2em == 20px ,子元素所有设置的值都可以使用em做单位
+
+        rem 指的是 root em 指的是使用rem 是相对于html标签设置的font-size的倍数,例如
+        html{ font-size:10px;},在css中其他任意设置数值的单位都可以是rem,都是相对于html中font-size的倍数
+        */
+        /* 
+        vh和vw 指的是视窗的宽和高,view height
+        vh:把整个视窗的高度计算为100vh
+        vw: 把整个视窗的宽度计算为100vw
+        */
+        .txt {
+            font-size: 2rem;
+            width: 20rem;
+            height: 20rem;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <p>牛肉拉面</p>
+    </div>
+    <p class="txt">辛弃疾</p>
+</body>
+</html>

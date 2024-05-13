@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .wp{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            animation-name: bb;
+            animation-duration: 5s;
+            animation-timing-function: ease;
+            animation-delay: 1s;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+            animation-fill-mode:backwards;
+            position: absolute;
+            
+        }
+        .wp:hover {
+            /* 运动状态暂停 */
+            animation-play-state: paused;
+        }
+        /* 
+         animation-play-state 设置动画的运动状态
+            running 执行动画
+            paused 暂定动画
+        */
+        /* 
+        关键帧动画和过渡的区别
+        1.关键帧动画有自己的触发时机,只要添加了关键帧动画,就可以自行执行动画
+        2.关键帧动画可以对动画的流程进行控制
+
+        使用步骤
+        1.封装一组关键帧动画
+        2.在绑定的元素上设置关键帧动画的属性
+
+
+        animation-name:设置动画名字
+        animation-duration 设置动画的持续时间
+        animation-timing-function 设置动画的运动函数
+        animation-delay 设置动画的延迟时间
+        animation-iteration-count 设置动画的重复次数,一般设置infinite,表示无限制性,默认是1次
+        animation-direction 设置动画的运动方向
+            normal 默认值,正方向
+            reverse 反方向
+            alternate 正反交替 先执行正方向动画
+            alternate-reverse 正反交替执行动画,先执行反方向动画
+        animation-fill-mode设置动画停止的时候所在的位置
+            forwards 停在动画的最后一帧
+            backwards 停在动画的初始状态
+            both 效果上和forwards一致
+
+
+        关键帧动画的复合写法
+            animation:name duration timing-function delay iteration-count direction fill-mode
+
+        /* 声明关键帧动画,使用关键字 */
+        @keyframes move {
+            from {
+                transform: translateX(0px);
+            }
+
+            to {
+                transform: translateX(1000px);
+            }
+        }
+        @keyframes bb {
+            0%{
+                left: 0;
+                top: 0;
+            }
+            25%{
+                left: 500px;
+                top: 0;
+            }
+            50%{
+                left: 500px;
+                top: 500px;
+            }
+            75%{
+                left: 0;
+                top: 500px;
+            }
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+
+    </div>
+</body>
+</html>

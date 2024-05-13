@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #000;
+    perspective: 5000px;
+}
+
+.wp {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(-10deg);
+    position: relative;
+    margin: 400px auto;
+    animation: aa 8s linear infinite;
+}
+
+img {
+    width: 246px;
+    height: 360px;
+    position: absolute;
+    left: 45%;
+    /* size: 50%; */
+}
+
+.wp img:nth-child(1) {
+    transform: rotateY(40deg) translateZ(450px);
+}
+
+.wp img:nth-child(2) {
+    transform: rotateY(80deg) translateZ(450px);
+}
+
+.wp img:nth-child(3) {
+    transform: rotateY(120deg) translateZ(450px);
+}
+
+.wp img:nth-child(4) {
+    transform: rotateY(160deg) translateZ(450px);
+}
+
+.wp img:nth-child(5) {
+    transform: rotateY(200deg) translateZ(450px);
+}
+
+.wp img:nth-child(6) {
+    transform: rotateY(240deg) translateZ(450px);
+}
+
+.wp img:nth-child(7) {
+    transform: rotateY(280deg) translateZ(450px);
+}
+
+.wp img:nth-child(8) {
+    transform: rotateY(320deg) translateZ(450px);
+}
+
+.wp img:nth-child(9) {
+    transform: rotateY(0) translateZ(450px);
+}
+
+@keyframes aa {
+    from {
+        transform: rotateX(-10deg) rotateY(0);
+    }
+
+    to {
+        transform: rotateX(-10deg) rotateY(360deg);
+    }
+
+}

@@ -1,0 +1,37 @@
+
+.box {
+    width: 246px;
+    height: 360px;
+    margin: 100px  auto;
+    position: relative;
+    perspective: 1000px;
+    
+    transform-style: preserve-3d;
+}
+
+.img1,.img2 {
+    width: 246px;
+    height: 360px;
+    background-color: aqua;
+    position: absolute;
+    transition: all 5s;
+    /* backface-visibility: hidden; */
+}
+.img {
+    width: 246px;
+    height: 360px;
+}
+img {
+    width: 246px;
+    height: 360px;
+}
+.img2 {
+    background-color: azure;
+    top: 0;
+    z-index: 10;
+    /* transform: rotateY(180deg); */
+}
+
+.box:hover .img1,.box:hover .img2{
+    transform: rotateY(180deg);
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用渐变实现缺角矩形</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /* body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body .panel {
+    width: 100px;
+    height: 75px;
+    background-image: linear-gradient(135deg, transparent 10px, #F07D17 0);
+  } */
+    body {
+        background-color: #cae0e6;
+        position: relative;
+        height: 1080px;
+        overflow: hidden;
+    }
+
+    .mount1 {
+        background-color: #d6d9d6;
+        width: 800px;
+        height: 800px;
+        position: absolute;
+        transform: rotate(45deg); 
+        top: 400px;
+        left:-50px;
+        border-radius: 50px;
+        z-index: 100;
+    }
+    .mount2 {
+        background-color: #84937b;
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        transform: rotate(45deg); 
+        top: 300px;
+        left: 500px;
+        border-radius: 50px;
+        z-index: 200;
+    }
+    .mount3{
+        background-color:#4dad8a ;
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        top: 550px;
+        right: -100px;
+        z-index: 100;
+        transform: rotate(-4deg); 
+    }
+    .wp{
+        width:100%;
+        height: 75px;
+        background: linear-gradient(135deg, transparent 10px, #0be466 0);
+        background-size: 30px;
+        position: absolute;
+        bottom: 355px;
+        z-index: 400;
+    }
+    .wp1{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: #f00;
+        box-shadow: 0px 0px 15px 30px rgba(255, 255, 0, 0.7) inset,0px 0px 15px 30px rgba(255, 255, 0, 0.7);
+        border-radius: 50%;
+    }
+    .wp3{
+        width: 100%;
+        height: 400px;
+        background-color: #3b5870;
+        position: absolute;
+        bottom: 0;
+        z-index: 500;
+    }
+    .wp3 div:nth-child(1){
+        width: 100%;
+        background-color: #fff;
+        height: 30px;
+    }
+    .wp3 div:nth-child(2){
+        margin-top: 180px;
+        height: 30px;
+        background: repeating-linear-gradient(to right,#3b5870 0px,#3b5870 250px,#fff 250px , #fff 500px)
+    }
+    .qiche{
+        position: relative;
+        top: -200px;
+        width: 400px;
+        height: 200px;
+        animation: qiche 3s linear infinite;
+    }
+    .qiche .che{
+        position: absolute;
+        
+    }
+    .qiche .lun1{
+        position: absolute;
+        width: 70px;
+        bottom: 60px;
+        left: 15px;
+        animation: spin 1s linear infinite; 
+    }
+    .qiche .lun2{
+        position: absolute;
+        width: 70px;
+        bottom: 65px;
+        left: 180px; 
+        animation: spin 0.3s linear infinite;
+    }
+    @keyframes qiche {   
+            25% {transform:translate(500px,50%);} 
+            50% {transform:translate(1100px,60%);}
+            100%  {transform:translate(1900px,20%);}  
+    }
+    @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+</style>
+
+<body>
+    <div class="mount1"></div>
+    <div class="mount2"></div>
+    <div class="mount3"></div>
+    <div class="wp"></div>
+    <div class="wp1"></div>
+    <div class="wp3">
+        <div></div>
+        <div></div>
+        <div class="qiche"><img src="./img/img/che.png" alt="" class="che">
+            <img src="./img/img/lun.png" alt="" class="lun1">
+            <img src="./img/img/lun.png" alt="" class="lun2">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重复渐变</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+        重复渐变(重复线性喝径向渐变)
+        重复线性渐变
+        repeating-linear-gradient(方向,[开始颜色 开始位置],[开始颜色 开始位置],[开始颜色 开始位置],[开始颜色 开始位置]...)
+        如果设置多个重复渐变,可以使用逗号隔开,后来书写的渐变被之前写的渐变覆盖
+
+        重径向渐变
+        repeating-radial-gradient(半径 at 圆心,[开始颜色 开始位置],[开始颜色 开始位置],[开始颜色 开始位置],[开始颜色 开始位置]....)
+        */
+        .wp {
+            height: 200px;
+            background: repeating-linear-gradient(-90deg,#fff 0,#fff 10px,#000 10px,#000 20px),repeating-linear-gradient(0,#fff 0,#fff 10px,#000 10px,#000 20px);
+        }
+        .wp1 {
+            width: 200px;
+            height: 200px;
+            background: repeating-radial-gradient(100px at center center,transparent 0,transparent 10px,#000 10px,#000 20px);
+        }
+        /* 
+        transparent
+        透明色 可以作为颜色设置css的值
+        */
+    </style>
+</head>
+<body>
+    <div class="wp">
+    </div>
+    <div class="wp1"></div>
+</body>
+</html>

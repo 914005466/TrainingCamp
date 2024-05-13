@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(180deg,#f00 0 , #f00 100px, #ff0 100px);
+        }
+
+        /* 
+        渐变
+        只有ie10 及其以上才支持
+        渐变设置,第一个是渐变方向,第二个是 渐变颜色和开始的位置
+        渐变方向:
+            1.可以设置具体的方向名词(top right bottom left)
+            2.可以设置渐变角度,如果角度为正,则顺时针旋转,如果角度为负则逆时针旋转
+                0 向上
+                90deg 向右
+                180deg 向下
+        线性渐变
+        linear - gradient(渐变方向,[渐变的颜色,渐变的开始位置],[渐变的颜色,渐变的开始位置],[渐变的颜色,渐变的开始位置]....)
+        */
+
+        /* 
+        径向渐变,形状是圆形
+        radial-gradient (半径 at 圆心,[渐变的颜色,渐变的开始位置],[渐变的颜色,渐变的开始位置],[渐变的颜色,渐变的开始位置]...)
+        半径出了设置具体的数值之外,也可以使用下面方式表示
+        1.farthest-corner 最远角
+        2. farthest-side 最远边
+        3.closest-corner 最近角
+        4.closest-side 最近边
+        */
+        .c1 ,.c2,.c3,.c4
+{
+            width: 200px;
+            height: 200px;
+            border: 1px skyblue solid;
+        }
+        .c1 {
+            background: radial-gradient( farthest-corner  at 0 0, #f00 0%,#04be02 100%);
+        }
+        .c2 {
+            background: radial-gradient( farthest-side  at 0 0, #f00 0%,#04be02 100%);
+        }
+        .c3 {
+            background:radial-gradient( closest-corner  at 50px 50px, #f00 0%,#04be02 50%);
+        }
+        .c4 {
+            background: radial-gradient(closest-side  at 0 0, #f00 100%,#04be02 100%);
+        }
+    </style>
+</head>
+<body>
+    <h2>线性渐变</h2>
+    <div class="wp"></div>
+    <div class="gr"></div>
+    <h2>径向渐变</h2>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+    
+
+</body>
+</html>

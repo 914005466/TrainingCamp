@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引入animation.css</title>
+    <link rel="stylesheet" href="../css/rotato.css">
+    <style>
+        .wp{
+            width: 200px;
+            height: 200px;
+            border: 1px solid skyblue;
+            background: lightgreen;
+        }
+        .wp1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid skyblue;
+            background: lightgreen;
+            animation: backInUp 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        anmiate.css 没有压缩
+        anmiate.min.css 有min的表示的是压缩过的代码
+        anmiate.css 是一个动画库,里面封装很多关键帧动画
+
+        使用步骤
+        1.给元素添加公共类名 animate__animated
+        2.根据需求,找到苦衷对应的动画,设置动画名
+
+        还可以给元素设置关键帧动画,只加入库里的动画名
+
+
+     -->
+     <div class="wp animate__animated animate__backInDown"></div>
+     <div class="wp1"></div>
+</body>
+
+</html>

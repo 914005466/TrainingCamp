@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        html,body {
+
+        height: 100%;
+        }
+        body {
+            background: skyblue;
+            position: relative;
+            overflow: hidden;
+        }
+        .road {
+            height: 300px;
+            background: #000 linear-gradient(90deg,transparent 0, transparent 100px ,#fff 100px ,#fff 200px) repeat-x 0 150px;
+            background-size: 200px 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .road1 {
+            height: 30px;
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 300px;
+            width: 100%;
+            z-index: 100;
+        }
+        .road2 {
+            height: 30px;
+            background: linear-gradient(135deg,transparent 5px,#0f0 5px) repeat-x;
+            background-size: 20px 30px;
+            position: absolute;
+            left: 0;
+            bottom: 30px;
+            width: 100%;
+            z-index: 100;
+        }
+        .mon1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+            transform: rotate(45deg);
+            border-radius: 50px;
+           left: 100px;
+           bottom: 100px;
+         
+        }
+        .mon2 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background-color: #0f0;
+            transform: rotate(45deg);
+            border-radius: 100px;
+           left: 400px;
+           bottom: 0px;
+        
+        
+        }
+        .sun {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #f00;    
+        }
+        .mon3 {
+            width: 2000px;
+            height: 2000px;
+            background: #4dad8a;
+            border-radius: 1000px;
+            position: absolute;
+            right: -900px;
+            bottom: -1700px;
+        }
+        .car {
+            width: 272px;
+            height: 117px;
+            background: url(./img/che.png) no-repeat 0 0;
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            z-index: 200;
+        }
+         .car span {
+            width: 60px;
+            height: 60px;
+            background: url(./img/lun.png) no-repeat 0 0;
+            position: absolute;
+            left: 20px;
+            top: 65px;
+
+         }
+         .car span:nth-child(1) {
+            left: 190px;
+         }
+    </style>
+</head>
+<body>
+    <!-- 路 -->
+    <div class="road"></div>
+    <!-- 马路牙子 -->
+    <div class="road1">
+    <!-- 绿化带 -->
+    <div class="road2"></div>
+
+    </div>
+    <!-- 山 -->
+    <div class="mon1"></div>
+    <div class="mon2"></div>
+    <!-- 太阳 -->
+    <div class="sun"></div>
+    <!-- 丘陵 -->
+    <div class="mon3"></div>
+    <!-- che  -->
+    <div class="car">
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>

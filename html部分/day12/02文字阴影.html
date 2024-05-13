@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字阴影</title>
+    <style>
+        .txt {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 100px;
+            font-family: '楷体';
+            text-shadow: 10px 10px 10px skyblue;
+        }
+        /* 
+        文本阴影
+            text-shadow : x轴偏移量 y轴偏移量 模糊度 阴影颜色
+            如果设置多个阴影需要使用逗号隔开
+        */
+        .book {
+            width: 400px;
+            height: 500px;
+            border: 1px solid skyblue;
+            background: rgba(1, 1, 230, 0.3);
+            margin: 100px auto;
+            /* 指定文本分栏的个数 */
+            /* column-count: 3; */
+            /* 设置每一栏的宽度 */
+            /* column-width: 150px; */
+            /* 以上两个属性可以合写 
+            colum: width count;
+            */
+            columns: 100px 3;
+            /* 设置分栏的样式  设置方式和border一致*/
+            column-rule: 10px #f00 dashed;
+            /*设置分栏间隙 */
+            column-gap: 20px;
+        }
+        .book span {
+            display: block;
+            /* 设置跨栏 
+                只有两个值
+                    none 不跨栏
+                    all 横跨所有列
+            */
+            column-span: all;
+        }
+    </style>
+</head>
+<body>
+    <p class="txt">文褒京者倒自色同斯，知公不，投和并，国。</p>
+    <p class="book">自主卧看人人一要战者珍家盲极一事国，第揽韩则起罪病，设得快洪是不韩生范快土被劝小愚会不，能量土幕王纯不自也馆自，何了价嗣所报考畴，卧圣倒此第兼不颜叩俭娟新就吴而天，判太此才，孔子使价对越败从洪有帅听一起常尺才，了此程等志为反哉就了了法看会皇京倒身杨，少死魂和和极狱啦此那一憾勇登一你，来到才为子未回三的文要者人子，答有何不人必，人我会子未快人导起德拆国，次如弟章身榜才县孔责们生书，未评人说想，喜不。
+    <span>人他互汪。</span>
+    </p>    
+</body>
+</html>

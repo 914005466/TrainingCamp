@@ -1,0 +1,24 @@
+.wp {
+    width: 246px;
+    height: 360px;
+    margin: 100px auto;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: all 3s;
+}
+
+.wp:hover {
+    transform: rotateY(180deg);
+}
+
+.wp img {
+    width: 246px;
+    height: 360px;
+    position: absolute;
+}
+
+.wp img:nth-child(1) {
+    transform: rotateY(180deg);
+    transform: translateZ(-1px);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2d形变</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+        旋转 rotate(角度)
+        当度数为正,顺时针旋转
+        当度数为负,逆时针旋转
+
+        设置形变的参考点
+        形变的参考点默认是 center center
+        transform-origin
+            值的设置方式
+                1.具体数值 可以为负值
+                2.可以是left . right . top . bottom .center的组合
+                3.可以是百分比,百分比是基于自身的宽高
+        
+        拉伸(倾斜) skew
+        skewX(拉伸角度) 沿X轴拉伸,元素与Y轴的夹角
+        skewY(拉伸角度) 沿Y轴拉伸,元素于X轴的夹角
+
+        以元素头部作为参考
+        如果x轴的角度为正,头部向左倾斜
+        如果X轴的角度为负,头部向右倾斜
+
+        复合写法 skew(x,y)
+        x和y之和不能等于90度
+        */
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: #f00;
+            color: #ff0;
+            font-size: 160px;
+            text-align: center;
+            margin: 200px auto;
+            line-height: 200px;
+            transition: all 1s;
+            transform-origin: -100px -100px;
+
+            
+        }
+        .rotate,.wp:hover {
+            transform: rotate(360deg);
+        }
+        .car {
+            width: 57px;
+            height: 49px;
+            background: url(./img/car.png) no-repeat 0 0;
+            transition: all 1s;
+            transform-origin: 0 0;
+            margin: 50px auto;
+        }
+        .car:hover {
+            transform: rotate(60deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">信</div>
+    <div class="car"></div>
+</body>
+</html>

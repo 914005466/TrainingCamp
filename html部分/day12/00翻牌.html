@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻牌</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+            html,body {
+                height: 100%;
+            }
+            body{
+                perspective: 1000px;
+            }
+            .cont {
+                transform-style: preserve-3d;
+                width: 246px;
+                height: 360px;
+                border: 1px solid skyblue;
+                margin: 100px auto;
+                position: relative;
+                transition: all 5s;
+            }
+            img{
+                width: 246px;
+                height: 360px;
+                position: absolute;
+                backface-visibility: hidden;
+            }
+            .a {
+                transform: rotateY(0deg);
+            }
+            .b {
+                transform: rotateY(180deg);
+            }
+            .cont:hover {
+                transform: rotateY(-180deg);
+            }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <img src="./img/pai.jpg" alt="" class="a">
+        <img src="../day11/img/img/2.jpg" alt="" class="b">
+    </div>    
+</body>
+</html>

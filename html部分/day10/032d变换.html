@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2d变换</title>
+    <style>
+ * {
+      margin: 0;
+      height: 0;  
+    }
+    .wp {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: red;
+        color: #ff0;
+        font-size: 180px;
+        margin: 100px auto;
+        /* 动画效果 */
+        transition: all 1s;
+    }
+    .move {
+        transform: translate(100px ,100px);
+    }
+    .scale , .wp:hover{
+        transform: scale(2,-0.5) translate(100px,100px);
+    }
+    /* 
+    2d 形变
+    包含
+    1.平移
+    2.旋转
+    3.缩放
+    4.拉伸
+
+    特点:
+    1.除img外的行标签不支持
+    2.形变变化的是形状,但是不会影响布局和空间
+
+    支持形变的属性 transform
+        平移
+        translateX(100px)设置x轴方向的平移
+        translateY(100px) 设置Y轴方向的平移
+        translate(x,y) 合写x和y轴的平移
+    平移的值,可以是具体的数值,也可以是百分比
+    形变的坐标系,在元素本身上,坐标系会根据元素形变而改变
+
+    缩放
+    scale 设置元素的放大和缩小
+        scale(x,y) x和y的值均为数字,小于1的小数为缩小
+        如果scale(x) 表示在x轴和y轴方向锁
+    */
+
+    /* 
+    使用平移做元素居中
+    */
+    .center {
+        height: 400px;
+        background: #0f0;
+    }
+    .center div {
+        width: 100px;
+        height: 100px;
+        background: #f00;
+    }
+    </style>
+</head>
+<body>
+   <div class="wp">囍</div>
+   <div class="center">
+    <div></div>
+   </div>
+</body>
+</html>
