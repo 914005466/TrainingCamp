@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-size: 62.5%;
+}
+
+body {
+  background: url("../img/index2.png") no-repeat 0 0/100% 100%;
+}
+
+.img {
+  width: 9rem;
+  height: 8.5rem;
+  margin: 5rem auto 0;
+}
+.img img {
+  width: 9rem;
+  height: 8.5rem;
+}
+
+p {
+  line-height: 6rem;
+  text-align: center;
+  font-family: CTCuHeiSJ;
+  font-weight: 400;
+  font-size: 4.8rem;
+  color: #000;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  width: 69rem;
+  height: 72rem;
+  margin: 3.5rem auto 0;
+  border: 2px solid #4285f4;
+}
+.box header {
+  height: 7rem;
+  width: 100%;
+  text-align: center;
+}
+.box header h2 {
+  margin-top: 3.3rem;
+  font-family: PingFangSC;
+  font-weight: 500;
+  font-size: 4.8rem;
+  color: #000000;
+  text-align: center;
+}
+.box h3 {
+  margin-left: 3.4rem;
+  display: flex;
+  font-family: PingFangSC;
+  font-weight: 500;
+  font-size: 3.4rem;
+  color: #000000;
+  margin-top: 3.3rem;
+  margin-bottom: 1.2rem;
+}
+.box h3 img {
+  justify-content: center;
+  align-items: center;
+  height: 4.4rem;
+  width: 4.4rem;
+}
+.box p {
+  text-align: left;
+  margin-left: 3.4rem;
+  margin-right: 3.4rem;
+  font-family: PingFangSC;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #000000;
+  line-height: 4.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-indent: 1.5em;
+}
+
+.box1 {
+  width: 69rem;
+  height: 11rem;
+  margin: 0 auto;
+  font-size: 3.4rem;
+  color: #333;
+}
+.box1 input {
+  width: 4rem;
+  height: 4rem;
+}
+
+.btu {
+  margin: 0 auto 9rem;
+  width: 69rem;
+  height: 10rem;
+  background-color: rgba(0, 24, 63, 0.3);
+  color: #fff;
+  font-size: 3.4rem;
+  text-align: center;
+  line-height: 10rem;
+}/*# sourceMappingURL=woyaojubao.css.map */

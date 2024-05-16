@@ -1,0 +1,32 @@
+/*
+嵌套规则
+后代选择器,可以直接使用css嵌套他的后代内容
+*/ 
+$bor:1px solid skyblue;
+.list {
+    list-style-type: none;
+    border: $bor;
+    li {
+        height: 40px;
+        border: $bor;
+        margin: 20px;
+        p {
+            color: aquamarine;
+            font-size: 30px;
+            
+        }
+        a{
+            text-decoration: none;
+            color: #999;
+            // 获取当前代码块父元素的标识
+            &:hover {
+                text-decoration: underline;
+            color: aqua;
+            }
+        }
+        // a:hover {
+        //     text-decoration: underline;
+        //     color: aqua;
+        // }
+    }
+}

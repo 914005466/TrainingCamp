@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/*
+设置变量通过$关键字
+ $变量名:变量值
+ 变量名的命名方式: 以_或者字母开头,后面可以跟数字,但是不能用数字开头
+ 变量名中如果有_或者-,sass认为这是两种写法可以兼容,即味声明变量的时候使用_,在使用变量的时候可以使用_或者-,但是尽量不要混用
+*/
+.wp {
+  width: 200px;
+  height: 200px;
+  background-color: aquamarine;
+}
+
+.txt {
+  color: skyblue;
+  border: 1px solid skyblue;
+  line-height: 50px;
+}/*# sourceMappingURL=01.css.map */

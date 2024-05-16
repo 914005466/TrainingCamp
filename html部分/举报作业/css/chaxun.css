@@ -1,0 +1,97 @@
+body, html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background: url("../img/index2.png") no-repeat 0 0/100% 100%;
+}
+
+header {
+  height: 15.5rem;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+header h2 {
+  margin-top: 8rem;
+  font-family: PingFangSC;
+  font-weight: 500;
+  font-size: 4.8rem;
+  color: #000000;
+  text-align: center;
+}
+
+input {
+  width: 69rem;
+  height: 9rem;
+  border: 2px solid #4285f4;
+  margin-left: 3rem;
+  border-radius: 6px;
+  font-size: 3.4rem;
+  color: #999;
+  text-indent: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.box {
+  width: 69rem;
+  height: 10rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(0deg, #0093FF, #0056FF);
+  box-shadow: 0px 8px 16px 0px rgba(0, 24, 63, 0.3);
+  margin-left: 3rem;
+  color: #fff;
+  line-height: 10rem;
+  text-align: center;
+  font-size: 3.4rem;
+  margin-bottom: 6.9rem;
+}
+
+.box1 {
+  height: 7.8rem;
+  width: 100%;
+  position: relative;
+}
+.box1 span {
+  margin-left: 3rem;
+  font-size: 3.4rem;
+  color: #fff;
+  line-height: 7.8rem;
+}
+.box1 img {
+  width: 18.1rem;
+  height: 2.5rem;
+  margin-left: 2rem;
+  position: absolute;
+  bottom: 2.1rem;
+}
+
+.box2 {
+  height: 71.2rem;
+  width: 100%;
+}
+.box2 .box22 {
+  width: 69rem;
+  height: 71.2rem;
+  padding-top: 2.5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border: 2px solid #4285f4;
+  background: rgba(255, 255, 255, 0.5);
+  color: #000000;
+  font-size: 3rem;
+  line-height: 4.4rem;
+  text-indent: 2em;
+}
+.box2 .box22 p {
+  margin-bottom: 2.3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}/*# sourceMappingURL=chaxun.css.map */

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*
+嵌套规则
+后代选择器,可以直接使用css嵌套他的后代内容
+*/
+.list {
+  list-style-type: none;
+  border: 1px solid skyblue;
+}
+.list li {
+  height: 40px;
+  border: 1px solid skyblue;
+  margin: 20px;
+}
+.list li p {
+  color: aquamarine;
+  font-size: 30px;
+}
+.list li a {
+  text-decoration: none;
+  color: #999;
+}
+.list li a:hover {
+  text-decoration: underline;
+  color: aqua;
+}/*# sourceMappingURL=02.css.map */

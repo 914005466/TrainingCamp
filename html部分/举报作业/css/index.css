@@ -1,0 +1,41 @@
+body {
+  background: url("../img/index2.png") no-repeat 0 0/100% 100%;
+}
+
+.img {
+  width: 9rem;
+  height: 8.5rem;
+  margin: 15.5rem auto 0;
+}
+
+.img img {
+  width: 9rem;
+  height: 8.5rem;
+}
+
+p {
+  line-height: 6rem;
+  text-align: center;
+  font-family: CTCuHeiSJ;
+  font-weight: 400;
+  font-size: 4.8rem;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 10px #002561;
+}
+
+P:nth-child(4) {
+  margin-bottom: 46rem;
+}
+
+button {
+  margin: 0 2.5rem 2rem;
+  width: 69rem;
+  height: 10rem;
+  background: linear-gradient(0deg, #0093FF, #0056FF);
+  border-radius: 12px;
+  border: none;
+  font-family: PingFangSC;
+  font-weight: 400;
+  font-size: 3.4rem;
+  color: #FFFFFF;
+}/*# sourceMappingURL=index.css.map */

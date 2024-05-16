@@ -1,0 +1,50 @@
+body, html {
+    font-size: 62.5%;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    height: 100vh;
+    background: url("../img/index2.png") no-repeat 0 0/100% 100%;
+  }
+  
+  header {
+    height: 10.7rem;
+    width: 100%;
+    text-align: center;
+  }
+  header h2 {
+    margin-top: 4rem;
+    font-family: PingFangSC;
+    font-weight: 500;
+    font-size: 4.8rem;
+    color: #000000;
+    text-align: center;
+  }
+  .box {
+    height: 54rem;
+    width: 100%;
+    background: rgba($color: #fff, $alpha: 0.5);
+    overflow: hidden;
+    .box1 {
+        height: 47rem;
+        width: 92%;
+        margin: 3.5rem auto;
+        // background-color: aqua;
+        color: #000000;
+        font-size: 3rem;
+        line-height: 4.4rem;
+        text-indent: 2em;
+        span {
+            color: red;
+            font-size: 3.2rem;
+            text-decoration: underline;
+        }
+        p {
+            margin-bottom: 2.3rem;
+        }
+    }
+  }
+  

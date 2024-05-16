@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cala介绍</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+        'calc'他是一个函数,可以在css中奢姿数值的加减乘除运算,他是css的新功能
+        通过计算,可以设置元素的 宽,高 ,padding ,margin ,并不限制计算单位
+        计算形式 + - * / ,符号两边必须有空格
+        单位: rem % vh vw pt px em 
+
+        如果多组运算 按照四则运算法则进行运算
+        */
+        .wp {
+            width: 200px;
+            height: calc( (100vh - 100px) / 2);
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
