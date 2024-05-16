@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        设置网格布局的方式有两种
+        1.块元素 display:grid;
+        2.行内快元素 display:inline-grid;
+
+        设置列数grid-template-columns
+        值
+        1.直接写数值,有几个数值就设置几列,数值大小代表列的大小
+        2.数值auto,auto代表的是剩余的部分为1列
+        3.使用fr表示列宽,fr表示占据父级空间的比例
+
+        grid-column-gap设置列间距
+        grid-row-gap 设置行间距
+        grid-gap复合写法 前行后列
+        */
+        .wp {
+            border: 1px solid skyblue;
+            height: 400px;
+            display: grid;
+            width: 600px;
+            margin: 30px auto;
+            grid-template-columns: 1fr 2fr 3fr;
+            /* grid-column-gap: 20px;
+            grid-row-gap: 20px; */ 
+            grid-gap: 20px 30px;
+        }
+        .wp div {
+            border: 1px solid lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div>阿敏</div>
+        <div>代善</div>
+        <div>皇太极</div>
+        <div>莽古尔泰</div>
+        <div>多尔衮</div>
+        <div>多铎</div>
+        <div>济尔哈朗</div>
+        <div>阿济格</div>
+    </div>
+</body>
+</html>

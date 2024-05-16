@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的hack</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+        css的hack ,由于不同的浏览器厂商在制作浏览器的时候,标准不同,因此不同的浏览器可能会有自己在渲染过程中的一些bug,针对这些特有的bug,各个浏览器推出的一些解决办法
+        hack 的作用
+            hack是用来兼容浏览器效果的工具,也可以使hcak给不同的浏览器制作不同的效果
+        css hack的关键字
+            [if IE] 只要是IE浏览器都生效
+            [if lte IE6] 只要版本号小于等于IE6都生效
+            [if gte IE6] 只要版本号大于等于IE6都生效
+
+            [if lt IE6] 只要版本号小于IE6都生效
+            [if gt IE6] 只要版本号大于IE6都生效
+
+            [if  IE6] 只要版本号是IE6都生效
+            [if ! IE6] 只要版本号不是IE6都生效
+
+            [if !IE] 只要浏览器不是IE都生效
+
+            [endif] 判断结束
+
+            也可以使用特殊符号来设置hack
+            * - + / \9 _ \9\0
+            _是IE6及其以下 专属hack
+            \9 IE6  IE7 IE8 IE9 IE10 都支持
+            \0 IE8
+            \9\0 IE9 IE10 都支持
+
+        加以下前缀,可以对不同浏览器内核设置hack
+        -webkit- 标准浏览器内核
+        -o- 兼容欧朋浏览器
+        -ms- 兼容ie浏览器
+        -moz- 兼容火狐浏览器
+        */
+        .wp {
+                width:200px;
+                height:200px;
+                background:skyblue;
+            }
+        .wp1 {
+                width: 600px;
+                height: 200px;
+                margin: 100px auto;
+                background: wheat;
+                -ms-background: skyblue;
+                display: flex;
+        }
+        .wp1 div:nth-child(1) {
+                background: violet;
+                flex: 1;
+        }
+        .wp1 div:nth-child(2) {
+            flex: 2;
+            background-color: brown;
+            -ms-flex: 1;
+        }
+    </style>
+    <!-- [if IE8] 
+        <style>
+            .wp {
+                width:200px;
+                height:200px;
+                background:#04be02;
+            }
+        </style>
+
+    <![endif] -->
+</head>
+<body>
+    <div class="wp"></div>
+    <div class="wp1">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

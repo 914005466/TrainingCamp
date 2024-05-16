@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 600px;
+            border: 1px solid skyblue;
+            margin: 100px auto;
+            position: relative;
+            transition: all 5s;
+            /* backface-visibility: hidden; */
+            transform-style: preserve-3d;
+        }
+        .box1{
+            background-color: azure;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            backface-visibility: hidden;
+            font-size: 100px;
+            line-height: 600px;
+            text-align: center;
+           
+        }
+        .box1:nth-child(2) {
+            transform: rotateY(180deg);
+        }
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <div class="box1">正</div>
+        <div class="box1">反</div>
+    </div>
+</body>
+</html>
