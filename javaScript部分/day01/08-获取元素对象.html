@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+        .txt {
+            font-size: 40px;
+        }
+        #btn {
+            width: 200px;
+            height: 50px;
+            border: 1px solid skyblue;
+        }
+    </style>
+    <!-- 
+        一旦引入了外部的js
+        script 标签内部的代码无效
+     -->
+    <script src="./js/case.js">
+        console.log('苻坚');
+    </script>
+</head>
+<body>
+    <div class="wp" id="wp"></div>
+
+    <div id="txt">耐尺能一正雷，竟若。</div>
+    <div id="btn"></div>
+</body>
+</html>
+<!-- 获取元素对象 -->
+<script>
+    let wp = document.getElementById('wp');
+    let txt = document.getElementById('txt');
+    wp.style.background = 'red';
+    txt.style.fontSize = '20px';
+    txt.style.color = 'skyblue';
+   
+    // 给按钮添加点击事件
+    btn.onclick = function(){
+        alert('你好' );
+    }
+</script>

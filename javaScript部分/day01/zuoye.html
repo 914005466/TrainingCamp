@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 80px;
+            border: 1px solid skyblue;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="number" id="num1">
+        <button>加</button>
+        <input type="number" id="num2">=
+        <input type="number" id="num3">
+        <button id="btn">计算</button>
+    </div>
+
+    
+</body>
+</html>
+<script>
+    let num1 = document.getElementById('num1');
+
+    console.log(num1.value);
+    let num2 = document.getElementById('num2');
+
+    let num3 = document.getElementById('num3');
+
+    let btn = document.getElementById('btn');
+    btn.onclick = function(){
+        let a ;
+        let b;
+        a = Number(num1.value);
+        b = Number(num2.value);
+        num3.value = a + b;
+    }
+</script>

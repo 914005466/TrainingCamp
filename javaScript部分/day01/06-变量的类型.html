@@ -9,3 +9,49 @@
     
 </body>
 </html>
+<script>
+
+    /*
+    变量类型
+    1.number 整数 小数
+    2.string 字符串
+    3.boolean 布尔
+    4.object 类型
+    5.underfined 类型(未定义)
+    6.NULL 类型(空)
+
+    typeof(变量) / typeof 获取变量的类型
+
+    */ 
+   let myNum = 123.123;
+   console.log(typeof myNum);
+
+/*
+特殊的number类型
+NaN
+*/  
+
+console.log(typeof NaN);
+if(NaN == NaN){
+    console.log('相同');
+}else {
+    console.log('不相同');
+}
+/*
+字符串
+包裹字符串的可以是单引号,也可以是双引号
+单引号的字符串,他的里面不能出现单引号,双引号的字符串里面不能出现双引号
+*/
+/*
+\n表示字符串换行
+\t 表示tab键
+\'表示单引号
+\" 表示双引号
+\\ 表示\
+*/ 
+let str = '夕阳无限好:"只是近黄昏\n双节快乐等哈"' 
+console.log(str);
+
+let str4 = '陈胜曰\t \'王侯将相宁有种乎\'';
+console.log(str4);
+</script>
