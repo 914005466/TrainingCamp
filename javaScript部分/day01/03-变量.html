@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    变量:变量指的是他的值可以修改的数据
+    常量:常量指的是他的值不可以修改的数据
+    */
+    // 声明变量
+   var str;
+    //    变量赋值,定义变量
+    
+    str = '晚风啊';
+    console.log(str);
+    str = '你好';
+    console.log(str);
+
+    // 变量在使用之前必须先声明
+
+    var abc;
+    abc = 1234;
+    console.log(abc);
+
+    
+    /*
+    变量声明前置:即使变量的声明在变量使用的后面,浏览器也会把变量的声明提前到使用之前,确保在当前作用域下,变量可以使用,然而变量的定义无法提前
+    */ 
+    console.log(str2);
+
+    var str2;   //变量声明
+    // 变量定义
+    str2 = '如果大海能够,带走我的哀愁';
+
+
+console.log(str3);
+{
+    var str3;
+
+}
+let str4;
+str4 = '伤心太平洋';
+console.log(str4);
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var和let和const</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/*
+变量的声明方式
+var 声明的变量具有全局作用域
+let 声明的变量具有块级作用域
+声明常量的方式
+const 
+
+
+var和let 的区别
+1.var 是全局作用域, let 是块级作用域
+2.var 具有变量声明前置,let 在未声明之前无法使用变量
+3.var 在作用域内,可以重新声明变量,let不行
+*/ 
+ var str1 = '陈圆圆' ;
+ console.log(str1);
+//  变量声明前置不能前置到作用域外
+//  console.log(str3);
+ {
+    // let声明的变量,不能在未声明前使用
+    // console.log(str3);
+    var str2 = '柳如是';
+    var str2 = '钱谦益';
+
+    // let str3 = '寇白门';
+    // console.log(str3);
+ }
+ console.log(str2);  
+//  let str3 = '吴三桂';
+//  console.log(str3);
+/*
+声明变量的时候不使用任何关键字,等于把变量生命在window上
+*/  
+// str4 = '签发一怒';
+// 常量的值一旦定义,无法修改
+const PI = 3.14;
+// PI = 6.18;
+console.log(PI);
+</script>
+<script>
+// console.log(str4);
+</script>
