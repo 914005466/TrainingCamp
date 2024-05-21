@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    %模运算,也就是取余.js中的取余运算
+    % 两边的数据可以是小数
+    */ 
+   let num1 = 10;
+   let num2 = 4;
+   let yu = num1 % num2;
+   console.log(yu);
+   let yu1 = 10.5%2.3;
+   console.log( yu1 );
+
+   let a = 20;
+   let b = 3;
+   console.log(a % b);
+
+
+//    a++ ++a 都表示自增
+//  c = a++ 相当于先把a原来的值赋值给c,然后在完成a 的自增
+//  c =++a 相当于先完成a的自增,然后再把自增后的值,赋值给c
+let m = 2, n = 2;
+let c = m++;
+let d = ++n;
+ 
+ console.log('c='+c,'d='+d,'m='+m,'n='+n);
+
+/*
+a-- ,--a 他们和上面的a++,++a是一致的
+++ -- 的优先级高于+ - * / %
+*/  
+
+/*
+关系运算符
+> < >= <= == != === !==
+用关系运算符链接起来的语句,叫关系表达式,关系表达式的返回结果是一个布尔(boolean)值
+== 只是比较值是否相等,不比较类型是否相等
+=== 全等 ,不但不叫值是否相等,而且比较类型是否相等
+*/
+// 使用不等
+if (3!=44) {
+    console.log('却话巴山夜雨时');
+} 
+
+let str1 ='黄鹂鸟';
+let str2 = '小黄鹂鸟'
+if (str1==str2) {
+    console.log('两个黄鹂鸣翠柳');
+}else {
+    console.log('床前明月光');
+}
+
+/*
+逻辑运算符
+|| 或 
+&& 与(并且)
+! 非
+
+用逻辑运算符链接起来的语句叫逻辑表达式,逻辑表达式的返回值 只能是 ture 或者fasle
+
+|| 表达式,有一个为true, 则整体结构为true(有一个为真即为真)
+&& 表达式,两个都为true,则整体结果为true(同真即为真)
+! 表达式,
+
+一切 非0,非空,非underfined ,非null 的表达式都为真
+*/
+
+if (3>4 || 5>4) {
+    console.log('有一个为真即为真');
+} 
+if (3>4 && 5>4) {
+    console.log('同真为真');
+}
+if (!0) {
+    console.log('铁木真');
+}
+if (!-1) {
+    console.log('术赤');
+}
+let empty = '';
+if (!empty) {
+    console.log('察合台');
+}
+let nt  = null;
+if (!nt) {
+    console.log('窝阔台');
+}
+if ('小鸡炖蘑菇') {
+    console.log('东北大饭包');
+}
+</script>

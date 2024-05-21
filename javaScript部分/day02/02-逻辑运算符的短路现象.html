@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    表达式1 || 表达式2 当表示1为true 被解读的时候,表达式2不会被执行
+    表达式1 && 表达式2 当表示1为false 被解读的时候,表达式2不会被执行
+
+
+    当布尔和number 一起运算的时候 布尔会被转化成number ture被转化为1,false 被转化为0
+    !的计算优先级高,比算术运算的优先级高
+
+    运算符的优先级
+    1.小括号
+    2.!
+    3.算数运算符
+    4.关系运算符
+    5.逻辑运算符
+    6.赋值运算符
+    */ 
+
+   let num1 = 10;
+   let num2 = 0 || ++num1;
+
+   let num3 = 5>4 || ++num1;
+   console.log(num3);
+
+   let num4 = 5>4 && num1++;
+   console.log( num4 );
+
+   console.log(3-true);
+   console.log(3-false);
+
+   console.log(3+true >3 && 5-4);
+   console.log(!3+1);
+
+   3<4 && console.log('田家少闲月');
+</script>
