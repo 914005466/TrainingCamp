@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <button id="btn">判断</button>
+</body>
+</html>
+<script>    
+    btn.onclick = function (){
+        let a = num1.value-0;
+
+        let b = Math.floor(a/20);
+
+        let c = Math.floor(a%20/10);
+
+        let d = Math.floor(a%20%10/5);
+
+        let e = Math.floor(a%20%10%5/1);
+
+        alert(b+'张20人民币,'+c+'张10元人民币,'+d+'张5元人民币,'+e+'张一元人民币.');
+    }
+</script>

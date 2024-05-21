@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="num">
+    <button id="btn">计算</button>
+</body>
+
+</html>
+<script>
+    let a = num.value;
+    let b, c, d;
+    btn.onclick = function () {
+        a = Math.floor(num.value / 20);
+        b = Math.floor(num.value % 20 / 10);
+        c = Math.floor(num.value % 20 % 10 / 5);
+        d = Math.floor(num.value % 20 % 10 % 5);
+        alert(a + '张20美元，' + b + '张10美元，' + c + '张5美元，' + d + '张1美元')
+    }
+</script>

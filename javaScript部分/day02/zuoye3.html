@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税务</title>
+</head>
+<body>
+    <h3>请输入税前工资</h3>
+    <input type="text" id="num1">
+    <button id="btn">实际工资</button>
+</body>
+</html>
+<script>
+   
+    btn.onclick = function () {
+        let a = num1.value;
+        let b;
+        let c;
+    console.log(a); 
+        if (a<5000) {
+            alert('应上税0元,实际到手工资'+a);
+        } else if(a>5000 && a<=8000){
+            b = a*0.03
+            c = a-b;
+            alert('应上税'+b+'元'+'实际到手工资'+c)
+        } else if(a>8000 && a<=17000){
+            b = a*0.1
+            c = a-b;
+            alert('应上税'+b+'元'+'实际到手工资'+c)
+        } else if(a>17000 && a<=30000){
+            b = a*0.2
+            c = a-b;
+            alert('应上税'+b+'元'+'实际到手工资'+c)
+        }else if(a>30000 && a<=40000){
+            b = a*0.25
+            c = a-b;
+            alert('应上税'+b+'元'+'实际到手工资'+c)
+        }else if(a>40000){
+            b = a*0.5
+            c = a-b;
+            alert('应上税'+b+'元'+'实际到手工资'+c)
+        }
+    }
+    
+</script>

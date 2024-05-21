@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素的方式</title>
+</head>
+<body>
+    <ul id="list">
+        <li>米饭</li>
+        <li>面条</li>
+        <li>大肠</li>
+        <li>饺子</li>
+        <li>凉皮</li>
+    </ul>
+    <button id="btn">点击改变</button>
+</body>
+</html>
+<script>
+    // 通过id获取元素获取的是单个元素
+    let btn = document.getElementById('btn');
+
+    /*
+    获取元素的方式
+    getElementsByTagName('标签名')通过标签名获取元素,获取的是多个元素,因此getElements注意是负数形式,特点是掉用该方法的对象不仅仅是document,只是获取的范围不同
+        使用document 获取的是整个页面上的所有元素
+        使用其他对象,获取的是当前对象中的所有元素
+
+    getElementsByClassName('类名')通过类名获取元素,特点和getElementsByTagName一样
+
+    返回值是一个数组,该数组是所有获取到的标签集合
+    */ 
+    btn.onclick = function () {
+        // document.getElementsByTagName('li')
+        let lis = list.getElementsByTagName('li');
+        console.log( lis );
+        lis[0].style.border = '1px solid skyblue';
+        let lis2 = list.getElementsByClassName('aa');
+        console.log(lis2);
+    };
+
+    let arr = [1,2,3,4,5];
+    console.log(arr[0]);
+</script>

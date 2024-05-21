@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h3>求最大值</h3>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <BUTTON id="btn1">
+        比较
+    </BUTTON>
+    <h3>计算是否是闰年</h3>
+    <input type="text" id="num3">
+    <BUTTON id="btn2">
+        比较
+    </BUTTON>
+
+    <h3>判断水仙花数</h3>
+    <input type="text" id="num4">
+    <BUTTON id="btn3">
+        判断
+    </BUTTON>
+</body>
+</html>
+<script>
+    btn1.onclick = function () {
+        if (num1.value - num2.value>0) {
+            alert(num1.value+'是最大值');
+
+        }else if (num1.value - num2.value==0) {
+            alert('相等');
+        }else{
+            alert(num2.value+'是最大值');
+        }
+    }
+    btn2.onclick = function () {
+        if (num3.value % 4 == 0 && num3.value % 100 !=0 || num3 % 400 == 0) {
+            alert(num3.value + '年,是闰年')
+        }else{
+            alert(num3.value + '年,是平年')
+        }
+
+    }
+    /*
+    js中的数学方法
+    Math.floor()向下取整
+    Math.ceil()向上取整
+    Math.round()四舍五入
+    */ 
+</script>

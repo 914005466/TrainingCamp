@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <button id="btn">判断</button>
+</body>
+</html>
+<script>
+    
+    btn.onclick = function () {
+        var a = Number(num1.value);
+        console.log(a);
+        let n = Math.floor(a/100);
+        let b = Math.floor(n%100/10);
+        let m = b%10;
+        if(n*n*n + b*b*b + m*m*m == a){
+        alert(a+'是水仙花数');
+    }else{
+        alert(a+'不是水仙花数');
+    }
+        
+    }
+</script>

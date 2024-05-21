@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分支语句练习</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <h3>求最大值</h3>
+    <input type="number" id="num1" /> 
+    <input type="number" id="num2" />
+    <button id="btn1">比较</button>
+
+    <br>
+    <hr>
+    <h3>计算是否是闰年</h3>
+    <input type="number" id="num3" />
+    <button id="btn2">比较</button>
+
+    <br>
+    <hr>
+
+    <h3>判断水仙花数</h3>
+    <input type="number" id="num4" />
+    <button id="btn3">判断</button>
+
+    <hr/>
+    <select id="abc">
+        <option value="+">加</option>
+        <option value="-">减</option>
+        <option value="*">乘</option>
+        <option value="/">除</option>
+    </select>
+    <button id="btn4" onclick="alert(abc.value)">判断</button>
+</body>
+</html>
+<script>
+btn1.onclick = function(){
+    if(num1.value - num2.value>0){
+        alert(num1.value+'是最大值');
+    }else if(num1.value - num2.value==0){
+        alert('相等');
+    }else{
+        alert(num2.value+'是最大值');
+    }
+};
+
+btn2.onclick = function(){
+    let yy = num3.value;
+    if(yy%4==0&&yy%100!=0 || yy%400 == 0){
+        alert(yy+'是闰年');
+    }else{
+        alert(yy+'是平年');
+    }
+};
+
+/*
+js中的数学方法
+Math.floor() 向下取整
+Math.ceil() 向上取整
+Math.round() 四舍五入
+*/
+let n1 = Math.floor(1.35);
+console.log(n1);
+let n2 = Math.ceil(1.35);
+console.log(n2);
+let n3 = Math.round(1.55);
+console.log(n3);
+
+//判断是否是水仙花数
+btn3.onclick = function(){
+    let n = num4.value-0;
+    //获取百位上的数
+    let bai = Math.floor(n/100);
+    console.log(bai);
+    //获取十位上的数
+    let shi = Math.floor(n%100/10);
+    //获取个位上的数
+    let ge = n%10;
+
+    if(bai*bai*bai + shi*shi*shi + ge*ge*ge == n){
+        alert(n+'是水仙花数');
+    }else{
+        alert(n+'不是水仙花数');
+    }
+};
+</script>

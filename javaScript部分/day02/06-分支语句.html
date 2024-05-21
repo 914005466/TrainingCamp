@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    程序结构
+        1.基本结构(按照顺序执行)
+        2.分支结构(分支语句)
+        3.循环结构(循环语句)
+
+    分支语句
+
+    if(判断条件) {
+        当前条件成立的时候,才可以执行该作用域内的代码,当条件不成立的时候,会绕过此段代码,执行下面的代码
+    }
+    */ 
+
+   if (3>4) {
+    console.log('人生芷若如初见');
+   }else{
+    console.log('黄连沾蜜终须苦');
+   }
+   
+   let score = 100;
+   if (score>60) {
+        console.log('及格');
+   } else {
+        console.log('不及格');
+   }
+/*
+分支语句的级联结构
+
+if(判断条件) {
+        执行代码
+    }else if(判断条件){
+        执行代码
+    }...
+    else{
+        执行代码
+    }
+*/    
+if (score<60) {
+    console.log('留级重修');
+} else if (score<70){
+    console.log('差');
+} else if (score<80) {
+    console.log('中等');
+}else if (score<90) {
+    console.log('良好');
+}else {
+    console.log('你真牛逼');
+}
+</script>
