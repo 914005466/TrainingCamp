@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    js中的循环
+    1.for循环
+        for(循环变量的初始值;循环的条件;循环变量的增值){循环体}
+
+        for循环的过程
+        1.判断循环变量的初始值,是否满足循环条件
+        2.如果满足,则执行循环体中的内容
+        3.执行完毕之后,执行循环变量的增值
+        4.再下一次的循环当中,依次执行 1 2 3 步骤
+        5.直到循环条件不满足的时候,跳出当前循环
+
+
+    2.while 循环
+
+    3.do-while循环
+
+    只有当循环执行完毕之后,才会执行循环后的代码
+    */ 
+   for (let i=0;i<5;i++) {
+        console.log(i);
+    
+   }
+   console.log('中午吃啥');
+
+/*
++= -= *= /= 符号的含义
+n+=2 表示的是 n=n+2
+n-= 表示的是 n=n-2
+n*= 表示的是 n=n*2
+n/= 表示的是 n= n/2
+*/    
+let sum = 0;
+for(let n=1;n<=100;n++){
+    
+    sum+=n;
+}
+console.log(sum);
+// 变量声明在for循环体外
+let i = 0;
+for(;i<5;i++){
+    console.log('真的爱你'+i);
+}
+// 条件在循环体内
+let m = 0;
+for (;;m++) {    
+    if(m<5){
+        console.log('流星雨又来临'+m);
+    }else {
+        break;//终止循环
+    }
+    
+}
+// 条件和循环的增值在循环体内
+let o = 0;
+for(;;){
+    if(o<5){
+        console.log('你知道我想你'+o);
+        o++;
+    }else{
+        break;
+    }
+}
+</script>

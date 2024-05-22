@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window的inload事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wp {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+    <script>
+        /*
+        在页面中写入js代码的方式有两种
+        1.在js代码引入或者写入 页面的后面,目的是为了确保js中访问html元素的时候,该元素已经加载完成
+        2.借助window.onload 方法在head中写入js代码
+        window.onload 的特点:
+            在文档的结构加载完成,并且文档中需要使用的静态资源(图片,音频,视频)都加载完毕的时候才执行window.onload中的代码
+
+        如果把js代码写到head中必须使用 window.onload .
+        */ 
+        window.onload = function(){
+            let wp = document.getElementById('wp');
+        wp.onclick = function(){
+            alert('知否知否应是绿肥红瘦');
+        }
+        }      
+    </script>
+</head>
+<body>
+    <div id="wp"></div>
+</body>
+</html>

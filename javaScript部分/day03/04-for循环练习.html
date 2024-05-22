@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环练习</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+// let  x = 1;
+// switch(x++) {
+//     case 0: ++x;
+//     case 1: ++x;
+//     case 2: ++x;
+// }
+// console.log(x);
+
+//  输出100以内所有的偶数
+
+// for( y = 0;y<=100;y+=2){
+//     console.log(y);
+// }
+
+//输出所有的水仙花数
+// for (let index = 100; index <= 1000; index++) {
+//         let n = Math.floor(index/100);
+//         let b = Math.floor(index%100/10);
+//         let m = index%10;
+//         if (n*n*n + b*b*b + m*m*m == index) {
+//             console.log(index+'是水仙花数');
+//         }       
+// }
+// for(let num1 = 1;num1<10;num1++){
+//     for(let num2=1;num2<10;num2++){
+//         console.log(num1+'*'+num2+'='+ num1*num2); 
+//     }
+// }
+// 求最大公约数
+let m1 = 24,m2 = 18;
+for(let u=1;u<=24;u++){
+    let u1 = Math.floor(m1/u);
+    let u2 = Math.floor(m2/u);
+    if(u1==u2){
+        console.log('最大公约数是'+ u1);
+    }
+}
+
+
+</script>
