@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    while(循环条件){循环体}
+    只有当满足循环条件的时候,才会进入循环,执行里面的内容,否则跳出循环,循环结束
+    */ 
+   let i =0;
+   while(i<10){
+    i++;
+    console.log(i+'坐而论道');
+   }
+
+// 辗转相除法求最大公约数
+let a=55,b=22;
+let max = a>b?a:b;
+let min = a>b?b:a;
+let yu = max%min;
+while(yu!=0){
+    let aa = min%yu;
+    min = yu;
+    yu = aa;
+    
+}
+console.log(min+'是最大公约数');
+/*
+当循环条件不是关系运算符的时候,考虑使用while循环
+do-while 和while的唯一区别就是.while首先需要判断循环条件是否满足,不满足不执行循环条件中的内容,do-while 首先执行一次循环,然后在判断条件是否满足
+*/ 
+while (false){
+    console.log('举杯邀明月');
+}
+// do-while
+
+do{
+    console.log('举报邀明月');
+}while(false)
+
+/*for循环的循环条件,如果设置多个的话,只有接近循环条件结束分好的 条件起作用*/ 
+let k = 0;
+for (let  i=0,j=0;j<10,i<6;i++,j++) {
+    k=j+i;   
+}
+console.log(k);
+</script>

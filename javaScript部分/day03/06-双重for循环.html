@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双重for循环(循环嵌套)</title>
+    <style>
+        .box {
+          
+            height: 30px;
+            margin: 20px 0;
+            display: flex;
+            
+        }
+        .box  span{
+            height: 30px;
+            width: 30px;
+            background: skyblue;
+            border-radius: 50%;
+           margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+    双重for循环,外层控制的是行,内层控制的是列
+    // */ 
+    // for (let i = 0; i < 5; i++) {
+    //     document.write(i + '</br>')
+    // }
+    // document.write('<table border=1>')
+    // for (let num1 = 1; num1 < 10; num1++) {
+    //     document.write('<tr>');
+    //     for (let num2 = 1; num2 < num1; num2++) {
+    //         document.write('<td>'+num1 + '*' + num2 + '=' + (num1 * num2) + '</td>');
+    //     }
+    //     document.write('<tr/>')
+    // }
+    // document.write('</table>') 
+
+
+// 画三角形
+  for(let i = 0;i<5;i++){
+    document.write('<div class="box">')
+        for(let j = 0;j<=i;j++){
+            document.write('<span></span>');
+        }
+        document.write('</div>')
+  }
+</script>

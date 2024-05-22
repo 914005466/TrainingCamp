@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp {
+            display: flex;
+            margin-top:10px ;
+           
+        }
+        .wp span {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            margin-left: 10px;
+            margin-bottom: 10px;
+           
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    for( let a = 0;a<7;a++){
+        document.write('<div class="wp">');
+            for(let b = 0;b<a ;b++){
+                document.write('<span></span>')
+            }
+        document.write('</div>')
+    }
+</script>

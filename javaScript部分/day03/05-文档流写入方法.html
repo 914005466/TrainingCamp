@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文档流写入</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
+
         .wp {
             width: 200px;
             height: 200px;
@@ -18,12 +20,15 @@
         }
     </style>
 </head>
+
 <body>
     <div class="wp" id="wp">
         <p>李师师</p>
     </div>
-    <button id="btn">点击添加</button>
+    <button id="btn">点击添加 innerHTML</button>
+    <button id="btn1">点击添加 innerText</button>
 </body>
+
 </html>
 <script>
     /*
@@ -32,12 +37,12 @@
     1.可以写入文本内容,也可以写入html标签
     2.后面写的内容不会覆盖前面写的内容
     3.内容都写到body标签中
-    */ 
+    */
 
     document.write('高处不胜寒');
     document.write('<h3>高处不胜寒</h3>');
     document.write('<div class="wp">');
-        document.write('高处不胜寒');
+    document.write('高处不胜寒');
     document.write('</div>');
 
     /*
@@ -45,13 +50,24 @@
     1.可以写入文本内容,也可以写入html标签
     2.后面写的内容会覆盖前面写的内容
     如果不给dom.innerHTML设置值,则是获取元素的内容,如果设置值,则是替换元素的内容
-    */ 
-   let wp = document.getElementById('wp');
-   let btn = document.getElementById('btn');
+    */
+    let wp = document.getElementById('wp');
+    let btn = document.getElementById('btn');
+    let btn1 = document.getElementById('btn1');
 
-   console.log(wp.innerHTML);
-   btn.onclick = function () {
-        wp.innerHTML += '<h3>夜夜三更,马滑霜浓</h3>'
-        console.log(wp.innerHTML);
-   }
+    // console.log(wp.innerHTML);
+    // btn.onclick = function () {
+    //     wp.innerHTML += '<h3>夜夜三更,马滑霜浓</h3>'
+    //     console.log(wp.innerHTML);
+    // }
+
+    /*
+    innerText
+    用法和innerHTML一致,但是只能操作文本内容
+    */
+    btn1.onclick = function () {
+        console.log(wp.innerText);
+        wp.innerText = '<p>生当作人杰</p>'
+        
+    }
 </script>

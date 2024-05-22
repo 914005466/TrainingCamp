@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组循环遍历</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+    数组遍历的方法
+    1.for()
+    2.for-in :常用来循环对象,也可以用来循环数组
+    3.forEach()
+        循环数组的新方法,需要使用回调函数操作数组内容
+    */
+    let arr = ['萝卜', '白菜', '黄花菜', '芥菜', '梅菜']
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+    /*
+    for-in 使用方式
+    for (let 下标 in 要循环的数组或者对象){
+
+    }
+    */ 
+    for(let i in arr){
+        console.log(arr[i]);
+    }
+console.log('====================================');
+
+/*
+forEach 使用方法
+通过 数组本身掉用forEach
+回调函数中,可以有两个参数,第一个参数表示当前循环的数组元素,第二个参数表示,当前循环数组元素对应的小编,在函数体重对数组进行操作
+*/ 
+    arr.forEach(function(index,item){
+        console.log(index,item);
+    });
+    console.log('====================================');
+</script>

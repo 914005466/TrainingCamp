@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环的终止方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    break 和 continue
+     break 和 continue都是处理循环逻辑的,可以用于任何形式的循环,while do-while for  都可以使用
+     break 终止本层循环,终止当前整个循环
+     continue 终止本次循环,
+
+    注意: break 在循环嵌套的时候,也只是终止他所在的那一层循环
+    */ 
+    for(let i = 0;i<5;i++){
+        if(i%2==0){
+            continue;
+        }
+        console.log(i);
+    }
+    console.log('=========================');
+
+    for(let i=0;i<5;i++){
+        for(let j=0;j<5;j++){
+            console.log(j+i);
+            if(j%2==0){
+                break;
+            }
+        }
+        console.log('=========');
+    }
+</script>

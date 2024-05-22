@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    Math中的函数
+    Math.floor()向下取整
+    Math.ceil()向上取整
+    Math.round()四舍五入
+
+    Math.random()随机数,随机范围[0,1)
+    
+    */ 
+   console.log(Math.random());
+//    0-100的随机数
+console.log(Math.random()*100);
+
+// [0,100]的随机数
+console.log(Math.ceil(Math.random()*100));
+
+// [20,100]的随机数
+console.log(Math.floor(Math.random()*(101-20))+20);
+// [30,50]的随机数
+
+console.log(Math.floor(Math.random()*(21))+30);
+
+// [m,n]
+// console.log(Math.floor(Math.random()*(n-m+1))+m);
+
+// 输出10个,10到100之间的整数,且计算他们的平均值
+let sum=0;
+for(let i=1;i<=10;i++){
+    let n =Math.floor(Math.random()*(101-10))+10;
+    
+    sum+=n;
+    console.log(n);
+}
+console.log('svg'+(sum/10));
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span>人机</span>出:
+        <input type="text" id="num1" >
+        喊:
+        <input type="text" id="num2">
+    </div>
+    <div>
+        <select name="sel1" id="sel1">
+            <!-- <option value="100">请输入数字</option> -->
+            <option value=""></option>
+            <option value="0">0</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+        <select name="sel2" id="sel2">
+            <!-- <option value="100">请输入数字</option> -->
+            <option value=""></option>
+            <option value="0">0</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <button id="btn">开始</button>
+        
+    </div>
+
+</body>
+
+</html>
+<script>
+    let arr = [0, 5, 10, 15, 20];
+    let btn = document.getElementById('btn');
+
+    console.log(typeof num1.value);
+    btn.onclick = function () {
+
+        let index = Math.floor(Math.random() * (arr.length - 2));
+        num1.value = arr[index];
+        let index1 = index + Math.floor(Math.random() * (arr.length - index));
+        num2.value = arr[index1]
+        let a = Number(num1.value) + Number(sel1.value);
+
+        if (num2.value != a && sel2.value == a && sel1.value != 100) {
+
+
+            alert('你赢了')
+        } else if (num2.value == a && sel2.value != a) {
+
+
+            alert('人机赢')
+        } else if (sel2.value == 100 || sel1.value == 100) {
+
+
+            alert('请玩家先输入数字')
+
+        }
+        else {
+           
+            alert('平局')
+        }
+    }
+</script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp,
+        .cont {
+            width: 400px;
+            height: 40px;
+            display: flex;
+            border: 1px solid skyblue;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .wp span,
+        .cont span {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            line-height: 40px;
+        }
+
+        .wp span.act {
+            /* background:red; */
+            color: red;
+
+        }
+
+        .cont span.act {
+            background: skyblue;
+            color: #999;
+        }
+
+        .wp em {
+            height: 5px;
+            width: 100px;
+            background: limegreen;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: all 2s;
+        }
+
+        .news {
+            width: 500px;
+            border: 1px solid lightgreen;
+            margin: 0 auto;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            font-size: 80px;
+            
+        }
+        .news div{
+            display: none;
+        }
+        .news div.show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp" id="wp">
+        <em id="em"></em>
+        <span class="act">新闻</span>
+        <span>体育</span>
+        <span>娱乐</span>
+        <span>舞蹈</span>
+    </div>
+
+    <div class="cont" id="cont">
+        <span class="act">新闻</span>
+        <span>体育</span>
+        <span>娱乐</span>
+        <span>舞蹈</span> 
+    </div>
+    <div class="news" id="news">
+        <div class="show">伊朗总统</div>
+        <div>中国女排</div>
+        <div>郭有才</div>
+        <div>周杰伦</div>
+    </div>
+</body>
+
+</html>
+<script>
+    // 先获取所有的span
+    let span = document.getElementsByTagName('span');
+    let em = document.getElementById('em')
+
+    for (let i = 0; i < 4; i++) {
+        span[i].onclick = function () {
+            em.style.left = i * 100 + 'px';
+            // 设置所有的span类名为空
+            for (let j = 0; j < 4; j++) {
+                span[j].className = '';
+            }
+            // 给当前span单独加类名
+            span[i].className = 'act';
+        }
+    }
+
+    // tab切换
+    let tab = cont.getElementsByTagName('span');
+    let div = news.getElementsByTagName('div');
+
+    for( let i = 0;i<4;i++) {
+        tab[i].onclick = function(){
+            for(let j = 0 ;j<4 ;j++){
+                tab[j].className='';
+                div[j].className='';
+            }
+            tab[i].className='act';
+            div[i].className='show';
+        };
+    }
+    // span[0].onclick=function(){
+    //     em.style.left = '0px';
+    // }
+    // span[1].onclick=function(){
+    //     em.style.left = '100px';
+    // }
+    // span[2].onclick=function(){
+    //     em.style.left = '200px';
+    // }
+    // span[3].onclick=function(){
+    //     em.style.left = '300px';
+    // }
+</script>

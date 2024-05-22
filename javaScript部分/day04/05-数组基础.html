@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组基础</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    数组
+    1.数组属于对象类型(复杂数据类型)
+    2.number,boolean,string 属于基础类型(简单类型)
+
+    数组的简单理解,用来存放一批数据的集合
+    1.通过[]直接定义数组
+        let arr1 = [ 12,34,'与非','关于',false,true ];
+    2.通过构造函数,创建数组对象
+        let arr3 = new Array(参数);
+        参数
+            1.如果参数为空,则表示声明了一个空数据
+            2.如果参数是单独的一个number类型数字,则表示声明了一个长度为number的数组,且数字元素的值都是 underfined
+            3.如果参数的个数为多个,则表示每一个参数都是数组的元素
+    
+    数组的定义
+    */ 
+   let arr1 = [ 12,34,'与非','关于',false,true ];
+   console.log(typeof arr1);
+   console.log(arr1);
+
+   let arr2 = new Array('张翼德','吕奉先','曹关张');
+   console.log(arr2);
+
+//    只要是一个数字就代表着数组的长度
+   let arr3 = new Array(2);
+   console.log( arr3 );
+
+
+    let arr4 = new Array(2,4);
+    console.log(arr4);
+
+    /*
+    获取数组的长度的方法
+    arr.length
+    如果需要删除数组制定长度
+    arr.length = 3 数组长度指定为3,第三个元素之后的内容全部删除
+    arr.length = 0 清空数组
+    */ 
+    // arr.length
+
+    let arr5 = ['吃','成','荒','绿'    ]
+    console.log(arr5.length);
+    arr5.length = 3;
+
+    let arr6 = [,,,,3,];
+    console.log('arr6'+arr6.length);
+    /*
+    数组中可以存放变量,表达式,各种数据类型的数据
+    */ 
+   let str1 = '秦琼'
+   let str2 = '罗成'
+   let str3 = '程咬金'
+
+   let arr8 = [str1,str2,str3,3>4?5:6,true]
+   console.log(arr8);
+/*
+获取数组的方式,通过 数组下标获取数组元素
+数组下标从0开始计算
+
+通过arr[下标]的方式,获取对应下标位置上的元素
+*/    
+
+let arr9 = ['女娲','共工','精卫','蚩尤'];
+console.log(arr9[2]);
+</script>

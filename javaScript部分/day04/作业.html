@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span>人机</span>出:
+        <input type="text" id="num1">
+        喊:
+        <input type="text" id="num2">
+    </div>
+    <div>
+        <select name="aa" id="aa">
+            <option value="0">0</option>
+            <option value="1">5</option>
+            <option value="2">10</option>
+        </select>
+        <select name="bb" id="bb">
+            <option value="0">0</option>
+            <option value="1">5</option>
+            <option value="2">10</option>
+            <option value="2">15</option>
+            <option value="2">20</option>
+        </select>
+        <button id="btn">开始</button>
+    </div>
+</body>
+</html>
+<script>
+    let arr = [0,5,10,15,20];
+    let num3 = Math.floor(Math.random()*arr.length);
+    
+    let btn = document.getElementById('btn');
+    btn.onclick = function(){
+        num2.value = arr[num3]
+        arr.length = 2;
+        num1.value = arr[num3]
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菱形</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            height: 40px;
+            padding-bottom: 10px;
+        }
+
+        span {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            background: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    for (let i = 0; i < 13; i++) {
+        document.write('<div>');
+        if (i < 7) {
+            for (let j = 0; j < 2 * i + 1; j++) {
+                document.write('<span></span>')
+            }
+        } else {
+            for (let j = 12; j > 2 * (i - 7) + 1; j--) {
+                document.write('<span></span>')
+            }
+        }
+
+        document.write('</div>')
+    }
+
+
+</script>
