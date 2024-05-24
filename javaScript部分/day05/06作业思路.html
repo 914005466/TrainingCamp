@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思路</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            border: 1px #f00 solid;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .wp {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp">
+        <div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <button id="btn1">从外到内</button>
+    <button id="btn2">从内到外</button>
+</body>
+
+</html>
+<script>
+    let divs = document.getElementsByTagName('div');
+    let btn1 = document.getElementById('btn1');
+    let btn2 = document.getElementById('btn2');
+    let arr = [];
+
+    function rand(m, n) {
+        return Math.floor(Math.random() * (n - m + 1) + m);
+    }
+
+    //随机生成颜色
+    function col() {
+        let r = rand(0, 255);
+        let g = rand(0, 255);
+        let b = rand(0, 255);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    btn1.onclick = function () {
+        arr.unshift(col());
+        for (let i = 0; i < divs.length; i++) {
+            console.log(i);
+            divs[i].style.background = arr[i];
+            console.log(arr);
+        }
+    };
+    btn2.onclick = function () {
+        // arr.push( col() );
+        // console.log(arr);
+        // for(let j=3;j>0;j--){
+        //     console.log(j);
+        //     divs[j].style.background = arr[j];
+        //     console.log(arr);
+        // }
+
+        arr.unshift(col());
+        for (let i = 0; i < divs.length; i++) {
+            divs[divs.length - i - 1].style.background = arr[i];
+        };
+    }
+
+</script>

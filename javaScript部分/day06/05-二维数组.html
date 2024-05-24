@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    二维数组,就是数组元素是数组的数组
+    获取二维数组元素的方法
+
+    */ 
+    // let arr1 =['天下','逆战'];
+    // let arr2 = ['你的酒馆对我打了烊','青春修炼手册'];
+    // let arr3 = ['酒醉的蝴蝶','水手'];
+    // let arr4 = ['秋天不回来','死了都要爱'];
+    // let arr5 = [arr1,arr2,arr3,arr4,['倒带','灰色头像']];
+    // console.log(arr5[0][1],arr5[3][0]);
+    // console.log(arr5[3][1][0]);
+
+    /*
+    输入二维数组中的每一个元素
+    几维数组就嵌套几层for循环
+    */
+//    for (let index = 0; index < arr5.length; index++) {
+//             console.log(arr5[index]);
+//             for(let j = 0 ;j<arr5[index].length;j++){
+//                 document.write(arr5[index][j]+'<hr>')
+//             }
+//    }
+//    在矩阵中,一个输在所在行中是最大值,在所在列中是最小值,则被称为鞍点
+let arr5 = [[3,5,10],[2,5,9],[10,40,30]];
+//设置一个布尔值,用来判断是否存在鞍点
+// let flag = false;//false不存在 true存在
+//设置默认最大值
+// let max = 0; //Number.POSITIVE_INFINITY
+
+for(let i = 0;i<arr5.length;i++){
+    //设置最大数的index
+    let index;
+    var max = 0;
+    for(let j=0;j<arr5[i].length;j++){
+        if(arr5[i][j]>max){
+            max = arr5[i][j];
+            index = j;
+        }
+        
+    }
+    console.log('改行',max,index);
+    let arr6=[];//存放最大所在的列数据
+    //循环数组,把每一个数组元素中的第index个数据和当前max对比,如果小于max,则max 不是鞍点
+    for(let m= 0;m<arr5.length;m++){
+        arr6.push(arr5[m][index]);
+    }
+    console.log('=============');
+    // arr7.push(arr6[i][index]);
+    console.log(arr6);
+    let bol = arr6.every(function(item){
+        return max<=item;
+    });
+    console.log(bol);
+    if(bol){
+        break;
+    }
+}
+console.log('鞍点是:'+max);
+</script>

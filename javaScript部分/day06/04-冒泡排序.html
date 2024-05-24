@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+        /*
+    冒泡排序
+    */ 
+   let arr = [4,2,5,7,1,9];
+/*
+执行第一趟比较,比较5次(lenth-1)
+*/  
+
+for (let i = 0; i < 5; i++) {
+    if(arr[i]>arr[i+1]){
+        //数据交换
+        let temp = arr[i+1]
+        arr[i+1] = arr[i]
+        arr[i] = temp
+    }
+    
+}  
+/*
+执行第2趟比较,比较4次(lenth-1)
+*/  
+
+for (let i = 0; i < 4; i++) {
+    if(arr[i]>arr[i+1]){
+        //数据交换
+        let temp = arr[i+1]
+        arr[i+1] = arr[i]
+        arr[i] = temp
+    }
+    
+} 
+/*
+执行第3趟比较,比较3次(lenth-1)
+*/  
+
+for (let i = 0; i < 3; i++) {
+    if(arr[i]>arr[i+1]){
+        //数据交换
+        let temp = arr[i+1]
+        arr[i+1] = arr[i]
+        arr[i] = temp
+    }
+    
+} 
+/*
+执行第4趟比较,比较2次(lenth-1)
+*/  
+
+for (let i = 0; i < 2; i++) {
+    if(arr[i]>arr[i+1]){
+        //数据交换
+        let temp = arr[i+1]
+        arr[i+1] = arr[i]
+        arr[i] = temp
+    }
+    
+} 
+/*
+执行第5趟比较,比较1次(lenth-1)
+*/  
+
+for (let i = 0; i < 1; i++) {
+    if(arr[i]>arr[i+1]){
+        //数据交换
+        let temp = arr[i+1]
+        arr[i+1] = arr[i]
+        arr[i] = temp
+    }
+    
+} 
+console.log(arr);
+/*
+如上总结：一个数组冒泡排序的趟数和每一堂比较的次数的关系
+总趟数：arr.length-1
+每一趟比较的次数：arr。length - 趟数
+*/ 
+let arr1 = [41,13,21,15,11]
+//最外层控制趟数
+for(let i=1;i<arr1.length;i++) {
+    for(let j=0;j<arr1.length-i;j++){
+        if(arr1[j]>arr1[j+1]){
+            let temp = arr1[j+1]
+            arr1[j+1] = arr1[j]
+            arr1[j] = temp
+        }
+    }
+}
+console.log(arr1);
+
+/*给数组中添加10个[20,100]的随机整数,并且使用冒号排序降序排列*/ 
+let arr2 = [];
+for (let i = 0; i < 10; i++) {
+    arr2.push(Math.floor(Math.random()*81+20));   
+}
+console.log(arr2);
+for(let i = 1;i<arr2.length;i++){
+    for (let j = 0; j < arr2.length-i; j++) {
+        if (arr2[j]<arr2[j+1]) {
+            let temp = arr2[j+1];
+            arr2[j+1] = arr2[j];
+            arr2[j] = temp;
+        }        
+    }
+}
+console.log(arr2);
+</script>

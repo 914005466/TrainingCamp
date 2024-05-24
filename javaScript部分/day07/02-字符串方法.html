@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    charAt()获取指定位置上的字符
+        参数
+        字符的下标
+        如果不写参数,默认返回第一个字符
+        返回值 获取到的字符
+
+        使用encodeURIComponent(str)对字符串str 进行编码
+        要把编码后的字符串解析为编码前的字符串,使用decodeURIComponent()转码
+    */ 
+    let str1 = '情深深雨濛濛';
+    let le = str1.charAt(2);
+    console.log(le);
+
+    let str2 = encodeURIComponent('痴心绝对');
+    console.log(str2);
+
+    let str3 =  decodeURIComponent(str2);
+    console.log(str3);
+
+    /*
+    字符串的截取方法
+    substring()
+    参数有两个
+        参数1.截取的开始位置
+        参数2.截取的结束位置
+    返回结果是截取的子字符串,包含开始的位置,不包含结束的位置
+
+    特点:
+    1.参数只能0和正整数,一切不合法参数都会被解析为0
+    2.参数会自动比较大小,较小的数永远为开始位置,较大的为结束位置
+    3.只有一个参数的时候,从参数位置开始,一直截取到最后
+    4.没有参数的时候,返回的是整个字符串
+    */ 
+   let str4 = '秋天的叶,飘零在漫天落叶之间'
+   let str5 = str4.substring(2,6);
+   console.log(str5);
+
+   /*
+   slice()
+   特性和数组方法完全完全一样
+
+   特性
+   1.两个参数 开始位置和结束位置,截取的子字符串包含开始位置,不包含结束位置
+   2.一个参数 从开始位置一直到字符串结束
+   3.参数可以为0和整数,非法的字符都会转化为0
+   4.没有参数的时候,返回整个字符串
+   5.参数如果为负数,需要倒着数,从-1开始
+   6.参数不会自动比较大小,如果不存在截取的区域,则返回空字符串
+   */
+  let str8 = '黄河之水天上来'
+  let str9 = str8.slice(0,-2)
+  console.log(str9);
+
+</script>

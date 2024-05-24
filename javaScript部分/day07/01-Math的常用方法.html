@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math的常用方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    Math.floor()向下取整
+    Math.ceil()向上取整
+    Math.round()四舍五入
+    Math.random()获取[0,1)的随机数
+    Math.pow() (底数,指数) 幂函数
+        参数1 是底数
+        参数2 是指数
+
+    Math.sqrt()开平方
+    开方函数的参数只能大于等于0,如果为负数,则返回NaN
+
+    Math.abs()取num的绝对值
+
+    Math.min()取最小值
+    Math.max()取最大值
+
+    Math.sin()
+    Math.PI
+    */ 
+
+   let n1 = Math.pow(2,3);
+   console.log(n1);
+   //
+   let n2 = Math.sqrt(2);
+   console.log(n2);
+
+   let n3 = Math.abs(-9);
+   console.log(n3);
+
+   let min = Math.min(20,10,25,6,1);
+   console.log(min);
+
+   let max = Math.max(20,10,25,6,1);
+   console.log(max);
+
+   let arr = [20,10,25,6,1];
+   //使用扩展运算符把数组中的数据提取出来
+   console.log(Math.max(...arr));
+   console.log(Math.min(...arr));
+
+    //使用apply函数结合Math方法求最大值最小值
+    let n6 = Math.min.apply(null,arr);
+    console.log(n6);
+</script>

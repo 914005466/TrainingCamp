@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双色球</title>
+    <style>
+        /* div {
+            text-align: center;
+        } */
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 1px #f00 solid;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            background: #f00;
+            color: #FFF;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<div id="wp"></div>
+<button id="btn">点击</button>
+</body>
+
+</html>
+<script>
+    let wp = document.getElementById('wp');
+    let btn = document.getElementById('btn');
+    function rand(m, n) {
+        return Math.floor(Math.random() * (n - m + 1) + m);
+    }
+    btn.onclick = function () {
+        let a = [];
+        let b = rand(1, 16);
+        for (i = 0; i < 6; i++) {
+            let aa = rand(1, 33);
+            if (a.indexOf(aa) == -1) {
+                a.push(aa);
+            } else {
+                i--;
+            }
+        }
+        for (i = 1; i < a.length; i++) {
+            for (j = 0; j < a.length - i; j++) {
+                if (a[j] > a[j + 1]) {
+                    let temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+        let html = '<div style=" border:1px #f00 solid;">';
+        for (let i = 0; i < a.length; i++) {
+            html += '<span>' + a[i] + '</span>';
+        }
+        html += '<span style="background:#00f;">' + b + '</span>';
+        html += '<div>';
+        wp.innerHTML += html;
+    };
+
+    
+</script>

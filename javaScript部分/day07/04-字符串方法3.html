@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串方法3</title>
+</head>
+<body>
+    <input type="text" value="">
+</body>
+</html>
+<script>
+/*
+去掉字符串左右两边的空格
+trim() 去掉两边的空格
+trimLeft()  trimStart()去掉左边的空格
+trimEnd()  trimRight()去掉右边的空格
+*/
+let str1 = '    同是天涯沦落人  ';
+console.log(str1);
+let str2 = str1.trim()
+console.log(str2);
+/*
+字符串拼接
+concat()
+使用方式和数组一样
+字符串拼接也可以使用+
+推荐使用+
+*/
+let str3 = str2.concat('白居易')
+console.log(str3);
+
+/*
+把字符串切割成数组
+split()
+参数是 切割符
+
+*/
+let arr = ['','','']
+let str4 = '一片两片三四片'
+let arr1 = str4.split('片');
+console.log(arr1);
+
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串方法2</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    substr()
+    参数1:截取字符串开始的位置
+    参数2:截取字符串的长度
+    
+    特性
+    1.第一个参数可以为0和整数(正负整数)
+    2.在 ie 低版本下,第一个参数不能为负数
+    3.该方法不是标准方法,用的时候在某些浏览器下可能会出现异常
+    */
+   let str1 = '多行不义必自毙';
+   let str2 = str1.substr(2,4);
+   console.log(str2);
+   let str3 = str1.substr(2);
+   console.log(str3);
+
+   let str4 = str1.substr(-2,2);
+   console.log(str4);
+
+   /*
+   获取子字符串在字符串当中的下标
+   indexOf()
+   lastIndexOf()
+   参数是两个
+   参数1 表示需要查找的字符串
+   参数2 表示查找开始的位置
+   特性跟数组中的一样
+   */
+    let str5 = '花谢花飞花满天';
+    let n1 = str5.indexOf('花');
+    console.log(n1);
+    let n2 = str5.lastIndexOf('花');
+    console.log(n2);
+
+    let n3 = str5.indexOf('花飞');
+    console.log(n3);
+
+    /*
+    字符串的转化
+    toUpperCase() 把所有字母转化为大写
+    toLowerCase() 把所有字母转化为小写
+
+    没有参数
+    */ 
+   let str6 = 'hello world!';
+   console.log(str6);
+   let str7 = str6.toUpperCase();
+   console.log(str7);
+   let str8 = str7.toLowerCase();
+   console.log(str8);
+</script>

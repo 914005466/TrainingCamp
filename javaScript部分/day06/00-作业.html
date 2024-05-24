@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            border: 1px #f00 solid;
+            padding: 40px;
+            background: #fff;
+        }
+
+        .wp {
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <button id="btn1">从外到内</button>
+    <button id="btn2">从内到外</button>
+</body>
+</html>
+<script>
+     let divs = document.getElementsByTagName('div');
+     let btn1 = document.getElementById('btn1');
+     let btn2 = document.getElementById('btn2');
+    
+     let arr = [];
+     divs[0].style.border = "5px #f00 solid"
+     function rand(x,y){
+        return Math.floor(Math.random()*(y-x+1) + x);
+     }
+     function col() {
+        let r = rand(0,255);
+        let g = rand(0,255);
+        let b = rand(0,255);
+
+        return 'rgb('+r+','+g+','+b+')';
+     }
+    //  点击从外到内
+     btn1.onclick = function (){
+        arr.unshift(col())
+        for(i=0;i<divs.length;i++){
+            divs[i].style.background = arr[i];
+            
+        }
+     }
+    // 点击从内到外
+     btn2.onclick = function (){
+        
+        arr.unshift(col());
+        // arr.push();
+        for(i=0;i<divs.length;i++){
+            divs[divs.length - 1- i].style.background = arr[i];
+            
+        }
+     }
+</script>

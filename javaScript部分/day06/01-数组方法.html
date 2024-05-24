@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    截取子数组
+    slice()
+    参数有两个
+        参数1 开始截取的位置
+        参数2 结束截取的位置
+    截取的结果包含开始位置,不包含结束位置
+    如果参数为负,则表示倒数第几位,从1开始计算
+
+    返回值是一个新数组
+    特点
+    1.参数只能是0和整数,非法字符都会被解析为0
+    2.参数只有一个的时候,表示从指定位置一直截取到数组最后
+    3.没有参数的时候,表示赋值一个一模一样的数组
+    4.开始位置要保证在结束位置之前,否则截取不到数组
+    */ 
+   let arr1 = ['赵','钱','孙','李','周','吴','郑','王'];
+   let arr2 = arr1.slice(2,4);
+   console.log(arr2);
+   let arr3 = arr1.slice(2,-2);
+   console.log(arr3);
+   let arr4 = arr1.slice(2);
+   console.log(arr4);
+   let arr5 = arr1.slice();
+   console.log(arr5);
+   console.log(arr5==arr1);
+
+   function show(fn) {
+        let str = fn();
+        return '诸葛亮'+str;
+   }
+   let str1 = show(function () {
+        console.log('三顾频烦天下计');
+        return '周公吐哺';
+   });
+   console.log(str1);
+
+/*
+数组的检测方法(都是新增方法,低版本浏览器不支持)
+every 检测数组中所有元素是否都满足指定条件,只有都满足的时候,才会返回true,否则为false
+some 检测数组中是否有元素满足指定条件,只要有一个满足的时候,就返回true,都不满足返回false
+参数是一个回调函数
+回调函数的参数有三个
+1.数组中的元素
+2.数组中元素所对应的数组下标
+3.该回调函数操作的数组
+*/    
+console.log('===========================');
+let arr6 = [1,2,3,4,5,6,7,8,9];
+let n1 = arr6.every(function(item){
+    return item%2==0; //判断条件
+});
+console.log(n1);
+let n2 = arr6.some(function(item,index,aa){
+    console.log(item,index,aa);
+    return item%4==0; //判断条件
+});
+console.log(n2);
+/*
+数组过滤
+filter()
+参数是一个回调函数,返回的是复合回调函数中指定条件的数组元素组成的新数组
+
+数组映射
+map()
+参数是一个回调函数,返回的是经过回调函数统一操作的新数组
+*/ 
+let arr7 = [1,21,33,44,55,66,77,8,9];
+let arr8 = arr7.filter(function(bb){
+    return bb%3==0;
+})
+console.log(arr8);
+
+let arr9 = arr7.map(function(item){
+    return item+'px'
+})
+console.log(arr9);
+let arr10 = arr7.map(function(item){
+    return item/2;
+})
+console.log(arr10);
+</script>
