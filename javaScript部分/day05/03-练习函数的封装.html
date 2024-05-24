@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的分装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp" id="wp"></div>
+    <button id="btn">点击按钮</button>
+</body>
+</html>
+<script>
+    // 根据id获取元素
+    function _(id){
+        return document.getElementById(id);
+    }
+    // 生成随机颜色
+    function col() {
+        let a = Math.floor(Math.random()*256);
+        let b = Math.floor(Math.random()*256);
+        let c = Math.floor(Math.random()*256);
+        return 'rgb('+a+','+b+','+c+')';
+    }
+    _('btn').onclick = function(){
+        _('wp').style.background = col();
+    }
+</script>

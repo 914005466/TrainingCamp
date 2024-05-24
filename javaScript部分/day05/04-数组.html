@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let obj = {
+        name:'刘备',
+        fun: function(){
+            console.log('摔孩子');
+        }
+    };
+    //执行对象的方法
+    obj.fun();
+    /*
+    数组的增删方法
+    push 方法
+        向数组的尾部添加数组元素
+        参数可以有多个
+        返回值是数组的长度
+
+    unshift 方法
+        向数组的头部添加数组元素
+        参数可以有多个
+        返回值是数组的长度,ie6 ,ie7 没有返回值
+
+    pop 方法
+        删除数组尾部的元素
+        没有参数
+        他的返回值是被删除的元素
+
+    shift 方法
+        删除数组头部的元素
+        没有参数
+        返回值是被删除的元素
+
+    splice 方法
+        从数组的任意位置开始,替换或者删除数组元素
+        参数
+            第一个参数表示 制定操作开始的位置
+            第二个参数便是 指定操作删除元素的长度,包含开始位置
+            第三个参数起表示 替换的一个或者多个元素
+        返回值是 删除的元素所组成的数组,如果没有删除元素,返回值是一个空数组
+
+        如果只有一个参数,从指定位置,到数组的最后都被删除
+
+    以上5个方法改变的是原数组
+    */
+   arr1 = ['刘备','刘禅','刘湛'];
+
+   let n1 = arr1.push('关羽','关兴');
+
+    console.log(n1, arr1);
+    // 生成一个含有[20,100]的随机整数的数组,要求数组长度为10
+    let arr2 = []
+
+    for(i=0;i<10;i++){
+        arr2.push(Math.floor(Math.random()*81+20));
+    }
+    console.log(arr2);
+
+    let  arr3 = ['马','牛','羊']
+    arr3.unshift('鸡','犬','亥')
+    console.log(arr3);
+
+    let arr4 = ['岳飞','关于','郑成功','戚继光','左宗棠'];
+
+    arr4.splice(1,2,'李如松','李成良');
+    // arr4.splice(1);
+    console.log(arr4);
+</script>

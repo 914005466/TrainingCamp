@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    indexOf()获取数组中指定元素的下标
+        参数1 :设置需要查找的
+        参数2: 指定找到开始的位置(一般不常用)
+
+        特点:
+        1.从指定的元素位置往后查找
+        2.如果找不到则返回-1
+        3.第二个参数不能为负数
+    */
+   let arr1 = ['刘备','刘禅','刘湛'];
+
+   console.log( arr1.indexOf('赵云'));
+
+//    输出所有值为3的元素下标
+let arr2 = [1,2,3,4,5,3,7,8,3];
+for(i=0;i<arr2.length;i++){
+    if(arr2[i]==3){console.log(i);}
+    
+}
+
+for(let i=0;arr2.indexOf(3,i)!=-1;){
+    let index = arr2.indexOf(3,i);
+    console.log(index);
+    i = index +1;
+}
+console.log('=======================================');
+//lastIndexOf 使用方法和indexOf 一致,只是从指定的位置向前查找
+let arr3 = ['岳飞','关于','郑成功','戚继光','左宗棠'];
+
+let n2 = arr3.lastIndexOf('郑成功',10);
+console.log(n2);
+</script>

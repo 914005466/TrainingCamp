@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的返回值</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+
+    函数没有变量前置的说法,只要声明,就可以在任何地方使用
+    函数返回值指的是函数运行的结果,关键字是return
+    写在return之后的代码均不执行
+
+    总结
+    1.函数的返回值可以是任意类型
+    2.写在return后面的代码永不执行
+    3.当函数没有返回值的时候函数的返回值是 undefined,运行结果是undedfined
+    4.如果需要同时返回多个数据,可以使用数组或者对象的方式存储数据
+    */
+    console.log('奔波儿灞');
+    function  show(){
+        console.log('霸波奔');
+        // 函数需要有返回值
+        return '四探无底洞'
+        // return后面不执行任何代码
+        console.log('空');
+    }
+    show();
+    console.log(show());
+
+    /*
+    函数的形式
+    */
+//    没有参数也没有返回值
+function fun1(){
+    console.log('天涯何处无芳草');
+    return false;
+}
+console.log( fun1());
+// 有参数没有返回值
+function fun2(str){
+    console.log('何必单恋一枝花'+str);
+}
+fun2('多情却被无情脑');
+// 没有参数有返回值
+function fun3(){
+    
+    return '陆游';
+}
+console.log(fun3());
+//既有参数又有返回值
+function rand(m,n){
+   return Math.floor(Math.random()*81+20)
+
+}   
+console.log(rand(20,100));
+</script>
