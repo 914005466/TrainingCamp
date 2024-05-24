@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- readonly disabled 禁止输入 -->
+    人机: <input type="text"  disabled placeholder="人机出的数" id="a1">
+    <input type="text" disabled  placeholder="人机喊的数" id="a2"><br><br>
+
+    玩家: <select name="" id="b1">
+        <option value="0">0</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <select name="" id="b2">
+        <option value="0">0</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+    <br><br>
+    <button id="btn">比赛开始</button>
+</body>
+</html>
+<script>
+    let a1 = document.getElementById('a1');
+    let a2 = document.getElementById('a2');
+    let b1 = document.getElementById('b1');
+    let b2 = document.getElementById('b2');
+    let btn = document.getElementById('btn');
+
+    let arr = [0,5,10,15,20];
+    btn.onclick = function(){
+        // 获取人机出的数
+        // 随机获取人机出数的下标
+        let n1 = Math.floor(Math.random()*3);
+        // 根据数组下边,获取对应的数组元素
+        let num1 = arr[n1];
+        // 把num1 赋值给a1
+        a1.value = num1;
+        // 获取人家喊的数
+        let n2 = Math.floor(Math.random()*(4-n1+1)+n1);
+        let num2 = arr[n2];
+        a2.value = num2;
+
+
+        // 获取玩家数据
+        // 出的数
+        let p1 = b1.value-0;
+        let p2 = b2.value-0;
+
+        // 求和
+        let sum = p1 + num1;
+        if(sum==num2&&num2!=p2){
+            alert('人机赢');
+        }else if (sum==p2&&num2!=p2){
+            alert('你赢了')
+        }else{
+            alert('平局')
+        }
+    }
+</script>
