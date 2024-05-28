@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计时器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .btn{
+            
+            cursor: pointer;
+            width: 120px;
+            height: 50px;
+            background: skyblue;
+            color: #fff;
+            border-radius: 20px;
+            display: block;
+            margin: 30px auto;
+            line-height: 50px;
+            
+            text-align: center;
+            box-shadow: 5px 5px 5px #fff;
+        }
+    </style>
+</head>
+<body>
+    <p>距离放学还是有<em id="ss">3</em>秒</p>
+    <span class="btn" id="btn">点击获取验证码</span>
+</body>
+</html>
+<script>
+    /*
+    计时器
+    1.计时器 属于 BOM 操作的内容
+    2.计时器分为两种
+        1.间隔计时器
+            每隔一定的时间触发一次计时器
+        2.延时计时器
+            延迟计时器的触发事件,该计时器只执行一次
+    3.创建计时器有三种方式
+
+    setInterval(参数1,参数2)
+    参数1 是一个函数
+    参数2 设置间隔时间 单位是ms
+    */
+   //第一种方式,匿名函数
+    let a = 0;
+//    window.setInterval(function(){
+//         a++
+//         document.write(`朱元璋${a}<br/>`);
+//    },1000);
+//    window.alert('朱元璋')
+//第二种方式 普通函数
+// function show(){
+//     a++;
+//     document.write(`朱元璋${a}<br/>`);
+// }
+// setInterval(show,500);
+//第三种 字符串方式
+// setInterval('show()',500);
+// eval('show()');
+
+// let n1 = setInterval('show()',500);
+// console.log(n1);
+/*
+计时器的返回值,返回的是具体数字,是当前浏览器分配给计时器的编号
+一般谷歌浏览器从1开始,火狐从2开始
+一个页面中的计时器返回值,按照计时器的顺序依次增加
+*/
+/*
+let timmer;
+let n =3;
+timmer = setInterval(function(){
+    n--;
+    ss.innerHTML = n;
+    if (n==0) {
+        clearInterval(timmer)
+        //清除页面上所有的计时器
+        // for(let i =1 ;i<100;i++){
+        //     clearInterval(i)
+        // }
+        //设置延时计时器
+        setTimeout(function(){
+            console.log('外面的世界很精彩');
+        },1000)
+    }
+},1000)
+*/
+/*
+清除间隔计时器
+clearInterval(计时器编号)
+*/ 
+let m =3
+let timmer
+btn.onclick = function(){
+    //this关键字,谁触发事件 this指的就是谁
+    this.style.background = '#999'
+    this.style.color = '#000'
+    btn.innerText = `剩余${m}秒`
+    timmer =setInterval(function(){
+        m--;
+        btn.innerText = `剩余${m}秒`
+        btn.style.cursor = 'not-allowed';
+        if(m==0){
+            btn.style.background = 'skyblue'
+            btn.style.color = '#fff'
+            clearInterval(timmer)
+            btn.innerText = `点击获取验证码`
+            m=3;
+            btn.style.cursor = 'pointer';
+        }
+    },1000)    
+};
+</script>

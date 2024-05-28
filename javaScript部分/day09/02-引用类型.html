@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用类型</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    js的数据类型
+    对象(object array null) boolean number underfined string
+
+    ECMAScript 又把变量分为两种类型:基本类型 和引用类型 当然也有其他的叫法,比如 原始类型 和 对象类型 或者 拥有方法的类型 和 没有方法的类型
+
+    基本类型
+        1.基本类型的值不可变
+        2.基本类型的比较是 值的比较
+        3.基本类型是放在栈中的(指的时候内存中的栈内存,栈的特点是 先进后出)
+
+        栈会自动分配内存,使用完毕之后,会自动释放内存 ,先进后出
+        堆事动态分配内存,他的大小不定,也不会自动释放内容,先进先出
+
+    引用类型
+        1.引用类型的值是可变的
+        2.引用类型的比较是 址(引用)的比较
+        3.引用类型是同时放在堆内存和栈内存中的
+    */
+    let arr1 = ['元宵节','端午节','清明节'];
+    let arr2 = arr1;
+    console.log(arr2);
+    arr1.push('中秋节');
+
+    console.log(arr2);
+
+    let obj1 = { name : '貔貅',
+        age : 200
+    }
+       
+    let obj2 = obj1;
+    console.log(obj2);
+    obj1.aa = '麒麟';
+    console.log(obj2);
+
+    let a ={n:1}
+    let b = a
+    //连等是从右向左等 但是.的运算符权重很高
+    //a.x是给a添加一个属性={n:2}
+    a.x = a = {n:2}
+    console.log(a.x);
+    console.log(b.x);
+</script>

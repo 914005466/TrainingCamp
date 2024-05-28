@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+    <style>
+
+        #div {
+            background-color: aliceblue;
+            margin: 200px auto;
+            height: 400px;
+            width: 500px;
+            box-shadow: 2px 2px 2px #999;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+
+        #div1 {
+            display: flex;
+            width: 350px;
+            height: 100px;
+            justify-content: space-around;
+        }
+
+        #conter {
+            width: 350px;
+            /* background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            border-radius: 10px;
+            transition: background 0.5s ease, transform 0.2s ease; */
+            height: 100px;
+            border-radius: 30px;
+            display: block;
+            line-height: 100px;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        p {
+            width: 100px;
+            height: 50px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        p {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            border-radius: 10px;
+            transition: background 0.5s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        p:hover {
+            background-position: 100% 0;
+            transform: scale(1.05);
+        }
+
+        p:active {
+            transform: scale(0.95);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* 视图高度，使背景覆盖整个页面 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <div id="conter">
+            <span id="span">开始点名</span>
+        </div>
+        <div id="div1">
+            <p id="strat">开始</p>
+            <p id="end">结束</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    let arr = ['史文壮', '谷青岭', '周娅楠', '郭喆祺', '刘鸿飞', '张草原', '杨楠', '鲁帅杰', '陈泓颖', '卢瑶', '李子默', '郜超凡', '江鑫鑫', '朱亭霏', '王庆阳', '王浩宇', '张祥悦', '丁俣昊', '李云鹏', '王崇', '王同盛', '杨洋'];
+    arr.sort(function () {
+        return Math.random() - 0.5;
+    });
+    console.log(arr);
+    let span = document.getElementById('span');
+    let strat = document.getElementById('strat');
+    let end = document.getElementById('end');
+    let timer;
+    strat.onclick = function () {
+        timer = setInterval(function () {
+            let name = Math.floor(Math.random() * arr.length)
+            span.innerText = arr[name];
+        }, 100)
+    }
+    end.onclick = function () {
+        clearInterval(timer)
+    }
+
+</script>

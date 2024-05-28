@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名函数</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    函数也可以分为具名函数和匿名函数
+    */
+   function aa(){
+    console.log('林黛玉倒拔垂杨柳');
+   }
+   
+   function aa(){
+    console.log('中国男足');
+   }
+   
+   //声明一个匿名函数,把他赋值给变量show
+   var show = function(){
+    console.log('小家碧玉鲁智深');
+   }
+//    function show(){
+//     console.log('中国男足');
+//    }
+   aa();
+   show();
+   (function (str){
+    console.log('年轻人不要老熬夜'+str);
+   })('熬夜容易嘎');
+   
+</script>

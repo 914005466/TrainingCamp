@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    作用域
+    变量和函数器作用的范围
+
+    根据作用域可以把变量和函数分为两种
+    1.全局变量和全局函数,他们的生命周期和当前页面一样长
+    2.局部变量和局部函数
+    包含局部变量的函数,在函数运行完毕之后该变量就会被js的垃圾回收机制回收
+
+    变量的声明和函数的定义 会被提前到当前作用域的最前面
+
+    js函数是可以重名的,后面定义的函数会覆盖前面定义的函数
+
+    js中的原则,在作用域的外部不能访问作用域内部的变量和函数,然后在一个函数中,是可以访问函数外面全局变量和全局函数的,简单理解为,里面看得见外面,外面看不见里面
+    */
+   var abc = 10;
+   fn1()
+   function fn1() {
+    var str1 = '星星之火';
+    console.log(str1);
+    //没有变量声明关键字,则该变量表示全局变量
+    aa = '龙门石窟';
+    function show (){
+        console.log('封狼居为');
+    }
+   }
+   console.log(abc);
+   console.log(aa);
+   fn1()
+
+   function fn2(){
+    let n=100
+    n++
+    console.log(n);
+   }
+   fn2()
+   fn2()
+   fn2()
+
+   
+let n = 10;
+   function fn3(){
+    console.log(n);
+   }
+   function fn4(){
+    var n =100;
+    fn3();
+}
+fn4()
+</script>

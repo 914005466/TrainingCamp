@@ -14,15 +14,16 @@
 </head>
 <body>
     <div class="name"></div>
-    <div class="btn">
+    <div id="btn">
         开始
     </div>
-    <div class="btn1">
+    <div id="btn1">
         结束
     </div>
     <script>
         const name = document.querySelector('.name');
-        let btn = document.querySelector('.btn');
+        let btn1 = document.getElementById('btn');
+        let btn2 = document.getElementById('btn1');
         let timer = null;
         let arr = ['小美', '小帅', '丧彪', '大胡子', '小个子'];
         function color() {
@@ -30,13 +31,13 @@
             let g = Math.floor(Math.random() * 256);
             let b = Math.floor(Math.random() * 256);
         }
-        btn.addEventListener('click', () => {
+        btn1.addEventListener('click', () => {
             timer = setInterval(() => {
                 let name1 = Math.floor(Math.random() * arr.length)
                 name.innerText = arr[name1]
             }, 100);
         })
-        btn1.addEventListener('click', () => {
+        btn2.addEventListener('click', () => {
         end.onclick = function () {
 
             clearInterval(timer)
