@@ -41,5 +41,39 @@ let str4 = '一片两片三四片'
 let arr1 = str4.split('片');
 console.log(arr1);
 
+let str5 = '玉带林中挂'
+let arr2 = str5.split('');
+//数组反转
+arr2.reverse();
+console.log(arr2);
+//数组变字符串
+let str6 = arr2.join('');
+console.log(str6);
 
+
+/*
+includes(str)用来判断目标字符串中是否含有字符串 str(参数),如果有返回true 否则返回false
+在数组中也可以使用该方法
+
+includes 和indexOf 的区别
+indexOf内部执行的是 === 运算,因此无法判断数据NaN;
+includes可以破案短数组中是否存在NaN
+includes和indexOf 只能检测简单数据类型
+*/
+let str7 = '腾蛇乘雾终为土灰'
+let bol1 = str7.includes('乘雾');
+console.log(bol1);
+
+let arr3 = ['米饭','面条','大肠',[1,2,3],{name:'白溪'},NaN,+0]
+let bol2 = arr3.includes('大肠')
+console.log(bol2);
+console.log(arr3.includes(+0),arr3.indexOf(+0));
+
+/*
+startsWith(str) 判断目标字符串是否以参数 字符串 str 开头,如果返回ture,否则返回false
+endWitch(str)判断目标字符串是否以参数 字符串 str 结尾,如果返回ture,否则返回false
+*/
+let str8 = '天下没有白吃的午餐'
+let bol3 = str8.startsWith('天白');
+console.log(bol3);
 </script>

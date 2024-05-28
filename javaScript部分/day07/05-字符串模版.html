@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串模版</title>
+</head>
+<body>
+    <ul id="list">
+
+        <li>
+            <h3>标题</h3>
+            <p>内容</p>
+        </li>
+    </ul>
+    <button id="btn">点击</button>
+</body>
+</html>
+<script>
+    /*
+    模版字符串
+    */
+   let str1 = '吉鸿昌'
+   let age = 40;
+   let tips = '恨不抗日死'
+
+   let str2 = '姓名'+str1+','+'年龄'+age+','+'简介'+tips
+   console.log(str2);
+
+   //模版字符串可以插入变量
+   //通过${变量名}的形式在模版字符串中插入变量
+   let str3 = `姓名:${str1},年前:${age},诗歌:${tips}`;
+   console.log(str3);
+
+   //模版字符串可以多行书写
+   let str4 = `
+   恨不抗日死,
+   留作今日羞,
+   `;
+   console.log(str4);
+
+   let str5 = `
+   姓名:${str1},
+   年前:${age},
+   诗歌:${tips}
+   `;
+   console.log(str5);
+
+   /*
+   模版字符串中也可以直接运行表达式
+   */
+  let x =10,y=20;
+  let str6 = `${x}+${y}=${x+y}`;
+  console.log(str6);
+  //模版字符串中可以直接执行函数
+  function show(){
+    return '地狱不空誓不成佛';
+  }
+  let str7 =`地藏王菩萨:${show()}`;
+  console.log(str7);
+
+  function  rand(m,n){
+    return Math.floor(Math.random()*(n-m+1)+m);
+  }
+  function col(){
+    let r = rand(0,255);
+    let g = rand(0,255);
+    let b = rand(0,255);
+    return `rbg:(${r},${g},${b})`
+  }
+  console.log(col());
+
+  btn.onclick = function(){
+    let html = '';
+    for(let i=1;i<=10;i++){
+        html += ` 
+            <li>
+                <h3>标题${i}</h3>
+                <p>内容${i}</p>
+            </li>`
+    }
+    list.innerHTML = html;
+  }
+</script>
