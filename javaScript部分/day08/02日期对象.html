@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期对象</title>
+    <link rel="icon" href="./favicon.ico" />
+</head>
+<body>
+    <p id="case1"></p>
+</body>
+</html>
+<script>
+/*
+Date js中专门用来处理日期的对象类型
+
+使用 Date 需要通过 new 关键字 获取实例对象
+Date 实质上是一个构造函数(可以理解为类)
+
+如果 Date函数不加参数，则返回的是 当前系统的 标准时间
+*/
+//获取系统当前时间
+let date1 = new Date();
+console.log( date1, typeof date1 );
+
+/*
+Date 对象的常用方法，所有方法均返回number类型
+*/ 
+let y1 = date1.getYear(); //已经废弃，返回的是1900到当前时间的年份
+//  getFullYear() 返回当前年份
+let yy = date1.getFullYear();
+console.log( yy, y1 );
+
+// getMonth() 返回当前月份，返回的数字比实际月份小1
+let mm = date1.getMonth();
+console.log( mm );
+// getDate() 返回当前月份的第几天
+let dd = date1.getDate();
+console.log( dd );
+
+// getDay() 获取一周内的第几天，返回值为 0-6  0表示周日
+let d1 = date1.getDay();
+console.log( d1 );
+
+//getHours() 获取时间对象中的 小时数(0-23)
+let hh = date1.getHours();
+console.log( hh );
+
+//getMinutes() 获取时间对象中的 分钟数(0-59)
+let min = date1.getMinutes();
+console.log( min );
+
+//getSeconds() 获取时间对象中的 秒数(0-59)
+let ss = date1.getSeconds();
+console.log( ss );
+
+//getMilliseconds() 获取时间对象中的 毫秒数(0-999)
+let ms = date1.getMilliseconds();
+console.log( ms );
+
+// getTime() 获取的是 1970年1月1日 上午8时到当前日期的毫秒数 ，称为时间戳
+let time = date1.getTime();
+console.log( time );
+
+
+let week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+//在文档中显示当前日期和时间
+function showTime(){
+    let date2 = new Date();
+    let yy = date2.getFullYear(); //年
+    let mm = date2.getMonth()+1; // 月， 月从0开始
+    let day = date2.getDate(); // 日
+
+    let hh = date2.getHours(); // 时
+    let min = date2.getMinutes(); // 分
+    let ss = date2.getSeconds(); //秒
+
+    let w = week[ date2.getDay() ]; //获取周几
+    
+    case1.innerHTML = `${yy}年${mm>=10 ? mm : '0'+mm}月${day>=10 ? day : '0'+day}日 ${w}  ${hh>=10 ? hh : '0'+hh}:${min>=10 ? min : '0'+min}:${ss>=10 ? ss : '0'+ss}`;
+}
+showTime();
+setInterval(showTime,1000);
+</script>

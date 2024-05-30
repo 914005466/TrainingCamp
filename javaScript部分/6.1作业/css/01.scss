@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 100%;
+    height: 8.5rem;
+    color: #fff;
+    background-color: #00AAEE;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    vertical-align: top;
+    h2{
+        font-size: 3.2rem;
+        font-weight: 400;
+    }
+    p:nth-child(1){
+        width: 6rem;
+        font-size: 3rem;
+        height: 3rem;
+        margin-left: 2.7rem;
+
+    }
+    p:nth-child(3){
+        width: 3.7rem;
+        background: url('../images/caidan.png') no-repeat;
+        height: 2.7rem;
+        margin-right: 2.7rem;
+    }
+}
+.tab {
+    width: 100%;
+    display: flex;
+    height: 8.5rem;
+
+    background: #f2f2f2;
+    font-size: 3rem;
+}
+
+.tab span {
+    line-height: 8.5rem;
+    text-align: center;
+    /* line-height: 5rem; */
+    cursor: pointer;
+    // border-bottom: 2px #fff solid;
+    flex: 1;
+}
+
+.tab span.bar {
+    border-bottom: 0.5rem #f00 solid;
+}
+
+.list {
+    list-style-type: none;
+    display: none;
+    width: 100%;
+    height: 64rem;
+}
+
+.list li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px #ccc solid;
+    height: 16rem;
+    padding: 1rem;
+    div{
+        .timer{
+            font-size: 2.5rem;
+            color: #969696;
+        }
+    }
+    
+    }
+
+.list li>img {
+    width: 17.4rem;
+    height: 11.7rem;
+    margin-right: 1rem;
+}
+
+.list li h4 {
+    color: #696969;
+    font-size: 2.8rem;
+    color: #333333;
+    font-weight: 400;
+}
+.show {
+    display: block;
+}
+.show1 {
+    
+    li {
+    display: flex;
+    justify-content: space-between;
+    p{
+        margin-bottom: 1.5rem;
+    }
+    p:nth-child(1){
+        font-size: 3rem;
+        color: #333333;
+    }
+    p:nth-child(2){
+        font-size: 2.5rem;
+        color: #969696;
+    }
+    a{
+        text-decoration: none;
+        font-size: 2.5rem;
+        color: #00AAEE;
+        margin-right: 2rem;
+    }
+    .box1 {
+    
+        .p{
+            
+            font-size: 2.5rem;
+            color: #E1292E;
+            margin-bottom: 2.5rem;
+            right: 0;
+        }
+        button{
+            
+            width: 15.9rem;
+            height: 5.5rem;
+            color: #00AAEE;
+            border: 1px solid #00AAEE;
+            border-radius: 2px;
+            font-size: 2.8rem;
+            background: none;
+            bottom: 2.6rem;
+            right: 0;
+        }
+    }
+   
+}
+}

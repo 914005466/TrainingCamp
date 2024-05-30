@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装函数</title>
+</head>
+<body>
+    <div id="wp"></div>
+</body>
+</html>
+<script>
+/*
+封装一个函数，该传入 形如 #abc .abc div 这三个形式的参数，分别得出 id=abc class=abc 以及标签名 对象
+*/ 
+function $(ele){
+
+    if(ele==''||ele===undefined||typeof ele === 'object' || typeof ele === 'number'){
+        console.log('请传入正确的元素');
+        return;
+    }
+    //获取传入参数的第一个字符
+    // let firstCode = ele.charAt();
+    //设置返回的dom对象
+    let dom = null;
+
+    if(ele.startsWith('#')){
+        dom = document.getElementById( ele.slice(1) );
+    }else if(ele.startsWith('.')){
+        dom = document.getElementsByClassName( ele.slice(1) );
+    }else{
+        dom = document.getElementsByTagName( ele );
+    }
+
+    return dom;
+}
+
+$('#wp').innerHTML = '张飞吃豆芽';
+$('div')[0].style.border = '1px #f00 solid';
+
+let arr = [
+    {
+        price:99,
+        tit:'卫生纸',
+        num:10000,
+        city:'北京',
+        express:true,
+        star:3,
+        url:'./images/13.jpg',
+        pt:'创意云平台'
+    }
+
+];
+</script>

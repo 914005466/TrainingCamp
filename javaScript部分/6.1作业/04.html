@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光彩网供应商</title>
+    <link rel="stylesheet" href="./css/04.css">
+</head>
+
+<body>
+    <header>
+        <p></p>
+        <h2>光采网供应商</h2>
+        <p id="btn"></p>
+        <div class="box" id="box">
+            <div class="box1"></div>
+            <div class="box2">
+                <span><img src="./images/04首页_slices/基本资料.png" alt="">基本资料</span>
+                <span><img src="./images/04首页_slices/客服.png" alt=""> 专属客服</span>
+                <span id="bbxx"><img src="./images/04首页_slices/版本信息、.png" alt="">版本信息</span>
+                <span><img src="./images/04首页_slices/服务条款.png" alt="">服务条款</span>
+                <span><img src="./images/04首页_slices/隐私.png" alt="">隐私声明</span>
+                <span><img src="./images/04首页_slices/版本说明.png" alt="">版本说明</span>
+                <span><img src="./images/04首页_slices/组 6.png" alt="">关于光采网</span>
+            </div>
+        </div>
+    </header>
+   
+    <nav><img src="./images/04首页_slices/banner.png" alt=""></nav>
+    <ul>
+        <li id="aa"><img src="./images/04首页_slices/采购信息.png" alt="">
+            <p>采购信息</p>
+        </li>
+        <li id="aa1"><img src="./images/04首页_slices/产品订单.png" alt="">
+            <p>产品订单</p>
+        </li>
+        <li id="aa2"><img src="./images/04首页_slices/采购订单.png" alt="">
+            <p>采购订单</p>
+        </li>
+        <li><img src="./images/04首页_slices/报价单.png" alt="">
+            <p>报价单</p>
+        </li>
+        <li><img src="./images/04首页_slices/邀请单.png" alt="">
+            <p>我的宴请单</p>
+        </li>
+        <li><img src="./images/04首页_slices/站内信息.png" alt="">
+            <p>站内信息</p>
+        </li>
+    </ul>
+    <footer>
+        <div>
+            <img src="./images/04首页_slices/首页.png" alt="">
+            <p>首页</p>
+        </div>
+        <div>
+            <img src="./images/04首页_slices/订单.png" alt="">
+            <p>我的订单</p>
+        </div>
+        <div>
+            <img src="./images/04首页_slices/站内信.png" alt="">
+            <p>站内信</p>
+        </div>
+        <div>
+            <img src="./images/04首页_slices/我的资料.png" alt="">
+            <p>我的资料</p>
+        </div>
+    </footer>
+    <a href="./05.html"></a>
+    
+</body>
+
+</html>
+<script src="./js/base.js"></script>
+<script>
+    let box = document.getElementById('box')
+    let btn = document.getElementById('btn')
+    let aa = document.getElementById('aa')
+    let aa1 = document.getElementById('aa1')
+    let bbxx = document.getElementById('bbxx')
+    btn.onclick = function(){
+    if(box.style.display=='block'){
+        box.style.display='none';
+    }else{
+        box.style.display='block';
+    }
+}
+aa.addEventListener('click',function(){
+    window.location.assign('05.html')
+})
+aa1.addEventListener('click',function(){
+    window.location.assign('06.html')
+})
+aa2.addEventListener('click',function(){
+    window.location.assign('07.html')
+})
+bbxx.addEventListener('click',function(){
+    window.location.assign('08-bbxx.html')
+})
+</script>

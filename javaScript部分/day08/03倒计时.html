@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+<body>
+    <p id="txt"></p>
+</body>
+</html>
+<script>
+/*
+创建固定日期对象，需要给Date构造函数传入参数，参数是日期格式
+1. new Date(年,月,日,时,分,秒) 月份需要减 1
+2. new Date('月 日 年 时:分:秒') 如果只有日期没有时间，则表示00:00:00
+3. new Date('月 日,年 时:分:秒')
+*/
+let date1 = new Date(2024,5,18,12,30,30);
+console.log( date1 );
+
+let date2 = new Date('6 18 2024 12:30:30');
+console.log( date2 );
+
+let date3 = new Date('6 18,2024 12:30:30');
+console.log( date3 );
+
+//获取端午节的时间
+let date5 = new Date('6 10 2024');
+console.log( date5 );
+
+//创建倒计时函数。参数是传入的日期对象
+function showTime(tDate){
+    //获取系统当前时间
+    let now = new Date();
+
+    //两个日期对象直接相减，得出的是两个对象相差的时间戳
+    let t = tDate - now;
+    console.log(t);
+    //计算时间戳中有几天
+    let day = Math.floor(t/1000/3600/24);
+    // 计算剩余不到一天的时间有多少小时
+    let hh = Math.floor( t%(24*3600*1000)/1000/3600 );
+    //计算剩余分钟数
+    let min = Math.floor( t%(24*3600*1000)/1000%3600/60 );
+    //计算剩余分秒数
+    let ss = Math.floor( t%(24*3600*1000)/1000%3600%60 );
+
+    txt.innerHTML = `距离端午节还有${day}天${hh}小时${min}分钟${ss}秒`;
+}
+showTime(date5);
+setInterval(function(){
+    showTime(date5);
+},1000);
+</script>

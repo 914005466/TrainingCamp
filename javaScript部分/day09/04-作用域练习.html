@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // var a =10;
+    // function fn(a){
+        
+    //     console.log(a);
+    //     //变量前置,值不前置
+    //     var a = 100
+    // }
+    // fn();
+    // console.log(a);
+
+    // let a = 10;
+    // function fn(){
+    //     // 当前 作用域中只能找var 向外可以找全局变量
+    //     console.log(a);
+    //     //变量前置,值不前置
+    //     a = 100
+    // }
+    // fn();
+    // console.log(a);
+
+    var out = 25;
+    var obj = {
+        out:20,
+        func:function(){
+            var out = 30;
+            // console.log(obj);
+            return this.out;
+        }
+    };
+    console.log(obj.func);
+    console.log('=======');
+    //小括号的运算结果 只有最后一个逗号
+    console.log( (obj.func,obj.func));
+    console.log('========');
+    console.log( (obj.func)() );
+    console.log('========');
+</script>

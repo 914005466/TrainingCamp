@@ -1,0 +1,70 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8f8f8;
+}
+
+header {
+  width: 100%;
+  height: 8.5rem;
+  color: #fff;
+  background-color: #00AAEE;
+  display: flex;
+  position: relative;
+  align-items: center;
+  /* justify-content: space-between; */
+  vertical-align: top;
+}
+
+header h2 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  margin-left: 18rem;
+}
+
+header p:nth-child(1) {
+  width: 6rem;
+  font-size: 3rem;
+  height: 3rem;
+  margin-left: 2.7rem;
+  background: url("../images/04首页_slices/返回.png") no-repeat 100%;
+}
+div{
+    width: 100%;
+    height: 42.7rem;
+     margin-top: 2.3rem; 
+    background: #fff;
+}
+ul{
+    margin: 0 2.7rem;
+    height: 42.7rem;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+li{
+    width: 100%;
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    color: #333333;
+    position: relative;
+}
+img {
+    width: 5.3rem;
+    height: 5.3rem;
+    margin-right: 2.2rem;
+}
+li span{
+    height: 1.5rem;
+    width: 2.4rem;
+    position: absolute;
+    right: 0;
+    background: url('../images/08/1.png') no-repeat 100%;
+}

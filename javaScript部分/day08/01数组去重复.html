@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+let arr1 = [1,2,3,4,1,2,4,5,3];
+let arr2 = [100,200,300,400,100,200,400,500,300];
+
+//封装一个数组去重复的函数
+function unArr(arr){
+    let arr2 = [];
+    for(let i=0;i<arr.length;i++){
+        console.log( arr[i] );
+        // 判断 arr[i] 表示的值 是否存在于 arr2中
+        // if( arr2.indexOf( arr[i] ) == -1){
+        
+        if( !arr2.includes( arr[i] ) ){
+            arr2.push(arr[i]);
+        }
+    }
+    return arr2;
+}
+console.log( unArr(arr1) );
+console.log( unArr(arr2) );
+</script>

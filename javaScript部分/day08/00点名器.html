@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点名器</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:600px;
+            height:700px;
+            border:1px #f00 solid;
+            position: relative;
+        }
+        .wp>.item,.wp>.item img {
+            width:100px;
+            height:100px;
+        }
+        .wp>.item {
+            position: absolute;
+        }
+        .wp>.item:nth-child(-n+6){
+            top:0;
+        }
+        .wp>.light {
+            box-shadow:0 0 5px 10px #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp" id="wp">
+        <!-- <div class="item">
+            <img src="./images/1.jpg" alt="">
+        </div> -->
+        
+    </div>
+    <button id="start">开始</button>
+    <p id="user"></p>
+</body>
+</html>
+<script>
+
+let arr = [
+    {
+        name:'郜超凡',
+        url:'./images/1.jpg'
+    },
+    {
+        name:'鲁帅杰',
+        url:'./images/2.jpg'
+    },
+    {
+        name:'史文壮',
+        url:'./images/3.jpg'
+    },{
+        name:'王浩宇',
+        url:'./images/4.jpg'
+    },
+    {
+        name:'刘鸿飞',
+        url:'./images/5.jpg'
+    },
+    {
+        name:'谷青岭',
+        url:'./images/6.jpg'
+    },
+    {
+        name:'周娅楠',
+        url:'./images/7.jpg'
+    },
+    {
+        name:'王同盛',
+        url:'./images/8.jpg'
+    },
+    {
+        name:'陈泓颖',
+        url:'./images/9.jpg'
+    },
+    {
+        name:'江鑫鑫',
+        url:'./images/10.jpg'
+    },{
+        name:'郭喆祺',
+        url:'./images/11.jpg'
+    },
+    {
+        name:'张草原',
+        url:'./images/12.jpg'
+    },
+    {
+        name:'杨  楠',
+        url:'./images/13.jpg'
+    },
+    {
+        name:'朱亭霏',
+        url:'./images/14.jpg'
+    },
+    {
+        name:'卢  瑶',
+        url:'./images/15.jpg'
+    },
+    {
+        name:'张祥悦',
+        url:'./images/16.jpg'
+    },
+    {
+        name:'李子默',
+        url:'./images/17.jpg'
+    },
+    {
+        name:'李云鹏',
+        url:'./images/18.jpg'
+    },
+    {
+        name:'丁俣吴',
+        url:'./images/19.jpg'
+    },
+    {
+        name:'吴云鹏',
+        url:'./images/20.jpg'
+    },
+    {
+        name:'杨  洋',
+        url:'./images/21.jpg'
+    },
+    {
+        name:'王  崇',
+        url:'./images/22.jpg'
+    }
+];
+let timer=null;
+let time1=null,time2=null;
+
+arr.sort(function(){
+    return Math.random()-0.5;
+});
+
+let html = '';
+for(let i=0;i<arr.length;i++){
+    html+=`
+    <div class="item">
+        <img src="${arr[i].url}" alt="">
+    </div>
+    `;
+}
+wp.innerHTML = html;
+
+let items = document.getElementsByClassName('item');
+for(let i=0;i<items.length;i++){
+    if(i<6){
+        items[i].style.left = 100*i+'px';
+    }
+    if(i>=6 && i<12){
+        items[i].style.right = '0px';
+        items[i].style.top = (i-5)*100+'px';
+    }
+    if(i>=12 && i<17){
+        items[i].style.bottom = '0px';
+        items[i].style.right = (i-11)*100+'px';
+    }
+    if(i>=17){
+        items[i].style.left = '0px';
+        items[i].style.bottom = (i-16)*100+'px';
+    }
+}
+
+start.onclick = function(){
+    //清除计时器
+    clearInterval(timer);
+    clearTimeout(time1);
+    clearTimeout(time2);
+
+    let n = Math.floor( Math.random()*arr.length );
+    items[n].className = 'item light';
+    items[n].style.zIndex=100;
+    
+    let t = 10;
+    function move(){
+        //重置items
+        for(let i=0;i<items.length;i++){
+            items[i].className = 'item';
+            items[i].style.zIndex=10;
+        }
+        n++;
+        if(n>=arr.length){
+            n=0;
+        }
+        items[n].className = 'item light';
+        items[n].style.zIndex=100;
+    }
+
+    timer = setInterval(move,t);
+    time1 = setTimeout(function(){
+        clearInterval(timer);
+        timer = setInterval(move,1000);
+    },3000);
+
+    time2 = setTimeout(function(){
+        clearInterval(timer);
+        user.innerHTML=arr[n].name;
+    },6000);
+};
+
+</script>

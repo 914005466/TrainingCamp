@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+</head>
+<body>
+    <ul id="list">
+        <li>姓名：武大郎，年龄: 18</li>
+    </ul>
+</body>
+</html>
+<script>
+/*
+js 对象，js中万物皆对象
+创建对象的方法
+1. 使用{} 创建对象 / 字面量 / json
+2. 使用构造函数创建对象
+
+json 和对象的形式是一致的，只是json中所有的字符串形式都是双引号包裹
+
+json = {
+    "key":"value",   键值对
+    "age":18,
+    "bol":false
+}
+*/
+let dog1 = {
+    name:'猫咪',
+    age:18
+};
+console.log( dog1 , typeof dog1);
+let dog2 = new Object();
+dog2.name = '大黄';
+dog2.age = 1;
+console.log( dog2 );
+
+/*
+给对象添加属性和方法
+obj.属性名=属性值 
+obj.方法名=function(){}
+*/
+let obj1 = {
+    "name":"潘金莲",
+    "age":20
+};
+console.log(obj1);
+
+obj1.sex = '女';
+obj1.phone = '13888888888';
+console.log(obj1);
+//添加方法
+obj1.aa = function(){
+    // 对象中也有this关键字，this指的是当前所在的对象
+    console.log(`
+        姓名: ${obj1.name}
+        年龄: ${obj1.age}
+        性别: ${obj1.sex}
+        手机: ${obj1.phone}
+    `);
+}
+console.log(obj1);
+obj1.aa();
+let arr = [
+    {
+        name:'潘金莲',
+        age:25
+    },
+    {
+        name:'李瓶儿',
+        age:23
+    },
+    {
+        name:'庞春梅',
+        age:19
+    }
+];
+
+let html = '';
+for(let i=0;i<arr.length;i++){
+    html += `<li>姓名：${arr[i].name}，年龄: ${arr[i].age}</li>`;
+}
+list.innerHTML = html;
+let obj2 = {
+    name:'严嵩',
+    age:70,
+    sex:'男'
+};
+// 循环对象, 当对象的属性名 是 一个变量的时候，需要使用 obj[属性名] 的 方式来获取对应的属性值
+for (let aa in obj2) {
+   console.log( aa, obj2[aa] );
+}
+for(let i=0;i<arr.length;i++){
+    arr[i]
+}
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+        margin: 0 2.7rem;
+    }
+    .box {
+        height: 8.5rem;
+        width: 100%;
+        background: #00AAEE;
+    }
+    .box p {
+        display: flex;     
+        color: #fff;
+        justify-content: space-between;
+        height: 8.5rem;
+        line-height: 8.5rem;
+    }
+    .box p span {    
+        font-size: 3rem;
+        
+    }
+    .box p span:nth-child(2) {   
+        font-weight: 400;
+        font-size: 3.2rem;
+    }
+    .box1 {
+        height:  64rem;
+        background: #fff;
+    }
+    .box11 {
+        height: 64rem;
+        font-size: 2.8rem;
+
+    }
+    .box11 p {
+        display: flex;
+        height: 8.5rem;
+        position: relative;
+        align-items: center;
+        color: #969696;
+        border-bottom: 1px solid #ddd;
+    }
+    .box11 p span {
+        color: #333333;
+    }
+    .box11 p em {
+        position: absolute;
+
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        text-align: center;
+        font-style: normal;
+        border-radius: 50%;
+        border: 1px solid #00AAEE;
+        color: #00AAEE;
+        right: 0;
+    }
+    .box11 .span {
+        display: block;
+        margin-top: 2.7rem;
+        text-indent: 2em;
+        line-height: 4.6rem;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="container"> 
+            <span>取消</span> 
+            <span>发邮件</span> 
+            <span>发送</span>
+        </p>
+    </div>
+    <div class="box1">
+        <div class="container box11">
+            <p>收件人: <span>1743962232@qq.com</span> <em>+</em></p>
+            <p>主题: <span>第二届光采网采购大会</span></p>
+            <span class="span">
+                光采网是在中国石油和化学工业联合会供应商工作委员会的监督监管下服务于石油和化工行业的B2B电子商务交易平
+            </span>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/base.js"></script>

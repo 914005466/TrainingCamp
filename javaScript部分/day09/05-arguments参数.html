@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    arguments
+    在每一个函数中,都有一个默认的arguments,他类似数组,里面存储所有的参数数据
+    类似数组,但不是数组,只能读取数据
+
+    扩展运算符(...) 他是ES6推出的一个新的运算符,用来获取函数中剩余的参数,在函数中返回一个数组对象
+    rest参数必须要在形参列表最后
+    */
+   function abc(){
+    console.log(arguments);
+    let sum = 0;
+    for(let i = 0;i<arguments.length;i++){
+        sum+=arguments[i];
+    }
+    console.log(sum);
+   }
+   abc(1,2,3,4,5,6)
+   //字符串也可以使用for循环
+   let str = '白云千载空悠悠';
+   let arr = '';
+   for(let i =str.length-1;i>=0;i--){
+    console.log(str[i]);
+    arr+=str[i]
+   }
+   console.log(arr);
+
+   //arguments 中的方法callee表示当前这个函数
+   function show (){
+    console.log('十步杀一人');
+    //arguments.callee 表示他所在的函数,一般常用于递归
+    console.log( arguments.callee);
+    //show()
+    //arguments.caallee();
+   }
+   show();
+
+   function myArr (a,b,...arg){
+    console.log(a,b,arg);
+   }
+   myArr(1,2,3,4,5,6,67,7)
+
+   let a= {n:1};
+   let b = {x:100};
+   let c = {};
+   c[a] = 123;
+   c[b] = 456;
+   console.log(a);
+   console.log(c[a]);
+</script>

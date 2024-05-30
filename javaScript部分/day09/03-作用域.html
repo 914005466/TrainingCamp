@@ -59,4 +59,32 @@ let n = 10;
     fn3();
 }
 fn4()
+/*
+作用域的就近原则:使用变量的时候,函数内部优先选择,如果在函数内部没有找到该变量,则到该函数的外层作用域查询该变量,这样依次找下去,直到全局作用域,如果在全局作用域还没有找到该变量,则报错
+*/
+let s1 = '东营';
+let aa1 = '兰陵王'
+function fn6(){
+    let s1 = '济南';
+    function fn7(){
+        // console.log(s1);
+        s1 = '枣庄'
+        aa1 = '花木兰'
+    }
+    fn7();
+    console.log(s1);
+    console.log(aa1);
+}
+console.log('==========');
+fn6();
+
+/*
+多个script标签中,下面的script标签能够使用上面script标签中的全局变量和函数,上面的标签不能使用下面的全局变量和函数
+*/
+</script>
+<script src="./js/aa.js"></script>
+<script>
+console.log('==========');
+console.log(s1);
+myAa();
 </script>
