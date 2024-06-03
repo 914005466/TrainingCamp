@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于光采网</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    
+    <style>
+        body {
+            background: #f8f8f8;
+        }
+        header {
+            height: 14.4rem;
+            display: flex;
+            align-items: center;
+            background: #00AAEE;
+            justify-content: center;
+        }
+        header span {
+            display: block;
+            width: 12.2rem;
+            text-align: center;
+            height: 5.4rem;
+        }
+        header h1 {
+            font-family: FZLTHJW;
+            font-weight: normal;
+            font-size: 5.4rem;
+            color: #FFFFFF;
+            flex: 1;
+            margin-left: 30rem;
+        }
+        header span img {
+            width: 3.2rem;
+            height: 5.4rem;
+        }
+        p {
+            font-family: FZLTHJW;
+            font-weight: normal;
+            font-size: 4.8rem;
+            color: #333333;
+            line-height: 7.7rem;
+            text-indent: 2em;
+            margin: 0 4.5rem;
+        }
+        span {
+            color: #00AAEE;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span id="arrow"><img src="./images/08/1.png" alt=""></span>
+        <h1>版本信息</h1>
+    </header>
+    <p>
+        光采网是在中国石油和化学工业联合会供应商工作委员会的监督监管下服务于石油和化工行业
+        的B2B电子商务交易平台，为中国石油和化工企业提供合格供应商评审、在线交易、信用
+        评价、仓储物流等综合服务。
+    </p>
+    <p>
+        光采网以优质的供应商库、规范的业务流程、丰富的信息服务和极速的仓储物流，致力于营造中
+        国石油和化工行业阳光、高效的采购环境，实现企业采购降本增效，同时追求石化企业用户
+        采购的最佳体验。
+    </p>
+    <p>
+       <span>光采网的业务主要包括：</span> 
+    </p>
+    <p>
+       <span> 合格供应商：</span>建立中国石化行业统一供应商库。
+    </p>
+    <p>
+        <span>备品备件：</span>网上下单，就近仓储，及时配送。
+    </p>
+    <p>
+        <span>电子采购：</span>提供石化企业采购一站式服务
+    </p>
+    <p>
+        <span>积压库存：</span>打通行业渠道，实现积压物资全行业流转。 
+    </p> 
+    <p>
+     <span>   联合采购：</span>集中资源，扩大优势，高效采购。
+    </p>
+    <p>
+        针对以上业务需求，光采网提供仓储、运输、分拨、配送等专业物流服务。
+    </p>
+    <p>
+        光采网携手行业采购商与供应商，以“互联网+石化”为着力点，为优化中国
+        石化产业供应链，促进行业产业结构升级助力.
+    </p>
+</body>
+</html>
+<script src="./js/base1.js"></script>
+<script>
+    let arrow = document.getElementById('arrow');
+    arrow.onclick = function(){
+        // history.back(); 方法1
+        history.go(-1);//方法2
+    }
+</script>

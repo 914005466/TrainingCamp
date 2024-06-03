@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            width: 500px;
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            margin: 30px auto;
+        }
+        .wp,.wp2 {
+            width: 50px;
+            height: 300px;
+            border: 1px solid black;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        span {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="wp"></div>
+        <button id="btn1">-></button>
+        <button id="btn2">->></button>
+        <button id="btn3">-<<</button>
+        <button id="btn4">-<</button>
+        <div class="wp2"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    let arr=['北京','深圳','武汉','郑州' ,'广州','上海'];
+    let wp=document.querySelector('.wp');
+    let wp2=document.querySelector('.wp2');
+    let btn1=document.querySelector('#btn1');
+    let btn2=document.querySelector('#btn2');    
+    let btn3=document.querySelector('#btn3');
+    let btn4=document.querySelector('#btn4');
+    
+    let span2 = wp2.getElementsByTagName("span")
+    let index=0;
+    for(let i=0;i<arr.length;i++){
+        wp.innerHTML+=`<span>${arr[i]}</span>`;
+    }
+    btn2.onclick=function(){
+        wp.innerHTML='';
+        let html='';
+        for(let i=0;i<arr.length;i++){
+       html+=`<span>${arr[i]}</span>`;
+    }
+    wp2.innerHTML=html;
+    }
+    btn3.onclick=function(){
+        wp2.innerHTML='';
+        let html='';
+        for(let i=0;i<arr.length;i++){
+       html+=`<span>${arr[i]}</span>`;
+    }
+     wp.innerHTML=html;
+    }
+    function move() {
+        let span = wp.querySelectorAll('.wp span');
+        
+        for (let i = 0; i < span.length; i++) {
+            span[i].onclick = function () {
+                
+                span[i].style.background = '#ccc';
+                let html;
+                btn1.onclick = function () {
+                    wp.removeChild(span[i]);
+                    let ab = span[i].cloneNode(true);
+                   
+                    wp2.appendChild(ab);
+                    let span2 = wp2.querySelectorAll('.wp2 span');
+                   
+                    for (let j = 0; j < span2.length; j++) {
+                        span2[j].style.background = 'none';
+                        span2[j].onclick = function () {
+                            span2[j].style.background = '#ccc';
+                            let html;
+                            btn4.onclick = function () {
+                                wp2.removeChild(span2[j]);
+                                let ab = span2[j].cloneNode(true);
+                                wp.appendChild(ab);
+                                let span = wp.querySelectorAll('.wp span');
+                                for (let k = 0; k < span.length; k++) {
+                                    span[k].style.background = 'none';
+                                }
+
+                            }
+                    }
+                }
+                }
+            }
+        }
+        
+    }
+    move();
+
+</script>        

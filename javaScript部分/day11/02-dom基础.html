@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom基础</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list {
+            list-style-type: none;
+        }
+        .list li {
+            height: 50px;
+            background: lightgreen;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li class="abc">2</li>
+        <li>3</li>
+        <li id="aa">4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
+<script>
+    /*
+    DOM(doucument object model )文档对象模型,dom中提供了很多属性和方法用来操作html标签,比如标签的创建,删除,修改,查询,替换,拷贝等
+    DOM 其实可以理解为整体文档结构 (DOM树)
+    DOM中的每一个元素,也可以称为节点,根据节点的结构,可以称为父节点,子节点
+    */ 
+
+
+   /*
+   获取元素的方法
+   doucument.getElementById(id) 根据id 获取节点
+   doucument.getElementByTagName(tag) 根据元素名获取节点
+   doucument.getElementsClassName(ClassName) 根据ClassName获取节点
+
+   doucument 是DOM树的根,可以理解为整个dom的根节点
+   获取body document.body
+   获取html doucment.documentElement
+
+   document.querySelector('选择器') 获取满足选择器条件的第一个元素,低版本ie不支持
+   document.querySelectorAll('选择器') 获取满足选择器条件的所有元素,低版本ie 不支持,返回的是所有元素组成的数组
+
+   他们的参数可以是任意一个css选择器
+   他们的调用对象必须是 document
+   querySelector('选择器') == querySelectorAll('选择器')[0]
+
+   如果同时支持多个选择器,需要使用英文逗号隔开
+    querySelector和querySelectorAll 属于静态方法
+    他们上面那个几个方法都是动态方法
+    
+
+   */
+  let body = document.body;
+  console.log(body);
+  body.style. background="skyblue",
+   
+  body.style. border='1px solid #f00'
+ 
+ let html = document.documentElement;
+ html.style.border = '10px solid #f00'
+//选择满足选择器的第一个
+ let li = document.querySelector('.list li');
+ li.style.border = '2px solid #000'
+
+ let li2 = document.querySelector('.list li:nth-child(2)');
+ li2.style.border = '2px solid #000'
+
+ let box = document.querySelectorAll('.list li');
+ console.log(box);
+
+//使用不同选择器(群组选择器)
+ let box1 = document.querySelectorAll('.abc,#aa');
+ console.log(box1);
+ console.log(li==box[0]);
+</script>

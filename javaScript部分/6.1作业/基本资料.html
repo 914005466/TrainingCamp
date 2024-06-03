@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本资料</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        body {
+            background: f8f8f8;
+        }
+        header {
+            height: 8.6rem;
+            display: flex;
+            align-items: center;
+            background: #00AAEE;
+            justify-content: center;
+        }
+
+        header span {
+            display: block;
+           width: 7.7rem;
+            text-align: center;
+            font-family: FZLTHJW;
+            font-weight: 500;
+            font-size: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+        }
+
+        header h1 {
+            font-family: FZLTHJW;
+            font-weight: normal;
+            font-size: 3.2rem;
+            color: #FFFFFF;
+            flex: 1;
+            margin-left: 20rem;
+        }
+        header span img {
+            width: 2rem;
+            height: 3.2rem;
+        }
+        .cont {
+            padding-bottom: 5rem;
+            margin-bottom: 10rem;
+            background: #FFFFFF;
+        }
+        .cont li{
+            margin: 0 3rem;
+            height: 6.6rem;
+            border-bottom: 0.2rem solid #dddddd;
+            display: flex;
+            text-align: left;
+            align-items: center;
+            padding-top: 2rem;
+        }
+        .cont li .p1 {
+            width: 20rem;
+            font-size: 2.8rem;
+            color: #969696;
+        }
+        .cont li .p2 {
+            flex: 1;
+            font-size: 3rem;
+            color: #333333;
+        }
+        .cont li p.act {
+            color: #00AAEE;
+        }
+        .cont li p.act1 {
+            color: #E1292E;
+        }
+        .cont li.act2 {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span id="arrow"><img src="./images/08/1.png" alt=""></span>
+        <h1>基本资料</h1>
+    </header>
+    <ul class="cont">
+        <li>
+            <p class="p1">会员</p>
+            <p class="p2">Test-GYS</p>
+        </li>
+        <li>
+            <p class="p1">E-mail</p>
+            <p class="p2">123456@163.com</p>
+        </li>
+        <li>
+            <p class="p1">供应商类型</p>
+            <p class="p2 act">合格供应商</p>
+        </li>
+        <li>
+            <p class="p1">申请类型</p>
+            <p class="p2">供应商</p>
+        </li>
+        <li>
+            <p class="p1">真实姓名</p>
+            <p class="p2">大汉天子</p>
+        </li>
+        <li>
+            <p class="p1">性别</p>
+            <p class="p2">男</p>
+        </li>
+        <li>
+            <p class="p1">联系电话</p>
+            <p class="p2">0312-4378665</p>
+        </li>
+        <li>
+            <p class="p1"> 手机号码  </p>
+            <p class="p2"> 13522019877  </p>
+        </li>
+        <li>
+            <p class="p1"> 部门  </p>
+            <p class="p2">  供应商服务部 </p>
+        </li>
+        <li>
+            <p class="p1">  职务 </p>
+            <p class="p2">   主任</p>
+        </li>
+        <li>
+            <p class="p1"> QQ  </p>
+            <p class="p2">  1743962256 </p>
+        </li>
+        <li>
+            <p class="p1">  阿里旺旺 </p>
+            <p class="p2"> 5678910  </p>
+        </li>
+        <li>
+            <p class="p1"> 传真  </p>
+            <p class="p2">  0546-6451235 </p>
+        </li>
+        <li>
+            <p class="p1">  企业名称 </p>
+            <p class="p2">  北京中联光采科技有限公司 </p>
+        </li>
+        <li class="act2">
+            <p class="p1">  当前状态 </p>
+            <p class="p2 act1">  通过审核 </p>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script>
+    let arrow = document.getElementById('arrow');
+    arrow.onclick = function(){
+        // history.back(); 方法1
+        history.go(-1);//方法2
+    }
+</script>

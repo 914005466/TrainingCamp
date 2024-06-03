@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{
+
+            margin: 0;  
+
+  
+            padding: 0;  
+
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background: violet;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
+<script>
+    var wp = document.querySelector('.wp');
+    // 给元素添加鼠标按下事件
+    // wp.addEventListener('mousedown',function(e){
+    //     // 鼠标按下时，计算元素距离页面左上角的距离
+    //     var disX = e.clientX - wp.offsetLeft;
+    //     // 鼠标按下时，计算元素距离页面左上角的距离
+        
+    //     var disY = e.clientY - wp.offsetTop;
+    //     // 鼠标移动时，计算元素的新位置
+    //     document.addEventListener('mousemove',function(e){
+    //         // 鼠标移动时，计算元素的新位置
+    //         wp.style.left = e.clientX - disX + 'px';
+    //         wp.style.top = e.clientY - disY + 'px';
+    //     });
+    //     // 鼠标松开时，移除mousemove事件监听
+    //     document.addEventListener('mouseup',function(){
+    //         document.removeEventListener('mousedown');
+    //     });
+    // });
+
+
+    wp.onmousedown = function(){
+        // 鼠标按下时，计算元素距离页面左上角的距离
+        let disX = event.clientX - wp.offsetLeft;
+        //方块不能移出页面
+        // 鼠标按下时，计算元素距离页面左上角的距离
+        let disY = event.clientY - wp.offsetTop;
+        wp.onmousemove = function(){
+            // 鼠标移动时，计算元素的新位置
+            let left = event.clientX - disX;
+            let top = event.clientY - disY;
+            if(left<=0){
+                left=0;
+            }
+            if(left>=window.innerWidth-wp.offsetWidth){
+
+                left=window.innerWidth-wp.offsetWidth;
+            }
+            if(top<=0){
+                top=0;
+            }
+            if(top>=window.innerHeight-wp.offsetHeight){
+                top=window.innerHeight-wp.offsetHeight;
+            }
+            wp.style.left = left + 'px';
+            wp.style.top = top + 'px';
+
+        };
+        document.onmouseup = function(){
+            wp.onmousemove = null;
+            // wp.onmouseup = null;
+        };
+    }
+</script>

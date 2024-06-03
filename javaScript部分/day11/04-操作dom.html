@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作</title>
+</head>
+<body>
+    <ul class="list">
+
+        <li> <button id="btn">点击操作</button></li>
+    </ul>
+</body>
+</html>
+<script>
+let list = document.querySelector('.list')
+let btn = document.querySelector('#btn')
+let html = '';
+for (let i = 0;i<=10;i++) {
+    // html+=`<li>${i+1}</li>`
+    let li = document.createElement('li');
+    li.innerHTML = i+1;
+    list.appendChild(li);
+}
+// list.innerHTML = html;
+btn.onclick = function(){
+    // return this.parentNode.innerHTML = `<li>${i+1}</li>`
+}
+/*
+innerHTML 的问题
+1.innerHTML 可以引起dom结构底层的刷新,每次刷新都会引起元素内部的html结构重新渲染,从新渲染之后的dom元素已经不再是之前的dom,因此之前绑定的属性或者事件都无效
+2.innerHTML 一旦因此底层刷新,则html结构重新渲染,很耗时,因此不要过度使用innerHTML
+
+js中创建dom元素的方法
+document.createElement('标签名')
+给元素添加子元素
+父元素.appendChild(子元素)
+*/
+let div = document.createElement('div');
+div.innerHTML = '屈原';
+/*
+div.style.cssText 给元素添加css样式
+*/
+div.style.cssText = `
+    border = 1px solid #f00;
+    width = 200px;
+    height = 200px;
+`;
+
+
+console.log(div);
+document.body.appendChild(div);
+</script>

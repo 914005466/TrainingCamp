@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单事件</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:200px;
+            height:200px;
+            background: #04be02;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="" id="txt">
+    <div class="wp" contenteditable="true"></div>
+    <input type="text" value="" id="aa" />
+    <hr/>
+
+    <input type="number" value="" id="abc" />
+    <p></p>
+
+</body>
+</html>
+<script>
+let txt = document.querySelector('#txt');
+let wp = document.querySelector('.wp');
+let aa = document.querySelector('#aa');
+/*
+focus 事件，当元素获取光标的时候触发该事件 (聚焦)
+blur 事件,当元素失去光标的时候触发该事件 (失焦)
+change 事件，当表单元素的内容发生改变的时候触发
+input 事件，当表单元素输入内容的时候触发
+*/ 
+txt.onfocus = function(){
+    this.style.cssText = `
+        border:10px #f00 solid;
+        width:300px;
+        height:40px;
+    `;
+};
+txt.onblur = function(){
+    this.style.cssText = `
+        border:1px #ccc solid;
+        width:300px;
+        height:30px;
+    `;
+};
+wp.onfocus = function(){
+    this.style.cssText = `
+    border:10px #f00 solid;
+    `;
+};
+
+//change事件触发的时候 元素需要失焦 
+// aa.onchange = function(){
+//     console.log( this.value );
+// }
+// 用户输入的时候触发该事件
+aa.oninput = function(){
+    console.log( this.value );
+};
+
+let abc = document.querySelector('#abc');
+let p = document.querySelector('p');
+let arr = ['零','一','二','三','四','五','六','七','八','九'];
+abc.oninput = function(){
+    let v = this.value; // 123
+    let str = '';
+    for(let i=0;i<v.length;i++){
+        console.log(v[i]);
+        str += arr[ v[i] ];
+    }
+    p.innerHTML = str;
+};
+</script>

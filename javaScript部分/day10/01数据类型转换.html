@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转换</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/*
+数据类型转化
+Number() 强制把数据转化为数字，需要注意NaN 的形式，boolean false被转为0 true 被转为1
+String() 强制转化为字符串类型
+toString() 强制转化为字符串
+
+parseInt() 主要是把字符串转换为整数，会忽略数据开头的空格，并且 删掉 字符串最后其他类型字符部分
+使用 parseInt 的时候，他所操作的字符串必须以数字或者空格开头，然后截取开头的整数部分,其余的字符串全部被删除
+parseInt 具有两个参数
+参数1 表示要转化的内容
+参数2 表示转化时候的 进制，默认是 10进制
+
+parseFloat() 用法和 parseInt一样，只是支持小数
+
+JSON.stringify(obj) 把对象 obj 转化为 json格式的字符串，外形是json格式的字符串
+JSON.parse(json格式字符串) 把json格式字符串 转化为 json对象
+*/ 
+console.log( Number(true) );
+console.log( Number('120px'), parseInt('120px') );
+console.log( Number('120') );
+let obj1 = {n:1};
+let str1 = obj1.toString();
+let num1 = 123;
+console.log( str1, num1.toString() );
+
+console.log( parseInt('   200px') );
+console.log( parseInt('   200.90px8888px') );
+console.log( parseInt('200',8) );
+
+console.log( parseFloat('2000.67pxp') );
+
+let obj2 = {
+    name:'盖伦',
+    age:20
+};
+let str2 = JSON.stringify(obj2);
+console.log( str2, typeof str2 );
+
+let obj3 = JSON.parse(str2);
+console.log( obj3 );
+
+</script>

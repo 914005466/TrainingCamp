@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom的常用尺寸</title>
+    <style>
+        *{
+
+        margin: 0;
+        padding: 0;
+        }
+        .wp{
+
+            width: 200px;
+            height: 200px;
+            border: 10px solid skyblue;
+            overflow: auto;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .box {
+            padding: 30px;
+            border: 1px solid limegreen;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            /* position: relative; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="wp">
+            <p></p>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    let wp  = document.querySelector('.wp');
+    // console.log( wp.offsetLeft);
+    /*
+    内尺寸 
+    clientHeight 上下padding + 元素的高
+    clientWidth  左右padding + 元素的宽
+    clientLeft 元素的 左边border宽度
+    clientTop 元素的 上边的border宽度
+    */
+    console.log(wp.clientHeight,wp.clientWidth,wp.clientLeft,wp.clientTop);
+
+    /*
+    外尺寸
+    offsetWidth 左右padding + 元素的width +左右 border 宽度
+    offsetHeight 上下 + 元素的height +上下 border 宽度
+    offsetParent 获取元素的offset尺寸的参照父级元素,他是当前对象由内向外查找的第一个具有定位属性的父级元素,如果当前对象没有具有定位属性的祖先级元素,则offsetParent 为body,
+    ie下offsetPatent 为html
+    offsetLeft 当前对象左边框距离 他的 offsetParent 左边框的距离
+    offsetTop 当前对象上边框距离 他的 offsetParent 上边框的距离
+    */
+   console.log(wp.offsetWidth,wp.offsetHeight);
+   console.log('offsetParent',wp.offsetParent);
+   console.log('offsetLeft'+wp.offsetLeft);
+</script>

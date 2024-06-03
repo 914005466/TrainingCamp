@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作dom</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            border:1px #f00 solid;
+            width:200px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <p>天中袁绍</p>
+
+        <p id="zhao">常山赵子龙</p>
+    </div>
+    <input type="text" value="" id="txt"> <button id="btn">提交</button>
+    <ul class="list"></ul>
+</body>
+</html>
+<script>
+/*
+向父级插入节点
+
+父元素.insertBefore(要插入的元素，父元素中指定的子元素) 把要插入的元素，插入到指定元素之前
+注意如果第二个参数是 null 或者是 undefined ，则相当于 appendChild() (在父元素后追加内容)
+*/ 
+let wp = document.querySelector('.wp');
+let zhao = document.querySelector('#zhao');
+
+let info = document.createElement('p');
+info.innerHTML = '山东秦叔宝';
+
+// wp.insertBefore(info,zhao.previousElementSibling);
+//因为只有一个 info ，如果被后面的操作使用了，就 不会在前面的操作中起作用
+// document.body.insertBefore(info, wp);
+
+document.body.insertBefore(info,null);
+
+//发表评论案例
+let txt = document.querySelector('#txt');
+let btn = document.querySelector('#btn');
+let list = document.querySelector('.list');
+
+btn.onclick = function(){
+    let val = txt.value.trim();
+    let li = document.createElement('li');
+    li.innerHTML = val;
+    list.insertBefore(li, list.firstElementChild);
+};
+</script>

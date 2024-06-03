@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 400px;
+            height: 400px;
+            border: 20px solid skyblue;
+            margin: 50px auto;
+            position: relative;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            background: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="son"></div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    递归函数: 在函数当中掉用该函数本身,那么该函数就叫递归函数
+    递归函数必须有明确的结束时机
+    */
+   //使用 递归 求5的阶乘
+   let i  = 0;
+   function aa(a){
+    console.log(a);
+    // a*aa(a-1);
+    if(a == 1){
+        return 1;
+    }
+    // return a*aa(a-1);
+    //arguments.callee 指的是当前所在函数本身 = aa
+    return a * arguments.callee(a-1);
+   }
+   
+   console.log(aa(5));
+
+   //使用递归求页面顶部到指定元素的距离
+   let son =document.querySelector('.son')
+   console.log(son.offsetTop);
+   /*
+   分析过程
+   1.没有定位父级的时候
+   son.offsetTop
+   2.有定位父级的时候
+   son.offsetTop + 定位父级.offsetTop + 定位父级.clientTop  + ....
+   
+   */
+  function getTop(ele){
+    //当ele 是body 的时候.ele.offsetParent  是null
+    if(ele.offsetParent == null ){
+        return 0 ;
+    }
+    return ele.offsetTop +  ele.offsetParent.clientTop + getTop(ele.offsetParent);
+  }
+  console.log( getTop(son) );
+</script>

@@ -1,0 +1,150 @@
+body {
+  background: #F3F5F7;
+}
+
+header {
+  width: 100%;
+  height: 10rem;
+  font-size: 3.5rem;
+  line-height: 10rem;
+  text-align: center;
+  display: flex;
+  position: fixed;
+  background: #fff;
+  left: 0;
+  top: 0;
+}
+header img {
+  position: relative;
+  top: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+header span:nth-child(1) {
+  width: 20rem;
+}
+header span:nth-child(2) {
+  width: 37rem;
+  text-align: center;
+}
+header span:nth-child(3) {
+  margin: 0 4rem;
+  height: 10rem;
+  line-height: 10rem;
+  text-align: center;
+}
+
+.nav {
+  margin-top: 10.5rem;
+}
+.nav ul {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  height: 10rem;
+}
+.nav ul li {
+  font-size: 3.5rem;
+  line-height: 7rem;
+  text-align: center;
+  height: 7rem;
+  flex: 1;
+  margin-left: 2rem;
+  background: #F7F9FA;
+}
+.nav ul li:nth-child(4) {
+  margin-right: 2rem;
+}
+.nav ul .bar {
+  background: none;
+  color: #f60;
+  border: 1px solid #f60;
+}
+
+.box {
+  width: 100%;
+  display: flexbox;
+}
+.box ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.box ul li {
+  height: 55rem;
+  margin-top: 1rem;
+  font-size: 3rem;
+  width: 34rem;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.box ul li p {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  width: 32rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.box ul li p img {
+  height: 3.5rem;
+  width: 6rem;
+}
+.box ul li span {
+  margin-left: 1rem;
+  height: 2.5rem;
+  border: 1px solid #f60;
+  color: #f60;
+  border-radius: 10rem;
+  line-height: 2.5rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 0 2rem;
+}
+.box ul li img {
+  width: 34rem;
+  height: 36rem;
+}
+.box ul li .a {
+  color: #f60;
+}
+.box ul li .b {
+  font-size: 2rem;
+  color: #666;
+  border: none;
+  padding: 0;
+  padding-bottom: 4rem;
+}
+
+.show1, .show2, .show3 {
+  font-size: 30rem;
+  display: none;
+}
+
+.show:nth-child(1) {
+  display: block;
+}
+
+.box2 {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.box2 .img {
+  width: 10rem;
+  height: 10rem;
+  line-height: 10rem;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.box2 .img img {
+  width: 7rem;
+  height: 7rem;
+  position: relative;
+  top: 1.5rem;
+  left: 1.5rem;
+}/*# sourceMappingURL=hua.css.map */

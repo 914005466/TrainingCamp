@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小球碰壁反弹</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wall {
+            width:600px;
+            height:400px;
+            border:1px #f00 solid;
+            margin:30px auto;
+            position: relative;
+        }
+        .ball {
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            background: #04be02;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wall" id="wall">
+        <div class="ball"></div>
+    </div>
+</body>
+</html>
+<script>
+let wall = document.getElementById('wall');
+let aa='';
+for(let i=0;i<10;i++){
+    aa+='<div class="ball"></div>';
+}
+wall.innerHTML = aa;
+
+let ball = document.getElementsByClassName('ball');
+
+function rand(x,y){
+    return Math.floor(Math.random()*(y-x+1) + x);
+}
+function col(){
+    let r = rand(0,255),g=rand(0,255),b=rand(0,255);
+    return `rgb(${r},${g},${b})`;
+}
+
+for(let i=0;i<ball.length;i++){
+    //设置小球初始位置的坐标x y
+    let x = rand(0,560);
+    let y = rand(0,360);
+    ball[i].style.transform = `translate(${x}px,${y}px)`;
+    ball[i].style.background = `${col()}`;
+    //设置移动速度
+    let speedX = 1;
+    let speedY = 1;
+
+    function move(){
+        if(x<=0){
+            speedX=2;
+        }
+        if(x>=560){
+            speedX=-2;
+        }
+        x+=speedX;
+
+        if(y<=0){
+            speedY=2;
+        }
+        if(y>=360){
+            speedY=-2;
+        }
+        y+=speedY;
+
+        ball[i].style.transform = `translate(${x}px,${y}px)`;
+    }
+    setInterval(move,1);
+}
+</script>

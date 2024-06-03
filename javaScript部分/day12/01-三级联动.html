@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三级联动</title>
+</head>
+<body>
+    <select name="" id="prov">
+        <!-- <option value="河南省">河南省</option> -->
+    </select>
+    <select name="" id="city">
+        <option value="郑州市">郑州市</option>
+    </select>
+    <select name="" id="county">
+        <option value="高新区">高新区</option>
+    </select>
+    
+</body>
+</html>
+<script>
+
+    let provArr = ['河南省','山东省'];
+
+    //市
+
+    let cityArr =[ ['郑州市','安阳市','洛阳市','开封市','南阳市'],['青岛市','济南市','泰安市','东营市','威海市']];
+
+    let countyArr = [
+        [['牧野区','红旗区','辉县'],['安阳县','滑县','滑县1'],['洛阳市1','洛阳市2','洛阳市3'],['开封市1','开封市2','开封市3'],['南阳市1','南阳市2','南阳市3']],
+        [['青岛市1','青岛市2','青岛市3'],['济南市1','济南市2','济南市3'],['泰安市1','泰安市2'],['东营市1','东营市2'],['威海市1','威海市2']]
+    ]
+
+    function _(ele){
+        return document.querySelector(ele)
+    }
+    //设置当前选择的省份
+    let pIndex = 0;
+    //设置当前选择的城市
+    let cIndex = 0;
+
+    //给省添加选项
+    for (let i= 0; i<provArr.length;i++){
+        let op = `<option value='${i}'>${provArr[i]}</option>`
+        _('#prov').innerHTML += op;
+    }
+
+    //封装添加市的函数
+    function changeCity(){
+        //清空
+        _('#city').innerHTML = '';
+
+        //创建市的选项
+
+        for(let i = 0;i<cityArr[pIndex].length;i++){
+            let op = document.createElement('option');
+            op.innerHTML = cityArr[pIndex][i];
+            op.value = i;
+            _('#city').appendChild(op);
+        }
+    }
+    changeCity();
+
+//封装添加县的函数
+function changeCon(){
+     _('#county').innerHTML = '';
+
+     for(let i = 0;i<countyArr[pIndex][cIndex].length;i++){
+            let op = document.createElement('option');
+            op.innerHTML = countyArr[pIndex][cIndex][i];
+            op.value = i;
+            _('#county').appendChild(op);
+        }
+}
+changeCon();
+
+//改变 select 选项的事件 onchange
+_('#prov').onchange = function(){
+    console.log(this.value);
+    // 获取选中的下边
+    pIndex = this.value;
+    cIndex = 0;
+    // 重新添加城市
+    changeCity();
+    // 重新添加县
+    changeCon();
+}
+_('#city').onchange = function(){
+
+    cIndex = this.value;
+    changeCon();
+}
+</script>

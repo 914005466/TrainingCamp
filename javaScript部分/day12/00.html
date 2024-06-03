@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>js网页版小游戏</title>
+    <style media="screen">
+        .wrap {
+            width: 577px;
+            outline: 1px solid hotpink;
+            margin: 0 auto;
+            box-shadow: 0 0 5px;
+        }
+
+        .screenDis-wrap {
+            padding: 22px 0px;
+            overflow: hidden;
+        }
+
+        #displayCountDown {
+            display: inline-block;
+            float: left;
+            font-size: 3em;
+            padding: 17px 13px;
+            color: rgb(255, 100, 100);
+        }
+
+        #displayScore {
+            display: inline-block;
+            float: right;
+            font-size: 3em;
+            padding: 17px 13px;
+            color: rgb(255, 33, 33);
+        }
+
+        .textWrap {
+            text-align: center;
+            font-size: 7em;
+        }
+
+        .tip {
+            padding: 33px 0px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        .tip p:nth-child(2) {
+            display: inline-block;
+            padding: 20px 30px;
+            background-color: rgb(28, 134, 177);
+            margin: 20px auto;
+            font-size: 4em;
+            cursor: pointer;
+        }
+
+        ul {
+            text-align: center;
+            padding: 33px 0px;
+        }
+
+        ul li {
+            display: inline-block;
+            width: 77px;
+            margin: 3px 7px;
+            text-align: center;
+            font-size: 3em;
+            padding: 4px 3px;
+            background-color: darkgreen;
+            cursor: pointer;
+        }
+
+        #oTxt {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="screenDis-wrap">
+            <div id="displayCountDown">
+                倒计时:330
+            </div>
+            <div id="displayScore">
+                得分:0
+            </div>
+        </div>
+        <div class="textWrap">
+            <p id="oTxt">
+                红
+            </p>
+        </div>
+        <div class="tip">
+            <p>
+                游戏规则：根据字体的颜色选出与其颜色对应的中文描述
+            </p>
+            <p id="startGame">
+                start
+            </p>
+        </div>
+        <ul>
+            <li>红</li>
+            <li>黄</li>
+            <li>蓝</li>
+            <li>绿</li>
+            <li>黑</li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var displayCountDown = document.getElementById('displayCountDown');
+    var displayScore = document.getElementById('displayScore');
+    var oTxt = document.getElementById('oTxt');
+    var txtArry = ['赤', '黑', '黄', '蓝', '绿'];
+    let btn = document.querySelectorAll('li');
+    var colorArry = ['red', 'black', 'yellow', 'blue', 'green'];
+    var btns = document.querySelectorAll('ul li');
+    var score = 0;
+    var startGame = document.getElementById('startGame');
+    //生成一个随机数，范围是0~5函数
+    function randomNum() {
+        var num = parseInt(Math.random() * 5);
+        return num;
+    }
+    //随机颜色
+    function rand(m, n) {
+        return Math.floor(Math.random() * (n - m + 1) - m)
+    }
+    btn.onclick = function () {
+        this.style.background = `rgb(${rand(0, 255)},${rand(0, 255)},${rand(0, 255)})`;
+    }
+    //在中央屏幕随机显示数组中的一个文字
+    function randomShowText_oTxt() {
+        oTxt.innerHTML = txtArry[randomNum()];
+    }
+    randomShowText_oTxt();
+    //在屏幕中显示文字的颜色所对应颜色数组的下标
+    var oTxt_colorSub;
+    //在中央屏幕随机给字体添加颜色
+    function randomShowColor_oTxt() {
+        oTxt_colorSub = randomNum();
+        oTxt.style.color = colorArry[oTxt_colorSub];
+    }
+    randomShowColor_oTxt();
+    //随机生成无重复数字的数组函数
+    function randomArryNum(a) {
+        var nulArry = [];
+        while (nulArry.length < a) {
+            var flag = true;
+            var randomRe = parseInt(Math.random() * 5);
+            for (var i = 0; i < nulArry.length; i++) {
+                if (nulArry[i] == randomRe) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                nulArry.push(randomRe);
+            }
+
+        }
+        return nulArry;
+    }
+    //给按钮随机添加内容及随机改变字体颜色函数
+    var btnsTxtSub = [];
+    function showTxtColor_buts() {
+        btnsTxtSub = randomArryNum(5);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].btnSub = i;
+            btns[i].innerHTML = txtArry[btnsTxtSub[i]];
+        }
+        var btnsColorSub = randomArryNum(5);
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].style.color = colorArry[btnsColorSub[i]];
+        }
+    }
+    showTxtColor_buts();
+    //设置点击事件，并匹配点击按钮的文字与oTxt中的文字颜色一致
+    btn.onclick = function () {
+        this.style.background = rand(0, 255);
+    }
+    var uclickable = true;
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            if (uclickable) {
+                return;
+            }
+            console.log(1);
+            if (btnsTxtSub[this.btnSub] == oTxt_colorSub) {
+                ++score;
+                showScore();
+            }
+            showTxtColor_buts();
+            randomShowText_oTxt();
+            randomShowColor_oTxt();
+        }
+    }
+    //显示得分函数
+    function showScore() {
+        displayScore.innerHTML = '得分:' + score;
+    }
+    //游戏结束函数
+    function gameOver() {
+        clearInterval(timer);
+        if (score < 10) {
+            alert('Come On!');
+        } else {
+            alert('Best!')
+        }
+        uclickable = true;
+    }
+    //倒计时函数，计时结束游戏停止
+    var timer;
+    function gameTime(countdown) {
+        if (timer) {
+            clearInterval(timer);
+        }
+        timer = setInterval(function () {
+            countdown--;
+            displayCountDown.innerHTML = "倒计时：" + countdown
+            if (countdown == 0) {
+                gameOver();
+            }
+
+        }, 100)
+    }
+    //开始游戏函数
+    startGame.onclick = function () {
+        uclickable = false;
+        gameTime(1000);
+        score = 0;
+        showScore();
+
+    }
+
+
+</script>
+
+</html>

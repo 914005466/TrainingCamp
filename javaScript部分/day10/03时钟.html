@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:600px;
+            height:600px;
+            border:1px #f00 solid;
+            margin:30px auto;
+            border-radius:50%;
+            background:url('./images/202.png') no-repeat center center/100% 100%;
+            position: relative;
+        }
+        .pint {
+            list-style-type: none;
+            position: relative;
+            width:30px;
+            height:520px;
+            transform: translate(285px, 40px);
+        }
+        .pint li {
+            color:#fff;
+            font-size:30px;
+            position: absolute;
+            width:30px;
+            height:520px;
+            left:0;
+            top:0;
+        }
+        .pint li span {
+            display: block;
+        }
+        .circle {
+            width:40px;
+            height:40px;
+            background: #f00;
+            border-radius:50% 50%;
+            position: absolute;
+            top:280px;
+            left:280px;
+        }
+        .s, .m ,.h {
+            position: absolute;
+        }
+        .s {
+            width:2px;
+            height:260px;
+            background: #04be02;
+            left:19px;
+            top:-180px;
+            transform-origin:1px 200px;
+        }
+        .m {
+            width:8px;
+            height:220px;
+            background: #ff0;
+            left:16px;
+            top:-150px;
+            transform-origin:4px 170px;
+        }
+        .h {
+            width:12px;
+            height:180px;
+            background: #f0f;
+            left:14px;
+            top:-120px;
+            transform-origin:6px 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <ul class="pint" id="pint">
+            <li><span>12</span></li>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+            <li><span>10</span></li>
+            <li><span>11</span></li>
+        </ul>
+        <!-- 设置表针 -->
+        <div class="circle">
+            <div class="h" id="h"></div>
+            <div class="m" id="m"></div>
+            <div class="s" id="s"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+let pint = document.getElementById('pint').getElementsByTagName('li');
+
+for(let i=0;i<pint.length;i++){
+    pint[i].style.transform = `rotate(${i*30}deg)`;
+    let span = pint[i].getElementsByTagName('span')[0];
+    span.style.transform = `rotate(-${i*30}deg)`;
+}
+
+let h = document.getElementById('h');
+let s = document.getElementById('s');
+let m = document.getElementById('m');
+
+function move(){
+    let now = new Date();
+    let hh = now.getHours(); //获取当前时
+    let mm = now.getMinutes(); //获取当前分
+    let ss = now.getSeconds(); //获取当前秒
+
+    //设置秒针旋转
+    s.style.transform = `rotate(${ss*6}deg)`;
+    //设置分针旋转
+    m.style.transform = `rotate(${mm*6 + ss/10 }deg)`;
+    //设置时针旋转
+    h.style.transform = `rotate(${hh*30 + mm/2 + ss/120 }deg)`;
+}
+move();
+setInterval(move,1000);
+</script>

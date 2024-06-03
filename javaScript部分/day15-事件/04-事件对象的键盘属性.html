@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象的键盘属性</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    通过键盘事件,获取键盘事件对象
+    通过键盘事件对象,可以获取
+    按下键的 key(按键名)
+    按键的 keyCode
+
+    操作过程当中,可以通过keyCode来判断按键的具体功能
+
+    ENTER: 13
+    空格: 32
+    左方向键: 37
+    上方向键: 38
+    右方向键: 39
+    下方向键: 40
+    */
+    document.onkeydown = function(){   
+        console.log(event);
+    }
+</script>

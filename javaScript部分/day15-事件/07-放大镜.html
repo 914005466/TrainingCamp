@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 256px;
+            height: 256px;
+            border: 1px solid skyblue;
+            margin: 30px auto;
+            position: relative;
+        }
+        .wp>img{
+            width: 256px;
+            height: 256px;
+        }
+        .move {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .glass{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            right: -470px;
+            top: 0;
+            border: 1px solid greenyellow;
+            background: url('./images/bg10.jpg');
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <img src="./images/bg10.jpg" alt="">
+        <div class="move"></div>
+        <div class="glass"></div>
+    </div>
+</body>
+</html>
+<script>
+    let move =  document.querySelector('.move');
+    let glass = document.querySelector('.glass');
+    let wp = document.querySelector('.wp');
+
+    //鼠标移入
+    wp.onmouseenter  = function(){
+        move.style.display = 'block'
+        glass.style.display = 'block'
+        //移动鼠标
+        document.onmousemove = function(){
+            let left = event.clientX - wp.offsetLeft - move.clientWidth/2;
+            let top = event.clientY - wp.offsetTop - move.clientHeight/2;
+            //if else 短路写法 如果左边成立就执行右边
+            (left<=0)&&(left=0);
+            (top<=0)&&(top=0);
+            //x方向的最大移动距离
+            let maxX = wp.clientWidth - move.clientWidth;
+            (left>=maxX)&&(left=maxX);
+            
+            
+            let maxY = wp.clientHeight - move.clientHeight;
+            (top>=maxY)&&(top=maxY);
+            move.style.top = top + 'px';
+            move.style.left = left+'px';
+            //背景图位置
+            glass.style.backgroundPosition=`${left*-624/maxX}px ${top*-624/maxY}px`;
+        }
+    }
+
+    wp.onmouseleave = function(){
+        move.style.display = 'none'
+        glass.style.display = 'none'
+    }
+</script>

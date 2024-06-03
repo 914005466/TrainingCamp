@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:200px;
+            height:200px;
+            background: #04be02;
+        }
+    </style>
+</head>
+<body>
+    <!-- 行间绑定 添加 onclick 属性 -->
+    <button title="点击" onclick="show1()">点击</button>
+    <button id="btn1">点击1</button>
+    <div class="wp"></div>
+    <button id="btn2">点击取消监听</button>
+</body>
+</html>
+<script>
+/*
+学过的事件
+click scroll load change
+
+事件分类
+1. 鼠标事件
+2. 键盘事件
+3. 其他事件
+
+事件的绑定方式
+1. 标签行间绑定(几乎不用)
+2. js绑定 on+事件名 监听
+
+事件绑定的特点
+1. 一个元素绑定的同名事件，只能有一个操作函数，如果同时绑定多个，则后面的覆盖前面的
+2. 给事件绑定赋值为null，用来销毁该事件绑定
+*/
+function show1(){
+    alert('老夫聊发少年狂');
+}
+function show2(){
+    alert('劳劳车马未离鞍');
+}
+
+btn1.onclick = show1;
+btn1.onclick = show2;
+btn1.onclick = null;
+
+/*
+还可以通过事件监听的方式触发事件
+obj.addEventListener(事件名, 事件执行函数, boolean)
+参数1 表示 要监听的事件名
+参数2 表示 监听事件被触发的时候执行的函数
+参数3 表示 该事件是否在事件捕获阶段执行，默认是false (在事件冒泡阶段执行) 如果设置为true，表示该事件在捕获阶段执行
+
+特点 ：
+1. 事件监听可以同时监听一个元素上的同一个事件的多种执行方式，简单理解为可以绑定多个执行函数
+
+取消事件监听
+obj.removeEventListener() 参数跟addEventListener一致，含义也一样
+
+直接写到第二个参数位置上的匿名函数无法取消事件监听
+*/
+let wp = document.querySelector('.wp');
+wp.addEventListener('click',show2);
+wp.addEventListener('click',function(){
+    alert('映日荷花别样红');
+});
+
+btn2.onclick = function(){
+    wp.removeEventListener('click',show2);
+    // wp.removeEventListener('click',function(){
+    //     alert('映日荷花别样红');
+    // });
+};
+
+</script>

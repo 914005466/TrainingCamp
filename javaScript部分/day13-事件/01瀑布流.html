@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <style>
+    * {
+        margin:0;
+        padding:0;
+    }
+    ul {
+        list-style-type:none;
+    }
+    .wp {
+        display: flex;
+        width:1000px;
+        border:1px #f00 solid;
+        margin:20px auto;
+        align-items: flex-start;
+    }
+    .wp ul {
+        margin:0 10px;
+        width:230px;
+    }
+    .wp ul li {
+        width:230px;
+        text-align: center;
+        font-size:60px;
+        color:#fff;
+        margin-bottom:20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+</body>
+</html>
+<script>
+function rand(m,n){
+    return Math.floor( Math.random()*(n-m+1)+m );
+}
+let ul = document.querySelectorAll('ul');
+
+
+//创建li函数,参数是创建的个数
+function createLi(num){
+
+    for(let i=0;i<num;i++){
+        let li = document.createElement('li');
+        li.style.height = 250+'px';
+        li.style.background = `rgb( ${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
+        li.innerHTML = i+1;
+
+        //查看ul，确定高度最小的ul
+        let hArr = [];
+        for(let j=0;j<2;j++){
+            hArr.push( ul[j].clientHeight );
+        }
+        //获取hArr中最小值的下标
+        let min = Math.min(...hArr);
+        let index = hArr.indexOf(min);
+        ul[index].appendChild(li);
+    }
+}
+
+//创建10个li
+createLi(30);
+
+window.onscroll = function(){
+    let h1 = document.documentElement.offsetHeight;
+    let h2 = document.documentElement.scrollTop + window.innerHeight;
+    if(h2>=h1-20){
+        createLi(30);
+    }
+};
+
+
+</script>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .list {
+            list-style-type:none;
+        }
+        .list li {
+            height:50px;
+            line-height:50px;
+            margin-bottom:20px;
+            background: #04be02;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list" id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
+<script>
+/*
+闭包: 是指有权访问函数作用域内变量的函数
+闭包简言之，就是一个函数可以访问另一个函数内部声明的变量，称这个函数为闭包函数
+
+在函数声明处向外可以找到函数外部所有声明的变量，在函数内部能获取到变量的最终值
+
+闭包函数特点
+1. 在闭包函数中，可以使用父函数中所有声明的变量，在使用闭包函数的时候，父函数的作用域不会立即收回，而是保存在内存中
+2. 在函数内部声明的变量，无法和函数外部进行通信，因此闭包函数可以防止全局变量对函数内部变量的污染
+3. 可以通过闭包函数改变函数内部变量(局部变量)值，该方法通常用在封装框架的时候
+
+注意，由于闭包会携带包含他的函数的作用域，会比其他函数占用更多的内存，过渡使用闭包可能会导致内存占用过多，从而引发项目运行不流畅的弊端。因此建议 闭包 能不用就不用。
+*/
+function show(){
+    let a = 10;
+    function aa(){
+        console.log(a);
+    }
+    aa();
+}
+show();
+
+function fn1(){
+    let n = 10;
+
+    return function(){
+        n++;
+        return n;
+    }
+}
+let add = fn1();//a
+console.log( add() ); // 执行后，他所在的函数作用域没有被销毁
+console.log( add() ); // 由于函数作用域没有被销毁，因此n++的结果被保留，所以会在上一次结果上执行 n++
+console.log( add() );
+console.log( '============' );
+
+function num(){
+    let n = 10;
+    n++;
+    return n;
+}
+console.log( num() );
+console.log( num() );
+console.log( num() );
+
+// 通过闭包改变函数内部变量的值
+function fn2(){
+    let str = '一片冰心在玉壶';
+
+    // console.log(  str );
+    return {
+        set:function(arg){
+            console.log(this);
+            str = arg;
+        },
+        get:function(){
+            console.log( str );
+        }
+    }
+
+}
+let obj4 = fn2();
+obj4.get();
+obj4.set('冰心');
+
+obj4.get();
+
+let lis = document.getElementById('list').getElementsByTagName('li');
+
+function myIndex(){
+    for(var i=0;i<lis.length;i++){
+        // (function(k){
+            lis[i].onclick = function(){
+                alert(i+1);
+            }
+        // })(i);
+    }
+    console.log('i',i);
+}
+myIndex();
+
+function test(){
+    var n=4399;
+    function add(){
+        n++;
+        console.log(n);
+    }
+    return {
+        n:n,
+        add:add
+    }
+}
+
+var res1 = test(); // { n:4399, add:add }
+var res2 = test(); // { n:4399, add:add }
+res1.add(); // 4400
+res1.add(); // 4401
+console.log( res1.n ); // 4399
+res2.add(); // 4400
+
+</script>

@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #E2E2E2;
+  }
+  
+  header {
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    font-size: 2.9rem;
+    color: #DA2A2A;
+    height: 9.8rem;
+    background-color: #fff;
+  }
+  header span {
+    font-family: STHeiti;
+    font-size: 3.4rem;
+    line-height: 4.3rem;
+    margin-left: 22rem;
+  }
+  header img {
+    margin-left: 5.7rem;
+    width: 3.5rem;
+    height: 2.3rem;
+  }
+  /* 轮播图 */
+  nav {
+    width: 100%;
+    height: 33.5rem;
+    margin-top: 11.4rem;
+    overflow: hidden;
+  }
+  nav img {
+    width: 100%;
+  }
+  /* 版心 */
+  .container {
+    padding: 0 2.5rem;
+  }
+  .container1 {
+    padding: 2rem 2.5rem;
+  }
+  .box1{
+    background-color: #fff;
+  }
+  .box1 h5 {
+    margin: 0;
+    height: 8.5rem;
+    line-height: 8.5rem;
+    font-weight: 400;
+    font-size: 3.4rem;
+    color: #333333;
+  }
+  .box1 ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .box1 ul li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .box1 ul li img {
+    width: 30rem;
+    height: 29.5rem;
+  }
+  .box1 ul li span {
+    margin-top: 2rem;
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: #888888;
+  }
+  .box1 ul li p {
+    margin: 0;
+    padding-top: 3.2rem;
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: #333333;
+    margin-bottom: 1.8rem;
+}
+.box1 ul li button{
+    height: 7.3rem;
+    width: 30rem;
+    background: #FE776F;
+    border-radius: 5px;
+    border: none;
+    font-weight: 400;
+font-size: 3.4rem;
+color: #FFFFFF;
+}
+  .box {
+    margin-top: 2rem;
+    height: 17rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+  }
+
+  .box img {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    margin-left: 4.2rem;
+  }
+  .box .boxx{
+    width: 37rem;
+    margin-left: 2.3rem;
+  }
+  .box .boxx span {
+    font-weight: 400;
+font-size: 3.4rem;
+color: #333333;
+
+  }
+  .box .boxx p {
+    padding-top: 3rem;
+    margin: 0;
+    font-weight: 400;
+font-size: 2.4rem;
+color: #F46259;
+  }
+  .box button {
+    border: none;
+    width: 16rem;
+height: 7rem;
+background: #FE776F;
+border-radius: 5px;
+font-weight: 400;
+font-size: 3.2rem;
+color: #FFFFFF;
+  }
+
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 9.5rem;
+    width: 100%;
+    background: #fff;
+  }
+  footer ul {
+    padding: 0;
+    height: 9.5rem;
+    display: flex;
+  }
+  footer ul li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+  }
+  footer ul li img {
+    width: 4.3rem;
+    height: 4.5rem;
+  }

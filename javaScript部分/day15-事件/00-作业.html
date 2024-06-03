@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城市切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+
+            width: 600px;
+            height: 500px;
+            display: flex;
+            margin: 300px auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .l,
+        .r {
+            width: 150px;
+            border: 1px solid #ccc;
+            height: 600px;
+        }
+
+        .wp button {
+            width: 80px;
+        }
+
+        .wp span {
+            display: block;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .wp span.act {
+            background: #f60;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp">
+        <div class="l">
+            <span class="act">北京</span>
+            <span>上海</span>
+            <span>广州</span>
+            <span>深圳</span>
+            <span>杭州</span>
+            <span>郑州</span>
+            <span>南京</span>
+        </div>
+        <button>&gt;</button>
+        <button>&gt;&gt;</button>
+        <button>&lt;;</button>
+        <button>&lt;&lt;</button>
+        <div class="r"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    let l = document.querySelector('.l');
+    let r = document.querySelector('.r');
+    let btn = document.querySelectorAll('button'); //获取所有的按钮
+    //参数表示移动方向,ltr 表示从左向右 rtl  表示从右向左
+    function moveAll(dir) {
+        if (dir == 'ltr') {
+            let span = document.querySelectorAll('.l span')
+            for (let i = 0; i < span.length; i++) {
+                span[i].className = '';
+                r.appendChild(span[i]);
+            }
+            l.innerHTML = '';
+        } else {
+            let span = document.querySelectorAll('.r span')
+            for (let i = 0; i < span.length; i++) {
+                span[i].className = '';
+                l.appendChild(span[i]);
+            }
+            r.innerHTML = '';
+        }
+    }
+
+    //单点函数切换
+    function oneMove() {
+        let box = document.querySelectorAll('.wp span')
+        for (let i = 0; i < box.length; i++) {
+            box[i].onclick = function () {
+                for (let j = 0; j < box.length; j++) {
+                    box[j].className = '';
+                }
+                this.className = 'act';
+            }
+
+        }
+    }
+
+
+    oneMove();
+    btn[1].onclick = function () {
+        moveAll('ltr');
+        oneMove();
+    };
+    btn[3].onclick = function () {
+        moveAll('rtl');
+        oneMove();
+    };
+    btn[0].onclick = function () {
+        let span = document.querySelector('.l .act')
+        if (!span) {
+            alert('请选择城市');
+            return;
+        }
+        span.className = '';
+        r.appendChild(span);
+        }
+    btn[2].onclick = function () {
+       
+        let span = document.querySelector('.r .act')
+        if (!span) {
+            alert('请选择城市');
+            return;
+        }
+        span.className = '';
+        l.appendChild(span);
+    }
+</script>

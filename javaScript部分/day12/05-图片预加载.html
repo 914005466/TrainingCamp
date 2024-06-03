@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片预加载</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .mark{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        .prog{
+            width: 300px;
+            height: 20px;
+            border-radius: 10px;
+            position: relative;
+            background-color: #fff;
+        }
+        .prog p {
+            height: 20px;
+            background-color: #f60;
+            /* width: 20%; */
+            border-radius: 10px;
+        }
+        .prog span {
+            position: absolute;
+            right: -50px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置透明层 -->
+    <div class="mark">
+        <div class="prog">
+            <p></p>
+            <span>0%</span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    预加载
+    在页面渲染的时候,由于需要加载的资源比较慢,因此需要结合进度条,让用户等待一会,知道所有资源都加载完毕,才可以正常浏览和使用页面功能
+    通过预加载可以实现 加载完毕页面所需要的资源
+    预加载的写法步骤
+    1.把需要的资源放进一个数组中
+    2.封装一个预加载函数
+    */
+   let arr = ['./img/1.jpg','./img/2.jpg','./img/3.jpg','./img/4.jpg','./img/5.jpg']
+    let bar = document.querySelector('.prog p')
+    let txt1 = document.querySelector('.prog span')
+    console.log(txt1);
+   //预加载函数
+   function reLoagImg(arr,callback){
+        //记录加载成功的个数
+        let count = 0;
+        //需要加载的总数
+        let total = arr.length;
+
+        for(let i = 0;i<total;i++)
+        {   //创建一个图片对象
+            let newImg = new Image();
+            newImg.src = arr[i]
+            //加载图片,图片加载完成执行的方法
+            newImg.onload = function(){
+                count++;
+                //计算*100是百分比
+
+                let pre = Math.floor(count/total*100);
+                bar.style.width = `${pre}%`;
+                txt1.innerHTML = `${pre}%`;
+                
+                if(count==total){
+                    callback&&callback();
+                }
+            }
+        }
+   }
+   reLoagImg(arr,function(){
+    let mark = document.querySelector('.mark');
+    mark.style.display = 'none';
+   })
+
+</script>

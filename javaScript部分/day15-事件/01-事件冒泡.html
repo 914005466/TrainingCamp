@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+            background: lightgreen;
+        }
+        .fu{
+            padding: 50px;
+            background: skyblue;
+
+        }
+        .zi{
+            padding: 50px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="fu">
+            <div class="zi"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    /*
+    事件冒泡和事件捕获
+    什么时候需要考虑事件冒泡
+    1.点击区域有多个元素
+    2.各个元素是父子级关系
+    3.各个元素同时绑定了一个事件类型
+
+    事件冒泡(冒泡过程)
+    最内层元素绑定的事件最先开始执行,执行完毕之后,冒泡到他的父元素上,如果父元素也绑定了该事件,则父元素的绑定事件也被执行,执行完之后向上一层继续冒泡,如果没有绑定该事件,则继续向父元素查找绑定,直到找到doucument,如果document绑定了也会执行
+
+    事件捕获(捕获过程)
+    从doucument开始,向最外层元素执行,执行完毕之后,向下一层元素冒泡,如果下一层元素也绑定了该事件,则下一层元素的绑定事件也被执行,执行完之后向下一层继续捕获,直到找到目标元素,如果没有绑定该事件,则继续向下一层查找绑定,直到找到目标元素,如果目标元素绑定了也会执行
+
+    事件捕获只能通过addEventListener('','',true)设置,只有这样操作函数才能在事件捕获阶段执行
+
+    特点:
+    1.ie中没有事件捕获
+    2.大部分事件的默认执行都是在冒泡阶段,捕获很少用
+    3.凡是 通过 on+事件名 绑定的事件,都是事件冒泡阶段执行
+    */
+   let wp = document.querySelector('.wp');  
+   let fu =  document.querySelector('.fu');  
+   let zi =  document.querySelector('.zi');     
+   document.onclick = function(){
+    
+    console.log('春风的字马蹄疾document',event.target)
+   }
+   fu.onclick = function(){
+    
+    console.log('一日看尽长安花',event.target)
+   }
+   zi.onclick = function(){
+    console.log('名落孙山',event.target)
+   }
+//    document.addEventListener('click',function(){
+//     alert('春风的字马蹄疾document');
+//    },true)
+//    fu.addEventListener('click',function(){
+//     alert('一日看尽长安花')
+//    },true)
+//    zi.addEventListener('click',function(){
+//     alert('名落孙山')
+//    },true)
+</script>

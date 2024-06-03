@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动尺寸</title>
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+
+            width: 200px;
+            height: 200px;
+            border: 10px solid skyblue;
+            overflow: auto;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        p {
+            width: 500px;
+            height: 500px;
+            font-size: 80px;
+            background: palevioletred;
+        }
+        #goTop {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            background-color: aqua;
+            position: fixed;
+            right: 10px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="wp">
+        <p>人约 <br> 黄昏<br>后</p>
+    </div>
+    <div style="height: 2000px;" ></div>
+    <span id="goTop">回到顶部</span>
+</body>
+
+</html>
+<script>
+    /*
+    
+    scrollWidth 当子元素盒模型的宽度大于父元素盒模型的宽度的时候,那么父元素具有scrollWidth,也就是滚动的宽度,他的值是 左右padding +子元素的宽度
+    scrollHeight 当子元素盒模型的高度大于父元素盒模型的高度的时候,那么父元素具有scrollWidth,也就是滚动的高度,他的值是 上下padding+ 子元素的高度
+    scrollTop 垂直方向滚动条卷上的距离
+    scrollLeft 水平方向滚动条卷到左边的距离
+
+    scrollTop 和 scrollLeft 支持赋值操作
+    */
+    let wp = document.querySelector('.wp');
+    let goTop = document.querySelector('#goTop')
+    // let body = document.querySelector('#body')
+    console.log(wp.scrollHeight,wp.scrollWidth);
+    wp.scrollTop = 200;
+    wp.scrollLeft =200;
+    let timer;
+    goTop.onclick = function(){
+        // let html = document.documentElement;
+        //获取当前位置
+        let top = document.documentElement.scrollTop;
+        timer = setInterval(function(){
+            top-=50;
+            document.documentElement.scrollTop = top;
+            if(top<=0){
+                clearInterval(timer);
+                }
+        },1);
+        
+    }
+</script>

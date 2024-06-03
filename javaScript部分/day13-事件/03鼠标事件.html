@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp,.wp1 {
+            width: 200px;
+            height:200px;
+            background: #04be02;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+    <div class="wp1"></div>
+</body>
+</html>
+<script>
+/*
+鼠标事件
+
+mousedown
+鼠标按下事件
+特点：按下鼠标的任意键都执行
+
+mouseup 
+鼠标抬起事件
+
+click 
+鼠标单击事件
+
+执行顺序
+mousedown -> mouseup -> click
+
+*/
+let wp = document.querySelector('.wp');
+
+wp.onmousedown = function(){
+    console.log( 'mousedown' );
+    this.style.background = '#f60';
+};
+wp.onmouseup = function(){
+    console.log( 'mouseup' );
+    this.style.background = '#f0f';
+};
+wp.onclick = function(){
+    console.log( 'click' );
+    this.style.background = '#ff0';
+};
+
+/*
+mousemove
+鼠标移动事件
+
+鼠标移入移出事件
+mouseenter mouseleave
+mouseover mouseout
+
+区别
+1. 如果同时绑定以上四个事件，则 over-out 比 enter-leave 的执行时机早
+2. enter-leave 没有事件冒泡， over-out 具有事件冒泡
+*/
+let n=0;
+wp.onmousemove = function(){
+    n++;
+    this.innerHTML = n;
+};
+// document.onmousemove = function(){
+//     n++;
+//     wp.innerHTML = n;
+// };
+
+let wp1 = document.querySelector('.wp1');
+wp1.onmouseenter = function(){
+    console.log( 'mouseenter' );
+    this.innerHTML = 'mouseenter';
+    this.style.background = '#666';
+};
+wp1.onmouseleave = function(){
+    console.log( 'mouseleave' );
+    this.innerHTML = 'mouseleave';
+    this.style.background = '#f66';
+};
+wp1.onmouseover = function(){
+    console.log( 'onmouseover' );
+    this.innerHTML = 'onmouseover';
+    this.style.background = '#f60';
+};
+wp1.onmouseout = function(){
+    console.log( 'onmouseout' );
+    this.innerHTML = 'onmouseout';
+    this.style.background = '#ff0';
+};
+
+/*
+鼠标右键
+contextmenu
+
+由于鼠标右键会弹出系统菜单，因此需要取消默认操作
+1. 如果是通过oncontextmenu 绑定的，可以直接在执行函数的最后，执行 return false;
+2. 如果是通过 addEventListener 事件监听，可以在执行函数中使用事件对象调用preventDefault()方法取消默认操作
+
+鼠标双击
+dblclick
+
+同时绑定click 和 dblclick ，先执行两次 click 再执行 dblclick
+
+*/
+// wp1.oncontextmenu = function(){
+//     console.log( '右键' );
+//     return false;
+// };
+
+wp1.addEventListener('contextmenu',function(e){
+    this.innerHTML = '李鸿章';
+    // return false;
+    e.preventDefault();
+});
+
+wp1.onclick = function(){
+    this.innerHTML = '曹雪芹1';
+    console.log( '单击' );
+};
+wp1.ondblclick = function(){
+    this.innerHTML = '曹雪芹2';
+    console.log( '双击' );
+};
+
+</script>

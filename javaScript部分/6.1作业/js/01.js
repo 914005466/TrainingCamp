@@ -143,3 +143,8 @@ tab[1].onclick = function () {
     list[0].style.display = 'none';
     list[1].style.display = 'block';
 };
+
+let denglu = document.querySelector('#denglu')
+denglu.addEventListener('click',function(){
+    window.location.assign('02.html')
+})

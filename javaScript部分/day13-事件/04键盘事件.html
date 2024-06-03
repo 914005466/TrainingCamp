@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        #car {
+            width:100px;
+            height:100px;
+            background: #04be02;
+            position: absolute;
+            left:200px;
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="" id="txt" />
+    <div id="car" style="left:200px;top:200px;"></div>
+</body>
+</html>
+<script>
+/*
+键盘事件
+一般对可以获取焦点的元素绑定键盘事件(input textarea document)
+
+keydown 按键按下的事件
+特点：按键一直按下的时候会一直触发
+
+keyup  按键抬起的事件
+
+keypress 按键按下的事件,只有输入型按键按下的时候才会执行，功能型按键按下无法执行
+*/
+// txt.onkeydown = function(){
+//     console.log( this.value );
+// };
+txt.onkeypress = function(){
+    console.log( this.value );
+};
+txt.onkeyup = function(){
+    console.log( this.value+'up' );
+};
+
+let car = document.querySelector('#car');
+
+document.onkeydown = function(e){
+    if( e.keyCode==13 ){
+        console.log('回车键');
+    }
+    if( e.keyCode==37 ){
+        console.log('左键');
+        let left = parseInt( car.style.left );
+        console.log( left );
+        left-=5;
+        car.style.left = left+'px';
+    }
+    if( e.keyCode==38 ){
+        console.log('上键');
+        let top = parseInt( car.style.top );
+        console.log( top );
+        top-=5;
+        car.style.top = top+'px';
+    }
+    if( e.keyCode==39 ){
+        console.log('右键');
+        let left = parseInt( car.style.left );
+        console.log( left );
+        left+=5;
+        car.style.left = left+'px';
+    }
+    if( e.keyCode==40 ){
+        console.log('下键');
+        let top = parseInt( car.style.top );
+        console.log( top );
+        top+=5;
+        car.style.top = top+'px';
+    }
+};
+
+
+</script>

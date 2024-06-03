@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面B</title>
+    <style>
+        .arrow {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h3>页面B</h3>
+    <span class="arrow" id="arrow">《 </span>
+</body>
+</html>
+<script>
+let arrow = document.getElementById('arrow');
+//点击返回上一页
+arrow.onclick = function(){
+    // history.back(); 方法1
+    history.go(-1); //方法2
+};
+</script>

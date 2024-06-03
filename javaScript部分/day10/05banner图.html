@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banner</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp,.wp img {
+            width:800px;
+            height:500px;
+        }
+        .wp {
+            border:1px #f00 solid;
+            margin:0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .cont {
+            display: flex;
+            width:3200px;
+            /* transition: all 1s; */
+        }
+        .pot {
+            width: 100%;
+            position: absolute;
+            height:80px;
+            background: rgba(0, 0, 0, 0.2);
+            left:0;
+            bottom:0;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+        }
+        .pot span {
+            width:20px;
+            height:20px;
+            background: #fff;
+            border-radius:10px;
+            margin:0 5px;
+            cursor: pointer;
+            transition: all 1s;
+        }
+        .pot span.act {
+            width:60px;
+            background: #f60;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="cont" id="cont">
+            <img src="./images/1.jpg" alt="">
+            <img src="./images/2.jpeg" alt="">
+            <img src="./images/202.png" alt="">
+            <img src="./images/3.jpg" alt="">
+        </div>
+        <div class="pot" id="pot">
+            <span class="act"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+let cont = document.getElementById('cont');
+let pot = document.getElementById('pot');
+let spans = pot.getElementsByTagName('span');
+
+//设置当前位置
+let n = 0;
+let timer;
+//设置分页器选中的下标
+let index = 0;
+
+//扩充cont中的内容
+cont.innerHTML+=cont.innerHTML;
+cont.style.width = 8*800+'px';
+
+function move(){
+    n-=5;
+    cont.style.transform = `translateX(${n}px)`;
+
+    if(n%800==0){
+        clearInterval(timer);
+        setTimeout(function(){
+            timer = setInterval(move,1);
+        },2000);
+        index++;
+        // index>=4&&(index=0);
+        if(index>3){
+            index = 0;
+        }
+        for(let j=0;j<spans.length;j++){
+            spans[j].className='';
+        }
+        spans[index].className = 'act';
+    }
+
+    //临界值控制
+    if(n<=-4*800){
+        n=0;
+    }
+}
+
+timer = setInterval(move,1);
+
+
+for(let i=0;i<spans.length;i++){
+    spans[i].onclick = function(){
+        for(let i=0;i<20;i++){
+            clearInterval(i);
+            clearTimeout(i);
+        }
+
+        for(let j=0;j<spans.length;j++){
+            spans[j].className='';
+        }
+        this.className = 'act';
+        cont.style.transform = `translateX(${-800*i}px)`;
+        //点击后操作运动
+        // clearInterval(timer);
+        
+        //重置n的位置
+        n = -800*i;
+        //重置index
+        index = i;
+        //2s后重新启动轮播
+        setTimeout(function(){
+            timer = setInterval(move,1);
+        },2000);
+    };
+}
+
+
+</script>

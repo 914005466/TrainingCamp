@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
+<script>
+let wp = document.querySelector('.wp'); //获取元素
+wp.onclick = function(e){ //绑定事件
+     console.log(e);//打印事件对象
+}
+/*
+绑定的没一个事件,都有一个事件对象,该事件对象可以作为一个默认参数在事件执行函数中获取到该事件对象
+还可以直接通过 event 对象,来获取当前执行的时间对象
+
+事件对象的常见作用
+1.获取事件源对象
+2.获取该触发点左边
+3.结合鼠标和键盘,可以准确的直到,当前操作的是鼠标或者键盘的那一个按键
+
+事件源对象
+是真正触发当前时间的元素
+标准浏览器用的是 target 属性,而 IE 用的是 srcElement 属性
+ie支持srcElement
+*/
+document.onclick = function(aa){
+    console.log(event.target);
+    //兼容写法
+let ev = event||aa; //兼容ie
+console.log(ev); //获取事件源对象
+}
+</script>

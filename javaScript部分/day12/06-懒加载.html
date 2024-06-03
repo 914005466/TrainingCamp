@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片懒加载</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 800px;"></div>
+    <img src="./img/1.jpg"  rel="./img/1.jpg" alt="">
+    <img src="./img/1.jpg" rel="./img/2.jpg" alt="" >
+    <img src="./img/1.jpg"  rel="./img/3.jpg" alt="">
+    <img src="./img/1.jpg"  rel="./img/4.jpg" alt="">
+    <img src="./img/1.jpg" rel="./img/5.jpg" alt="" >
+</body>
+</html>
+<script>
+    /*
+    懒加载
+    用户确实想看该图片的时候才加载该图片
+
+    window.innerHeight 浏览器可视窗口的高度
+
+    获取屏幕滚动的高度
+    doucument.documentElement.scrollTop
+    */
+   //浏览窗口的高度
+//    console.log(window.innerHeight);
+//滚动的时候执行
+    window.onscroll = function(){
+    // console.log(document.documentElement.scrollTop);
+    show();
+   };
+   //封装懒加载函数
+   let imgBox = document.querySelectorAll('img');
+   function show(){
+        for(let i =0 ;i<imgBox.length;i++){
+             //获取元素的属性值
+             let rel = imgBox[i].getAttribute('rel');
+             if( rel && h(imgBox[i]) < H()-200 ){
+               
+                //给src 添加属性值
+                imgBox[i].src = rel;
+                //删除 rel 属性
+                imgBox[i].removeAttribute('rel');
+            }
+        }
+   }
+    // 获取页面卷上去的高度和浏览器可视区域高度之和
+    function H(){
+        return document.documentElement.scrollTop + window.innerHeight;
+    }
+    // 获取当前元素到页面顶部的距离
+    function h(ele){
+        if(ele.offsetParent == null){
+            return 0;
+        }
+        return ele.offsetTop +ele.offsetParent.clientTop + h(ele.offsetParent)
+    }
+</script>

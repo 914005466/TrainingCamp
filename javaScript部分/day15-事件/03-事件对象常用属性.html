@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象常用属性</title>
+</head>
+<body>
+    <div style="height: 2000px;"></div>
+</body>
+</html>
+<script>
+    /*
+    clientX,clientY(兼容性更好)
+    clientX 当前触发点到浏览器左边的距离
+    clientY 当前触发点到浏览器上边的距离
+
+    screenX,screenY
+    screenX 当前触发点到屏幕左边的距离
+    screenY 当前触发点到屏幕上边的距离
+
+    pageX,pageY
+    pageX 当前触发点到页面左边的距离
+    pageY 当前触发点到页面上边的距离
+
+    button 属性
+    鼠标按下按钮，0：左键，2：右键，1：中键
+    which 属性
+    值1表示操作的是左键 2表示操作的是滚轮 3表示操作的是右键
+
+    type 属性 返回值类型
+    */ 
+    document.onclick = function(){
+        // console.log(event.clientX, event.clientY);
+        // console.log(event.screenX, event.screenY);
+        // console.log('浏览器窗口',event.clientX,event.clientY);
+        // console.log('页面',event.pageX, event.pageY);
+        // console.log(event.x,event.y,event.layerX,event.layerY,event.offsetX,event.offsetY)  ;
+
+        // console.log(event.button);//鼠标按下按钮，0：左键，2：右键，1：中键
+        console.log(event.which);    //鼠标按下按钮，1：左键，2：右键，3：中键
+    };
+    document.oncontextmenu = function(){
+        // console.log(event.button);
+        console.log(event.which); //鼠标按下按钮，1：左键，3：右键，2：中键
+        return false;
+    };
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom版轮播图</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:400px;
+            height:250px;
+            border:1px #f00 solid;
+            margin:30px auto;
+            overflow: hidden;
+        }
+        .cont,.cont img {
+            width:400px;
+            height:250px;
+        }
+        .cont {
+            /* transition: all 1s; */
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="cont"><img src="./images/1.jpg" alt=""></div>
+    </div>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</body>
+</html>
+<script>
+function $(sel){
+    return document.querySelector(sel);
+}
+let arr = ['./images/1.jpg','./images/2.jpeg','./images/3.jpg','./images/202.png'];
+
+//设置当前图片的下标
+let index = 0;
+
+$('#next').onclick = function(){
+    index++;
+    if(index==4){
+        index=0;
+    }
+    let img = document.createElement('img');
+    img.src = arr[index];
+    $('.cont').style.width = '800px';
+    $('.cont').style.transition = 'all 1s';
+    $('.cont').appendChild(img);
+    $('.cont').style.transform = 'translate(-400px)';
+
+    setTimeout(function(){
+        $('.cont').style.transition = 'none';
+        $('.cont').removeChild( $('.cont').children[0] );
+        $('.cont').style.width = '400px';
+        $('.cont').style.transform = 'translate(0px)';
+    },1000);
+};
+$('#prev').onclick = function(){
+    index--;
+    if(index<0){
+        index=3;
+    }
+    let img = document.createElement('img');
+    img.src = arr[index];
+    $('.cont').style.width = '800px';
+    $('.cont').style.transform = 'translate(-400px)';
+    $('.cont').insertBefore( img, $('.cont').children[0] );
+
+    setTimeout(function(){
+        $('.cont').style.transition = 'all 1s';
+        $('.cont').style.transform = 'translate(0px)';
+    },1);
+    
+    setTimeout(function(){
+        $('.cont').style.transition = 'none';
+        $('.cont').removeChild( $('.cont').children[1] );
+        $('.cont').style.width = '400px';
+        $('.cont').style.transform = 'translate(0px)';
+    },1000);
+};
+</script>

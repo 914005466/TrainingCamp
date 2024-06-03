@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选字游戏</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:400px;
+            height:600px;
+            border:1px #f00 solid;
+            margin:20px auto;
+        }
+        .tips {
+            display: flex;
+            justify-content: space-between;
+            color:#f60;
+            font-size:30px;
+            height:50px;
+            align-items: 50px;
+            padding:0 10px;
+        }
+        .txt {
+            width:400px;
+            height:400px;
+            text-align: center;
+            line-height:400px;
+            font-size:200px;
+        }
+        .tab {
+            display: flex;
+            height:150px;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .tab span {
+            user-select: none;
+            width:70px;
+            height:70px;
+            border:1px #f00 solid;
+            font-size:40px;
+            text-align: center;
+            line-height:70px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="tips">
+            <div><span>时间</span><span class="t">10</span></div>
+            <div><span>分数</span><span class="score">0</span></div>
+        </div>
+        <div class="txt">红</div>
+        <div class="tab">
+            <span>红</span>
+            <span>绿</span>
+            <span>蓝</span>
+            <span>黑</span>
+            <span>橙</span>
+        </div>
+    </div>
+
+    <button id="btn">开始</button>
+</body>
+</html>
+<script>
+//文字数组
+let txtArr = ['红','绿','蓝','黑','橙'];
+//颜色数组
+let colArr = ['#f00','#04be02','#00f','#000','#f60'];
+//获取时间
+let t = document.querySelector('.t');
+//获取分数
+let score = document.querySelector('.score');
+let txt = document.querySelector('.txt');
+let tab = document.querySelector('.tab');
+let btn = document.querySelector('#btn');
+//计时器
+let timer;
+//答案
+let answer;
+//设置总时间
+let time=10;
+
+//封装函数
+//随机
+function rand(m,n){
+    return Math.floor(Math.random()*(n-m+1)+m);
+}
+//打乱
+function resetArr(arr){
+    for(let i=0;i<arr.length;i++){
+        let n = rand(0,arr.length-1);
+        let temp = arr[n];
+        arr[n] = arr[i];
+        arr[i] = temp;
+    }
+}
+//重排游戏区域
+function resetGame(){
+    let txt1 = txtArr[ rand(0,4) ];
+    //答案
+    let col1 = colArr[ rand(0,4) ];
+
+    switch(col1){
+        case '#f00':
+            answer = '红';
+            break;
+        case '#04be02':
+            answer = '绿';
+            break;
+        case '#00f':
+            answer = '蓝';
+            break;
+        case '#000':
+            answer = '黑';
+            break;
+        case '#f60':
+            answer = '橙';
+            break;
+        default:
+            break;
+    }
+    txt.innerHTML = txt1;
+    txt.style.color = col1;
+
+    resetArr(txtArr);
+    resetArr(colArr);
+
+    let html = '';
+    for(let i=0;i<5;i++){
+        html+=`<span style="color:${colArr[i]}">${txtArr[i]}</span>`;
+    }
+    tab.innerHTML = html;
+    let span = document.querySelectorAll('.tab span');
+    span.forEach(function(item){
+        item.onclick = function(){
+            console.log( this.innerHTML , answer );
+            //当前点击内容和答案对比
+            if(this.innerHTML==answer){
+                score.innerHTML = Number(score.innerHTML)+1;
+            }
+            //重置游戏
+            resetGame();
+        };
+    });
+}
+
+// console.log( answer );
+
+btn.onclick = function(){
+    btn.onclick = null;
+    clearInterval(timer);
+    resetGame();
+    timer = setInterval(function(){
+        time--;
+        t.innerHTML=time;
+        if(time==0){
+            clearInterval(timer);
+            time=0;
+            alert('游戏结束');
+            location=location;
+        }
+    },1000);
+}
+
+</script>

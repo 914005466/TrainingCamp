@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作父子节点</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list {
+            list-style-type: none;
+        }
+        .list li {
+            height: 50px;
+            background: lightgreen;
+            line-height: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li class="abc">2</li>
+        <li>3</li>
+        <li id="aa">4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
+<script>
+    let list = document.querySelector('.list');
+    /*
+    元素的属性
+    childNodes 获取所有子节点
+    children 获取所有的子元素(html标签)
+
+    firstChild 获取第一个子节点
+    firstElementChild 获取第一个子元素(html标签)
+
+    lastChild 获取最后一个子节点
+    lastElementChild 获取最后一个子元素
+
+    parentNode和parentElement 效果一样,都是获取父节点的属性,parentNode兼容性更好
+
+    */
+    console.log(list.children,list.childNodes);
+    console.log(list.firstChild,list.firstElementChild);
+
+    let abc = document.querySelector('.abc')
+    console.log(abc.parentNode,abc.parentElement);
+
+    abc.onclick = function(){
+        this.parentNode.style.border = '1px solid red';
+    }
+
+    /*
+    兄弟关系
+    nextSibling 获取当前节点的下一个兄弟节点
+    nextElementSibling 获取当前节点的下一个兄弟标签
+
+    previousSibling 获取当前节点的上一个兄弟节点
+    previousElementSibling 获取当前节点的上一个兄弟标签
+    */
+   let aa = document.querySelector('#aa');
+   console.log(aa.nextSibling,aa.nextElementSibling);
+   console.log(aa.previousSibling,aa.previousElementSibling);
+</script>

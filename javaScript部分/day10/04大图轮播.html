@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大图轮播</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp,.wp img {
+            width:800px;
+            height:500px;
+        }
+        .wp {
+            border:1px #f00 solid;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .cont {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="cont" id="cont">
+            <img src="./images/1.jpg" alt="">
+            <img src="./images/2.jpeg" alt="">
+            <img src="./images/202.png" alt="">
+            <img src="./images/3.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+let cont = document.getElementById('cont');
+//设置当前位置
+let n = 0;
+let timer;
+
+//扩充cont中的内容
+cont.innerHTML+=cont.innerHTML;
+cont.style.width = 8*800+'px';
+
+function move(){
+    n-=5;
+    cont.style.transform = `translateX(${n}px)`;
+
+    if(n%800==0){
+        clearInterval(timer);
+        setTimeout(function(){
+            timer = setInterval(move,1);
+        },2000);
+    }
+
+    //临界值控制
+    if(n<=-4*800){
+        n=0;
+    }
+}
+
+timer = setInterval(move,1);
+</script>

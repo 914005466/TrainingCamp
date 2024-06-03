@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom操作</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            border:1px #f00 solid;
+            width:200px;
+            min-height:200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <button id="btn">点击展示</button>
+        <p>包拯</p>
+        <p>展昭</p>
+        <p id="ou">欧阳春</p>
+    </div>
+    <button id="del">点击删除</button>
+    <button id="change">点击替换</button>
+    <button id="clone">点击拷贝</button>
+</body>
+</html>
+<script>
+/*
+删除元素
+父元素.removeChild(要删除的子元素)
+他的参数必须是一个节点对象，返回值是删掉的元素
+使用关键是，要删除的元素必须首先找到，然后才能删除
+
+节点的替换
+父元素.replaceChild(替换的元素, 被替换掉的元素);
+返回值是 被替换掉的元素
+
+克隆
+被克隆的对象.cloneNode()
+返回值是克隆后的结果
+
+参数是boolean值
+false： 默认值，只拷贝元素本身，不拷贝元素的子内容或者子目录结构
+true： 不仅拷贝元素本身，也拷贝元素的子内容或者子目录结构
+
+拷贝的仅仅是内容，不能拷贝对象及其子元素的事件
+*/ 
+let del = document.querySelector('#del');
+let wp = document.querySelector('.wp');
+let ou = document.querySelector('#ou');
+let change = document.querySelector('#change');
+let clone = document.querySelector('#clone');
+let btn = document.querySelector('#btn');
+
+let ps = document.querySelectorAll('.wp p');
+console.log( ps );
+
+btn.onclick = function(){
+    alert('飞天');
+};
+//点击删除
+del.onclick = function(){
+    wp.removeChild(ou);
+};
+//点击替换
+change.onclick = function(){
+    let p = document.createElement('p');
+    p.style.color = '#f60';
+    p.innerHTML = '白玉堂';
+    let rom =  wp.replaceChild(p,ou);
+    console.log(  rom  );
+};
+//点击拷贝
+clone.onclick = function(){
+    let ctrlC = wp.cloneNode(true);
+    document.body.appendChild(ctrlC);
+};
+
+
+</script>

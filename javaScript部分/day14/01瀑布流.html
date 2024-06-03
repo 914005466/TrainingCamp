@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .wp{
+            display: flex;
+            width: 1000px;
+            border: 1px solid #f00;
+            margin: 20px auto;
+            align-items: flex-start;
+        }
+        .wp ul{
+            margin: 0 10px;
+        }
+        .wp ul li{
+            width: 230px;
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+        .to-top {
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f00;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            font-size: 17px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    
+</body>
+</html>
+<script>
+    function rand(m,n){
+        return Math.floor(Math.random()*(n-m+1)+m);
+    }
+    let ul = document.querySelectorAll('ul');
+    //创建li函数
+    function createLi(num){
+        for(let i=0;i<num;i++){
+            let li = document.createElement('li');
+            li.style.height = rand(100,250)+'px';
+            li.style.backgroundColor = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
+            li.innerHTML = i+1;
+            
+            //查看ul,确定高度最小的ul
+            let hArr = [];
+            for(let j=0;j<4;j++){
+                hArr.push(ul[j].clientHeight);
+            }
+            //获取hArr中最小值的下标
+            let min = Math.min(...hArr);
+            let index = hArr.indexOf(min);
+            ul[index].appendChild(li);
+        }
+    }
+    //创建30个li
+    createLi(30);
+    window.onscroll = function(){
+        let h1 = document.documentElement.offsetHeight;
+        let h2 = document.documentElement.scrollTop+window.innerHeight;
+        if(h1==h2){
+            createLi(30);
+            // toTop.style.display = 'block';
+        }
+        if(document.documentElement.scrollTop >300){
+            toTop.style.display = 'block';
+        }
+    }
+
+    let toTop = document.querySelector('.to-top');
+    toTop.onclick = function() {
+        // 获取当前位置
+        let top = document.documentElement.scrollTop
+        console.log(top);
+        // 定时器
+        let timer = setInterval(function() {
+            top -= 50
+            document.documentElement.scrollTop = top
+            if(top <= 0) {
+                toTop.style.display = 'none';
+                clearInterval(timer)
+            }
+        },1)
+    }
+</script>

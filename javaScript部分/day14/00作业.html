@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找不同</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:500px;
+            height:600px;
+            border:1px #f00 solid;
+            margin:20px auto;
+        }
+        .tips {
+            display: flex;
+            justify-content: space-between;
+            padding:0 10px;
+            color:#f60;
+            font-size:20px;
+            height:100px;
+            align-items: center;
+        }
+        .game {
+            width:500px;
+            height:500px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .strat-game{
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .strat-game span {
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            background: #f60;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="tips">
+            <div>时间：<span id="time">10</span></div>
+            <div>分数：<span id="score">00</span></div>
+        </div>
+        <div class="game">
+            <!-- 开始游戏层 -->
+            <div class="strat-game">
+                <span id="btn">开始游戏</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    let strat = document.querySelector('.strat-game');
+    let time = document.querySelector('#time');
+    let score = document.querySelector('#score');
+    let game = document.querySelector('.game')
+    let btn = document.querySelector('.strat-game span')
+    let t = 10;
+    //计时器
+    let timer = null;
+    //设置当前游戏的步数
+    let step = 1;
+
+    function rand(m,n){
+        return Math.floor( Math.random()*(n-m+1)+m);       
+    }
+    //点击开始游戏
+    strat.onclick = playGameFun;
+     function playGameFun(){
+        //执行计时器
+        timer = setInterval(setTime,1000);
+        //隐藏透明层
+        strat.style.display = 'none';
+
+        //初始化游戏
+        play(step);
+    };
+    
+    //设置游戏函数
+    function play(n){
+        game.innerHTML = '';
+        // 计算图片的个数
+        let num = n*n
+        for(let i = 0 ;i<num;i++){
+            let img = document.createElement('img');
+            img.width = 500/n;
+            img.height = 500/n;
+            img.src= './images/bg10.jpg';
+            //appendChild 给元素添加子元素 img
+            game.appendChild(img);
+        }
+        let index = rand(0,num-1);
+        let img = game.querySelectorAll('.game img')[index];
+        img.src = './images/bg11.jpg'
+        img.onclick = function(){
+            score.innerHTML = score.innerHTML-0+1;
+            step++;
+            play(step)
+        }
+    }
+    //计时器
+function setTime(){
+    t--
+    time.innerHTML = t
+    if(t<=0){
+        t = 10;
+        step = 0;
+        time.innerHTML = '10';
+        score.innerHTML = '0';
+        clearInterval(timer);
+        
+        game.innerHTML = `
+        <div class="strat-game">
+                <span onclick='playGameFun()' id="btn">开始游戏</span>
+            </div>
+        <img src = "./images/bg10.jpg" width = 500 height=500/`;
+        // alert('游戏结束,您的得分为'+'${step}')
+    }
+}
+</script>
