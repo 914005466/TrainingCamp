@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            line-height: 50px;
+            text-align: center;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    //随机数字
+    function rand(m, n) {
+        return Math.floor(Math.random() * (n - m + 1) + m);
+    }
+    //随机颜色
+    function col() {
+        let r = rand(0, 255);
+        let g = rand(0, 255);
+        let b = rand(0, 255);
+        return `rgb(${r},${g},${b})`;
+    }
+
+    let html = '';
+    for (let i = 0; i < 50; i++) {
+        html += `<div style="background:${col()};">${i + 1}</div>`;
+    }
+    document.body.innerHTML = html;
+
+
+    let wp = document.getElementsByTagName('div');
+    console.log(wp[0]);
+
+
+    document.onmousemove= function () {
+        for (let i = wp.length-1; i >0; i--) {
+            wp[i].style.left = wp[i - 1].style.left;
+            wp[i].style.top = wp[i - 1].style.top;
+        }
+        wp[0].style.left = event.clientX + 'px';
+        wp[0].style.top = event.clientY  + 'px';
+        
+    };
+
+</script>

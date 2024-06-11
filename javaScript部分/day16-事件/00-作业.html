@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        .wp{
+            /* calc 动态计算 css3 中新增函数 */
+            width: calc( 100% + 54.4rem );
+            background: skyblue;
+            display: flex;
+            transform: translateX(-54.4rem);
+            transition: all 1s;
+        }
+        .nav {
+            width: 54.4rem;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .cont {
+            width: 100vw;
+            height: 10000px;
+            background: pink;
+        }
+        .text {
+            width: 80%;
+            height: 50rem;
+            display: flex;
+            font-size: 3rem;
+        }
+        .tips{
+            font-size: 3rem;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="wp">
+        <div class="nav"></div>
+        <div class="cont">
+            <button class="btn">点击</button>
+            <textarea  class="text" id="text" placeholder="最多输入200字" maxlength="20"></textarea>
+            <p class="tips"><span>0</span>/200</p>
+            <button id="addCookie">添加cookie</button>
+        </div>
+    </div>
+ </body>
+ </html>
+ <script src="/javaScript部分/端午作业/js/base.js"></script>
+ <script>
+    let btn = document.querySelector('.btn');
+    let wp = document.querySelector('.wp');
+    let text = document.querySelector('.text');
+    let t = document.querySelector('.tips span')
+    let addCookie = document.querySelector('#addCookie')
+    btn.onclick = function(){
+        wp.style.transform = 'translateX(0)'
+    }
+    text.oninput = function(){
+        let n = this.value.length;
+
+        if (n>20) {
+            alert('最多不能超过20字')
+            // slice 截取 包含开头不包含结尾
+            let str = this.value.slice(0,20);
+            this.value = str;
+            n = 20;
+            
+        }
+        t.innerHTML = n
+    }
+
+    addCookie.onclick = function(){
+        document.cookie = 'info = 张飞吃豆芽;max-age=1000';
+    };
+ </script>

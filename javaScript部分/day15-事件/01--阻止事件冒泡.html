@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止事件冒泡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 300px;
+            height: 300px;
+            border: 1px solid skyblue;
+            margin: 30px auto;
+            background-color: pink;
+            padding: 100px;
+        }
+        .far{
+            background-color: #ff0;
+            padding: 100px;
+        }
+        .son{
+            background-color: #f00;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="far">
+            <div class="son">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let wp = document.querySelector('.wp')
+    let far = document.querySelector('.far')
+    let son = document.querySelector('.son')
+    wp.addEventListener('click',function(){
+        console.log('血战上海滩');
+    });
+    far.addEventListener('click',function(){
+        let ev = event||e;
+        //阻止事件冒泡,使用事件对象的 stopPropagation 方法,直接阻止
+        ev.stopPropagation();
+        console.log('流星蝴蝶剑');
+    });    
+    son.addEventListener('click',function(e){
+        // let ev = event||e;
+        //阻止事件冒泡,使用事件对象的 stopPropagation 方法,直接阻止
+        event.stopPropagation();//标准浏览器
+        event.cancelBubble = true;//ie下做兼容使用
+        console.log('问道');
+    });
+    /*
+    阻止事件冒泡的方法
+    一般的通过事件对象的stopPropagation()即可
+    如果需要做ie的兼容 则需要添加 event.cancelBubble = true;
+    */
+</script>

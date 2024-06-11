@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地存储</title>
+</head>
+
+<body>
+    <button class="add">添加cookie</button>
+    <button class="getval">获取cookie</button>
+    <button class="del">删除cookie</button>
+    <button class="qing">清空cookie</button>
+</body>
+
+</html>
+<script>
+    /*
+    localStorage
+    1.数据持久化存储的一种方式
+    2.IE8及其以上支持,标准浏览器都支持,移动端都支持
+    3.存储量比较大,大概5M左右
+    4.存储在当前作用域,一个域名一个localStorage
+
+    设置localStorage 数据存储的方式
+     localStorage.setItem('key','value') 他是以key-value的形式存储在本地存储中
+     setItem 设置的时候,他的值不能是 对象形式
+     还可以通过对象设置属性的方式设置localStorage的属性值
+     localStorage.key = value;
+     localStorage[key]= value; 当key为变量的时候,可以使用该方式
+
+     以上操作均为给localStorage设置属性值,如果key不存在,则表示添加key属性,如果key存在则表示修改key属性对应的值
+
+     删除
+     localStorage.removeItem('属性key');删除指定属性的数据
+     清空
+     localStorage.clear();清空
+     获取
+     localStorage.getItem('属性key')获取指定属性对应的数据;
+     localStorage.key 使用对象形式获取
+     localStorage[key] 使用对象形式获取
+    */
+    // localStorage.setItem('name','孙悟空',)
+    localStorage.setItem('obj', JSON.stringify({ name: '帝辛', age: 20 }))
+    let add = document.querySelector('.add')
+    let getval = document.querySelector('.getval')
+    let del = document.querySelector('.del')
+    let qing = document.querySelector('.qing')
+    //增加
+    add.onclick = function(){
+        localStorage.setItem('obj', JSON.stringify({ name: '帝辛', age: 20 }))
+    }
+    // 删除
+    del.onclick = function(){
+        // localStorage.removeItem('name')
+        //也可以使用delete关键字删除
+        delete localStorage.name
+    }
+    //清空
+    qing.onclick = function(){
+        localStorage.clear();
+    }
+    //获取
+    getval = onclick = function(){
+        let val =  localStorage.getItem('name1');
+        console.log(val);
+    }
+    /*
+    使用delete 删除数组的时候,不仅仅删除的是数组的value,还把对行的key(下标)删除掉了
+    */ 
+    let arr = ['端午','中秋','国庆','元旦']
+    console.log(arr);
+    delete arr[2]
+    console.log(arr);
+</script>

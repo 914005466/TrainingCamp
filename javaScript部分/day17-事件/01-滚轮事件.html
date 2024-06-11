@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚轮事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+
+    </div>
+</body>
+</html>
+<script>
+    /*
+    DOMMouseScroll 事件,绑定滚轮事件,他必须使用addEventListener进行绑定,只有火狐支持,根据时间对象的detail属性来判断滚轮的方向
+    e.detail>0 滚轮向后滚
+    e.detail<0 滚乱向前滚
+
+    mousewheel事件,谷歌及其他浏览器支持
+    通过事件对象的wheelDelta属性来判断滚轮的方向
+    e.wheelDelta >0 滚轮向前滚
+    e.wheelDelta <0 滚轮向后滚
+
+    */
+
+//    document.addEventListener('DOMMouseScroll',function(e){
+//     console.log(e.detail);
+//    }   )
+//    document.onmousewheel = function(e){
+//     console.log(e.wheelDelta);
+//    };
+//ele 常代表 Element
+let wp = document.querySelector('.wp')
+    function scroll(ele){
+        if(ele == null){
+            return;
+        }
+        //兼容火狐
+        //不用加括号,加了括号立即执行 function(){}是回调函数,不会立即执行
+        ele.addEventListener('DOMMouseScroll',sc)
+         //谷歌
+         ele.addEventListener('mousewheel',sc)
+    
+
+    function sc(e){
+        let str = '';
+        if(e.wheelDelta){//谷歌浏览器
+            str = e.wheelDelta>0?'向前':'向后';
+        }else{//火狐
+            str =  e.detail>0?'向后':'向前';
+        }
+        console.log(str);
+    }
+}
+</script>

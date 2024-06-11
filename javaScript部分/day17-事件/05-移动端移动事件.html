@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
+<script>
+let wp = document.querySelector('.wp');
+wp.ontouchstart = function(ev){
+    // console.log(event);
+    console.log(ev.touches[0].clientX);
+}
+// wp.addEventListener('touchstart',function(ev){
+//     console.log(ev.touches[0].clientX);
+// })
+/*
+事件对象的常见属性
+touches 当前触摸点的集合
+targerTouches 当前触摸点的集合,主要是事件源对象的触摸点集合
+changeTouches 当前的状态距离上一次状态改变的 触摸点集合
+
+touches 的常用属性
+clientX 触摸点距离浏览器左边的距离
+clientY 触摸点距离浏览器上边的距离
+
+pageX 触摸点距离页面左边的距离
+pageY 触摸点距离页面上面的距离
+
+screenX 距离手机屏幕左边的距离
+screenY 距离手机屏幕上边的距离
+*/
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>winde resize
+        事件
+    </title>
+</head>
+<body>
+    <p id="num">0</p>
+</body>
+</html>
+<script>
+    /*
+    window的resize 事件 ,是window窗口大小变化的时候执行的事件
+    */
+   let num = document.querySelector('#num');
+   window.onresize = function(){
+    num.innerHTML = num.innerHTML-0+1;
+   }
+</script>

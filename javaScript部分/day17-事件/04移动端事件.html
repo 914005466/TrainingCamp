@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端事件</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .wp {
+            width:200px;
+            height:200px;
+            background: #04be02;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
+<script>
+/*
+移动端常见的四个事件
+touchstart 开始触摸的时候触发
+touchmove 手指移动的时候触发
+touchend 手指抬起时触发(结束触摸)
+touchcancel 触摸被迫终止，一般用在电话进入或者远程信息进入的时候，用来保存当前状态
+
+移动端也支持click事件，但是click事件会有延迟，给用户的感觉比较卡顿，所以不建议在移动端使用
+
+事件绑定方式
+1. 通过 on 绑定,低版本浏览器 不支持改绑定方式
+2. 通过 addEventListener 绑定
+
+移动端事件也具有事件冒泡
+移动端事件的操作函数最后，通常都添加 return false;
+*/
+
+let wp = document.querySelector('.wp');
+let n=0;
+
+wp.addEventListener('touchstart',function(){
+    console.log( '开始触摸-监听' );
+});
+wp.ontouchstart = function(){
+    console.log( '开始触摸' );
+};
+wp.addEventListener('touchmove',function(){
+    n++;
+    this.innerHTML = n;
+    if(n>=100){
+        alert('中午吃啥');
+    }
+});
+wp.addEventListener('touchend',function(){
+    this.innerHTML = '结束了';
+    n=0;
+});
+
+wp.addEventListener('touchcancel',function(){
+    this.innerHTML = '触摸被取消了';
+});
+</script>
