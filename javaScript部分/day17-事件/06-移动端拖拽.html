@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="wp"></div>
+</body>
+</html>
+<script>
+    let wp = document.querySelector('.wp');
+    //设置两个变量,分别表示x和y的位置
+    let x = y = 0;
+    wp.addEventListener('touchstart',function(e){
+        //坐标点距离元素左边和上面的距离
+        let disX = e.touches[0].clientX-wp.offsetLeft;
+        let disY = e.touches[0].clientY-wp.offsetTop;
+        wp.addEventListener('touchmove',function(e){
+            let oleft = e.touches[0].clientX - disX + x;
+            let oTop = e.touches[0].clientY - disY + y;
+            wp.style.cssText = `
+        transform:translate(${oleft}px,${oTop}px)
+            `;
+            document.ontouchend = function () {
+                x = oleft;
+                y = oTop;
+        document.ontouchmove = wp.ontouchmove = null;
+        return false;
+    }
+           
+            return false;
+        })
+        return false;
+    })
+    
+</script>

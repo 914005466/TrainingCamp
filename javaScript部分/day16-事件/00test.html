@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打地鼠</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        div {
+            user-select: none;
+            position: absolute;
+            width:40px;
+            height:40px;
+            text-align: center;
+            line-height:40px;
+            font-size:30px;
+            left:0;
+            top:0;
+            border-radius:50%;
+            color:#fff;
+        }
+        .box{
+            margin: 30px auto;
+            width: 320px;
+            height: 480px;
+            background:url(./img/game_bg.jpg) no-repeat 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./img/game_bg.jpg" alt="">
+    </div>
+    <img src="" alt="" id="h">
+</body>
+</html>
+<script>
+let timer = 0;
+let n = 0;
+let h = document.querySelector('#h');
+let dir = 0; // 0 是向上 1是向下
+setInterval(function(){
+    h.src = './img/h'+n+'.png';
+    if(dir==0){
+        n++;
+    }else {
+        n--;
+    }
+    
+    if(n>=5){
+        dir=1;
+    }
+},200);
+h.onclick = function(){
+    n=6;
+    dir=0;
+};
+
+
+
+
+</script>

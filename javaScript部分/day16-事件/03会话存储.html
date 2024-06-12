@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会话存储</title>
+</head>
+<body>
+    <button id="add">添加sessionStorage本地存储</button>
+    <button id="del">删除sessionStorage本地存储</button>
+    <button id="clear">清空sessionStorage本地存储</button>
+    <button id="getVal">获取sessionStorage本地存储</button>
+    <p id="txt"></p>
+</body>
+</html>
+<script>
+/*
+sessionStorage
+用法：操作属性和方法都和 localStorage 一模一样
+除了 关闭当前浏览器，存储的数据会被删除 和 localStorage 不同
+
+*/
+add.onclick = function(){
+    sessionStorage.setItem( 'name','曾国藩' );
+    sessionStorage.setItem( 'age',60 );
+    sessionStorage.setItem( 'sex','男' );
+};
+del.onclick = function(){
+    sessionStorage.removeItem( 'name' );
+};
+clear.onclick = function(){
+    sessionStorage.clear();
+};
+getVal.onclick = function(){
+   let name = sessionStorage.name;
+   console.log(name);
+};
+
+let u = sessionStorage.getItem('username');
+txt.innerHTML = '欢迎'+u;
+</script>

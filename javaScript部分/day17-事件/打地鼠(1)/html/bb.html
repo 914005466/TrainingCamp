@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打地鼠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+            width: 320px;
+            height: 480px;
+            background: url(../img/game_bg.jpg) no-repeat 0 0;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .one {
+            position: absolute;
+            left: 15px;
+            top: 158px;
+            cursor: pointer;
+        }
+
+        #defen {
+            display: block;
+            margin: 6px 0 0 56px;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .jdt {
+            margin-left: 63px;
+            margin-top: 20px;
+            height: 16px;
+            border-radius: 10px;
+        }
+
+        .ksyx {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            border-radius: 50%;
+            margin: 0 auto;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            margin-top: 100px;
+            animation: pulse 2s infinite linear;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .yxjs {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            border-radius: 50%;
+            margin: 0 auto;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 26px;
+            margin-top: 100px;
+            animation: pulse 2s infinite linear;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp">
+        <img src="" alt="" class="one">
+        <var id="defen">0</var>
+        <img src="../img/progress.png" alt="" class="jdt">
+        <div class="ksyx">开始游戏</div>
+        <div class="yxjs">游戏结束您的得分为100点击继续游戏</div>
+    </div>
+</body>
+
+</html>
+<script>
+    let timmer;
+    let one = document.querySelector('.one');
+    let defen = document.querySelector('#defen')
+    let jdt = document.querySelector('.jdt')
+    let ksyx = document.querySelector('.ksyx')
+    let yxjs = document.querySelector('.yxjs')
+    let n = 0;
+    let dr = 1;
+    let jore = ['h', 'x'];
+    let dong = [{ x: 96, y: 112 }, { x: 15, y: 158 }, { x: 187, y: 140 }, { x: 103, y: 189 }, { x: 30, y: 292 }, { x: 119, y: 273 }, { x: 207, y: 296 }, { x: 17, y: 219 }, { x: 200, y: 212 }];
+    ksyx.onclick = function () {
+        ksyx.style.display = 'none';
+        timmer = setInterval(function () {
+            let sjgd = sj(0, dong.length - 1)
+            if (dr == 0) {
+                n--;
+                if (n < 0) {
+                    dr = 1;
+                    one.style.left = `${dong[sjgd].x}px`
+                    one.style.top = `${dong[sjgd].y}px`
+                    let dl = jore.sort(function () {
+                        return Math.random() - 0.5
+                    })
+                }
+            }
+            if (dr == 1) {
+                n++;
+                if (n == 5) {
+                    dr = 0;
+                }
+            }
+            one.src = '../img/' + jore[0] + n + '.png';
+        }, 100);
+        //进度条
+        let s = 30;
+        let jdtjsq;
+        jdtjsq = setInterval(function () {
+            s--;
+            jdt.style.width = s * 6 + 'px'
+            if (s < 0) {
+                clearTimeout(timmer)
+                yxjs.style.display = 'flex';
+                yxjs.innerHTML = '游戏结束您的得分为' + sum + '分';
+            }
+        }, 1000)
+        //封装随机数
+        function sj(m, n) {
+            return Math.floor(Math.random() * (n - m + 1) + m)
+        }
+        //得分机制
+        let sum = 0
+        one.onclick = function () {
+            n = 9;
+            if (jore[0] == 'x') {
+                sum -= 10;
+            }
+            if (jore[0] == 'h') {
+                sum += 10;
+            }
+            console.log(sum);
+            if (sum >= 50) {
+                defen.style.color = '#f00'
+            }
+            defen.innerHTML = sum;
+        }
+    }
+</script>

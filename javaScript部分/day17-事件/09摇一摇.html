@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>摇一摇</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        img {
+            display: block;
+            width: 100vw;
+            height:100vh;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/2.jpg" alt="">
+</body>
+</html>
+<script>
+let img = document.querySelector('img');
+// 设置存储的重力加速对象
+let lastG = {x:0,y:0,z:0};
+// 设置当前游戏的重力加速对象
+let curG = {x:0,y:0,z:0};
+// 记录游戏时间
+let lastTime = 0;
+
+window.ondevicemotion = function(ev){
+    console.log( ev.accelerationIncludingGravity );
+    //创建重力加速度对象
+    let g = ev.accelerationIncludingGravity;
+    // document.body.innerHTML = `x:${g.x} <br/> y:${g.y} <br/>z:${g.z}`;
+    let now = new Date();
+
+    if(now.getTime() - lastTime>100 ){
+        lastTime = now.getTime();
+        //当前各个方向的重力加速度对象
+        curG.x = g.x;
+        curG.y = g.y;
+        curG.z = g.z;
+
+        if(curG.x-lastG.x>5 || curG.y-lastG.y>5 ||curG.z-lastG.z>5){
+            let n = Math.floor( Math.random()*7+2 );
+            img.src=`./images/${n}.jpg`;
+        }
+        lastG.x = curG.x;
+        lastG.y = curG.y;
+        lastG.z = curG.z;
+    }
+};
+</script>

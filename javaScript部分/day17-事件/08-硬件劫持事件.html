@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>硬件劫持事件</title>
+</head>
+<body>
+    <p id="txt"></p>
+</body>
+</html>
+<script>
+    /*
+    硬件劫持事件
+    1.都是在移动设备中执行
+    2.都是给window绑定事件
+    3.
+
+    旋转屏幕事件
+    onorientationchange
+
+    重力感应事件(陀螺仪)
+    ondevicemotion
+
+    磁力感应事件(主要研究设备朝向)
+    */
+//    window.onorientationchange
+//    window.ondevicemotion
+//    window.ondeviceorientation
+   window.onorientationchange = function(ev){
+    let e = event || ev;
+    let str='';
+    //通过事件对象得出 旋转角度
+    console.log(e.target.orientation);
+    switch(e.target.orientation){
+        case 0:
+            str='竖屏';
+            break;
+        case 90:
+            str='向右旋转';
+            break;
+        case -90:
+            str='向左旋转';
+            break;
+        default:
+            str='没有旋转';
+            break;
+    }
+    txt.innerHTML = str
+   }
+   
+</script>

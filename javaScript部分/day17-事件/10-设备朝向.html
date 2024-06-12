@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设备朝向</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //检测当前设备是否支持设备朝向
+    console.log(window.DeviceOrientationEvent);
+    /*
+    deviceorientation 的事件对象中的属性
+    alpha 表示沿z轴的旋转角度,范围是 0-360
+    beta 表示沿x轴的旋转角度,范围 - 180 -180
+    gamma 表示沿y轴的旋转角度,范围是-90-90
+    */ 
+    window.ondeviceorientation = function(ev){
+        document.body.innerHTML = `
+         左右:${parseInt(ev.alpha)}<br>
+         前后:${parseInt(ev.beta)}<br>
+         扭转:${parseInt(ev.gamma)}<br>
+        `
+    }
+</script>

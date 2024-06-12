@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/2.jpg" alt="">
+</body>
+</html>
+<script>
+    let img = document.querySelector('img');
+
+    let lastG = {x:0,y:0,z:0};
+    let curG = {x:0,y:0,z:0};
+    let lastTime = 0;
+    window.ondevicemotion = function(ev){
+        console.log(ev.accelerationIncludingGravity );
+         //创建重力感应对象
+        let g = ev.accelerationIncludingGravity;
+        // document.body.innerHTML = `x:${g.x}<br>y:${g.y}<br>z:${g.z}`;
+        let now = new Date();
+        //当前各个方向的重力加速度对象
+        curG.x = g.x
+        curG.y = g.y
+        curG.z = g.z
+        if(Math.abs(curG.x - lastG.x)>50 || Math.abs(curG.y - lastG.y)>50 || Math.abs(curG.z- lastG.z)>50){
+            let n = Math.floor( Math.random()*7+2);
+            img.scr=` ./images/${n}.jpg`;
+
+        }
+        lastG.x = curG.x;
+        lastG.y = curG.y;
+        lastG.z = curG.z;
+    };
+   
+</script>

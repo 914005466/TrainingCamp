@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打地鼠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+            margin: 20px auto;
+            width: 400px;
+            height: 600px;
+            background: url(../img/game_bg.jpg) no-repeat 0 0/ 100% 100%;
+            position: fixed;
+            transform: translate(-50%, 0);
+            left: 50%;
+        }
+
+        .wp img {
+            user-select: none;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .defen {
+            position: absolute;
+            left: 80px;
+            top: 9px;
+            font-size: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wp">
+        <img src="" alt="" class="img">
+        <span class="defen"></span>
+    </div>
+</body>
+
+</html>
+<script>
+    let wp = document.querySelector('.wp');
+    let img = document.querySelector('.img');
+    let defen = document.querySelector('.defen');
+    let arr = [
+        {
+            left: '133px',
+            top: '164px'
+        },
+        {
+            left: '37px',
+            top: '218px'
+        },
+        {
+            left: '140px',
+            top: '260px'
+        },
+        {
+            left: '246px',
+            top: '196px'
+        },
+        {
+            left: '33px',
+            top: '295px'
+        },
+        {
+            left: '262px',
+            top: '285px',
+        },
+        {
+            left: '50px',
+            top: '385px'
+        },
+        {
+            left: '160px',
+            top: '360px'
+        },
+        {
+            left: '270px',
+            top: '390px'
+        }
+    ]
+    let arr1 = ['h', 'x'];
+    let n = 0;
+    let dir = 0;
+
+    //随机数组函数
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    timer = setInterval(function () {
+        let sjwz = random(0, arr.length - 1);
+        if (dir == 0) {
+            n--;
+            if (n < 0) {
+                dir = 1;
+                //随机左
+                img.style.left = `${arr[sjwz].left}`;
+                //随机上
+                img.style.top = `${arr[sjwz].top}`;
+                //随机数组,随机小灰灰和灰太狼
+                let sjtp = arr1.sort(function () {
+                    return Math.random() - 0.5;
+                });
+            }
+        }
+
+        if (dir == 1) {
+            n++;
+            if (n >= 5) {
+                dir = 0;
+            }
+        }
+        img.src = '../img/' + arr1[0] + n + '.png';
+    }, 100)
+
+
+
+    let df = 0;
+    //点击得分
+    function yanshi() {
+        img.onclick = function () {
+            n = 9;
+            if (arr1[0] == 'h') {
+                df += 10
+            }
+            if (arr1[0] == 'x') {
+                df -= 10
+            }
+            defen.innerHTML = df;
+            setTimeout(function () {
+                yanshi()
+            }, 3000)
+        }
+    }
+    yanshi()
+</script>
