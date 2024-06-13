@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞扬的小鸟</title>
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <link rel="stylesheet" href="../css/bird.css">
+</head>
+
+<body>
+    <audio src="../music/game_music.mp3" loop></audio>
+    <audio src="../music/bullet.mp3"></audio>
+    <audio src="../music/game_over.mp3"></audio>
+    <div class="bg">
+        <!-- 开始 -->
+        <div class="wp">
+            <img src="../images/head.jpg" class="animate__animated animate__zoomIn" alt="">
+            <img class="bird" src="../images/bird.png" class="animate__animated" alt="">
+            <img class="start" src="../images/start.jpg" class="animate__animated" alt="">
+        </div>
+
+        <!-- 游戏 -->
+        <div class="game">
+            <!-- <div class="up-pipe">
+                <img src="../images/up_pipe.png" alt="">
+            </div>
+            <div class="down-pipe">
+                <img src="../images/down_pipe.png" alt="">
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let wp = document.querySelector('.wp');
+    let game = document.querySelector('.game');
+    let start = document.querySelector('.start');
+    let audio = document.querySelectorAll('audio');
+    //分数
+    let score = 0;
+
+
+    //点击开始游戏
+    start.onclick = function () {
+        wp.style.display = 'none';
+        game.style.display = 'block';
+        audio[0].play();//播放游戏音乐
+        bird();
+        createPipe();
+    }
+
+    //生成小鸟
+    function bird() {
+        let img = document.createElement('img');
+        img.className = 'bird';
+        img.src = '../images/bird.png';
+        game.appendChild(img);
+        let t = 100;//初始位置
+        let tDown = null;//下落计时器
+        let tUp = null;//上升计时器
+
+        //点击小鸟下落
+        function birdDown() {
+            img.src = '../images/down_bird.png';
+            t += 10;
+            img.style.top = t + 'px';
+            if (t >= 400) {
+                for (let i = 1; i < 100; i++) {
+                    clearInterval(i);
+                }
+                audio[0].pause();
+                audio[2].play();
+                game.onclick = null;
+                alert('Game Over！Your Score is '
+                + score + '!');
+            }
+        }
+
+        tDown = setInterval(birdDown, 100)
+
+        //点击小鸟上升
+        game.onclick = function () {
+            clearInterval(tDown);
+            clearTimeout(tUp);
+            img.src = '../images/up_bird.png';
+            t -= 30;
+            img.style.top = t + 'px';
+            audio[1].play();
+            tUp = setTimeout(function () {
+                tDown = setInterval(birdDown, 100)
+            }, 250)
+            if (t <= 0) {
+                for (let i = 1; i < 100; i++) {
+                    clearInterval(i);
+                }
+                audio[0].pause();
+                audio[2].play();
+                game.onclick = null;
+                alert('Game Over！Your Score is '
+                + score + '!');
+            }
+        }
+    }
+
+    function rand(m, n) {
+        return Math.floor(Math.random() * (n - m + 1) + m);
+    }
+    //生成管道
+    function createPipe() {
+        //设置生成管道的left值
+        let L = 343;
+        //上管道高度
+        let hTop = rand(60, 240);
+        //下管道高度
+        let hBot = 300 - hTop
+
+        //上管道
+        let upPipe = document.createElement('div');
+        let img1 = document.createElement('img');
+        img1.src = '../images/up_pipe.png';
+        upPipe.appendChild(img1);
+        upPipe.style.height = hTop + 'px';
+        upPipe.style.left = L + 'px';
+        upPipe.className = 'up-pipe';
+        //下管道
+        let downPipe = document.createElement('div');
+        let img2 = document.createElement('img');
+        img2.src = '../images/down_pipe.png';
+        downPipe.appendChild(img2);
+        downPipe.style.height = hBot + 'px';
+        downPipe.style.left = L + 'px';
+        downPipe.className = 'down-pipe';
+        //管道添加到游戏区
+        game.appendChild(upPipe);
+        game.appendChild(downPipe);
+
+        // setTimeout(function () {
+        //     createPipe();
+        // },3500)
+        //移动管道计时器
+        let moveTimer = null;
+        moveTimer = setInterval(function () {
+            L--;
+            upPipe.style.left = L + 'px';
+            downPipe.style.left = L + 'px';
+            //管道碰撞检测
+            if (isCrash(upPipe) || isCrash(downPipe)) {
+                // clearInterval(moveTimer);
+                for (let i = 1; i < 100; i++) {
+                    clearInterval(i);
+                }
+                game.removeChild(upPipe);
+                game.removeChild(downPipe);
+                audio[0].pause();
+                audio[2].play();
+                game.onclick = null;
+                alert('Game Over！Your Score is '
+                    + score + '!');
+            }
+            //删除管道
+            if (L <= -62) {
+                game.removeChild(upPipe);
+                game.removeChild(downPipe);
+                clearInterval(moveTimer);
+                //积分
+                score++;
+                //创建新管道
+                createPipe();
+            }
+        }, 20);
+    }
+
+    //小鸟和其他物品的碰撞检测
+    function isCrash(ele) {
+        let bird = document.querySelector('.game>img');
+        let l1 = bird.offsetLeft;
+        let t1 = bird.offsetTop;
+        let r1 = l1 + bird.offsetWidth;
+        let b1 = t1 + bird.offsetHeight;
+
+        let l2 = ele.offsetLeft;
+        let t2 = ele.offsetTop;
+        let r2 = l2 + ele.offsetWidth;
+        let b2 = t2 + ele.offsetHeight;
+
+        if (l2 > r1 || r2 < l1 || t2 > b1 || b2 < t1) {
+            return false;
+        } else {
+            return true;  
+        }
+    }
+
+</script>

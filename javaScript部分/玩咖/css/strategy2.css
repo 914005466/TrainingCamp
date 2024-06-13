@@ -1,0 +1,101 @@
+
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 300;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1 img {
+    width: 2rem;
+    height: 3.4rem;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.2rem;
+}
+h2 {
+    height: 10rem;
+    line-height: 10rem;
+    margin-top: 9.8rem;
+    font-size: 3.4rem;
+    color: #333;
+    margin-left: 4.2rem;
+}
+.wp1 {
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 2.4rem;
+    color: #555;
+    padding: 0 2rem 0 4.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.wp1 p:nth-child(2){
+    text-align: right;
+}
+.wp2 {
+    padding: 0 2rem;
+    height: 33.5rem;
+}
+.wp2 img {
+    height: 100%;
+    width: 100%;
+}
+.wp3 {
+    height: 43rem;
+    padding: 3rem 2rem 2.7rem  2.4rem ;
+}
+.wp3 .p1{
+    font-size: 2.8rem;
+    color: #555555;
+    line-height: 4rem;
+}
+.wp4 {
+    height: 20.7rem;
+    padding: 2rem 5.3rem 2rem 4rem;
+    display: flex;
+    font-size: 2.8rem;
+    color: #555555;
+    line-height: 5rem;
+}
+.wp4 img {
+    height: 20.7rem;
+    width: 20.7rem;
+    margin-right: 0.6rem;
+}
+.p2 {
+    margin-top: 3.7rem;
+}
+.wp5 {
+    margin: 4.6rem 2.5rem 2rem 2.5rem;
+    height: 9rem;
+ 
+    border-radius: 0.5rem;
+    color: #fff;
+    text-align: center;
+    line-height: 9rem;
+    font-size: 3.4rem;
+}
+.wp5 p {
+    position: relative;
+    height: 9rem;
+    background: #F4645C;
+   
+}
+.wp5 p img {
+    width: 3rem;
+    height: 2.7rem;
+    position: absolute;
+    top: 3rem;
+    left: 35%;
+
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="../images/22.png" alt="" id="arrow">
+           <span>玩咖用户注册</span>
+           <a href="../html/16登录.html">
+            <span>登录</span>
+           </a>
+        </h1>
+    </header>
+    <div class="cont">
+        <input type="text" placeholder="请输入手机号">
+        <div class="cont1">
+            <input type="text" placeholder="请输入验证码">
+            <span id="btn">获取验证码</span>
+        </div>
+    
+        <input type="password" placeholder="请输入密码">
+        <input type="password" placeholder="请再次输入密码">
+ 
+    </div>
+    <div class="btn">注册</div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+    btn.onclick = function(){
+    let timmer;
+    let n =60;
+   this.style.background = '#ccc';
+   this.innerHTML = `倒计时(${n}s)`
+   timmer =setInterval(function(){
+    n--;
+    btn.innerHTML = `倒计时(${n}s)`
+    if(n==0){
+         clearInterval(timmer);
+         btn.style.background = '#04be02';
+         n=60;
+         btn.innerHTML = `获取验证码`
+    }
+
+},1000)
+}
+let arrow = document.getElementById("arrow");
+    arrow.addEventListener("click", function(){
+        history.go(-1);
+    });
+</script>

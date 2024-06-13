@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单个视频</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/single-video.css">
+</head>
+<body>
+    <header>
+        <h1>
+           <span> 游戏视频</span>
+        </h1>
+    </header>
+    <div class="banner">
+        <div class="cont" id="cont">
+            <img src="../images/63.png" alt="">
+            <img src="../images/2.jpg" alt="">
+            <img src="../images/4.jpg" alt="">
+        </div>
+        <div class="pot" id="pot">
+            <span class="act"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+    <div class="wp2">
+        <img src="../images/64.png" alt="">
+        <div class="wp2-1">
+            <p>功夫熊猫</p>
+        <a href="../html/02关注.html">
+            关注游戏领取游戏专属礼包
+        </a>
+        </div>
+        <div class="wp2-2">
+            <p>关注</p>
+        </div>
+    </div>
+     
+    <div class="wp3">
+        <p><span class="act">最新视频</span></p>
+        <p><span>视频排行</span></p>
+    </div>
+    <div class="content aaa">
+        <div class="cont">
+           
+            <div class="cont1">
+                <a href="../html/12视频详情页.html">
+                <div class="cont1-1">
+                    
+                    <img src="../images/67.png" alt="">
+                    <img src="../images/32.png" alt="">
+                
+                </div>
+            </a>
+                <div class="cont1-2">
+                    <p>6.1版本单排上分最 强 打野英雄Tops5排行</p>
+                    <div class="cont1-2-1">
+                        <p>
+                            <img src="../images/65.png" alt="">
+                            2100</p>
+                        <p>
+                            <img src="../images/66.png" alt="">
+                            5421次播放</p> 
+                    </div>   
+                </div>
+            </div>
+          
+        </div>
+        <div class="cont">
+            <div class="cont1">
+                <div class="cont1-1">
+                    <img src="../images/12.png" alt="">
+                    <img src="../images/32.png" alt="">
+                </div>
+                <div class="cont1-2">
+                    <p>6.1版本单排上分最 强 打野英雄Tops5排行</p>
+                    <div class="cont1-2-1">
+                        <p>
+                            <img src="../images/65.png" alt="">
+                            2100</p>
+                        <p>
+                            <img src="../images/66.png" alt="">
+                            5421次播放</p> 
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content bbb"></div>
+    <footer>
+        <div>
+            <a href="../html/00首页.html">
+                <img src="../images/Home2.png" alt="">
+                <p>首页</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/04视频.html">
+                <img src="../images/Play2.png" alt="">
+                <p>视频</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/07商城.html">
+                <img src="../images/Tag.png" alt="">
+                <p>商城</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/09我的.html">
+                <img src="../images/my.png" alt="">
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="../js/banner.js"></script>
+<script src="../js/base.js"></script>
+<script>
+    let span =document.querySelectorAll('.wp3 p span');
+   let content = document.querySelector('.content');
+   let aaa = document.querySelector('.aaa');
+   let bbb = document.querySelector('.bbb');
+    span[0].onclick = function(){
+        span[1].className='';
+        span[0].className='act';
+        aaa.style.display='block';
+        bbb.style.display='none';
+    }
+    span[1].onclick = function(){
+        span[0].className='';
+        span[1].className='act';
+
+        bbb.style.display='block';
+        aaa.style.display='none';
+    }
+</script>

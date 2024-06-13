@@ -1,0 +1,235 @@
+body {
+    background: #e2e2e2;
+}
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1::before {
+    content: '';
+    width: 3.5rem;
+    height: 2.3rem;
+    display: inline-block;
+    /* 图片填充 */
+    background:url('../images/1.png') no-repeat 0 0/100% 100%;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.75rem;
+}
+header h1::after {
+    content: '关注';
+    font-size: 2.6rem;
+    display: inline-block;
+    position: absolute;
+    right: 3.5rem;
+    top: 1.2rem;
+}
+
+.banner,.banner img {
+    width: 100%;
+    height: 33.5rem;
+}
+.banner {
+    margin-top: 11.3rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+ .wp {
+    padding:3rem 4rem 1rem 1.5rem;
+     display: flex;
+     background: #ffffff;
+     margin-bottom: 2rem;
+ }
+ .wp  img {
+     width: 11rem;
+     height: 11rem;
+     background: #E2E2E2;
+     border-radius: 50%;
+ }
+ .wp .wp-1 {
+     width: 100%;
+     margin-left: 1.6rem;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+ }
+ .wp .wp-1 p:nth-child(1){
+     font-size: 3.2rem;
+     color: #444444;
+     position: relative;
+     width: 100%;
+ }
+ .wp .wp-1 p:nth-child(1) span{
+     font-size: 1.8rem;
+     color: #5A5A5A;
+     position: absolute;
+     right: 0;
+     bottom: 0;
+ }
+ .wp .wp-1 p:nth-child(2){
+     font-size: 2.6rem;
+     color: #ABABAB;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     width: 48rem;
+ }
+
+.nav {
+    background: #ffffff;
+}
+.nav ul {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.nav ul li {
+    width: 18.6rem;
+    height: 18.2rem;
+    border-right: 0.1rem solid #dddddd;
+    border-bottom: 0.1rem solid #dddddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6rem;
+    color: #7B7A77;
+}
+.nav ul li img {
+    width: 5.7rem;
+    height: 6.7rem;
+    margin-bottom: 2.5rem;
+}
+
+nav {
+    height: 9.4rem;
+    background: #ffffff;
+    display: flex;
+    line-height: 9.4rem;
+    border-bottom: 0.1rem solid #dddddd;
+}
+nav span{
+    flex: 1;
+    text-align: center;
+   margin-left: 7rem;
+  margin-right: 7rem;
+  font-size: 2.6rem;
+  color: #333333;
+}
+nav span.active {
+    color: #DA2A2A;
+    border-bottom: 0.4rem solid #DA2A2A;
+}
+
+.cont {
+    background: #ffffff;
+    height: 16rem;
+    padding:2rem 1.5rem 2rem 1.5rem;
+    display: flex;
+    border-bottom: 0.1rem solid #dddddd;
+}
+.cont img {
+    width: 28.4rem;
+    height: 16rem;
+    background: #E0E1E1;
+    border-radius: 0.5rem;
+    margin-right: 3.4rem;
+}
+.cont .p {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 16rem;
+}
+.cont .p p:nth-child(1) {
+    font-size: 3.2rem;
+    color: #333333;
+    line-height: 4.8rem;
+}
+.cont .p p:nth-child(2) {
+    font-size: 2rem;
+    color: #555555;
+    line-height: 4.8rem;
+    text-align: right;
+}
+.list {
+    display: block;
+    margin-bottom: 9.4rem;
+    height: 60rem;
+    background: #ffffff;
+}
+.bbb {
+    display: none;
+}
+.content {
+  padding-top: 4rem;
+    font-size: 3.4rem;
+    text-align: center;
+}
+.content a {
+    color: #DA2A2A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 底部 */
+footer {
+    height: 9.4rem;
+    background: #ffffff;
+   
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+   text-align: center;
+   z-index: 300;
+}
+footer div {
+    flex: 1;
+    font-size: 2.6rem;
+   color: #1B1B1B;
+   font-family: STHeiti;
+}
+footer div img {
+    width: 4.4rem;
+    height: 4.3rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;
+}

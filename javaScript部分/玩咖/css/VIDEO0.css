@@ -1,0 +1,210 @@
+body {
+    background: #e2e2e2;
+}
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1::before {
+    content: '';
+    width: 3.5rem;
+    height: 2.3rem;
+    display: inline-block;
+    /* 图片填充 */
+    background:url('../images/1.png') no-repeat 0 0/100% 100%;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.75rem;
+}
+.banner,.banner img {
+    width: 75rem;
+    height: 33.5rem;
+}
+.banner {
+    margin-top: 11.3rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+.cont {
+    display: flex;
+    width: 225rem;
+}
+.pot {
+    width: 100%;
+    position: absolute;
+    height: 8rem;
+    background: rgba(0,0,0,0.1);
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pot span {
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 1.3rem;
+    transition: all 1s;
+}
+.pot span.act{
+    background: #F46259;
+}
+.wp2 {
+    height: 28.3rem;
+    background: #ffffff;
+    margin-bottom: 2rem;
+    padding: 2.7rem;
+    overflow: hidden;
+}
+.wp2 .img {
+    font-size: 3.4rem;
+}
+.wp2-1 p {
+    font-size: 3.2rem;
+    color: #333333;
+    text-align: center;
+}
+.wp2-2 {
+    display: flex;
+}
+ .wp2-1 {
+    width: 14.7rem;
+    height: 100%;
+    margin-right: 5.8rem;
+}
+
+ .wp2-1  img {
+    width: 14.7rem;
+    height: 14.7rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+
+/* content2部分 */
+.content2 {
+    height: 74rem;
+    padding: 0 2rem;
+    background-color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 9.5rem;
+}
+.content2 .img,.wp2 .img {
+    height: 7.2rem;
+    display: flex;
+    align-items: center;
+}
+.content2 .img .img-1,.wp2 .img .img-1 {
+    width: 4.5rem;
+    height: 3rem;
+    background:url('../images/21.png') no-repeat center center / 100% 100%;
+    margin:0 1.5rem;
+}
+.content2 .img p {
+    font-size: 3.4rem;
+}
+.wp7{
+    height: 55rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.wp7 div{
+    width: 35rem;
+    height: 27rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.wp7 div>div{
+    width: 35rem;
+    height: 18.4rem;
+    position: relative;
+}
+.wp7 div>div img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.wp7-1{
+    background: url('../images/12.png') no-repeat center center / 100% 140%;
+    
+}
+.wp7-2{
+    background: url('../images/13.png') no-repeat center center / 100% 140%;
+}
+.wp7-3{
+    background: url('../images/18.png') no-repeat center center / 100% 140%;
+}
+.wp7-4{
+    background: url('../images/15.png') no-repeat center center / 100% 140%;
+}
+
+.wp7  .wp7-11{
+    height: 5rem;
+    width: 35rem;
+    background: #000;
+    color: #fff;
+    line-height: 5rem;
+    font-size: 2.8rem;
+    padding-left: 1.5rem;
+    opacity: 0.7;
+    position: absolute;
+    bottom: -1rem;
+}
+.wp7 div>p{
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+}
+.wp8-1 {
+   
+        width: 69rem;
+        height: 8.4rem;
+        line-height: 8.4rem;
+        background-color: #fe776f;
+        font-size: 2.8rem;
+        text-align: center;
+        color: #fff;
+        margin: 2rem auto;
+    
+}
+/* 底部 */
+footer {
+    height: 9.4rem;
+    background: #ffffff;
+   
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+   text-align: center;
+   z-index: 300;
+}
+footer div {
+    flex: 1;
+    font-size: 2.6rem;
+   color: #1B1B1B;
+   font-family: STHeiti;
+}
+footer div img {
+    width: 4.4rem;
+    height: 4.3rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;
+}

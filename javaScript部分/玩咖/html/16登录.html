@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="../images/22.png" alt="" id="arrow">
+           <span>玩咖用户登录</span>
+           <a href="../html/15注册.html">
+            <span>注册</span>
+           </a>
+        </h1>
+    </header>
+    <div class="img">
+        <img src="../images/77.png" alt="">
+    </div>
+    <div class="cont">
+        <input type="text" placeholder="您的账号（手机号）">
+        <input type="password" placeholder="您的玩咖账号密码">
+    </div>
+    <div class="btn"><a href="../html/00首页.html">登录</a></div>
+    <p class="pass">
+        <a href="../html/18密码重置.html">忘记密码？</a>
+    </p>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+    let arrow = document.getElementById("arrow");
+    arrow.addEventListener("click", function(){
+        history.go(-1);
+    });
+</script>

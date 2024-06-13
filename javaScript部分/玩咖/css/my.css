@@ -1,0 +1,201 @@
+body {
+    background: url('../images/bg.png') no-repeat center center/120% 120%;
+   
+   
+}
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75rem;
+    z-index: 500;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1::before {
+    content: '';
+    width: 3.5rem;
+    height: 2.3rem;
+    display: inline-block;
+    /* 图片填充 */
+    background:url('../images/1.png') no-repeat 0 0/100% 100%;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.75rem;
+}
+.cont {
+    margin: 30.4rem 1.8rem 9.4rem 1.8rem;
+    background: #ffffff;
+    height: 100vh;
+    position: relative;
+    z-index: 100;
+    border-top: 1px solid #dddddd;
+}
+.cont .img {
+    height: 39.1rem;
+   width: 20.3rem;
+    position: absolute;
+    top: -11.8rem;
+    left: 25.5rem;
+   
+}
+.cont .img-3 img {
+    width: 20.3rem;
+    height: 20.3rem;
+    background: #F7F7F7;
+    box-shadow: 0 0.7rem 1.6rem 0 rgba(13,4,8,0.03);
+    border-radius: 50%;
+}
+.cont .img .img-3 {
+    position: relative;
+    border-radius: 50%;
+    width: 20.3rem;
+    height: 20.3rem;
+    overflow: hidden;
+}
+.cont .img .img-1 {
+    width: 17.4rem;
+    height: 5rem;
+    background: #020202;
+    opacity: 0.3;
+    position: absolute;
+    top:15.6rem;
+    left: 1.2rem;
+    color: #ffffff;
+    font-size: 2.4rem;
+    text-align: center;
+}
+.img p{
+    padding-left: 5rem;
+    color: #333333;
+    font-size: 3.6rem;
+    margin-top: 1.8rem;
+    margin-bottom: 5.5rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
+}
+.img .img-2  {
+    font-size: 3rem;
+    color: #333333;
+    position: relative;
+}
+.img .img-2 div {
+    position: absolute;
+    width: 55rem;
+    left: -17.6rem;
+    top: -2rem;
+    height: 4rem;
+    line-height: 4rem;
+}
+.img .img-2 a {
+    display: inline-block;
+    color: #F2635D;
+    font-size: 2.6rem;
+   border-bottom: 0.1rem solid #F2635D;
+    height: 3.2rem;
+    line-height: 3.2rem;
+    margin-left: 2.3rem;
+}
+.img .img-2 img {
+    width: 4rem;
+    height: 4rem;
+    margin-left: 7.5rem;
+}
+.img .img-2 span:nth-of-type(1){
+   color: #FDA328; 
+}
+.img .img-2 span:nth-of-type(2){
+   
+    color: #bbbbbb; 
+   border-bottom: 1px solid #bbbbbb;
+    font-size: 3.2rem;
+    padding-bottom: 0.2rem;
+ 
+ }
+
+ .cont ul {
+    border-bottom: 1px solid #EBEBEB;
+    border-top: 1px solid #dddddd;
+    height:36.3rem ;
+    margin-top: 30rem;
+ }
+ .cont ul li {
+   margin: 0 3.7rem 0 4.2rem ;
+   padding-top: 3rem;
+   padding-bottom: 2.3rem;
+    border-bottom: 1px solid #EBEBEB;
+   
+ }
+ .cont ul li a {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+ }
+ .cont ul li a .img1 {
+    width: 3.6rem;
+    height: 3.7rem;
+    margin-right: 1.7rem;
+ }
+ .cont ul li a p {
+    flex: 1;
+    font-size: 3.4rem;
+    color: #333333;
+    height: 3.2rem;
+    line-height: 2.7rem;
+    position: relative;
+   
+ }
+ .cont ul li a p img {
+    width: 1.1rem;
+    height: 2.2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+ }
+ .cont .wp {
+  
+    width: 21.2rem;
+    height: 7rem;
+    background: #F2635D;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 5.7rem;
+    color: #ffffff;
+    font-size: 3.2rem;
+    text-align: center;
+    line-height: 7rem;
+ }
+/* 底部 */
+footer {
+    height: 9.4rem;
+  
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+   text-align: center;
+   z-index: 300;
+}
+footer div {
+    flex: 1;
+    font-size: 2.6rem;
+   color: #1B1B1B;
+   font-family: STHeiti;
+}
+footer div img {
+    width: 4.4rem;
+    height: 4.3rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;
+}

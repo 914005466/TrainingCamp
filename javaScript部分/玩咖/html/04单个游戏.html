@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/video.css">
+</head>
+<body>
+    <header>
+        <h1>
+           <span>天涯明月刀</span>
+        </h1>
+    </header>
+    <div class="banner">
+        <img src="../images/30.png" alt="">
+    </div>
+
+    <div class="wp">
+        <img src="../images/31.png" alt="">
+        <div class="wp-1">
+            <p>
+                天涯明月刀玩咖专属礼包
+                <span>日期：2016.2.14</span>
+            </p>
+            <p>银两*8888，魔兽兽魔兽兽决决*1一段宝石*1.....</p>
+        </div>
+    </div>
+
+     <div class="nav">
+        <ul>
+            <li>
+                <a href="##">
+                    <img src="../images/33.png" alt="">
+                    <p>新手升级</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/34.png" alt="">
+                    <p>礼包</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/35.png" alt="">
+                    <p>视频</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/36.png" alt="">
+                    <p>游戏公告</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/37.png" alt="">
+                    <p>副本</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/38.png" alt="">
+                    <p>工具</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/39.png" alt="">
+                    <p>图鉴</p>
+                </a>
+            </li>
+            <li>
+                <a href="##">
+                    <img src="../images/40.png" alt="">
+                    <p>职业介绍</p>
+                </a>
+            </li>
+        </ul>
+     </div>
+
+     <nav>
+        <span>精彩视频</span>
+        <span class="active">游戏资讯</span>
+        <span>精选攻略</span>
+     </nav>
+    <div class="list bbb"></div>
+    <div class="list">
+        <div class="cont">
+            <img src="../images/41.png" alt="">
+            <div class="p">
+                <p>
+                    6.1版本单排上分最强打野英 雄Tops5排行
+                </p>
+                <p>更改时间：2012-2-12</p>
+            </div>
+         </div>
+         <div class="cont">
+            <img src="../images/42.png" alt="">
+            <div class="p">
+                <p>
+                    6.1版本单排上分最强打野英 雄Tops5排行
+                </p>
+                <p>更改时间：2012-2-12</p>
+            </div>
+         </div>
+         <div class="cont">
+            <img src="../images/42.png" alt="">
+            <div class="p">
+                <p>
+                    6.1版本单排上分最强打野英 雄Tops5排行
+                </p>
+                <p>更改时间：2012-2-12</p>
+            </div>
+         </div>
+    </div>
+    <div class="list bbb">
+       <div class="content">
+        <a href="../html/05攻略.html">
+            <span>新手攻略</span>
+        </a>
+        <a href="../html/06植物大战.html">
+            <span>植物大战僵尸</span>
+        </a>
+       </div>
+    </div>
+    <footer>
+        <div>
+            <a href="../html/00首页.html">
+                <img src="../images/Home2.png" alt="">
+                <p>首页</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/04视频.html">
+                <img src="../images/Play2.png" alt="">
+                <p>视频</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/07商城.html">
+                <img src="../images/Tag.png" alt="">
+                <p>商城</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/09我的.html">
+                <img src="../images/my.png" alt="">
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+    let span=document.querySelectorAll('nav span');
+    let list=document.querySelectorAll('.list');
+    for(let i=0;i<span.length;i++){
+        span[i].onclick=function(){     
+            for(let j=0;j<span.length;j++){
+                span[j].className = '';
+                list[j].className='bbb';
+        }
+            this.className = 'active';
+           list[i].className='list'
+        }
+    }
+</script>

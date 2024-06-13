@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.bg{
+    width: 343px;
+    height: 480px;
+    border: 1px solid #f00;
+    margin: 30px auto;
+    background: url('../images/bg.jpg') no-repeat 0 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+.start{
+    display: block;
+    margin: 40px auto;
+    cursor: pointer;
+}
+
+.game {
+    width:343px;
+    height:480px;
+    display: none;
+    position: relative;
+
+    .bird {
+        position:absolute;
+        left:50px;
+        top:100px;
+        z-index: 300;
+    }
+}
+
+.up-pipe,.down-pipe{
+    width: 62px;
+    position: absolute;
+    height: 150px;
+}
+.up-pipe{
+    top: 0;
+    left: 343px;
+    background: url('../images/up_mod.png') repeat-y 0 0;
+}
+.up-pipe img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.down-pipe{
+    bottom: 56px;
+    left: 343px;
+    background: url('../images/down_mod.png') repeat-y 0 0;
+}

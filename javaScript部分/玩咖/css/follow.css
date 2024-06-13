@@ -1,0 +1,104 @@
+body {
+    background: #e2e2e2;
+}
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 300;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1 img {
+    width: 2rem;
+    height: 3.4rem;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.2rem;
+}
+  .list{
+    margin-top: 9.9rem;
+    width: 100%;
+    background: #fff;
+    border-top: 0.1rem solid #dddddd;
+    margin-bottom: 9.4rem;
+}
+ .list li {
+    padding:2.6rem 4.3rem;
+    display: flex;
+    height: 20rem;
+    align-items: center;
+    border-bottom: 0.1rem solid #dddddd;
+  }
+ .list li img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 2.5rem;
+    margin-right: 2.2rem;
+ }
+ .list li div:nth-child(2){
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+ }
+ .list li h3 {
+    font-size: 3.4rem;
+    color: #333333;
+ }
+ .list li div:nth-child(2) p {
+    font-size: 2.6rem;
+    color: #555555;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    
+ }
+ .list li div:nth-child(2) p img {
+    width: 13.5rem;
+    height:2.2rem ;
+ }
+ .list li div:nth-child(3) {
+    width: 15.2rem;
+    height: 7rem;
+    background: #F56243;
+    border-radius: 1rem;
+    font-size: 3.4rem;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 7rem;
+ }
+/* 底部 */
+footer {
+    height: 9.4rem;
+    background: #ffffff;
+   
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+   text-align: center;
+   z-index: 300;
+}
+footer div {
+    flex: 1;
+    font-size: 2.6rem;
+   color: #1B1B1B;
+   font-family: STHeiti;
+}
+footer div img {
+    width: 4.4rem;
+    height: 4.3rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;
+}

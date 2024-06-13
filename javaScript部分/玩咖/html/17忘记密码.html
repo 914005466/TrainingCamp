@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/password.css">
+</head>
+<body>
+    <header>
+        <h1>
+           <span>找回密码</span>
+        </h1>
+    </header>
+    <div class="cont">
+        <input type="text" placeholder="请输入手机号">
+        <div class="cont1">
+            <input type="text" placeholder="请输入验证码">
+            <span id="btn">获取验证码</span>
+        </div>
+    </div>
+    <div class="btn"><a href="../html/16登录.html">登录</a></div>
+    <p class="pass">
+        <a href="../html/16登录.html">返回登录</a>
+    </p>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+     btn.onclick = function(){
+    let timmer;
+    let n =60;
+   this.style.background = '#ccc';
+   this.innerHTML = `倒计时(${n}s)`
+   timmer =setInterval(function(){
+    n--;
+    btn.innerHTML = `倒计时(${n}s)`
+    if(n==0){
+         clearInterval(timmer);
+         btn.style.background = '#04be02';
+         n=60;
+         btn.innerHTML = `获取验证码`
+    }
+
+},1000)
+}
+</script>

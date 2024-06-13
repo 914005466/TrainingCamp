@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    this 跟函数在哪里声明没有关系,只跟函数的调用对象有关,函数的调用对象就是这个this 
+    函数在哪里调用,this就是调用函数的对象
+    */
+   function aa(){
+    
+    console.log(this.name);
+   }
+   aa();
+   let obj = {
+    fun:aa,
+    name:'孙悟空'
+   };
+   obj.fun();
+   /*
+   显示改变this 的指向
+   call/apply 方法改变this的指向
+   fun.call(obj1,'参数1','参数2') 方法,执行fun函数,执行的时候fun函数中的this指向call的第一个参数,该参数是fun中this指向的对象,从第一个参数开始,传入的是fun 执行的时候需要的参数
+   fun.apply(obj1,['参数1','参数2']) 方法,执行fun函数,执行的时候fun函数中的this指向apply的第一个参数,该参数是fun中this指向的对象,第二个参数是一个数组,该数组元素依次是fun 执行的时候需要的参数
+
+   call和apply的区别:
+   call和apply都是用来改变this的指向的,但是call接收参数是一个列表,而apply接收参数是一个数组,两者的区别是call接收参数时,参数必须逐个传入,而apply接收参数时,参数必须是一个数组,数组中的元素会被依次传入fun函数中  
+
+   bind()方法,第一个参数是需要改变this指向的对象,第二个参数是函数的参数,bind()方法返回一个新的函数,新函数需要重新执行
+
+   bind 和 call apply的区别,bind不需要立即执行,call,apply需要立即执行,参数的传入方式bind和call是一样的
+
+   总结
+   bind,call,apply 三者都可以改变this的指向
+   bind,call,apply 三者的第一个参数都是改变this指向的对象
+   bind,call,apply 三者都可以通过后续参数传入函数执行所需要的参数
+   bind返回的是函数,稍后执行call,apply需要立即执行
+   */
+   function bb(arg1,arg2){
+    console.log(this,arg1,arg2);
+    
+   }
+   let obj1 = {
+    name:'猪八戒',
+   }
+   bb('林黛玉','林冲')
+   bb.call(obj1,'林则徐','林彪')
+   bb.apply(obj1,['刘备','张飞'])
+   let arr = [2,12,5,6,8,4456,24]
+
+let m = Math.max.apply(null,arr);
+console.log(m);
+   
+
+   function show(arg1,arg2){
+    console.log(this,arg1,arg2);
+   }
+   let obj2 = {
+    name:'蔡和深'
+   }
+   let fun = show.bind(obj2,'树皮','树叶');
+   show('蔡文姬','蔡康永');
+   fun();
+
+
+   function dog(){
+    console.log(this);
+   }
+   dog();
+   console.log('==================');
+   new dog();
+//    console.log(d);
+</script>
+

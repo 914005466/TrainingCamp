@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    面相过程编程(Process Oriented Programming, POP):主要是分析编程的步骤
+    面相对象编程(Object Oriented Programming, OOP):抽离出来代码运行过程中的类或者对象,在编程中直接使用
+
+    类和对象的关系
+    类是对象的抽象化
+    对象是类的实体化
+
+    js不是完全的面向对象,es6之前没有类的概念,只有对象
+    */
+//    let arr = new Array();
+
+//创建一个对象
+// let obj = {};
+
+// //给对象添加属性和方法
+// obj.name = "赵云";
+// obj.say = '常山赵子龙';
+
+function hero(name,say){
+    //原材料
+    let obj = {};
+    //加工过程
+    obj.name = name;
+    obj.say = say;
+    obj.fun = function(){
+        console.log(this.name);
+    }
+    //出产物
+    return obj;
+}
+let obj1 = hero('宋江','及时雨宋江');
+let obj2 = hero('卢俊义','玉麒麟卢俊义');
+
+console.log(obj1,obj2);
+//构造函数 首字母大写
+function Hero2(name,say){
+    // let obj = {};把当前this指向obj
+    this.name = name;
+    this.say = say;
+        this.fun = function(){ 
+            console.log(this.name);
+        }
+        // return obj(this);
+    }
+let obj3 = new Hero2('李逵','黑旋风李逵');
+console.log(obj3);
+
+/*
+工厂函数的不足之处,是没有使用new关键字,然而常用的声明对象的方式都使用了new关键字
+
+String,
+Object,
+Boolean,
+Number,
+Array,
+Date,
+Image,
+
+构造函数:构造一个对象的函数
+
+constructor  返回调用该属性的对象的构造函数
+instanceof 判断某一个对象是否是通过指定的构造函数创建出来的,如果是返回true否则返回false
+*/
+let str = 'abc';
+let str1 = new String('abc');
+console.log(str1,constructor);
+console.log(obj3,constructor);
+console.log(str1 instanceof Hero2);
+console.log(obj3 instanceof Hero2);
+/*
+构造函数不是一个普通的函数,不能直接执行,只有通过new关键字才能实例化一个对象的构造函数一般首字母大写
+
+new 关键字的作用:
+1.在构造函数内部创建一个新对象
+2.把当前函数中的this指向创建的新对象
+3.在函数的最后返回这个对象
+*/ 
+</script>

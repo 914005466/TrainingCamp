@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的收藏</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/collection.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="../images/22.png" alt="" id="arrow">
+           <span>我的收藏 </span>
+        </h1>
+    </header>
+    <div class="wp3">
+        <p><span class="act">视频</span></p>
+        <p><span>攻略</span></p>
+    </div>
+    <ul class="list">
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="##">
+                <div class="cont">
+                    <div class="img">
+                        <img src="../images/76.png" alt="">
+                    </div>
+                    <div class="txt">
+                        <p>僵尸大战终极副本53关攻略关通关视频</p>
+                        <p>更新时间：2015.2.15</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <ul class="list bbb"></ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+    let arrow = document.getElementById('arrow');
+    arrow.addEventListener('click', function() {
+        history.go(-1);
+    });
+    let span =document.querySelectorAll('.wp3 p span');
+  
+   let ul = document.querySelectorAll('.list');
+    span[0].onclick = function(){
+        span[1].className='';
+        span[0].className='act';
+        ul[0].className='list';
+        ul[1].className=' bbb';
+       
+    }
+    span[1].onclick = function(){
+        span[0].className='';
+        span[1].className='act';
+
+        ul[1].className='list';
+        ul[0].className=' bbb';
+    }
+</script>

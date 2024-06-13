@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/follow.css">
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="../images/22.png" alt="" id="arrow">
+           <span>关注游戏管理 </span>
+        </h1>
+    </header>
+   
+    <ul class="list">
+         <li>
+            <a href="../html/04单个游戏.html">
+                <div class="img">
+                    <img src="../images/23.png" alt="">
+                </div>
+            </a>    
+                <div>
+                    <h3>天涯明月刀</h3>
+                    <p>游戏评级: <img src="../images/24.png" alt=""></p>
+                </div>
+           
+            <div>
+                <p id="btn">关注</p>
+            </div>
+         </li>
+         <li>
+            <div class="img">
+                <img src="../images/23.png" alt="">
+            </div>
+            <div>
+                <h3>天涯明月刀</h3>
+                <p>游戏评级: <img src="../images/24.png" alt=""></p>
+            </div>
+            <div>
+                <p id="btn">关注</p>
+            </div>
+         </li>
+    </ul>
+    <footer>
+        <div>
+            <a href="../html/00首页.html">
+                <img src="../images/Home.png" alt="">
+                <p>首页</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/04视频.html">
+                <img src="../images/Play.png" alt="">
+                <p>视频</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/07商城.html">
+                <img src="../images/Tag.png" alt="">
+                <p>商城</p>
+            </a>
+        </div>
+        <div>
+            <a href="../html/09我的.html">
+                <img src="../images/my.png" alt="">
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+  let arr = [
+    {  
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/23.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天天酷跑',
+        socre:'../images/28.png"',
+        img:'../images/25.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'英雄联盟',
+        socre:'../images/24.png"',
+        img:'../images/26.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/27.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/29.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/23.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天天酷跑',
+        socre:'../images/28.png"',
+        img:'../images/25.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'英雄联盟',
+        socre:'../images/24.png"',
+        img:'../images/26.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/27.png'
+    },
+    {
+        url:'../html/04单个游戏.html',
+        name:'天涯明月刀',
+        socre:'../images/24.png"',
+        img:'../images/29.png'
+    }
+    ]
+    let list = document.querySelector('.list');
+    let html='';
+    for(let i=0;i<arr.length;i++){
+        html+=` <li>
+            <a href="${arr[i].url}">
+            <div class="img">
+                <img src="${arr[i].img}" alt="">
+            </div>
+        </a>
+            <div>
+                <h3>${arr[i].name}</h3>
+                <p>游戏评级: <img src="${arr[i].socre}" alt=""></p>
+            </div>
+          
+            <div>
+                <p id="btn">关注</p>
+            </div>
+         </li>
+        `;
+    }
+    list.innerHTML=html;
+   let btns = document.querySelectorAll('#btn');
+    for(let i=0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(){
+            if(this.innerHTML=='关注'){
+                this.innerHTML = '取消关注';
+                this.style.background = '#fff'
+                this.style.color = '#F56243'
+                this.style.border = '0.2rem solid #F56243'
+                this.style.borderRadius = '1rem'
+            }else{
+                this.innerHTML = '关注';
+                this.style.background = '#F56243'
+                this.style.color = '#fff'
+                this.style.border = '0.2rem solid #F56243'
+                this.style.borderRadius = '1rem'
+            }
+        })  
+    }
+    let arrow = document.getElementById('arrow');
+    arrow.onclick = function(){
+        // history.back(); 方法1
+        history.go(-1);//方法2
+    }
+</script>

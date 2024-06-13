@@ -1,0 +1,221 @@
+body {
+    background: #e2e2e2;
+}
+header {
+    height: 9.8rem;
+    background: #F9F9F9;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+}
+header h1 {
+    line-height: 9.8rem;
+    font-size: 3.4rem;
+    color: #DA2A2A;
+    position: relative;
+}
+header h1::before {
+    content: '';
+    width: 3.5rem;
+    height: 2.3rem;
+    display: inline-block;
+    /* 图片填充 */
+    background:url('../images/1.png') no-repeat 0 0/100% 100%;
+    position: absolute;
+    left: 5.7rem;
+    top: 3.75rem;
+}
+.banner,.banner img {
+    width: 75rem;
+    height: 33.5rem;
+}
+.banner {
+    margin-top: 11.3rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+.cont {
+    display: flex;
+    width: 225rem;
+}
+.pot {
+    width: 100%;
+    position: absolute;
+    height: 8rem;
+    background: rgba(0,0,0,0.1);
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pot span {
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 1.3rem;
+    transition: all 1s;
+}
+.pot span.act{
+    background: #F46259;
+}
+
+.wp2 {
+    height: 13rem;
+    background: #ffffff;
+    margin-top: 2rem;
+    padding: 2.7rem;
+    display: flex;
+    align-items: center;
+
+}
+.wp2-1 {
+    flex: 1;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+ .wp2 img {
+    width: 13rem;
+    height: 13rem;
+    margin-right: 2.3rem;
+    border-radius: 50%;
+}
+ .wp2-1 p {
+    font-size: 3.4rem;
+    color: #333333 ;
+}
+.wp2-1 a {
+    font-family: STHeiti;
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: #F46259;
+}
+.wp2-2 {
+    width: 16rem;
+    height: 7rem;
+    background: #F46259;
+    color: #fff;
+    text-align: center;
+    line-height: 7rem;
+    font-size: 3.2rem;
+    border-radius: 0.5rem;
+}
+
+.wp3 {
+    display: flex;
+    margin-top: 2rem;
+    text-align: center;
+    background: #ffffff;
+}
+.wp3 p {
+    line-height: 10rem;
+    flex: 1;
+    height: 10rem; 
+    font-size: 3.2rem;
+    letter-spacing: 0.3rem;
+}
+.wp3 p span.act {
+    color: #D92727;
+    padding-bottom: 2.6rem;
+    border-bottom: 0.2rem solid #D92727;
+}
+.cont {
+    width: 75rem;
+    background: #ffffff;
+}
+.cont1 {
+    padding: 2rem 0;
+    margin-left:  1.8rem;
+    margin-right: 2.4rem;
+    display: flex;
+   width: 75rem;
+   border-top: 0.1rem solid #dddddd;
+}
+.cont1 .cont1-1 {
+    margin-right: 3.5rem;
+   position: relative;
+}
+.cont1 .cont1-1 img:nth-child(1){
+    width: 28rem;
+    height: 17.1rem;
+}
+.cont1 .cont1-1 img:nth-child(2){
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cont1 .cont1-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cont1-2>p {
+    font-size: 3.2rem;
+    color: #333333; 
+    line-height: 4.8rem;
+}
+.cont1-2-1 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: #555555;
+}
+.cont1-2-1 p {
+    position: relative;
+    
+    text-indent: 2em;
+}
+
+.cont1-2-1 p img {
+    width: 2.7rem;
+    height: 2.3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.aaa {
+    display: block;
+}
+.bbb{
+    display: none;
+}
+
+
+/* 底部 */
+footer {
+    height: 9.4rem;
+    background: #ffffff;
+   
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+   text-align: center;
+   z-index: 300;
+}
+footer div {
+    flex: 1;
+    font-size: 2.6rem;
+   color: #1B1B1B;
+   font-family: STHeiti;
+}
+footer div img {
+    width: 4.4rem;
+    height: 4.3rem;
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;
+}
