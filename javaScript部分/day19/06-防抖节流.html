@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖节流</title>
+</head>
+<body>
+    <p id="txt"></p>
+    <button>点击++</button>
+    <div style="height: 1000px;">
+
+    </div>
+</body>
+</html>
+<script>
+/*
+防抖:又称防抖函数,他表示函数在n秒内只能执行1次,如果函数被触发后,在n秒事件内事件又被触发,则重新计算延时的事件
+
+节流:又称为节流函数,当持续行触发某个事件时,保证在一定的时间内,只触发一次该事件
+
+*/
+//防抖,参数fn 表示的是回调函数, 参数delay 表示延时事件
+let txt = document.getElementById("txt");   
+let btn = document.querySelector("button");
+let n = 0;
+function debounce(fn, delay) {
+    let timer = null;//设置计时器
+    return function() {
+        if(timer){
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn&&fn();
+        },delay)
+    }
+}
+
+function add(){
+    n++;
+    txt.innerHTML = n;
+}
+
+btn.onclick = debounce(add,1000);
+
+
+//节流函数
+function throttle( fn, delay) {
+    let lastTime = 0;
+    return function() {
+        let now = new Date();
+        if(now - lastTime > delay){//当前时间 减去 存储时间的差 如果大于设置时间的话,执行回调函数
+            fn&&fn();
+            lastTime = now;
+        }
+    }
+   
+}
+// window.onscroll = function(){
+//     console.log(11);
+//     add();
+// }
+window.onscroll = throttle(add,1000);
+</script>

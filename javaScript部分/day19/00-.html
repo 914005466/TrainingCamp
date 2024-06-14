@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // //把my_name_ming 用js的驼峰命名形式改写成大驼峰命名法
+    let a = 'my_name_ming'
+
+    // let b = a.replace(/_(\w)/g, function(all, letter) {
+    //     return letter.toUpperCase()
+    // })
+
+    // console.log(b) //MyNameMing
+
+   let arr = a.split('_');
+   let b = arr.map(function(item, index) {
+       return index === 0 ? item : item.charAt(0).toUpperCase() + item.slice(1)
+   });
+   let c = b.join('')
+   console.log(c) //MyNameMing
+
+
+
+
+
+
+    let arr2 = [23, 4, 65, 86, 95, 45, 67, 34, 1, 9, 7];
+    for (let i = 0; i < arr2.length; i++) {
+    // 随机一个下标
+    let n = Math.floor(Math.random() * arr2.length)
+    // 交换数值
+    let temp = arr2[n];
+    arr2[n] = arr2[i];
+    arr2[i] = temp;
+}
+console.log(arr2);
+</script>

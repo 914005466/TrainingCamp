@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/*
+浅拷贝: 根据操作的数据类型,分为两种,第一种是把对象里面所有的属性和方法赋值给一个新的对象
+另一种是吧一个对象赋值给另一个对象.
+第一种是简单数据类型操作,例如number string 等的操作,
+第二种是对对象的操作,两个变量同时指向了同一个内存空间,通过一个变量修改数据,则另一个变量的数据显示也会改变.
+
+
+
+
+深拷贝:把一个对象的属性和方法一一找出来,然后依次添加到另一个对象中.一般通过递归实现深拷贝.
+
+简单理解,浅拷贝复制的是对象的地址但不是对象的本身,新旧值还是同享的同一个内容空间,深拷贝是复制了一个一摸一样的新对象
+*/ 
+let abc = '郑州'
+let aa = abc
+// 浅拷贝: aa和abc指向同一个内存地址
+let obj = {
+    name: '张三',
+    age:'25'
+};
+let obj1 = obj;
+obj.name = '周传雄';
+console.log(obj1);
+// 浅拷贝: aa和abc指向同一个内存地址
+
+let arr1 =  [1,2,'周传雄','伍佰']
+let arr2 = [];
+for(let i=0;i<arr1.length;i++){
+    arr2.push(arr1[i])
+}
+arr2.push('郑州');
+console.log(arr2,arr1);
+
+let arr3 = arr1.slice();
+arr3.push('周杰伦');
+console.log(arr3,arr1);
+
+let obj2 = {
+    name:'娜扎',
+    age:26   
+    }
+
+let obj3 = JSON.parse(JSON.stringify(obj2));
+obj3.love = '抽龙筋'
+console.log(obj2,obj3);
+
+
+let arr4 = [
+    '左宗棠',
+    '杨继业',
+    {name:'张三',age:25,list:['朱友贞']},   
+    {name:'李四',age:26,list:['朱友贞']},
+    {name:'王五',age:27,list:['朱友贞']},
+    {name:'赵六',age:24,list:['朱友贞']},
+    {name:'孙七',age:25,list:['朱友贞']},
+    {name:'胡亥',age:26,list:['朱友贞']},
+    {name:'扶苏',age:29,list:['朱友贞']},
+    {name:'赵高',age:23,list:['朱友贞']}
+];
+
+//深拷贝综合方法
+function deepCopy(obj){
+    
+    //判断参数是否为数组
+    let res = Array.isArray(obj)? [] : {};
+    //判断obj是引用类对象
+    if(obj && typeof obj === 'object'){           
+            for( let k in obj){
+                if(obj[k] && typeof obj[k] === 'object'){
+                    res[k] = deepCopy(obj[k]);
+                }else{
+                    res[k] = obj[k];
+                }
+            }
+    }
+    return obj;
+}
+let arr5 = deepCopy(arr4);
+console.log(arr5);
+</script>

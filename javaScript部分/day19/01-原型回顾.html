@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型回顾</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    原型的用途:就是给构造函数构造出来的对象设置共享属性和方法,也有一个自己的属性叫constructor,指向构造函数本身
+    1.数组中常用的方法,以及字符串中常用的方法,都是写在构造函数的原型上的
+    2.只有构造函数有原型,对象没有原型
+
+
+    封装:将一个实体的信息,属性,功能以及相应等,都存放在一个单独的方法中,在编程的过程当中,可以直接使用该方法,不需要重新声明,创建该方法的过程就叫封装
+    继承:在不改变原来程序的基础上,扩展程序的功能,原来的程序得以保留,并且子程序拥有自己的新功能,这样避免重复书写代码,提高效率
+    多态:允许子类类型的指针,赋给多个父类类型的指针,js中没有多态
+
+    call和apply继承
+    1.call和apply 可以同时继承多个父类,但是 prototype 只能有一个父类
+    2.call 和 apply 的继承: 可以简单理解为吧需要继承的父类代码在子类中执行一遍
+    3.call 和 apply 的继承不能动态添加属性和方法,prototype 可以
+    */
+
+   function Person(name, age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex ; 
+
+    }
+    Person.prototype.run = function() {
+        console.log(this.name + '快跑');
+    };
+
+   let p = new Person('葛曼棋', 20, '女');
+   p.run(); // 输出: 葛曼棋快跑
+
+   function Son(name, age,sex) {
+        // this.name = name;
+        // this.age = age;
+        // this.sex = sex ; 
+        Person.call(this,name,age,sex);
+
+    }
+    Son.prototype = new Person();
+    //动态添加方法
+    Son.prototype.show = function() {
+        console.log(this.name);
+    }
+    Son.prototype.constructor = Son;
+
+    let s1 = new Son('张三', 18, '男');
+    s1.run(); // 输出: 张三快跑
+
+    console.log(s1.life);
+</script>

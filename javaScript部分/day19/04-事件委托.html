@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>相约98</li>
+        <li>星星点灯</li>
+        <li>水手</li>
+    </ul>
+    <button id="btn">添加列表</button>
+</body>
+</html>
+<script>
+    /*
+    事件委托:又称事件代理,他是一种js的优化手段,他利用事件冒泡的原理,将事件的处理程序绑定到所有操作元素的同一个祖先级元素上,不用给每一个操作元素添加事件.
+    事件委托的简单理解:把事件注册在父元素上,利用事件冒泡来操作
+
+    在子元素的操作程序中 ,通过 e.target 找到事件源对象,从而操作对应的元素.
+
+    使用时间委托的好处,无论后来添加了多少新的标签,都可以通过父元素统一操作
+    */
+let li = document.querySelectorAll('.list li');
+let btn = document.getElementById('btn');
+let list = document.querySelector('.list');
+// for(let i=0;i<li.length;i++){
+//     li[i].addEventListener('click',function(){  
+//         alert(this.innerHTML);
+//     });
+// }
+list.addEventListener('click',function(e){
+    //e.target  事件源对象,表示触发当前事件的元素
+    //e.target.tagName 获取元素的标签名
+    console.log(e.target);
+    if(e.target.tagName.toLowerCase() === 'li'){
+        alert(e.target.innerHTML);
+    }
+    // alert(e.target.innerHTML)
+});
+btn.addEventListener('click',function(){
+    // list.innerHTML += '<li>当</li>';
+    let li = document.createElement('li');
+    li.innerHTML = '当';
+    list.appendChild(li);
+});
+</script>

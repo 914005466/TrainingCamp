@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 600px;
+            height: 400px;
+            margin: 30px auto;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .ball{
+
+
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <!-- <div class="ball"></div> -->
+    </div>
+</body>
+</html>
+<script>
+    let wp = document.querySelector(".wp");
+//随机数
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function col(){
+    let r = random(0, 255);
+    let g = random(0, 255);
+    let b = random(0, 255);
+    return "rgb(" + r + "," + g + "," + b + ")";
+}
+//创建小球
+function Ball(){
+    this.w = random(10,50);//宽
+    this.h = this.w;//高
+    this.bg = col();//背景色
+    this.x = random(0,600-this.w);//x坐标
+    this.y = random(0,400-this.h);//y坐标
+    this.speedX = random(1,10);//速度
+    this.speedY = random(1,10);//速度
+    this.dirX = random(0,1);//方向
+    this.dirY = random(0,1);//方向
+}
+//原型上添加方法.创建小球
+Ball.prototype.createBall = function(){
+    let div = document.createElement("div");
+    div.className = "ball";
+    div.style.cssText = `
+        width:${this.w}px;
+        height:${this.h}px;
+        background-color:${this.bg};
+        left:${this.x}px;
+        top:${this.y}px;
+    `;
+    wp.appendChild(div);
+    let timer = null;
+
+    timer = setInterval(() => {
+        if(this.dirX == 0){
+            this.x-=this.speedX;
+            if(this.x<0){
+                this.x=0;
+                this.dirX = 1;
+            }
+        }else{
+            this.x+=this.speedX;
+            if(this.x+this.w>600){
+                this.x=600-this.w;
+                this.dirX = 0;
+            }
+        
+        }
+        if(this.dirY == 0){
+            this.y-=this.speedY;
+            if(this.y<0){
+                this.y=0;
+                this.dirY = 1;
+            }
+        }else{
+            this.y+=this.speedY;
+            if(this.y+this.h>400){
+                this.y=400-this.h;
+                this.dirY = 0;
+            }
+        
+        }
+        div.style.left = this.x + "px";
+        div.style.top = this.y + "px";
+    },50)
+};
+for(let i=0;i<100;i++){
+    let ball = new Ball();
+    ball.createBall();
+
+}
+
+//随机数函数
+</script>
