@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>窗口操作</title>
+    <style>
+       *{
+          margin: 0;
+          padding: 0;
+       }
+       .wp1,.wp2{
+        height: 1000px;
+        background-color: aqua;
+       }
+       .wp2{
+        background-color: beige;
+       }
+    </style>
+</head>
+<body>
+    <button id="btn1"> 创建新窗口 </button>
+    <button id="btn2"> 关闭一个窗口 </button>
+    <button id="btn3"> 创建200个窗口 </button>
+    <button id="btn4"> 关闭所有窗口 </button>
+    <button id="btn5"> 移动窗口 </button>
+    <button id="btn6"> 移动窗口到具体位置 </button>
+    <button id="btn7"> 调整窗口大小 </button>
+    <button id="btn8"> 调整窗口大小到具体数值 </button>
+    <button id="btn9"> 滚动窗口 </button>
+    <button id="btn10"> 滚动窗口到具体位置 </button>
+    <hr>
+    <a href="#wp2">跳转到wp2</a>
+
+   <div class="wp1" id="wp1"></div>
+   <div class="wp2" id="wp2"></div>
+   <button id="btn11">锚点</button>
+</body>
+</html>
+<script>
+    /*
+    window.open(url, name, specs, replace);
+    该方法表示新建一个window窗口
+    特点是:
+    1.在谷歌和火狐中默认会被拦截,ie不会拦截
+    2.只要结合事件使用都不会拦截
+    参数1:要打开的网址  url: 
+    参数2: 新窗口的名称,也可以是窗口的配置属性
+    参数3:对新窗口的一些设置
+        width: 新窗口的宽度
+        height: 新窗口的高度
+        top: 新窗口距离顶部的距离
+        left: 新窗口距离左边的距离
+        scrollbars: 是否显示滚动条,yes/no/0/1(ie支持)
+        resizable: 是否可以调整大小,yes/no/0/1(ie支持)
+
+    参数4 调整历史记录,值是 true false,浏览器不支持,因为浏览器不允许你操作他的历史记录
+
+    关闭窗口:
+    window.close();
+    使用前提,你要关闭哪个窗口,必须先获取到窗口的对象
+
+    火狐下只允许关闭由js创建的窗口
+
+
+    --------------------------------
+    窗体控制
+    moveBy(x,y),从当前位置,向右移动x距离,向下移动y距离如果为负,则是向左或向上移动
+    moveTo(x,y) 从当前位置,向右移动到x坐标,向下移动到y坐标
+
+    可以简单理解为
+    moveTo 移动到指定位置
+    moveBy 基于当前位置移动指定距离
+
+    特点
+    1.所有浏览器都支持,但是不能移动到当前窗口
+    2.移动之前得先获取到窗口对象
+    3.无论怎么移动,窗口都在屏幕内
+
+    -------------------------------
+    调整窗体大小
+    resizeBy(width,height) 调整窗口大小,向右或向下增加width,向左或向上增加height
+    resizeTo(width,height) 调整窗口大小,直接设置width,height
+
+    ---------------------------------
+    滚动窗口
+    scrollBy(x,y) 滚动窗口,向右或向下滚动x距离,向左或向上滚动y距离  
+    scrollTo(x,y) 滚动窗口,直接设置x,y坐标
+
+    特点
+    1.所有浏览器都支持
+    2.不仅仅支持创建的窗口,也支持当前的窗口
+    */ 
+    function $(ele){
+        return document.querySelector(ele);
+    }
+    let win;
+    $('#btn1').addEventListener('click',function(){
+        //_blank 打开新窗口(默认值)，_self 当前窗口，_parent 父窗口，_top 替换任何可以加载的框架的最外层窗口
+       win =  window.open("","_blank","width=500,height=500,top=100,left=100","scrollbars=yes,resizable=no");
+    });
+    $('#btn2').addEventListener('click',function(){
+        window&&window.close();
+    });
+    let arr = [];
+    $('#btn3').addEventListener('click',function(){
+        for(let i=0;i<20;i++){
+           let w =  window.open('','_blank','width=500,height=500,top=100,left=100')
+           arr.push(w);
+        } 
+    });
+    $('#btn4').addEventListener('click',function(){
+        for(let i=0;i<arr.length;i++){
+            arr[i]&&arr[i].close();
+        }
+        window.close();
+    });
+    //移动窗口
+    $('#btn5').addEventListener('click',function(){
+        // let w = window.open('','_blank','width=500,height=500,top=100,left=100');
+        win&&win.moveBy(100,100);
+    });
+    //移动窗口到具体位置
+    $('#btn6').addEventListener('click',function(){
+        win.moveTo(100,100);
+    });
+    $('#btn7').addEventListener('click',function(){
+        win.resizeBy(100,100);
+    });
+    $('#btn8').addEventListener('click',function(){
+        win.resizeTo(1000,1000);
+    });
+    $('#btn9').addEventListener('click',function(){
+        window.scrollBy(100,100);
+    });
+    $('#btn10').addEventListener('click',function(){
+        window.scrollTo(1000,1000);
+    });
+    $('#btn11').addEventListener('click',function(){  
+        window.scrollTo(0,$('#wp1').offsetTop );
+    });
+    </script>

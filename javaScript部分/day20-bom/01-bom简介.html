@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bom简介</title>
+</head>
+<body>
+    <div style="height: 2000px;"></div>
+</body>
+</html>
+<script>
+/*
+BOM (Browser Object Model) 浏览器对象模型
+作用
+1.bom提供了独立的内容和浏览器对象
+2.可以管理窗口与窗口之间的通讯,他的核心对象是window
+
+
+特性
+1.在js的标准中是没有BOM的,BOM是浏览器自己制作的特性,因为浏览器具有不同的品牌,所以他的兼容性较差
+2.BOM提供了很多对象和方法,操作方便
+3.BOM操作的核心对象是window,其他操作都是window的延伸,也可以理解为window的子对象
+
+window 的子对象
+1.doucment(文档对象)
+2.locatin(网络对象,主要包含网址的信息)
+3.navigator(浏览器对象,包含浏览器的信息)
+4.screen(屏幕对象,包含屏幕的信息)
+5.frames(窗口对象,包含当前窗口的子窗口)
+6.history(历史对象,包含浏览器的历史记录)
+
+*/ 
+
+
+/*
+window 对象的定位属性
+ie和标准浏览器提供了window.screenLeft和window.screenTop属性,用来获取当前窗口相对于屏幕左上角的坐标
+ie 没有提供获取浏览器大小的方法
+
+标准浏览器提供了 window.innerHeight 和 window.innerWidth 属性,用来获取当前窗口的可用高度和宽度,不包括滚动条的宽度
+self 指的是window,无论在任何地方 都指向window对象
+
+标准浏览器下也可以使用 window.screenX 和window.screenY 属性,来判断浏览器在窗口的位置
+*/ 
+console.log(window.screenLeft,window.screenTop);
+console.log(document.body.offsetHeight,document.body.offsetWidth);
+console.log(document.documentElement.offsetWidth,document.documentElement.offsetHeight);
+console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
+console.log('===================');
+console.log('innerHeight',self.innerHeight,self.innerWidth);
+console.log('outerHeight',self.outerHeight,self.outerWidth);
+console.log('screen',self.screenX,self.screenY);
+</script>
