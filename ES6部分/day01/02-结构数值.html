@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构数值</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let a =1;
+    let b = 2;
+    let c = 3;
+    console.log(a,b,c);
+    /*
+    匹配模式;等号左右两边的模式相同,左侧的变量会被右侧附上对应的值
+    */
+    let [a1,b1,c1] = [1,2,3]; 
+    console.log([a1,b1,c1]);
+
+    /*
+    也可以使用rest 参数把剩余的数据统一赋值给rest参数
+    */
+   let [b2,b3,b4,...b5] = [1,2,3,4,5,6];
+   console.log(b2,b5);
+
+   /*
+   给变量指定默认值,如果对应位置上没有值会显示默认值,如果有值会显示对应位置上的值
+   */
+   let [c2,c3='白骨精'] = ['孙悟空','猪八戒'];
+   console.log(c2,c3);
+
+   /*
+   对象的解构赋值
+   解构赋值的时候跟次序没有关系,只跟对象的属性名有关
+   */
+//   let {name,age,sex} = {age:250,name:'张三',sex:'男'}
+//   console.log(name,age,sex);
+  //以上代码的实际写法,首先找到同名属性,根据同名属性把对应的值赋值给同名属性中的变量名
+    let {name:name,age:age,sex:sex} = {age:250,name:'张三',sex:'男'}
+    console.log(name,age,sex);
+
+    let d1 = 10;
+    let d2 =11;
+    let temp = d1;
+    d1 = d2;
+    d2 = temp;
+    console.log(d1,d2);
+
+    let e1 = 10;
+    let e2 =11;
+    [e1,e2] = [e2,e1];
+    console.log(e1,e2);
+
+    function show(){
+        return['郑州',true,100];
+    }
+    let [str1,bol1,num1] = show();
+
+    let json = {
+        id:123,
+        dataList:['郑州',true,101],
+        code:1,
+        msg:'调用成功'
+    };
+    let { msg,dataList} = json;
+    console.log(msg,dataList);
+</script>

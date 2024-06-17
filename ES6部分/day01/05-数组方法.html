@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+    /*
+    Array.from()
+    该方法可以将两类对象转化为数组
+    1.类似数组的对象
+    2.可遍历对象(Object,Map,Set等)
+    */
+   function fn1(){
+    console.log(arguments);
+    let arg = Array.from(arguments);
+    console.log(arg);
+   }
+   fn1(1,2,3,4);
+   
+</script>

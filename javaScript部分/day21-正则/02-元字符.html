@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元字符</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let str1 = '谷开来';
+    let reg1 = /谷/;
+    console.log(reg1.test(str1));
+    /*
+    \n换行符
+    \t 制表符 也可以理解为Tab键
+    \r 回车符
+
+    */
+   let str2 = `
+       薄
+       谷开来
+       来
+   `;
+   let reg2 = /\n/;
+   console.log(reg2.test(str2));
+//    alert('敢叫日月\n换新天')
+/*
+\d 代表数字 0 - 9
+\D !d 代表非数字,是\d的取反
+\s 空格符(同一代表了空格,换行,制表符,回车符)        
+\S !s 非空格
+\w 字符(数字0-9,字母a-z,A-Z,下划线_)不包含汉字以及特殊字符
+\W 非字符!w 
+. 任意字符(除换行符外的任意字符)
+
+量词(只要没有使用量词,查找到的字符数都是1个)
+*: 个数>=0 0到无数次
++ 个数>=1 1到无数次
+? 匹配0次或者是1次
+{n}匹配个数为n个
+{m,n}匹配个数为m到n个
+{0,}0到正无穷
+{1,}>=1 类似 +
+{0,1} 类似?
+
+匹配字符
+[] 匹配[]中出现的字符
+[^] 匹配除了[]中出现的字符,^必须写在开始位置,如果不在开始位置就是普通字符
+^ 表示的是开始
+$ 表示的是结束
+
+
+连字符
+
+- 一般配合普通字符使用
+a-z 匹配所有小写字母
+A-Z 匹配所有大写字母
+0-9 所有数字
+汉字范围
+\u4e00-\u9fa5
+
+
+\b 代指字符串中,单词的边界
+| 选择符 选择两边匹配的一个字符串
+()分组符 把小括号里面的内容看成一个整体
+*/
+let str3 = '1234lakshdkasjhdkhas'
+let reg5 = /\d?/;
+console.log(str3.match(reg5));
+let str4 = '1234dddddd4565dddddd789'
+let reg6 = /\d{3,5}/g
+console.log(str4.match(reg6));
+//手机号验证正则表达式
+let reg7 = /^1[^1,2]\d{9}$/
+let str5 = '13012341234'
+console.log(reg7.test(str5));
+
+let str6 = '我料青山如是';
+let reg8 = /[\u4e00-\u9fa5]/;
+console.log(reg8.test(str6));
+
+let str7 = 'aa hello java'
+let reg9 = /\bhello\b/
+console.log(reg9.test(str7));
+
+let str8 = '15800000000';
+let reg10 = /^(15800000000)|(15900000000)$/;
+console.log( reg10.test(str8));
+</script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .list{
+            
+            position: relative;
+            margin: 20px 20px 0;
+            
+        }
+        .list li{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            transition: top 0.5s ease-in-out;
+        }
+        .list li img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list"></ul>
+</body>
+</html>
+<script>
+//设置一个li的默认宽度
+let liWidth = 200;
+//设置li下边距
+let liMargin = 20;
+//设置li之间的缝隙
+let space = 0;
+//设置每一列高度的数组
+let colHeight = [];
+//获取列表元素
+let list = document.querySelector('.list');
+
+//创建li 和 img
+function createLi(){
+    for(let i=0;i<11;i++){
+        let li = document.createElement('li');
+        let img = document.createElement('img');
+        img.src = `./gril/${Math.floor(Math.random()*10+1)}.jpg`;
+        img.onload = function(){
+            li.appendChild(img);
+            list.appendChild(li);
+        };
+       
+    }
+   
+}
+createLi();
+
+//根据页面宽度,计算列数,并且初始化每一列的高度
+function col(){
+    colHeight.length = 0;
+    let num =Math.floor( (window.innerWidth-40)/liWidth );
+    // console.log(num);
+    space =10;
+    //根据列数,设置存放高度的数组初始值
+    for(let i=0;i<num;i++){
+        colHeight.push(0);
+    }
+    }
+
+col();
+//根据数组的最小值,获取最小值所对应的下标
+function getIndex(arr){
+    let min = Math.min(...arr);
+    let index = arr.indexOf(min);
+    return index;
+}
+
+//设置每一列li的具体内容
+function setList(){
+    let li = document.querySelectorAll('li')
+
+    for(let i=0;i<li.length;i++){
+        //首先获取最小值的下标
+        let index = getIndex(colHeight);
+        //设置li的top值
+        li[i].style.top = colHeight[index]+'px';
+        //设置li的left值
+        li[i].style.left = (liWidth+space)*index+'px';
+        //把当前li的高度赋值给index所在的位置
+        colHeight[index] += li[i].clientHeight+liMargin;
+        //给list添加高度
+        list.style.height = colHeight[index]+'px';
+    }
+}
+window.onload = function(){
+    setList();
+}
+window.onresize = function(){
+    createLi();
+    col();
+    setList();
+}
+
+//瀑布流 onscroll 滚动事件
+window.onscroll = function(){
+    let H = document.documentElement.offsetHeight;
+    let h = document.documentElement.scrollTop+window.innerHeight;
+    if(h>=H-100){
+        createLi();
+    
+        setList();
+        col();
+            // toTop.style.display = 'block';
+        }
+}
+</script>

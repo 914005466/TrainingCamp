@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        input[type='checkbox'] {
+            /* 干掉默认样式 */
+            appearance: none; 
+            display: inline-block;
+            width:14px;
+            height:14px;
+            background:url(./images/check.png) no-repeat 0 0;
+        }
+        input[type='checkbox']:checked {
+            background:url(./images/check-ed.png) no-repeat 0 0;
+        }
+    </style>
+</head>
+<body>
+    <label> <input type="checkbox" value="1">苹果</label>
+    <label> <input type="checkbox" value="2">橘子</label>
+    <label> <input type="checkbox" value="3">西瓜</label>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
+<script>
+/*
+Array.from(参数1，参数2) 
+该方法用来将两类对象转化为数组
+1.类似数组的对象
+2.可遍历对象(Object Map Set 等)
+
+参数1 表示要转的对象
+参数2 是一个回调函数，表示对生成数组元素的处理
+*/
+function fn1(){
+    console.log(arguments);
+    let arg = Array.from(arguments);
+    console.log(arg);
+}
+fn1(1,2,3,4,5,6,7);
+let lis = document.querySelectorAll('li');
+console.log(lis);
+let box = Array.from(lis);
+console.log(box);
+
+let obj1 = {
+    0:'id',
+    1:'毛主席',
+    2:'领袖',
+    length:3
+};
+let obj2 = Array.from(obj1);
+console.log( obj2 );
+
+let arr1 = Array.from('千里冰封');
+console.log( arr1 );
+let obj3 = {
+    name:'张择端',
+    say:'清明上河图',
+    length:2
+};
+let arr2 = Array.from(obj3);
+console.log(arr2);
+// 添加回调函数，操作类似map方法
+let arr3 = Array.from('清明上河图',item=> item+'宋');
+console.log(arr3);
+
+/*
+Array.of(n1,n2...) 将一组数据转化为数组，可以创建数组
+*/
+let arr5 = new Array(5,5);
+let arr4 = Array.of(4,4,5);
+console.log( arr4 );
+
+</script>

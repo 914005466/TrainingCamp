@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .tit{
+            width: 80%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            margin: 0 auto  ;
+        }
+        .val{
+            display: block;
+            width: 80%;
+            height: 30px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            padding-left: 10px;
+            outline: none;
+        }
+        .val:focus{
+            border-color: #00f;
+        }
+        .list{
+            width: 80%;
+            margin: 30px auto;
+        }
+        .list li{
+            display: flex;
+            height: 40px;
+            margin-bottom: 20px;
+            background: #f0f0f0;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .list li input {
+            margin: 0 10px;
+
+        }
+        .list li span{
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            background: #f00;
+            cursor: pointer;
+        }
+        .list li .line{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="tit">TodoList</h2>
+   <input type="text" class="val" onkeydown="getVal(event,this)">
+   <ul class="list">
+    <li>
+        <div>
+            <input type="checkbox" value="">
+            <em>吃饭</em>
+        </div>
+        <span>删除</span>
+    </li>
+    <li>
+        <div>
+            <input type="checkbox" value="">
+            <em>睡觉</em>
+        </div>
+        <span>删除</span>
+    </li>
+    <li>
+        <div>
+            <input type="checkbox" value="">
+            <em class="line">写代码</em>
+        </div>
+        <span class="del">删除</span>
+    </li>
+   </ul>
+   <p>已完成<span id="done">0</span> </p>
+</body>
+</html>
+<script>
+// 页面加载完成后，从本地获取数据
+let json = JSON.parse(localStorage.getItem("data")); // 从 localStorage 中获取并解析 JSON 数据
+let dataList = json?json.list: []; // 如果 json 存在，则获取其 list 属性，否则初始化为空数组
+let id = 0;
+let list = document.querySelector(".list");
+function setHtml(){
+    list.innerHTML="";
+    if(dataList.length==0){
+        list.innerHTML = "<li>暂无数据</li>";
+        return;
+    }
+    let html = "";
+    for(let i=0;i<dataList.length;i++){
+        let item = dataList[i];
+        html += `<li>
+                    <div>
+                        <input type="checkbox" value="" ${item.bol?'checked':''}
+                        onchange="changeBol(${i})">
+                        <em class="${item.bol?'line':''}">${item.name}</em>
+                    </div>
+                    <span onclick="del(${i})" class="del">删除</span>
+                </li>`;
+    }
+    list.innerHTML = html;
+}
+
+setHtml();
+function getVal(ev,obj){
+    //检查用户是否在输入框中按下了回车键，并且输入的内容不为空。
+    if(event.keyCode==13 && obj.value.trim()!=""){
+        id++;
+        let obj1 = {
+            id,
+            name:obj.value,
+            bol:false
+        }
+        dataList.push(obj1);
+        save();
+        setHtml();
+        count()
+        obj.value = "";
+    }
+}
+//点击改变布尔值
+function changeBol(n){
+    dataList[n].bol = !dataList[n].bol;
+    setHtml();
+    save();
+    count()
+    }
+//点击删除
+function del(n){
+    dataList.splice(n,1);
+    setHtml();  
+    save();
+    count()
+}
+//把数据存储到本地
+function save(){    
+    let obj = {list:dataList};
+    localStorage.setItem("data",JSON.stringify(obj));
+    count()
+}
+// 查看已完成的任务数量
+function count(){
+   let arr = dataList.filter(item=>item.bol==true);
+   done.innerHTML = arr.length;
+}
+// 页面加载完成后，执行 count 函数
+count();
+</script>

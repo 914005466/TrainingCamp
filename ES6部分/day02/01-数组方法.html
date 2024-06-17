@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组方法</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+    copyWithin(target, start, end)：将数组的一部分元素复制到同一数组中的另一个位置，覆盖原有位置上的元素。该方法改变原数组,但是不改变数组长度
+    target：整数，表示从数组的哪个位置开始复制，0表示从头开始，负数表示从末尾开始。
+    start：整数，表示从数组的哪个位置开始复制，0表示从头开始，负数表示从末尾开始。
+    end：整数，表示从数组的哪个位置结束复制，0表示到尾部结束，负数表示从末尾开始。
+    如果不写该参数，则默认从0开始复制到数组末尾。
+    */
+    let arr1 = ['郑科', '郑大', '河大', '河师大', '河科大']
+    arr1.copyWithin(0, 1, 4)
+    console.log(arr1)
+
+    /*
+    find(fn)返回数组中满足回调函数条件的第一个元素
+         回调函数的默认参数是循环的时候每一个数组元素,回调函数的值是布尔值
+     --------------------------
+    findIndex(fn)返回数组中满足回调函数条件的第一个元素的下标
+    ------------------------------
+    */
+    let arr2 = [1, 2, 3, 4, 5]
+    let n = arr2.find(item => item % 2 === 0)
+    console.log(n) //2
+
+    let index = arr2.findIndex(item => item % 2 === 0)
+    console.log(index) // 1
+
+    /*
+    reduce(fn) 该方法对数组中的每一个元素依次处理,最后把处理的结果汇总到一起.并且返回
+    第一个参数 fn 是回调函数,该回调函数具有4个参数
+      prev: 上一次回调函数的返回值,或者初始值
+      curVal: 当前数组元素的值
+      index: 当前数组元素的下标(可省略)
+      arr: 当前数组对象(可省略)
+    第二个参数表示回调函数中prev的初始值,默认是0
+    */
+
+    let sum = arr2.reduce((prev, curVal, index, arr) => {
+        console.log(prev, curVal, index, arr)
+        return prev + curVal
+
+    }, 100)
+    console.log(sum) // 15
+
+    /*
+    数组扁平化:
+    就是把多维数组,转化为一维数组
+
+    flat(deep) 参数代表数组的转换的深度,默认是1
+    参数deep 一般都是数组维度-1
+    Infinity 参数 自动展开所有层级
+    */
+    let arr3 = [1, [2, [3, 4], 5], 6]
+    let arr4 = arr3.flat(2)
+    console.log(arr4) 
+
+    let arr5 = [1, [2, [3, 4], 5], 6]
+    let arr6 = arr4.flat(Infinity);
+    console.log(arr6) // [1, 2, 3, 4, 5, 6]
+</script>

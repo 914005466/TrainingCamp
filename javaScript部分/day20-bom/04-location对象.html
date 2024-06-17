@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="baidu">跳转到百度</button>
+    <button id="add">刷新页面</button>
+    <button id="reload">重新加载当前页面</button>
+    <button id="replace">重新加载并1替换当前页面</button>
+</body>
+</html>
+<script>
+    /*
+    location对象的属性
+    hash 设置或者返回从#开始的url
+    host 设置或者返回当前页面的域名和端口号
+    hostname 设置或者返回当前页面的域名
+    href 设置或者返回当前页面的完整url
+    pathname 设置或者返回当前url的路径部分
+    port 设置或者返回当前页面的端口号
+    protocol 设置或者返回当前url的协议
+    search 设置或者返回从?开始的url部分数据
+
+    location对象的方法
+    assign() 加载新的文档
+    reload() 重新加载当前文档,可以不写参数,当参数为ture,则表示刷新的同时绕过缓存,不走缓存刷新,页面内容从服务器获取,当参数为false,则表示刷新经过缓存,页面内容从缓存获取
+    默认为false
+
+    replace() 用心的页面替换当前页面,新页面不会再history中生成一个历史记录,他会替换掉当前的历史记录,此过程没有新的历史记录产生
+    */
+    console.log(location);
+    console.log(location.hash);
+    location.hash = "aa";
+    console.log(location.host);
+    console.log(location.pathname);
+    console.log('http://127.0.0.1:5500'+location.pathname+location.hash);
+    console.log(location.search);
+    
+    add.onclick = function(){
+        location.assign("http://www.baidu.com");
+    }
+    reload.onclick = function(){
+        location.reload();
+    }
+    replace.addEventListener('click',function(){
+        location.replace("http://www.baidu.com");
+    });
+</script>

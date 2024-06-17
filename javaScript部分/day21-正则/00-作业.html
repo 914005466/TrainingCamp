@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+/*
+练习
+1.判断输入的内容都否是qq号
+2.判断输入的内容是都是手机号
+3.判断输入的内容是否是邮箱
+4.判断是入得内容是否是身份证号
+5.判断输入的内容是否是网址
+6.正则替换字符串中的所有空格
+7.判断输入的内容是否是正整数
+*/
+//正则表达式判断输入的内容都否是qq号
+var str = "1234567890";
+var reg = /^[1-9][0-9]{4,9}$/;
+console.log(reg.test(str));
+//正则表达式判断输入的内容是都是手机号
+let str1 = '15537226619'
+let reg1 = /^1[3456789][0-9]{9}$/;
+console.log(reg1.test(str1));
+//正则表达式判断输入的内容是否是邮箱
+let str2 = '123@qq.com';
+let reg2 = /^[\w-]+@[\w-]+(\.[\w-]+)+$/;
+console.log(reg2.test(str2));
+//正则表达式判断输入的内容是否是身份证号
+let str3 = '42010219900101001X';
+let reg3 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+console.log(reg3.test(str3));
+//正则表达式判断输入的内容是否是网址
+let str4 = 'https://www.baidu.com';
+let reg4 = /^(https?|ftp|file):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]$/;
+console.log(reg4.test(str4));
+//正则表达式替换字符串中的所有空格
+let str5 = 'hello world';
+let reg5 = /\s+/g;
+let newStr = str5.replace(reg5, '');
+console.log(newStr);
+//正则表达式判断输入的内容是否是正整数
+let str6 = '123';
+let reg6 = /^\d+$/;
+console.log(reg6.test(str6));
+</script>

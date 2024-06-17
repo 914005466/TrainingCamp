@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    正则表达式
+    1.不单单是js中可以使用 java .net c#等语言也支持正则表达式
+    2.通过正则表达式可以对字符串进行 查找、验证、匹配、替换等操作
+    3.是一门新的语法格式,
+    4.王哥的个人小建议:可以不会写,但是必须会搜
+    */
+    let str = 'lasdjlkoijawhyoiuyhop904801297498'
+    for(let i=0;i<str.length;i++){
+        if(str[i]>='0' && str[i]<='9'){
+            console.log('数字');
+        }
+    }
+    //使用正则表达式判断是否有含数字
+    let reg1 = /\d/;
+    console.log(reg1.test(str),str.match(reg1));
+    /*
+    正则表达式是结合字符串使用的
+    字符的分类
+    1.元字符(有特殊意义的字符,\d代表数字)
+    2.普通字符(出了元字符以外的字符)
+
+    js中创建正则表达式方法
+
+    1.let reg2 = new RegExp('参数1,参数2');
+        参数都是字符串类型
+        参数1表示匹配条件
+        参数2设置属性,可以省略
+        i:表示不区分大小写
+        g:表示全局匹配
+    2.简单方法创建
+        let reg3 = /匹配规则/设置属性;
+        let reg3 = /\d/g;
+    
+    test()方法:是正则表达式对象的方法
+    使用方式是
+    reg.test(字符串)返回值是true或false,符合正则匹配条件返回true,否则返回false
+    */
+   let str2 = '中午吃啥ASDASDASD';
+   let reg2 = new RegExp('ASD','g');
+   console.log(reg2.test(str2));
+   console.log(str2.match(reg2));
+
+   let reg3 = /中/;
+   console.log(reg3.test(str2));
+
+   let reg4 = /asd/i;
+   //i:表示不区分大小写
+   console.log(reg4.test(str2));
+</script>

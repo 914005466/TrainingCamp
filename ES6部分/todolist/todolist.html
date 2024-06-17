@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ToDoList</title>
+		<link rel="stylesheet" href="./todolist.css">
+		<script src="./todolist.js"></script>
+	</head>
+	<body>
+		<section class="todoapp">
+			<header class="header">
+				<h1>todoList</h1>
+				<input class="new-todo" placeholder="有什么是需要你完成的任务？" autofocus>
+			</header>
+			<section class="main">
+				<input id="toggle-all" class="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul class="todo-list">
+				</ul>
+			</section>
+		
+			<footer class="footer">
+				<span class="todo-count"><strong>0</strong>个任务正在进行中</span>
+				<ul class="filters">
+					<li>
+						<a class="selected" href="javascript:void(0)" id="all">所有任务</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="active">进行中</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="completed">已完成</a>
+					</li>
+				</ul>
+				<!-- Hidden if no completed items are left ↓ -->
+				<button class="clear-completed ">清除所有已完成</button>
+			</footer>
+		</section>
+	
+		<script src="./todolist2.js"></script>
+	</body>
+</html>

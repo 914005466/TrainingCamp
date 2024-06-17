@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    参数的默认值
+    设置默认值的方式如下,如果在调用的时候没有第二个参数,参数n的值是默认值10,参与函数操作的时候有第二个参数,参数n的值是实参传入的具体值
+    */
+   function SUM(m, n=10){
+       return m + n;
+   }
+   console.log(SUM(100,50));
+   
+   let a = 10;
+   function sum(x,y=a){
+    console.log(x+y);
+   }
+   sum(100);
+
+   let n = 10;
+   function sum2(y=n){
+    console.log(y+10);
+   }
+   sum2();
+
+   /*
+   函数的作用域,一个函数一旦设置默认值,在函数声明初始化的时候,在参数列表中会形成一个单独的作用域,到初始化结束,该作用域才会消失,再该作用域当中遵循变量前置的语法
+
+   如下代码,如果n=n的时候,n没有定义,n没有值,但是被定义,本身该语法是错误写法,会形成暂时性死区,导致报错
+   */
+   function abc(){
+    console.log(m);
+    var m = 10;
+   }
+   abc();
+
+   //箭头函数
+   let say =(i)=>{
+    console.log(i+10);
+   }
+   say(100);
+   let say1 =()=>{
+        return'残阳如血'
+   }
+   console.log(say1());
+   //箭头函数如果函数体内只有一个return语句,可以省略{}和return关键字,直接返回表达式的结果
+   let say2 = ()=>'战地黄花分外香';
+   console.log(say2());
+   //如果直返会一个对象,且写法上省略{}和return的时候,需要给外层添加()表示是一个整体
+   let fn1 = ()=>({name:'毛主义',age:'万寿无疆'})
+   console.log(fn1());
+   //箭头函数如果只有一个参数 则()可以省略,如果没有参数,或者参数的个数大于1,则()必须不能省略.支持rest参数
+   let fn2 = i=>console.log(i+10);
+   fn2(20);
+   let fn3 = (a,b,c,...d)=>{
+    console.log(d);
+    console.log(a+b+c);
+    
+   }
+   fn3(1,2,3,4,5,6);
+
+   let arr = [100,200,300,400,500,600];
+   //箭头函数在回调函数中的案例
+   let arr1 = arr.filter(item=>item/100>2)
+   //原型
+   let arr2 = arr.filter(function(item){
+        return item/100>2;
+   });
+   console.log(arr1);
+
+   let fn4 =()=>{
+    console.log(this);
+   }
+   fn4();
+   let obj1 = {
+    name:'小明',
+    fn:fn4
+   }
+   obj1.fn();
+console.log('=========');
+   /*
+   注意:箭头函数没有自己的this
+   1.箭头函数体内的this对象,就是函数定义时所在的对象,而不是函数使用时候所在的对像
+   2.箭头函数不能作为构造函数,因此没有this,不能使用new命令
+   3.箭头函数不能使用arguments对象,可以用rest参数代替
+   4.不可以作为构造器函数
+   */
+   let fn5=()=>{
+    //不存在 arguments对象
+    //
+   }
+  fn5(123,456);
+  let obj2 = {
+    name:'老孔',
+    age:20
+  };
+  /*
+  由于箭头函数没有this,因此不能使用call,apply,bind方法改变this指向,但是可以直接使用call,apply,bind方法改变箭头函数的this指向,如下代码   
+  */
+  (()=>{
+    console.log(this);
+  }).call(obj2);
+</script>

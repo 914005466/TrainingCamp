@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 扩展运算符 ...
+    //可以把数组的内容转为用逗号分隔的数据序列
+    let arr1 = [1, 2, 3, 4,5,6,7,8]
+    console.log(...arr1);
+    console.log('孙悟空','白骨精');
+    let arr2 = [...arr1]
+
+    let obj = {
+        name:'健力宝',
+        age:30
+    }
+    /*
+    对象中扩展运算符,用于去除对象中所有的可遍历属性,拷贝的新对象之中
+    */
+    console.log(obj);
+    console.log({...obj});
+    let obj1 = {...obj}
+    obj1.name = '非常可乐';
+    console.log(obj);
+
+/*
+Object.assign(参数1,参数2,....);
+把参数2以及之后的参数中所有的对象 都合并到参数1中,并返回合并后的对象,如果有相同属性,则后面的属性会覆盖前面的属性
+Object.assign的参数必须都是对象,
+*/
+    let obj2 = Object.assign({},obj);
+    console.log(obj2);
+    obj.name = '加多宝'
+    console.log(obj);
+
+
+    let obj3 = {
+        name:'花木兰',
+        age:25
+    }
+    let obj4 = {
+        name:'华荣',
+        age:24,
+        nick:'小李广'
+    }
+    let obj5 = {
+        name:'华雄',
+        age:20,
+        abc:'温酒斩华雄'
+    }
+    let obj6 = Object.assign(obj3,obj4,obj5);
+    console.log(obj3);
+    console.log(obj6);
+
+    /*
+    扩展运算符的功能
+    1.把数组转化为用逗号分隔的数据序列
+    2.对数组进行深拷贝
+    3.将字符串直接转化为数组
+    4.和解构赋值配合,把剩余的数值赋值给左边的变量
+    */
+   let aa = '温酒斩华雄'
+   let bb = '千里走单骑'
+   let arr3 = [...aa,...bb,...[1,2,3]]
+   console.log(arr3);
+</script>

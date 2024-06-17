@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    str.match (条件参数)
+    参数可以是两种
+    1.字符串
+        返回的是第一个满足条件的子字符串,并放入到数组当中
+    2.正则表达式
+        返回值是一个数组,或者是null
+        根据正则表达式判断字符串中符合正则表达式的子字符串,并且放到数组中,如果不加g,返回的是一个超找的子字符串及其信息,如果加g返回的是查找到的所有内容
+
+    */
+   let str = '泠泠清清'
+   let arr1 = str.match('清');
+   console.log(arr1);
+
+   let arr2 = str.match(/李清照/g);
+   console.log(arr2);
+
+   /*
+   reg.exec(字符串)
+   使用正则的 exec()方法 可以返回字符串中 符合该正则表达式的子字符串内容
+   如果找不到则返回null
+   在使用exec()方法的时候,如果正则中没有加g,则永远返回的是字符串中第一个子字符串的内容,如果加g,则表示会从第一个字符串内容开始,依次查找所有内容
+   */
+   let str1  = '凄凄惨惨戚戚';
+   let reg1 = /戚/g;
+    let arr3 = reg1.exec(str1);
+   console.log(arr3);
+
+   let arr4 = reg1.exec(str1);
+   console.log(arr4);
+
+   /*
+   str.replace(参数1,参数2)
+    参数一:可以是正则表达式,也可以是字符串中的子字符串,如果是字符串的话,只能替换一个
+    参数2:替换的内容
+
+    返回值是修改后的字符串,原字符串不变
+   */
+  let str2 = '我们红尘作伴红的坐班坐班';
+  let str3 =  str2.replace('红的坐班坐班','活得潇潇洒洒');
+  console.log(str3);
+    //使用正则替换所有
+  let str4 =  str2.replace(/红的坐班坐班/g,function(){ return '教师'});
+  console.log(str4);
+  
+  /*
+  使用replace替换 ,$1...$n 表示的是正则中对应的分组内容
+  */
+  let tel = '15845671234';
+  let tel1 = tel.replace(/(\d{3})\d{4}(\d{3})/g,'$1****$2');
+  console.log(tel1);
+
+  /*
+  str.search(参数)
+  参数可以是字符串也可以是正则表达式
+
+  如果指定的参数在str 中存在,则返回对应的下标,如果不存在则返回-1
+
+  和indexOf的区别
+  1.search兼容性更好,低版本ie也支持
+  2.search可以结合正则表达式,但是indexOf 不行
+  */
+ let str6 = '活得潇潇洒洒';
+ let num = str6.search('潇潇')
+ console.log( num );
+ let num1 = str6.search(/\d/)
+ console.log( num1 );
+
+ //indexOf兼容写法
+ String.prototype.indexOf = function(str){
+    return this.search(str)
+ }
+
+ let num2 =  str6.search(/\d/)
+ console.log(num2);
+
+ /*
+ 正则中的属性m
+ 需要配合 ^ 和 $ 使用
+ 影响的是 正则对字符串开始和结尾的 解释
+不加m表示的是字符串整体的开头和结尾,加上m表示的是每行的开头和结尾
+ */
+let str7 = `金风玉露\n一相逢\n金风玉露\n两相逢
+`
+let reg2 = /^金风玉露$/m;
+
+console.log(reg2.test(str7));
+let arr6 = str7.match(reg2);
+console.log(arr6);
+</script>
+/*
+练习
+1.判断输入的内容都否是qq号
+2.判断输入的内容是都是手机号
+3.判断输入的内容是否是邮箱
+4.判断是入得内容是否是身份证号
+5.判断输入的内容是否是网址
+6.正则替换字符串中的所有空格
+7.判断输入的内容是否是正整数
+*/
+<script></script>

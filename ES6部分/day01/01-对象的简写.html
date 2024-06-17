@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的简写</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let obj = {
+        name:'谢必安',
+        age:230,
+        say:function(){
+            console.log(this.name);
+        }
+    };
+    // 对象的简写
+    let name = '范无救'
+    let age = 250;
+    let obj1 = {
+        name,
+        age,
+        sex:'男',
+        aa(){
+
+            console.log(this.name);
+        }
+    };
+    console.log(obj1);
+    obj1.aa();
+
+    /*
+    rest 参数:
+    用来获取函数的实参,类似于 arguments,
+
+    ...可以理解为剩余参数,因此rest参数必须在参数列表的最后一个
+    */
+    function show(a,b,...arr){
+        console.log(a,b);
+        console.log(arr);
+    }
+    show(1,2,3,4,5,6,7,8,9,10);
+
+
+</script>

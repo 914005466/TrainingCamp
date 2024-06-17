@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器嗅探</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    navigator对象
+    appCodeName：应用程序的名称
+    appName：浏览器的名称
+    appVersion：浏览器的版本
+
+    */
+   console.log(navigator); 
+   console.log(navigator.appCodeName);
+   console.log(navigator.appName);
+   console.log(navigator.appVersion);
+
+   var str = navigator.userAgent;
+
+    if(str.indexOf('Windows')>=0){
+        alert('你使用的是windows系统');
+    }else if(str.indexOf('Mac')>=0){
+        alert('你使用的是Mac系统'); 
+    }else if(str.indexOf('Linux')>=0){
+        alert('你使用的是Linux系统');
+    }else if(str.indexOf('Android')>=0){
+        alert('你使用的是Android系统')
+    }else{
+        alert('你使用的是其他系统');    
+    }
+
+   if(str.indexOf('MSIE')>=0){
+    alert('你使用的是IE浏览器');
+   }else if(str.indexOf('Firefox')>=0){
+    alert('你使用的是Firefox浏览器');
+   }else if(str.indexOf('Chrome')>=0){
+    alert('你使用的是Chrome浏览器');
+   }else if(str.indexOf('Safari')>=0){
+    alert('你使用的是Safari浏览器');
+   }else{
+    alert('你使用的是其他浏览器');
+   }
+</script>
