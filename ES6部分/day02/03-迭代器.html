@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    迭代器(iterator)为不同的数据,提供了统一的访问机制
+    无论是任何数据,只要部署了iterator方法,都可以通过for-of 来循环遍历
+
+    iterator 主要是 通过for-of 循环
+
+    具有iterator接口的(方法)的数据类型
+    Array Arguments NodeList String Map Set
+    
+    
+    for-of 使用
+    for( let item of 数据对象){
+        //item 可迭代对象的每一个遍历的元素
+    }
+    */
+   let arr1 = [1, 2, 3, 4, 5];
+   for(const iterator of arr1){
+    console.log(iterator);
+   }
+   let obj1 = {
+    name: "小明",
+    age: 20,
+    
+   };
+   
+//    for(const iterator of obj1){
+//     console.log(iterator);
+//    }
+let str1 = '秦始皇'
+for(const iterator of str1){
+    console.log(iterator);
+}
+
+/*
+给!迭代类型添加迭代器
+迭代器的工作原理
+1.创建一个指针,指向需要迭代对象的初始位置
+2.执行对象的next方法,指针指向要迭代对象的下一个位置
+3.依次执行next方法,直到指针指向迭代对象的末尾位置
+
+每一次next执行的时候,都会哦返回一个{value:xxx,done:true/false},如果是最后一个则返回{value:undefined,done:true}
+*/
+let obj3 = {
+    name: "小明",
+    age: 20,
+    sex:'男',
+    say:'hello',
+    
+    
+    [Symbol.iterator]: function(){
+        let index = 0;
+        let _this =this;
+        //Object.keys(对象) 获取当前对象的虽有key值,返回值是一个数组
+        let keys = Object.keys(this);
+        console.log(keys);
+        return {
+            next(){
+                if(index < 4){
+                    let result = {value:_this[keys[index]],done:false};
+                    index++;
+                    return result;
+                }else{
+                    return {value:undefined,done:true}; 
+                }
+            }
+        }
+    }
+};
+console.log(obj3.length);
+console.log(obj3);
+for(const iterator of obj3){
+    console.log(iterator);
+}
+</script>

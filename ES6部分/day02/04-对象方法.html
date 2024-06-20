@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    Object.is(对象1,对象2)判断两个兑现个是否是同一个对象
+
+    以下情况为true
+    Object.is(undefined,undefined)
+
+    Object.is(null,null)
+
+    Object.is(NaN,NaN)
+    Object.is(false,false),Object.is(true,true);
+    相同数值相同字符串都是true
+    两个值指向同一个引用类型的对象
+    */
+   console.log(Object.is({},{})); 
+   console.log(Object.is(undefined,undefined)); 
+   console.log(Object.is(null,null)); 
+   console.log(Object.is(NaN,NaN)); 
+   console.log(Number(+0)===Number(-0));
+
+
+   /*
+   Object.keys(obj) 返回的是一个数组,数组中的元素是obj的key组成
+   Object.values(obj) 返回的是一个数组,数组中的元素是obj的value组成
+   keys和values 读取不到Symbol的内容
+
+   Object.entries(obj) 返回的是一个二维数组,数组中的每一个元素是也是一个数组,此数组的第一个成员为对象的key,第一个成员为key对应的value值
+   entries 读取不到Symbol的内容
+   */
+
+  let obj1 = {
+    name:'如来佛祖玉皇大帝观音菩萨指定取西经特派使者花果山水帘洞美猴王齐天大圣孙悟空',
+    age:20,
+    [Symbol()]:'射雕英雄传'
+  }
+  console.log(Object.keys(obj1));
+  console.log(Object.values(obj1));
+
+  /*
+  Object.defineProperty( 属性所在的对象,要添加属性的名字,属性的配置项) 
+  如果属性名字存在,表示修改属性值
+  如果不存在,表示添加一个属性及其值
+
+  配置项属性
+  configurable 表示是否可以通过delete关键字删除属性,默认false
+  value 表示属性的值,默认undefined
+  writable 表示属性是否可以修改,默认false
+  enumerable 表示属性是否可以通过for-in遍历该属性默认false
+
+  get 方法 在获取属性值时候触发的方法,默认值是 undefined
+  set 方法 在设置属性值时候触发的方法,默认值是 undefined
+  */
+ let obj2 = {
+    name:'柯镇恶',
+    configurable:false,
+    writable:false,
+ }
+ Object.defineProperty( obj2,'aa',{
+    // value:'飞天蝙蝠',
+    // configurable:true,
+    // writable:false,
+    // enumerable:true,
+    get(){
+        console.log('get方法触发');
+        return '小明';
+    },
+    set(v){
+        console.log('set:'+v);
+    }
+ });
+ console.log(obj2);
+ obj2.aa='铁木真'
+ for(let key in obj2){
+    console.log(key,obj2[key]);
+ }
+ //触发set方法,设置值
+ obj2.aa='小李飞刀'
+ //触发get方法,获取值
+ console.log( obj2.aa ); 
+</script>

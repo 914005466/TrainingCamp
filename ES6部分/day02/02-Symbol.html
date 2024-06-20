@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    Symbol 是一种新的数据类型，它是 JavaScript 内置的原始类型，用于创建独一无二的值。
+    一个Symbol可以通过Symbol()创建
+    经常用来做以下操作
+    1.创建唯一值,可以解决命名冲突问题
+    2.创建可以迭代的对象,通过设置迭代器来创建
+    3.创建底层接口,主要是给数据添加迭代器
+
+
+    注意创建symbol的时候没有new 关键字
+    */
+    // 创建一个 Symbol 类型的值
+    const sym1 = Symbol();
+    console.log(sym1);
+    const sym2 = Symbol();
+    console.log(sym2);
+    console.log(sym1 === sym2); // Symbol(sym1)
+
+    /*
+    可以通过Symbol.for() 创建相同的Symbol
+    创建Symbol()参数实质上是一个标识
+    */
+   let s3 = Symbol.for('生当作人杰');
+   let s4 = Symbol.for('生当作人杰');
+   console.log(s3 === s4);
+    /*
+    通过Symbol 给对象设置独一无二的属性和方法
+    */
+   let Sy = {
+    aa:Symbol(),
+    bb:Symbol()
+   }
+   let obj = {
+     name:'项羽',
+     age:'28',
+     [Sy.aa](){
+        console.log(this.name);
+     }
+   };
+   console.log(obj);
+   obj[Sy.aa]();
+
+   /*
+   在对象的属性值未知的时候,可以使用Symbol表示
+
+   */
+  let obj1 = {
+    name:Symbol(),
+    age:Symbol(),
+    run:Symbol(),
+  }
+  console.log(obj1);
+  obj1.name = '蒯通'
+  console.log(obj1);
+</script>

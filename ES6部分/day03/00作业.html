@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择员工</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width:16px;
+            height:16px;
+            background:url('./image/wei.png') no-repeat 0 0;
+        }
+        input[type="checkbox"]:checked {
+            background:url('./image/xuanzhong.png') no-repeat 0 0;
+        }
+        dl,ul,li { list-style-type: none; }
+        .wp {
+            width:400px;
+            height:600px;
+            border:1px #f00 solid;
+            margin:30px auto;
+            display: flex;
+        }
+        .l-cont,.r-cont {
+            flex:1;
+            padding:10px;
+        }
+        .l-cont {
+            border-right:1px #ccc solid;
+            overflow: auto;
+        }
+        .list-l dd,.list-r li {
+            display: flex;
+            height:50px;
+            margin-bottom:20px;
+            align-items: center;
+            position: relative;
+        }
+        .list-l dd img,.list-r img {
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            margin:0 10px;
+        }
+        .list-r li em {
+            position: absolute;
+            right:0;
+            top:16px;
+            width:18px;
+            height:18px;
+            cursor: pointer;
+            background:url(./image/cuo.png) no-repeat 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="l-cont">
+            <dl class="list-l">
+                <dt>
+                    <label><input type="checkbox" value="">全选</label>
+                </dt>
+                <dd>
+                    <input type="checkbox" value="">
+                    <img src="./image/1.jpg" alt="">
+                    <span>哈哈哈</span>
+                </dd>
+            </dl>
+        </div>
+        <div class="r-cont">
+            <ul class="list-r">
+                <li>
+                    <img src="./image/1.jpg" alt="">
+                    <span>哈哈哈</span>
+                    <em></em>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/data.js"></script>
+<script>
+//获取左右列表
+let Llist = document.querySelector('.list-l');
+let Rlist = document.querySelector('.list-r');
+//右侧选中列表
+let arr = []
+
+function setHtml(){
+    let html = '';
+    for(let i=0;i<dataList.length;i++){
+        html += `<dd>
+                    <input type="checkbox" value="" ${dataList[i].bol&&'checked'} onclick="sel(${i})">
+                    <img src="${dataList[i].src}" alt="">
+                    <span>${dataList[i].name}</span>
+                </dd>`
+    }
+
+    Llist.innerHTML += html;
+}
+setHtml();
+
+//设置选中方法
+function sel(index){
+   dataList[index].bol = !dataList[index].bol;
+
+   //选中和未选中
+   if(dataList[index].bol){
+        let user = {
+            name: dataList[index].name,
+            src: dataList[index].src,
+            bol: true
+        
+        }
+        //把数字添加到右侧列表
+        arr.unshift(user);
+   }
+}
+//设置右侧列表
+function setRlistHtml(){
+    Rlist.innerHTML='';
+    let html = '';
+    for(let i=0;i<arr.length;i++){
+        html += `<li>
+                    <img src="${arr[i].src}" alt="">
+                    <span>${arr[i].name}</span>
+                    <em></em>
+                </li>`
+}
+Rlist.innerHTML = html;
+}
+setRlistHtml();
+</script>

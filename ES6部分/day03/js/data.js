@@ -1,0 +1,26 @@
+let dataList = [
+    { src: './image/1.jpg', name: '郜超凡', bol: false },
+    { src: './image/2.jpg', name: '鲁帅杰', bol: false },
+    { src: './image/3.jpg', name: '史文壮', bol: false },
+    { src: './image/4.jpg', name: '王浩宇', bol: false },
+    { src: './image/5.jpg', name: '刘鸿飞', bol: false },
+    { src: './image/6.jpg', name: '谷青岭', bol: false },
+    { src: './image/7.jpg', name: '周娅楠', bol: false },
+    { src: './image/8.jpg', name: '王同盛', bol: false },
+    { src: './image/9.jpg', name: '陈泓颖', bol: false },
+    { src: './image/10.jpg', name: '江鑫鑫', bol: false },
+    { src: './image/11.jpg', name: '郭喆祺', bol: false },
+    { src: './image/12.jpg', name: '张草原', bol: false },
+    { src: './image/13.jpg', name: '杨楠', bol: false },
+    { src: './image/14.jpg', name: '朱亭霏', bol: false },
+    { src: './image/15.jpg', name: '卢瑶', bol: false },
+    { src: './image/16.jpg', name: '张祥悦', bol: false },
+    { src: './image/17.jpg', name: '李子默', bol: false },
+    { src: './image/18.jpg', name: '李云鹏', bol: false },
+    { src: './image/19.jpg', name: '丁俣昊', bol: false },
+    { src: './image/20.jpg', name: '吴云鹏', bol: false },
+    { src: './image/21.jpg', name: '杨洋', bol: false },
+    { src: './image/22.jpg', name: '王崇', bol: false },
+    { src: './image/23.jpg', name: '杨光远', bol: false }
+]
+

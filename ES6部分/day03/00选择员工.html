@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择员工</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            width:16px;
+            height:16px;
+            background:url('./image/wei.png') no-repeat 0 0;
+        }
+        input[type="checkbox"]:checked {
+            background:url('./image/xuanzhong.png') no-repeat 0 0;
+        }
+        dl,ul,li { list-style-type: none; }
+        .wp {
+            width:400px;
+            height:600px;
+            border:1px #f00 solid;
+            margin:30px auto;
+            display: flex;
+        }
+        .l-cont,.r-cont {
+            flex:1;
+            padding:10px;
+        }
+        .l-cont {
+            border-right:1px #ccc solid;
+            overflow: auto;
+        }
+        .list-l dd,.list-r li {
+            display: flex;
+            height:50px;
+            margin-bottom:20px;
+            align-items: center;
+            position: relative;
+        }
+        .list-l dd img,.list-r img {
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            margin:0 10px;
+        }
+        .list-r li em {
+            position: absolute;
+            right:0;
+            top:16px;
+            width:18px;
+            height:18px;
+            cursor: pointer;
+            background:url(./image/cuo.png) no-repeat 0 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="l-cont">
+            <div>
+                <label><input id="all" type="checkbox" value="">全选</label>
+            </div>
+            <dl class="list-l">
+                
+                
+            </dl>
+        </div>
+        <div class="r-cont">
+            <ul class="list-r">
+               
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+     let dataList = [
+        { src: './image/1.jpg', name: '郜超凡', bol: false },
+        { src: './image/2.jpg', name: '鲁帅杰', bol: false },
+        { src: './image/3.jpg', name: '史文壮', bol: false },
+        { src: './image/4.jpg', name: '王浩宇', bol: false },
+        { src: './image/5.jpg', name: '刘鸿飞', bol: false },
+        { src: './image/6.jpg', name: '谷青岭', bol: false },
+        { src: './image/7.jpg', name: '周娅楠', bol: false },
+        { src: './image/8.jpg', name: '王同盛', bol: false },
+        { src: './image/9.jpg', name: '陈泓颖', bol: false },
+        { src: './image/10.jpg', name: '江鑫鑫', bol: false },
+        { src: './image/11.jpg', name: '郭喆祺', bol: false },
+        { src: './image/12.jpg', name: '张草原', bol: false },
+        { src: './image/13.jpg', name: '杨楠', bol: false },
+        { src: './image/14.jpg', name: '朱亭霏', bol: false },
+        { src: './image/15.jpg', name: '卢瑶', bol: false },
+        { src: './image/16.jpg', name: '张祥悦', bol: false },
+        { src: './image/17.jpg', name: '李子默', bol: false },
+        { src: './image/18.jpg', name: '李云鹏', bol: false },
+        { src: './image/19.jpg', name: '丁俣吴', bol: false },
+        { src: './image/20.jpg', name: '吴云鹏', bol: false },
+        { src: './image/21.jpg', name: '杨洋', bol: false },
+        { src: './image/22.jpg', name: '王崇', bol: false },
+        { src: './image/23.jpg', name: '杨光远', bol: false }
+    ]
+    //获取左右列表
+    let listL = document.querySelector('.list-l')
+     let listR = document.querySelector('.list-r')
+     let all = document.querySelector('#all')
+    //  右侧选中列表
+     let arr = [];
+     //渲染左侧列表
+     function setHtml(){
+        let html = '';
+        for(let i=0;i<dataList.length;i++){
+            html+=`
+            <dd>
+                    <input type="checkbox" value="" ${dataList[i].bol?'checked':''} 
+                    onchange="change(${i})">
+                    <img src="${dataList[i].src}" alt="">
+                    <span>${dataList[i].name}</span>
+                </dd>
+            `;
+        }
+        listL.innerHTML = html;
+     }
+     setHtml();
+     //设置选择方法
+     function change(index){
+       dataList[index].bol = !dataList[index].bol;
+     //选中和未选中
+       if(dataList[index].bol){
+         let user={
+            name:dataList[index].name,
+            src:dataList[index].src,
+            id:index
+         }
+          //渲染右侧列表
+         arr.unshift(user);
+         setRHtml();
+       }else{
+         let arr1=arr.filter(item=>item.id!==index);
+         arr=[...arr1];
+        //  arr.forEach(item=>{
+        //     if(item.id===index){
+        //         arr.splice(arr.indexOf(item),1);
+        //     }
+        //  })
+         setRHtml();
+         onlySel()
+       }
+     }
+
+//渲染右侧列表
+function setRHtml(){
+    listR.innerHTML = '';
+    let html = '';
+    for(let i=0;i<arr.length;i++){
+        html+=`
+        <li>
+            <img src="${arr[i].src}" alt="">
+            <span>${arr[i].name}</span>
+            <em onclick="del(${[i]})"></em>
+        </li>
+        `;
+    }
+    listR.innerHTML = html;
+}
+// 删除右侧列表
+function del(index){
+    let id = arr[index].id;
+    arr.splice(index,1);
+    dataList[id].bol = false;
+    setRHtml();
+    setHtml();
+    onlySel()
+    
+}
+
+//全选
+all.addEventListener('change',function(){
+    //获取全选input的checked ,勾选为true，否则为false
+    for(let i=0;i<dataList.length;i++){      
+        let bol = this.checked;
+        //把dateList数组中的bol属性全部改为bol的值,设置为全选复选框的状态
+        //map方法遍历数组，返回一个新数组
+        dataList = dataList.map(item=>{
+            item.bol = bol;
+            return item;
+        }
+        );
+        //清空arr数组
+        arr.length = 0;
+        //如果此时选中状态为true,则循环数据添加到arr数组中
+        if(bol){
+        dataList.forEach((item,index)=>{
+            
+                let user={
+            name:dataList[index].name,
+            src:dataList[index].src,
+            id:index
+         }
+          arr.push(user)  ;
+        })
+    }
+        setRHtml();
+        setHtml();
+    }
+   
+})
+//单点选项的时候设置是否全选
+function onlySel(){
+    let bol = dataList.every(item=>item.bol);
+    all.checked = bol;
+}
+</script>
