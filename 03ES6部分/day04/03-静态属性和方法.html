@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 静态属性和方法 </title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    class 也有set 和 get 方法,用来设置和获取属性的值
+    在class 内部使用set get 关键字设置属性,他们是以函数形式操作的
+    */
+   class Animal {
+       constructor(){
+
+       }
+       abc = '司马懿'
+       set aa(v){
+        console.log('设置的是'+v);
+        this.abc = v;
+       }    
+       get aa(){
+        return this.abc;
+       }
+   }
+   let a1 = new Animal();
+    a1.aa = '小白兔'; // 输出设置的是小白兔
+    console.log(a1.aa);
+/*
+类其实是相当于实例原型,在类中的方法可以简单理解为原型上的方法,只要实例化之后,实例化的对象可以使用类中所有的方法.但是类中有些方法 不希望被实例或者子类使用,只有类本身可以调用,该方法称为静态方法,关键字是static,也称静态方法
+静态方法只能通过当前类调用
+
+父类的静态方法,子类实例中无法继承,但是可以被子类直接调用
+给属性添加关键字 static,表示该属性是静态的,只能通过类名调用,不能通过实例调用
+*/
+    class Person {
+        name = '姜维';
+        constructor(){}
+        say(){
+            console.log(this.name);
+        }
+        static show(){
+            console.log('宣统');
+        }
+    }
+    let p1 = new Person();
+    p1.say(); // 输出姜维
+    Person.show(); // 输出宣统
+
+    class Son extends Person {
+        constructor(){
+            super();
+        }
+        run(){
+            console.log('儿童急走追黄蝶');
+        }
+    }
+    let s = new Son();
+    s.say(); // 输出姜维
+    s.run(); // 输出儿童急走追黄蝶
+    // s.show(); // 报错,静态方法只能通过当前类调用
+    Son.show()
+    console.log(Son.name);
+</script>

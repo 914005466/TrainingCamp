@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //创建类的关键字是class
+    //类名首字母大写 和构造函数一致
+    class Animal{
+        name = '动物';
+        //构造函数,实例化的时候立即执行的函数
+        constructor(){
+            this.age = 0;
+        }   
+        //设置类的方法
+        say(){
+            console.log(this.name + '在说话');
+        }
+    }
+
+    let a1 = new Animal();
+    /*
+    类中的this指向实例对象
+    类中也具有prototype,并且类中所有的方法都定义在prototype上
+    */
+    console.log(a1,a1.__proto__);
+    a1.say(); //动物在说话
+    // Animal.prototype.say();
+
+    /*
+    类中的 constructor 
+    constructor 再类中是一个默认方法,在实例化new 的时候该函数会立即执行,一个类必须具有constructor方法,如果不写默认写入一个空的constructor
+    constructor 返回值是当前的实例对象 ,也可以返回特定的一个对象(一般不会)
+
+    类不存在变量提升
+    */
+//    let p2 = new Person('莫邪',16,'女');
+//    console.log(p2.name);
+   class Person{
+       name = '人';
+       constructor(name,age,sex){
+           this.age = age;
+           this.name = name;
+           this.sex = sex;
+       }
+       say(){
+        console.log(this.name + '在说话');
+       }
+   }
+   let p1 = new Person('小明',18,'女');
+   console.log(p1.name);
+
+   /*
+   类的声明
+   也可以像函数一样,使用匿名函数声明
+   */
+  let MyClass = class Mo{
+        name = '金正恩';
+      getName(){
+        console.log( this.name);
+        return Mo.name;
+      }
+  }
+
+  let m1 = new MyClass();
+  console.log(m1.getName());
+  /*
+  在以上代码中,使用表达式声明了一个类,类名为MyClass不是Mo,Mo只是在类中使用,指代的是当前的类 ,不是当前实例
+
+  如果不想使用class后声明的类可以直接省略class关键字,直接使用表达式声明,如下即可
+  */
+ let MyClass1 =  class{
+        name = '金正日';
+      getName(){
+        console.log( this.name);
+        return this.name;
+      }
+  }
+  let m2 = new MyClass1();
+  console.log('=========');
+  m2.getName();
+  /*
+  像立即执行函数一样,类也可以立即执行,把参数写在类声明的后面,立即实例化
+  */
+ let p3 = new class{
+    constructor(name,age){
+           this.age = age;
+           this.name = name;
+           
+       }
+       say(){
+        console.log(`${this.name}今年${this.age}岁了`);
+       }
+ }('金日成',70);
+ p3.say(); //金日成今年70岁了
+</script>

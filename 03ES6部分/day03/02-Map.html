@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map数据</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    ES6 新提供了数据结构Map,他类似对象,也是键值对集合,但是键的形式不仅仅是字符串,他有各种类型.比如在Map中键名可以是数组,对象,字符串,函数等.
+    Map具有interator接口(迭代器),可以使用for-of循环
+
+    Map的常用属性和方法
+    size 获取map的长度
+    set(key, value) 给Map设置键值对
+    clear() 清空map
+    delete(key) 删除某个指定的数据,返回布尔值
+    get(key) 根据键获取值
+    has(key) 判断某个键是否存在,返回布尔值
+    */
+   let m1 = new Map();
+   console.log(m1);
+   m1.set('name', '张三');
+   m1.set('age', 25);
+   m1.set('gender', '男');
+   let obj = {num:1}
+    
+   m1.set(obj, '20');
+   console.log(m1);
+    for(let aa of m1){
+        console.log(aa);
+    }
+    console.log(m1.size);
+    //获取键值
+    console.log(m1.get('name'));
+
+    let bol1 = m1.has('name');
+    console.log(bol1);
+
+
+    //删除键值
+    m1.delete('name');
+    console.log(m1);
+
+    //清空map
+    m1.clear();
+    console.log(m1);
+</script>

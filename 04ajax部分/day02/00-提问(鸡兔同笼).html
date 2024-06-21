@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    //鸡兔同笼 一共50只,脚160只,求鸡多少只,兔子多少只?
+
+        for(let i=1;i<50;i++){
+            for(let j=1;j<=50-i;j++){
+                if(160%[(i*2)+(j*4)]==0 && i+j==50){
+                    console.log("鸡有"+i+"只,兔子有"+j+"只")
+                }
+            }  
+        }
+</script>

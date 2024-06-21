@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async和await</title>
+</head>
+<body>
+    <button id="btn1"> 
+        点击请求
+    </button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    /* 
+    async 修饰的函数,直接返回一个Promise对象
+    如果 async 函数有返回值则无论返回值是不是promise.都可以通过then操作
+    async 函数 其实是一个promise 对象,并且该promise对象的状态是已完成(fulfilled)
+    */
+    let key = '99ba791ed87bf1596f8afbb21d6e04f2';
+    async function aa() {
+        console.log('卢俊义','杨雄');
+    }
+    console.log(aa());
+    let show = async ()=>{
+        console.log('宋江','武大郎');
+        return '李逵';
+    }
+
+    show().then(res=>{
+        console.log(res);
+    });
+
+    /*
+    await 关键字可以让我们等待一个异步操作的结果,他等待的是一个promise,如果await后面跟的不是一个promise对象,而是一个具体的值,则该值是promise执行resolve()方法后返回的值
+    await 后面执行的代码,无论是同步还是异步,只有当前awiat执行完毕之后,后面的代码才会继续执行
+
+    async 函数不会导致代码阻塞,但是await 可以导致async 函数内部代码阻塞
+
+    await 后面如果返回的是reject()的结果,会导致async 函数中断
+
+    */
+async function fun1() {
+   let num = await 200;
+   console.log(num);
+}
+fun1()
+
+let btn1= document.getElementById('btn1');
+btn1.onclick = async function(){
+  let newslist =  await axios.get(`https://apis.tianapi.com/film/index?key=${key}&num=10`).then(res=>{
+        // console.log(res.data);
+        let abc = '白胡子海贼团'
+        return res.data.result.newslist;
+    });
+    console.log(newslist);
+    console.log('武松');
+}
+</script>

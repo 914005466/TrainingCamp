@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+    <header>
+        <div class="cont container">
+            <div class="logo">
+                <img src="../image/logo.png" alt="">
+            </div>
+            <nav>
+                <span>首页</span>
+                <span>产品中心</span>
+                <span>分店信息</span>
+                <span>品牌故事</span>   
+                <span>新闻动态</span>
+                <span>代理中心</span>
+                <span>客服中心</span>
+            </nav>
+            <div class="search">
+                <input type="text" placeholder="请输入关键字">
+                <span><img src="../image/fx.png" alt=""></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wp container wp1">
+        <p>地区：</p>
+        <div class="area">
+            <span>全部</span>
+            <span class="active">澳洲</span>
+            <span>澳洲</span>
+            <span>澳洲</span>
+        </div>
+    </div>
+    <div class="wp container">  
+        <p>分类：</p>
+        <div class="classify">
+            <span class="active">全部</span>
+            <span>靴子</span>
+            <span>鞋子</span>
+            <span>包包</span>
+            <span>奶粉</span>
+            <span>保健品</span>
+        </div>
+    </div>
+    <ul class="list container">
+        <!-- <li>
+            <img src="../image/1-1.png" alt="" >
+            <p class="tx">李杰</p>
+            <p class="sj">18699563265</p>
+            <p class="dz">
+                <img src="../image/dz.png" alt="">
+                <span>浙江省台州市温岭市人民西路 281号 </span>
+            </p>
+        </li> -->
+    </ul>
+
+    <!-- 分页 -->
+
+    <div class="pages container">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span>
+    </div>
+
+    <footer>
+        <div class="foot container">
+             <div class="foot1">
+
+             </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="../js/userInfo.js"></script>
+<script>
+
+let areaSpans = document.querySelectorAll('.area span');
+let Spans = document.querySelectorAll('.classify span');
+let pages = document.querySelector('.pages');
+let list = document.querySelector('.list');
+    //设置当前类型的总数量
+    let typeArr = [...dataArray];
+    let arr = [...typeArr.slice(0, 8)];
+
+areaSpans.forEach(span => {
+    span.addEventListener('click', function() {
+        areaSpans.forEach(span => {
+            span.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
+});
+
+for (let i = 1; i < Spans.length; i++) {
+   
+    Spans[i].onclick = function () {
+            typeArr = dataArray.filter(item => item.type == i);
+            arr = [...typeArr.slice(0, 8)];
+            setHtml();
+            myPages();
+            Spans.forEach(span => span.classList.remove('active'));
+            this.classList.add('active');
+        }
+    
+    }
+Spans[0].onclick = function () {
+    Spans.forEach(span => span.classList.remove('active'));
+    this.classList.add('active');
+    typeArr = dataArray;
+    arr = [...typeArr.slice(0, 8)];
+    setHtml();
+    myPages();
+}
+
+   
+   function setHtml(){
+    list.innerHTML = '';
+        let html = '';
+        for (let i = 0; i < arr.length; i++) {
+        html += ` <li>
+            <img src="${arr[i].url}" alt="" >
+            <p class="tx">${arr[i].name}</p>
+            <p class="sj">${arr[i].tel}</p>
+            <p class="dz">
+                <img src="../image/dz.png" alt="">
+                <span>${arr[i].address}</span>
+            </p>
+        </li>
+        `;
+    };
+    list.innerHTML = html;
+   }
+   setHtml();
+   myPages();
+ //设置分页器
+ function myPages() {
+        //设置页数
+        let n = Math.ceil(typeArr.length / 8);
+        pages.innerHTML = '';
+        let html = '';
+        for (let i = 1; i <= n; i++) {
+            html += `<span class="${i == 1 ? 'active' : ''}" onclick="pageFUn(${i})">${i}</span>`;
+        }
+        pages.innerHTML = html;
+    }
+    //设置点击分页
+    function pageFUn(n) {
+        let index = (n-1)*8;
+        arr = [...typeArr.slice(index, index+8)];
+        setHtml();
+        let spans = document.querySelectorAll('.pages span');
+        spans.forEach(span => span.className = '');
+        spans[n-1].className = 'active';
+    }
+ 
+
+</script>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul.list{
+            margin: 30px auto;
+            width: 1200px;
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 800px;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .list li{
+            width: 285px;
+            height: 250px;
+            box-shadow: 0px 2px 4px 0px rgba(130,130,130,0.35);
+            margin-bottom: 20px;
+        }
+        li img{
+            width: 100%;
+            height: 157px;
+            border: 1px solid #EFEFEF;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 14px;
+            color: #666;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+        .list li p:first-of-type{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 分页 */
+        .pages {
+            width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pages span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #E1E1E1;
+            margin-right: 15px;
+            color: #666666;
+        }
+        .pages .active {
+            background-color: #ff647c;
+            color: #fff;
+            border: 1px solid #ff647c;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <!-- <li>
+            <img src="" alt="" >
+            <p class="title">李杰</p>
+            <p class="score">111</p>
+        </li> -->
+    </ul>
+    <div class="pages">
+        <!-- <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span> -->
+    </div>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+      let key = '99ba791ed87bf1596f8afbb21d6e04f2';
+      let pages = document.querySelector('.pages');
+    let list = document.querySelector('.list');
+  
+    async function getData(){ 
+        let page=1;
+
+        var listArr= await axios.get(`https://apis.tianapi.com/petnews/index?key=${key}&num=48&page=${page}`).then(res=>{
+
+             return   res.data.result.newslist;
+             
+            })
+           
+        for(let i=0;i<listArr.length;i++){
+            let url=await  axios.get(`https://api.vvhan.com/api/wallpaper/pcGirl?type=json`).then(res=>{
+                return res.data.url;
+            });
+            listArr[i].picUrl=url;
+        }
+         
+        let typeArr = [...listArr];
+        console.log(typeArr);
+       let arr = [...typeArr.slice(0, 12)];
+       console.log(arr);
+     function setHtml(){
+        let html='';
+        for(let i=0;i<arr.length;i++){
+            html+=`<li>
+            <img src="${arr[i].picUrl}" alt="">
+                <p>${arr[i].title}</p>
+                <p>来源：${arr[i].source}</p>
+        
+        </li>`;
+   }
+   list.innerHTML=html;
+}
+       function myPages() {
+        //设置页数
+        let n = Math.ceil(typeArr.length / 12);
+        console.log(n);
+        pages.innerHTML = '';
+        let html = '';
+        for (let i = 1; i <= n; i++) {
+            html += `<span class="${i == 1 ? 'active' : ''}">${i}</span>`;
+        }
+        pages.innerHTML = html;
+    }
+    setHtml();
+    myPages();
+   
+   // 设置点击分页
+  
+    function  pageFUn(n) {
+        let index = (n-1)*12;
+        arr = [...typeArr.slice(index, index+12)];
+        console.log(arr);
+        setHtml(); 
+        let spans = document.querySelectorAll('.pages span');
+        console.log(spans);
+        // spans.forEach(span => {
+        //     span.className = '';
+        // });
+        // spans[n-1].className = 'active';
+      
+      
+    }
+    let spans = document.querySelectorAll('.pages span');
+   
+   
+   spans.forEach(span => {
+       span.addEventListener('click', function () {
+           pageFUn(Number(span.innerText));
+           spans.forEach(span => {
+               span.className = '';
+           });
+           this.className = 'active';
+       });
+   });
+  
+    
+}
+
+    getData();
+   
+  
+    
+</script>

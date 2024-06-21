@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #panel,#flip
+{
+	padding:5px;
+	text-align:center;
+	background-color:#e5eecc;
+	border:solid 1px #c3c3c3;
+}
+#panel
+{
+	padding:50px;
+	display:none;
+}
+    </style>
+</head>
+<body>
+    <button>开始动画</button>
+<p>默认情况下，所有的 HTML 元素有一个静态的位置，且是不可移动的。 
+如果需要改变为，我们需要将元素的 position 属性设置为 relative, fixed, 或 absolute!</p>
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;">
+</div>
+
+<!-- <button id="stop">停止滑动</button>
+<div id="flip">点我向下滑动面板</div>
+<div id="panel">Hello world!</div> -->
+</body>
+</html>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+/*
+jQuery 事件
+鼠标事件
+1. click 鼠标点击事件
+2. dblclick 鼠标双击事件
+3. mouseenter 鼠标进入事件
+4. mouseleave 鼠标离开事件
+5. hover 鼠标悬停事件
+键盘事件
+1. keydown 键盘按下事件
+2. keyup 键盘松开事件
+3. keypress 键盘按下并松开事件
+表单事件
+1. focus 元素获得焦点事件
+2. blur 元素失去焦点事件
+3. change 元素值改变事件
+4. submit 表单提交事件
+文档窗口事件
+1. resize 窗口大小改变事件  
+2. scroll 窗口滚动事件
+3. load 文档加载完成事件
+4. unload 文档关闭事件
+*/
+$(document).ready(function(){
+  $("button").click(function(){
+    $("div").animate({left:'250px'});
+  });
+});
+//停止滑动
+// $(document).ready(function(){
+//   $("#flip").click(function(){
+//     $("#panel").slideDown(5000);
+//   });
+//   $("#stop").click(function(){
+//     $("#panel").stop();
+//   });
+// });
+</script>

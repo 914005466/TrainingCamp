@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- /*
+如果js的体积过大,下载和执行的时间会很慢,浏览器只有在加载完js才能执行动态效果,这样在下载js文件的时候,浏览器会处于假死状态,用户体验很差,此时可以给scrpit标签添加defer属性或者async属性,他们都是异步加载js 的属性
+defer : 表示其他资源以及js都加载完毕之后执行
+async : 表示加载完js 之后立即执行
+*/ -->
+<script type="module" src="./js/abc.js"></script>
+<!-- 使用模块,需要设置 type 属性为 module,相当于script 标签设置了defer 属性 -->
+<script type="module">
+   
+   /*
+    模块主要由两个命令构成: export 和 import
+    export 命令用于定义模块导出的接口
+    import 用于模块导入模块的接口和模块提供的功能
+
+    引入模块需要使用 script 标签的 type 属性设置为 module
+    import 语句 引入模块的时候,需要在整个srciptr 的最上面
+
+    import {引入的模块的内容} form './模块路径'
+    如果模块中 有export default 导出的内容,则导入的时候不需要添加{},直接导入
+
+    一个模块就是一个js文件,该文件内部所有的变量.方法.类等外部无法直接获取,如果你需要使用模块中的内容,则需要通过import 语句导入模块
+
+    各个模块之间 通过 import 相互引用,引入模块才能运行程序,这种引入的模块也称为依赖
+
+    通常情况下,export 导出的名字就是在import中的变量名,但是也可以通过as 关键字对齐重新命名旧变量名 as 新变量名
+
+    由于 import{}form 模块,这种引入方式一般都是静态引入,只能写在模块的最上面
+    如果需要动态引入,可以通过import('模块名/模块地址')的方式引入模块,他返回的是一个promise对象,可以用then方法获取模块的返回值
+   */ 
+import { userName,Sum} from './js/abc.js';
+import obj,{userName as my,show,arr} from './js/mod.js';
+console.log(userName);
+console.log(my);
+console.log( Sum(1,2,3,4,5,6) );
+console.log('=========');
+console.log(obj);
+show();
+let module =  import('./js/abc.js');
+console.log(module);
+module.then(data=>{
+    console.log(data);
+})
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post请求</title>
+</head>
+<body>
+    <form action="" enctype="application/x-www-form-urlencoded"></form>
+    姓名: <input type="text" id="username"><br>
+    年龄: <input type="text" id="age"><br>
+    性别: <input type="radio" name="sex" value="男">男
+          <input type="radio" name="sex" value="女">女<br>
+    <button id="btn">提交</button>
+</body>
+</html>
+<script>
+    function $(sel){
+        return document.querySelector(sel);
+    }
+    $('#btn').onclick = function(){
+        //获取要提交的数据
+        let v1 = $('#username').value;
+        let v2 = $('#age').value;
+        let v3 = $('input[name="sex"]:checked').value;
+        console.log(v1, v2, v3);
+
+        //发送请求
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if(xhr.status === 200||xhr.status === 304){
+                    console.log(xhr.responseText);
+                }
+            }
+        };
+        //post提交和get请求不同,
+        xhr.open('POST', 'http://172.16.8.245:8080/post');
+        //post请求需要设置请求头
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //post 传数据,根据设置的请求头,设置数据格式为 键名=值&键名=值&键名=值
+        xhr.send(`name=${v1}&age=${v2}&sex=${v3}`)
+        return false;
+    }
+</script>

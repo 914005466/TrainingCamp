@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请求案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .list{
+            list-style-type: none;
+            margin: 30px auto;
+            
+        }
+        .list li{
+            display: flex ;
+            height: 120px;
+            padding: 10px;
+            background-color: azure;
+            margin-bottom: 20px;
+        }
+        
+
+       .list li img{
+            width: 120px;
+            height: 120px;
+       }
+       .list li div{
+        flex: 1;
+        padding-left: 20px;
+       }
+    </style>
+</head>
+<body>
+    <ul class="list"> 
+        <!-- <li>
+            <img src="" alt="">
+            <div>
+                <h3></h3>
+                <p></p>
+                <p>来源: <span></span><span></span></p>
+            </div>
+        </li> -->
+    </ul>
+    <button id="page">点击天机数据</button>
+</body>
+</html>
+<script>
+    let list = document.querySelector('.list');
+    const key = '99ba791ed87bf1596f8afbb21d6e04f2';
+    let page = document.querySelector('#page');
+    let p = 0;
+   
+    function addData(){
+        p++;
+        fetch(`https://apis.tianapi.com/film/index?key=${key}&num=10$page=${p}`).then(res => res.json()).then(res => {
+            console.log(res.result.newslist);
+            let arr = res.result.newslist;
+            
+            let html = '';
+            for(let i = 0; i < arr.length; i++){
+                let item = arr[i];
+                html += `<li>
+            <img src="${arr[i].picUrl}" alt="">
+            <div>
+                <h3>${arr[i].title}</h3>
+                <p>${arr[i].description}</p>
+                <p>来源: <span>${arr[i].source}</span><span>${arr[i].ctime}</span></p>
+            </div>
+        </li>`
+    }
+    list.innerHTML += html;
+})
+    }
+    addData();
+    page.onclick = addData;
+</script>

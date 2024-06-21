@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax简介</title>
+</head>
+<body>
+    <!-- <form action="http://www.baidu.com" method="get">
+        姓名:<input type="text" name="username"><br>
+        年龄:<input type="text" name="age"><br>
+        <input type="submit" value="提交">
+    </form> -->
+    <button id="btn">舔狗</button>
+    <p id="mag"></p>
+</body>
+</html>
+<script>
+/*
+一个请求的流程
+前端->发起请求->服务器->后台接收请求->根据请求执行相关操作->把操作的结果数据返回给前端->前端接受数据->处理数据
+前端发起请求的方式
+1.form表单提交
+2.a标签(凡是带href 或者是src属性的标签都可以发起请求)
+3.ajax
+4.websocket
+
+AJAX(async javascript and xml)作用是页面局部刷新
+
+两种请求方式
+
+异步请求:客户端向服务端发起请求的时候,不需要等待服务端把该请求处理完成,请求之外的代码会继续执行,如果请求成功,则执行成功后的操作,不影响其他代码的正常执行
+同步请求: 客户端向服务端发起请求的时候,必须等待服务端把该请求处理完成,并且执行成功后的操作,然后才能执行其他代码,这样会造成页面假死现象,所以一般不用
+
+AJAX 是异步请求的一种常用方式
+
+AJAX的操作流程
+1.创建异步的 XMLHttpRequest 对象(简称XHR)
+2.设置请求的URL地址
+3.发起请求给服务端
+4.注册事件
+5.在事件中,获取服务端传递的数据进行处理
+
+*/
+let btn = document.getElementById("btn");
+let mag = document.getElementById("mag");   
+btn.onclick = function(){
+    // 创建异步的 XMLHttpRequest 对象  
+    const xhr = new XMLHttpRequest();
+
+    console.log(xhr);
+    /*
+    监听readystatechange方法
+    */
+   xhr.onreadystatechange = function(){
+    /*
+    xhr.readyState 当 XMLHttpRequest 请求数据的时候,一般需要经历几个过程
+    readyState 请求属性一般有四个,代表的是每一个使用一个数字表示,分别是:
+    1.表示已经调用了send(),正在发送请求
+    2.表示send()执行完成,后台接受到了数据
+    3.表示后台正在对数据进行操作
+    4.表示后台对数据解析完成,可以在客户端进行使用
+
+    readyState属性值每改变一次,就会触发一次readystatechange方法,咱们主要研究的是最后一次,就是在数据请求成功的时候操作数据
+
+    xhr.response 后台返回给前台的数据
+    responseText 后台返回给前台的文本数据
+
+    xhr.status 服务器返回的状态码
+    1xx 表示请求已被接受,继续处理
+    2xx 表示请求已成功,请求所希望的响应头部或数据体将随之发送
+    3xx 表示需要进行附加操作,通常是重定向
+        304 缓存
+    4xx 表示客户端的请求有错误,请求未成功
+        404 表示请求的资源不存在
+    5xx 表示服务器端有错误,请求未成功
+        503,504 一般是请求方式出错
+    */
+    //    console.log(xhr.readyState);
+       let num = xhr.readyState;
+       if(num == 4){
+        // console.log(xhr.status,xhr.responseText);
+           if(xhr.status == 200||xhr.status == 304){
+               let Json =JSON.parse( xhr.responseText);
+               mag.innerHTML = Json.result.content;  }  
+       }
+   }
+   /*
+   使用open方法设置请求方式和请求地址
+   */
+   let key = '99ba791ed87bf1596f8afbb21d6e04f2'
+   xhr.open("GET", `https://apis.tianapi.com/tiangou/index?key=${key}`);
+   xhr.send();//向后台发送
+   return false;
+
+}
+</script>

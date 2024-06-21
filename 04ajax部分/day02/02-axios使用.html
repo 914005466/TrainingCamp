@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios使用</title>
+</head>
+<body>
+    <button id="btn1">点击get请求</button>
+    <hr>
+    <input type="text" id="username" placeholder="请输入用户名">
+    <input type="text" id="age" placeholder="请输入年龄">
+    <input type="text" id="sex" placeholder="请输入性别">
+    <button id="btn2">点击post请求</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+/* 
+axios 是基于promise 并且可以用浏览器和node的http客户端使用的
+
+特点:
+从浏览器创建 XMLHttpRequests
+从 node.js 创建 http 请求
+支持 Promise API
+拦截请求和响应
+转换请求和响应数据
+取消请求
+超时处理
+查询参数序列化支持嵌套项处理
+自动将请求体序列化为：
+JSON (application/json)
+Multipart / FormData (multipart/form-data)
+URL encoded form (application/x-www-form-urlencoded)
+将 HTML Form 转换成 JSON 进行请求
+自动转换JSON数据
+获取浏览器和 node.js 的请求进度，并提供额外的信息（速度、剩余时间）
+为 node.js 设置带宽限制
+兼容符合规范的 FormData 和 Blob（包括 node.js）
+客户端支持防御XSRF
+*/
+let btn2 = document.getElementById('btn2');
+let btn1 = document.getElementById('btn1');
+let username = document.getElementById('username');
+let age = document.getElementById('age');
+let sex = document.getElementById('sex');
+let key = '99ba791ed87bf1596f8afbb21d6e04f2';
+
+/*
+asios的get 请求
+axios 的get 传参方式
+1./abc?name=aa&&age=18
+2./abc/aa/123(根据接口使用动态路由传参)
+3.通过params参数对象传参 
+ */
+btn1.onclick = function(){
+    /* axios.get(`https://apis.tianapi.com/film/index?key=${key}&num=10`).then(res => {        
+        console.log(res.data); 
+    }); */
+    axios.get(`https://apis.tianapi.com/film/index`,{
+        params: {
+            key: key,
+            num:10
+        }
+    }).then(res => {
+        console.log(res.data); 
+    })
+}
+btn2.onclick = function(){
+    let data = {
+        username: username.value,
+        age: age.value,
+        sex: sex.value
+    };
+    /* 
+    整体配置
+    */
+    /* axios({
+        method: 'post',//请求方法
+        url: 'http://172.16.8.245:8080',//请求地址
+        data, //请求参数
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        console.log(res.data);
+    }) */
+   //post 简写方式
+   /* 
+   简写第一个参数是url 第二个参数是data 第三个参数是配置对象
+   */
+   axios.post('http://172.16.8.245:8080',data,{
+    Headers:{}
+   }).then(res => {
+       console.log(res.data);
+   })
+}
+</script>

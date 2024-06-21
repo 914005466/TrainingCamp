@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set数据</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    es6 提供了新的数据结构Set,类似数组,但是它里面所有的元素都是唯一的,没有重复的值。
+    Set 是一个构造函数
+
+    要创建一个Set,用new Set()
+    */
+   let arr = [1, 2, 3, 2, 1, 4, 5, 4, 6, 7, 8, 9, 10];
+//    let set = new Set(arr);
+//    let arr2 = [...set]
+//    console.log(arr2); // Set(10) {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+   console.log([...new Set(arr)]);
+
+   let s1 = new Set();
+   s1.add('中国女排');//通过 set 对象的add方法添加set数据
+   s1.add('中国女排');
+   s1.add('中国女篮');
+   console.log(s1);
+   /*
+   可以在实例化的时候接受一个数组参数,来初始化Set数据
+   */
+   let set = new Set(arr);
+   console.log(set);
+   //数组去重
+   console.log([...set]);
+    /*
+    使用属性 size 来获取 set 的长度
+
+    常用方法
+    add(数据)给set添加一个数据
+    delete(数据)删除set中的指定的数据,返回的是一个布尔值
+    has(数据)判断set中是否有指定的数据,返回的是一个布尔值,有为true,没有为false
+    clear()清空set,没有返回值
+    */
+    
+   console.log(set.size);
+
+   let bol = s1.delete('中国女排');
+   console.log(bol,s1);
+
+   let bol1 = s1.has('中国女排');
+   console.log(bol1,s1);
+
+   let bol2 = s1.clear();
+   console.log(bol2,s1);
+
+   let s2 = new Set([{name:'米饭'},'面条','馒头','大盘鸡','大肠头','螺蛳粉','臭豆腐']);
+   console.log(s2.keys());
+   /*
+   keys()返回键名的迭代器
+   vlues() 返回键值的迭代器
+   entries() 返回键值对的迭代器
+   */
+   s2.keys().forEach(item=>{
+    console.log(item);
+   })
+   s2.values().forEach(item=>{
+    console.log(item);
+   })
+   s2.entries().forEach(item=>{
+    console.log('entries',item);
+   })
+</script>

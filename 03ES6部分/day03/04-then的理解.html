@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    then是在Promise原型上的方法
+
+    原则上then方法返回的是一个新的Promise对象，因此可以采用链式学法,即then().then()...
+
+    1.then的返回结果理论上是一个Promise对象，这样能保证then的链式写法
+    2.如果说他的返回结果不是一个Promise对象，则他的操作状态是fulfilled，下一次then的时候得到的参数是成功值
+    3.如果操作错误的时候,会抛出一个错误
+    */
+   let p1 = new Promise((resolve, reject) => {
+       resolve('黄河');
+   });
+   let p2 = new Promise((resolve, reject) => {
+       reject('长江');
+   });
+   let p3 = new Promise((resolve, reject) => {
+       resolve('松花江');
+   });
+   let p4 = new Promise((resolve, reject) => {
+       resolve('赤水河');
+   });
+   p1.then(data => {
+    console.log(data);
+    return p2;
+   }).then(data => {
+    console.log(data);
+   },err=>{
+    //抛出一个错误
+    throw  new Error(err);
+   }
+   );
+   /*
+   catch()该方法直接处理 reject函数传递的参数,类似then(null,err=>{})
+   catch()也是Promise prototype上的方法
+   */
+   p1.then(data => {
+    console.log(data);
+    return p2;
+   }).catch(err => {
+    throw  new Error(err+'抛出错误');
+   })
+</script>

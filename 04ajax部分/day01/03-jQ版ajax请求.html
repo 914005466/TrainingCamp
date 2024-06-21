@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ版ajax请求</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button id="btn1">get请求彩虹屁</button>
+    <button id="btn2">get请求简写</button>
+    身高:<input type="text" id="height">
+    体重:<input type="text" id="weight">
+    年龄:<input type="text" id="age">
+    性别:<input type="text" id="sex"><br>
+    <button id="btn3">post体脂率</button>
+</body>
+</html>
+<script src="./js/jquery-3.7.1.min.js"></script>
+<script>
+/*
+$(选择器) 获取元素  
+
+.click() 点击事件,执行函数为回调函数
+*/  
+let key = '99ba791ed87bf1596f8afbb21d6e04f2'
+$('#btn1').click(()=>{
+    $.ajax({
+        type: 'get',//设置请求类型
+        url:'https://apis.tianapi.com/zhanan/index',
+        data:{key:key},
+        // success:function(data){
+        //     console.log(data);
+        // }
+        dataType: 'json',
+    }).then(res=>{
+        console.log(res)
+    })
+})
+$('#btn2').click(()=>{
+    $.get(`https://apis.tianapi.com/zhanan/index?key=${key}`).then(res=>{
+        console.log(res)
+    })
+})
+var height = $('#height').val()-0
+var weight = $('#weight').val()-0
+var age = $('#age').val()-0
+var sex = $('#sex').val()-0
+// $('#btn3').click(()=>{
+//     $.post( `https://apis.tianapi.com/bfrsum/index?key=${key}&height=${height}&weight=${weight}&age=${age}&sex=${sex}`).then(res=>{
+//         console.log(res)
+//     })
+// });
+$('#btn3').click(()=>{
+    $.ajax({
+        type: 'post',
+        url:`https://apis.tianapi.com/bfrsum/index`,
+        data:{
+            key:key,
+            height:height,
+            weight:weight,
+            age:age,
+            sex:sex
+        },
+        //设置请求头
+        Headers:{
+            'Content-Type':'application/x-www-form-urlencoded'
+        }
+    }).then(res=>{
+        console.log(res)
+    })
+})
+</script>

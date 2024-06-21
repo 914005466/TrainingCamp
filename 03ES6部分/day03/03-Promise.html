@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   /*
+   同步编程:
+    异步编程:
+    回调地域(本次操作完成之后才可以执行下次操作,以此类推,需要执行多个回调函数,层级很深)
+
+    promise:是处理异步变成的一种解决方案,可以用来处理回调地域
+
+    promise 可以将异步操作实施成同步的样子,避免了层层嵌套带来的麻烦,他会提供了很多操作方法,使得Promise更加强大
+
+    Promise 其实是一个构造函数,需要使用new来生成实例
+   */ 
+//   setTimeout(() => {
+//     console.log('同步编程1');
+//     setTimeout(() => {
+//       console.log('异步编程2');
+//       setTimeout(() => {
+//       console.log('异步编程3');
+//     },1000)
+//     },1000)
+//   },0)
+  
+//   console.log('同步编程2');
+/*
+Promise 对象带标的是一个异步操作,该对象具有三种状态
+1.pending(进行中)
+2.resolved(已完成)也叫fullfilled
+3.rejected(已失败)
+promise操作的结果只能是一种状态(已完成或者以失败)
+实例化一个promise对象的时候,回调函数中有两个参数,一个事resolve,一个是reject,他们两个分别是两个函数,也就是promise回调函数的两个参数,分别是两个函数,这两个函数由js提供,不用自己创建,
+
+resolve函数:该函数将Promise对象的操作状态从进行中变为已完成,然后将异步操作的结果作为参数传递出去
+reject函数:该函数将Promise对象的操作状态从进行中变为已失败,然后将异步操作的失败原因作为参数传递出去
+
+Promise实例生成以后,通过then()方法,获取resolve函数传递出来的参数并进行操作
+*/
+let p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let res = '周末快乐';
+        if(false){
+            //执行resolve函数
+            resolve(res);
+        }else{
+            //执行reject函数
+            reject(new Error('出错了,错误信息'));
+        }
+    },2000)
+});
+let p2 = new Promise((resolve, reject) => {
+    resolve('六月的雨')
+});
+/*
+then 方法接两个回调函数,第一个回调函数处理的是,reslove发送的数据,也就是Promise的状态为fullfilled的时候的数据,第二个回调函数处理的是,reject函数发送的数据,第二个回调函数可省略,一般不写
+*/
+console.log(p1);
+p1.then(aa => {
+    console.log(aa);
+    return p2;
+}, err => {
+    console.log(err);
+}).then(bb => {
+    console.log(bb);
+    
+})
+
+</script>

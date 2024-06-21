@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function aa(arr) {
+        if (arr.length <= 0) {
+            console.log('数组为空');
+            return;
+        }
+        let output = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            let product = arr.reduce((prev, curr, index) => {
+                if (index === i) { 
+                    return prev; 
+                }
+                return prev * curr;
+            }, 1)
+            output.push(product);
+        }
+        return output;
+    }
+    console.log(aa([1, 2, 3, 4, 5]));
+</script>

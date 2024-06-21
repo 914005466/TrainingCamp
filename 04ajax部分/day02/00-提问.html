@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //使用 javascript 实现 dupicatedWord()方法:统计数组中字符出现的频次，返回一个 Object<String,Boolean>对象，字符为 key，当出现两次以上将 value置为 true，否则为 false。
+    function dupicatedWord(arr) {
+        let obj = {};
+        arr.forEach(item => {
+            obj[item] = typeof obj[item] === 'undefined'? false : true;
+        })
+        return obj;
+    }
+
+    //测试用例
+    let arr = ['apple', 'banana', 'orange', 'apple', 'banana', 'orange', 'pear'];
+    console.log(dupicatedWord(arr)); // { apple: true, banana: true, orange: true, pear: false }    
+</script>

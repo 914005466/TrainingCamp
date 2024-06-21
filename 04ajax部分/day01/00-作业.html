@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作业</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .list {
+            list-style-type: none;
+            margin: 30px auto;
+            height: 280px;
+        }
+
+        .list li {
+            display: flex;
+            height: 280px;
+            padding: 10px;
+            background-color: azure;
+            margin-bottom: 20px;
+        }
+
+
+        .list li img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .list li div {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .list li div p{
+            margin-bottom: 10px;
+        }
+        #page{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border-radius: 25%;
+            border: none;
+            font-size: 22px;
+            
+            color: white;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .box{
+            width: 300px;
+            height: 450px;
+            background-color: salmon;
+            position: fixed;
+            color: white;
+            top: 20px;
+            right: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 22px;
+        }
+        .box p{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list">
+        <!-- <li>
+            <img src="" alt="">
+            <div>
+                <h3></h3>
+                <p></p>
+                <p>特点</p>
+                <p>产地</p>
+                <p>存活时间</p>
+                <p>介绍</p>
+                <p>建议</p>
+                <p>来源: <span></span><span></span></p>
+            </div>
+        </li> -->
+    </ul>
+    <button id="page">点击获取宠物种类</button>
+    <div class="box">
+        <!-- <p>城市</p>
+        <p>日期</p>
+        <p>天气</p>
+        <p>最低温度</p>
+        <p>最高温度</p>
+        <p>污染指数</p>
+        <P>建议</P> -->
+    </div>
+</body>
+
+</html>
+<script>
+    let list = document.querySelector('.list');
+    let key = '99ba791ed87bf1596f8afbb21d6e04f2';
+    let page = document.querySelector('#page');
+    let p = 0;
+
+    function addData() {
+        p++;
+        fetch(`https://apis.tianapi.com/pet/index?key=${key}&num=5$page=${p}`).then(res => res.json()).then(res => {
+            console.log(res.result.list);
+            let arr = res.result.list;
+            let html = '';
+            for (let i = 0; i < arr.length; i++) {
+                html += `<li>
+                            <img src="${arr[i].coverURL}" alt="">
+                            <div>
+                                <h3>品种:<span>${arr[i].name}</span></h3>
+                                <p>特点:<span>${arr[i].characters}</span> </p>
+                                <p>产地:<span>${arr[i].nation}</span> </p>
+                                <p>存活时间:<span>${arr[i].life}</span> </p>
+                                 <p>介绍:<span>${arr[i].feature}</span> </p>
+                                <p>建议:<span>${arr[i].feedPoints}</p>
+                                <p>价格:<span style="color:red;">${arr[i].price}</p>
+                            </div>
+                        </li>`
+            }
+            list.innerHTML += html;
+        })
+    }
+    // addData();
+    page.onclick = addData;
+    let box = document.querySelector('.box');
+    function getWeather() {
+        fetch(`https://api.vvhan.com/api/weather`).then(res => res.json()).then(res => {
+            console.log(res);
+            let arr1 = res;
+            let html =  `<p>城市:<span>${arr1.city}</span></p>
+                            <p>日期:<span>${arr1.data.date}</span></p>
+                            <p>天气:<span>${arr1.data.type}</span></p>
+                            <p>最低温度:<span>${arr1.data.low}</span></p>
+                            <p>最高温度:<span>${arr1.data.high}</span></p>
+                            <p>污染指数:<span>${arr1.air.aqi_name}</span></p>
+                            <P>建议:<span>${arr1.tip}</span></P>`;
+               
+            
+            box.innerHTML = html;
+    })
+}
+getWeather()
+</script>

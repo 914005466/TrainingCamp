@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise的方法</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+     Promise.all() 静态方法,接收一个由Promise对象组成的数组作为参数,当参数数组中所有的promise都执行成功之后,会返回一个包含了数组中所有promise成功结果的一个promise对象.该对象吧结果放到一个数组中,通过then可以调用该数组
+
+     Promise.race() 静态方法,接收一个由Promise对象组成的数组作为参数,返回一个promise对象,该对象的状态由数组列表中第一个promise对象的结果决定,如果操作成功,整体返回成功的对象,否则返回失败对象
+
+     Promise.any()静态方法,接收一个由Promise对象组成的数组作为参数,返回的是数组列表中第一个执行成功的promise
+
+     Promise.resolve()静态方法,把传入的参数创建为一个 promise对象返回,如果传入的参数本身就是一个promise.则直接返回该promise对象
+
+      Promise.reject()静态方法,把传入的参数创建为一个 promise对象返回,且返回的promise的状态为 rejected
+    */
+    let p1 = new Promise((resolve, reject) => {
+       reject('黄河');
+   });
+   let p2 = new Promise((resolve, reject) => {
+        resolve('长江');
+   });
+   let p3 = new Promise((resolve, reject) => {
+       resolve('松花江');
+   });
+   let p4 = new Promise((resolve, reject) => {
+       resolve('赤水河');
+   });
+   let all = Promise.all([ p2, p3, p4]);
+   console.log(all);
+   all.then(all => {
+      console.log(all);
+   })
+
+   let race = Promise.race([p2, p3, p4]);
+   console.log(race);
+   
+   race.then(result => {      
+      console.log(result);
+   })
+
+   let any = Promise.any([p1, p4, p2, p3]);
+   console.log(any);
+   any.then(result => {
+      console.log(result);
+   })   
+
+   let pro1 = Promise.resolve('中国远征军')
+   console.log(pro1);
+
+   let err = Promise.reject('回家')
+   console.log(err);
+</script>

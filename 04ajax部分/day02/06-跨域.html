@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点击访问aa</button>
+</body>
+</html>
+<script>
+    /* 
+    同源策略（Same origin policy）是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，则浏览器的正常功能可能都会受到影响。可以说Web是构建在同源策略基础之上的，浏览器只是针对同源策略的一种实现。
+
+    所谓的同源指的是 同协议 同域名 同端口
+    工作中会遇到同源策略问题(跨域问题),也就是接口的跨域和执行不在同一域名下无法完成数据的请求和操作
+
+    域名:任何网站都有自己的服务器,每一个服务器都有一个网络地址(ip地址),每一个ip都会绑定一个域名,域名有一级域名 二级域名 三级域名
+    http://a(三级域名).b(二级域名).c(一级域名)越往后他的啊范围越大
+
+    域名输入到url之后,就会进行dns解析
+
+    js的同源策略
+
+    js规定 协议,域名,端口号 一致的时候才为同源,也就是接口调用和执行均在相同的协议,域名,端口号下 ,才被视为同源,才可以调用
+
+    以下情况都可以发生跨域问题
+    协议不同:http://www.baidu.com 和 https://www.baidu.com
+    域名不同:http://www.baidu.com 和 http://www.google.com
+    端口不同:http://www.baidu.com:80 和 http://www.baidu.com:8080
+
+    只有script标签才考虑同源策略,其他标签 img a iframe link等都不考虑同源策略
+
+    怎么解决同源策略问题?
+    1.jsonp跨域
+    2.cors跨域 在服务器端设置cors
+    3.使用iframe跨域
+    4.html5的新方法 postMessage跨域
+    5.设置反向代理服务器完成跨域
+
+    jsonp跨域:
+    1.创建script标签
+    2.给创建的script标签设置src属性,值为服务器地址,再接口上添加一个函数键值对,该键值对会被传入到后台,并且要保证传到后台的函数能在当前页面执行
+    3.把创建的script标签添加到body中
+    4.删除该script标签
+    */
+   let btn = document.getElementById('btn');
+    btn.onclick = function(){
+        /* fetch(`http://172.16.8.245:8080/aa`).then(res=>res.json()).then(res=>{
+            console.log(res);
+        }) */
+       let sc = document.createElement('script');
+        sc.src = `http://172.16.8.245:8080/aa?cb=abc`;
+        document.body.appendChild(sc);
+        document.body.removeChild(sc);
+        }
+        function abc(data){
+            console.log(data);
+        }
+</script>

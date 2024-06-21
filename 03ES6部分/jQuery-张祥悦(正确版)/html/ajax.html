@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"></div>
+    <button id="btn">点击获取渣男语录</button>
+    <!-- <button id="btn1">点击获取舔狗日记</button> -->
+</body>
+</html>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/ajax.txt"></script>
+<script>
+    //ajax 是一个异步无刷新技术，可以实现局部刷新，提高用户体验。
+    /*
+    异步请求,简单理解 (数据给我之前我去做其他的事情,数据给我之后我再去操作数据)
+    无刷新,做了一些操作之后,页面是不会去刷新的,依然留在当前位置
+     比如说 显示更多按钮,点击按钮之后,发送ajax请求,获取数据,然后在页面上显示出来,这就是无刷新
+
+     
+    jQuery调用ajax方法
+   
+     格式
+     $.ajax({})
+        参数 :
+        url : 请求的url地址
+        type : 请求方式，get或post
+        async : 是否异步，true或false,默认true
+        data : 请求参数，可以是json格式
+        dataType : 返回的数据格式，json或xml
+        success : 请求成功的回调函数
+        error : 请求失败的回调函数
+        ------------------
+    $get() 和 $post() 方法
+    $.get(url, data, success, dataType)
+
+    GET方法用于从Web服务器请求数据。在使用GET方法时，浏览器向Web服务器发送一个请求，Web服务器将响应数据发送回浏览器。GET方法是无状态的，也就是说每个请求都是独立的，没有前后关系。GET方法通常用于请求静态数据，如HTML页面、图片和CSS文件等。
+    
+    $.post(url, data, success, dataType)
+
+    POST方法用于向Web服务器提交数据。在使用POST方法时，浏览器将数据打包并发送到Web服务器。Web服务器收到数据后，可以根据数据执行相应的操作，并向浏览器发送响应。POST方法是有状态的，也就是说请求和响应之间存在关系，请求和响应之间的数据可以互相传递。POST方法通常用于向Web服务器提交表单数据和上传文件等操作。
+
+    $get() 方法和$post() 方法的区别是，$get() 方法是发送get请求，$post() 方法是发送post请求。
+    get请求是从服务器获取资源，post请求是向服务器提交资源。
+    ------------------------------
+    $getJSON() 方法
+    $.getJSON(url, data, success)
+    */ 
+//  $.ajax({
+//     url: '../js/ajax.txt',//请求的url地址
+//         type: 'get',//请求方式
+//         dataType: 'text',//返回的数据格式
+//         //请求成功调用的函数
+//         success: function(data) { // data是个形参名 data是返回的数据
+//             // let json = JSON.parse( data.responseText);
+//             $('#content').html(data); // 局部刷新
+//         },
+
+//  });
+$('#btn').click(function(){
+    $.ajax({
+        url: 'https://apis.tianapi.com/zhanan/index?key=99ba791ed87bf1596f8afbb21d6e04f2',//请求的url地址
+        type: 'get',//请求方式
+        dataType: 'json',//返回的数据格式
+        // 请求成功调用的函数
+        success: function(data) { // data是个形参名 data是返回的数据
+            $('#content').html(data.result.content); // 局部刷新
+        },
+    });
+
+    // .then(data=>{
+    //     $('#content').html(data.result.content);
+    // });
+})
+  
+//  $('#btn1').click(function(){
+//     $.ajax({
+//         url: 'https://apis.tianapi.com/tiangou/index?key=99ba791ed87bf1596f8afbb21d6e04f2',//请求的url地址
+//         type: 'get',//请求方式
+//         dataType: 'json',//返回的数据格式
+//         // 请求成功调用的函数
+//         success: function(data) { // data是个形参名 data是返回的数据
+//             $('#content').html(data.result.content); // 局部刷新
+//         },
+//     });
+
+//     // .then(data=>{
+//     //     $('#content').html(data.result.content);
+//     // });
+// }) 
+
+ 
+</script>

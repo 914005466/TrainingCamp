@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代理</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    代理就对目标对象属性和方法的拦截,然后在对属性和方法进行二次操作,他不会直接处理源对象,而是通过代理的方式对原对象的属性和方法进行操作
+    代理使用 构造函数 Proxy
+    */
+   let obj = {
+    name: "John",
+    age: 30,
+    city: "New York"
+   }
+   console.log(Proxy);
+/*
+通过代理改变对象的属性或者方法
+new Proxy(代理的原对象, 配置代理)
+配置代理中使用get 和 set方法
+
+两个方法分别具有4个参数
+参数1 target 目标对象
+参数2 porp 正在操作的对象属性或者方法
+参数3 value 设置的新值
+参数4 receiver 实例化对象(一般省略该参数)
+
+*/ 
+   let p =new Proxy(obj, {
+        get(target,prop){
+            return target[prop]+'罗成';
+        },
+        set(target,prop,value){
+            // console.log(value);
+            if(value === '程咬金'){
+                target[prop] = '程咬银';
+            }else{
+                target[prop] = value;
+            }
+        }
+   });
+//    console.log(p.name);
+//    console.log(p.age);
+   p.name = '杨林';
+   console.log(p.name);
+</script>

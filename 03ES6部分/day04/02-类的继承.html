@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的继承</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Animal {
+        constructor(type,x){
+            this.type = type;
+            this.x = x;
+        }
+        attr(){
+            console.log(this.type + "的属性",this.x);
+        }
+    }
+    class Dog extends Animal {
+        constructor(t,x,name){
+            super(t,x);
+            this.name= name;
+        }
+        say(){
+            console.log(`${this.name}旺旺旺`);
+        }
+    }
+    let d1 = new Dog('犬科','小黑',"旺财");
+    d1.attr(); // 输出 "狗的属性"
+    /*
+    类的继承关键字 是extends，写法是
+    calss 子类 extends 父类 {
+        // 子类的方法和属性
+    }
+        每一个子类的constructor方法中，必须调用super方法，并且super方法必须放在第一行。指的是父代的constructor ,因为子类中没有this,他是继承父类的this.如果在子类中不调用super,子类就没有this,则报错
+        只有super 方法,能返回父类的this,供子类使用
+    */
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios调接口实例</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        .list {
+            list-style-type: none;
+            width:1200px;
+            margin:30px auto;
+        }
+        .list li {
+            display: flex;
+            height:120px;
+            padding:10px;
+            background: #f0f0f0;
+            margin-bottom:20px;
+        }
+        .list li img {
+            width:120px;
+            height:120px;
+        }
+        .list li div {
+            flex:1;
+            padding-left:20px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <!-- <li>
+            <img src="" alt="" />
+            <div>
+                <h3></h3>
+                <p></p>
+                <p>来源:<span></span> <span></span></p>
+            </div>
+        </li> -->
+    </ul>
+    <button id="page">点击添加数据</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+let ulList = document.querySelector('.list');
+let page = document.querySelector('#page');
+let key = '99ba791ed87bf1596f8afbb21d6e04f2';
+
+page.onclick = async function(){
+    let list = await axios({
+        method:'get',
+        url:'https://apis.tianapi.com/petnews/index',
+        params:{
+            key,
+            num:10
+        }
+    }).then(res=>{
+        return res.data.result.newslist;
+    });
+    for(let i=0;i<list.length;i++){
+        let url = await axios.get('https://api.vvhan.com/api/wallpaper/pcGirl?type=json').then(res=>res.data.url);
+        list[i].picUrl = url;
+    }
+    let html='';
+    for(let i=0;i<list.length;i++){
+        html +=`<li>
+                    <img src="${list[i].picUrl}" alt="" />
+                    <div>
+                        <h3>${list[i].title}</h3>
+                        <p>${list[i].description}</p>
+                        <p>来源:<span>${list[i].source}</span> <span>${list[i].ctime}</span></p>
+                    </div>
+                </li>`;
+}
+ulList.innerHTML = html;
+}
+
+
+</script>

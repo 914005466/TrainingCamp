@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+    <header>
+        <div class="cont container">
+            <div class="logo">
+                <img src="../image/logo.png" alt="">
+            </div>
+            <nav>
+                <span>首页</span>
+                <span>产品中心</span>
+                <span>分店信息</span>
+                <span>品牌故事</span>   
+                <span>新闻动态</span>
+                <span>代理中心</span>
+                <span>客服中心</span>
+            </nav>
+            <div class="search">
+                <input type="text" placeholder="请输入关键字">
+                <span><img src="../image/fx.png" alt=""></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wp container wp1">
+        <p>地区：</p>
+        <div class="area">
+            <span>全部</span>
+            <span class="active">澳洲</span>
+            <span>澳洲</span>
+            <span>澳洲</span>
+        </div>
+    </div>
+    <div class="wp container">  
+        <p>分类：</p>
+        <div class="classify">
+            <span>全部</span>
+            <span>靴子</span>
+            <span>鞋子</span>
+            <span>包包</span>
+            <span>奶粉</span>
+            <span>保健品</span>
+        </div>
+    </div>
+    <ul class="list container">
+        <!-- <li>
+            <img src="../image/1-1.png" alt="" >
+            <p class="tx">李杰</p>
+            <p class="sj">18699563265</p>
+            <p class="dz">
+                <img src="../image/dz.png" alt="">
+                <span>浙江省台州市温岭市人民西路 281号 </span>
+            </p>
+        </li> -->
+    </ul>
+
+    <!-- 分页 -->
+
+    <div class="page container">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span>
+    </div>
+
+    <footer>
+        <div class="foot container">
+             <div class="foot1">
+                
+             </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="../js/userInfo.js"></script>
+<script>
+let area = document.querySelector('.area');
+let classify = document.querySelector('.classify');
+let areaSpans = area.querySelectorAll('span');
+let classifySpans = classify.querySelectorAll('span');
+
+areaSpans.forEach(span => {
+    span.addEventListener('click', function() {
+        areaSpans.forEach(span => {
+            span.classList.remove('active');
+        });
+    });
+});
+
+
+classifySpans.forEach((span, index) => {
+    span.addEventListener('click', function() {
+        classifySpans.forEach(span => {
+            span.classList.remove('active');
+        });
+        this.classList.add('active');
+       //根据索引值加载对应分类的商品数据
+       clickClassify(index);
+    
+    });
+   
+});
+
+    let list = document.querySelector('.list');
+   function setHtml(dataArray){
+    let html = '';
+    dataArray.forEach(item => {
+        html += ` <li>
+            <img src="${item.url}" alt="" >
+            <p class="tx">${item.name}</p>
+            <p class="sj">${item.tel}</p>
+            <p class="dz">
+                <img src="../image/dz.png" alt="">
+                <span>${item.address}</span>
+            </p>
+        </li>
+        `;
+    });
+    list.innerHTML = html;
+   }
+   setHtml(dataArray);
+ //点击分类按钮，加载对应分类的商品数据
+  function clickClassify(index){
+    let data = [];
+    dataArray.forEach(item => {
+        // console.log(item.type);
+        if(item.type === index){
+            data.push(item);
+        }
+    });
+  setHtml(data);
+}
+
+// 定义分页相关变量
+let currentPage = 1; // 当前页码
+let itemsPerPage = 8; // 每页显示的项数
+
+
+// 根据当前页和每页项数获取当前页的数据
+function getCurrentPageData() {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return dataArray.slice(startIndex, endIndex);
+}
+
+// 更新页面内容
+function updatePage() {
+    let currentData = getCurrentPageData();
+    setHtml(currentData);
+}
+
+// 绑定分页按钮点击事件
+const page = document.querySelector('.page');
+page.addEventListener('click', function(e) {
+    if (e.target.tagName.toLowerCase() === 'span') {
+        currentPage = e.target.innerText;
+        updatePage();
+        // 移除所有页码按钮的 active 类
+        const spans = page.querySelectorAll('span');
+        spans.forEach(span => {
+            span.classList.remove('active');
+        });
+        // 添加当前页码按钮的 active 类
+        e.target.classList.add('active');
+    }
+});
+
+// 初始化页面显示
+updatePage();
+
+// 示例分页控制函数
+function goToPage(page) {
+    currentPage = page;
+    updatePage();
+}
+
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <button id="btn">
+        Fetch
+    </button>
+    身高:<input type="text" id="height">
+    体重:<input type="text" id="weight">
+    年龄:<input type="text" id="age">
+    性别:<input type="text" id="sex"><br>
+    <button id="btn3">post体脂率</button>
+</body>
+</html>
+<script>
+    /*
+    fetch 是一种新的数据请求方式
+    具有以下特点
+    1.异步操作:一步操作,不会阻塞页面的其他代码运行,可以进行多个请求
+    2.支持各种HTTP请求:GET,POST,PUT,DELETE,HEAD,OPTIONS,TRACE,CONNECT等,通过这些人不同的请求方式发送不同请求
+    3.可以灵活设置请求头:fetch方法中,可以自由设置请求所需要的请求头
+    4.Promise 操作模式:fetch操作返回的是promoise对象,使得数据可以同then()获取
+    5.支持跨域请求:fetch 可以设置CORS(跨域资源共享),允许向其他服务器发送请求,但是需要目标服务器进行相关设置
+
+    使用方式
+    get 请求
+    fetch('接口+参数的url').then(res=>res.json()).then(res=>操作res)
+    因为第一次then返回的是一个 promise 实例,因此需要再第一个then中处理数据,第二个then()中接受并操作
+
+    post 请求
+    fetch('请求接口',{
+        method: 'POST', 设置请求方式
+        headers: {}, 设置请求头
+        body:josn格式的字符串或者queryString(数据 a=b&c=d)
+        })
+
+    */
+let btn = document.getElementById('btn');
+let key = '99ba791ed87bf1596f8afbb21d6e04f2'
+btn.onclick= function() {
+    fetch(`https://apis.tianapi.com/zhanan/index?key=${key}`).then(res=>{
+        console.log(res);
+        return res.json();
+       }).then(res=>{
+        console.log(res);
+       })
+    }
+
+function $(sel){
+    return document.querySelector(sel);
+}
+$('#btn3').onclick = function(){   
+    let obj = {
+        key,
+        height:$('#height').value-0,
+        weight:$('#weight').value-0,
+        age:$('#age').value-0,
+        sex:$('#sex').value-0
+    };
+    fetch('https://apis.tianapi.com/bfrsum/index',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        //JSON.stringify 序列化对象
+        body: `key=${key}&height=${obj.height}&weight=${obj.weight}&age=${obj.age}&sex=${obj.sex}`,
+    }).then(res=>res.json()).then(res=>{
+        console.log(res);
+    })
+};
+ 
+</script>
