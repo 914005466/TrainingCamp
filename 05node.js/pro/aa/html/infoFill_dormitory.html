@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息填报-宿舍相关</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/infoFill_dormitory.css">
+</head>
+<body>
+    <header>
+        <span id="back"><img  src="../image/left.svg" alt="">返回</span>
+        <p>信息填报</p>
+    </header>
+    <!-- 进度 -->
+    <div class="progress">
+        <div class="icon">
+            <span><img src="../image/cir1.svg" alt=""></span>
+            <span><img src="../image/cir1.svg" alt=""></span>
+            <span><img src="../image/cir2.svg" alt=""></span>
+        </div>
+        <div>
+            <span>基本信息</span>
+            <span>家庭信息</span>
+            <span>宿舍相关</span>
+        </div>
+    </div>
+    <!-- 购买床上用品 -->
+    <div class="buy">
+        <p>购买床上用品(详情见入学须知)</p>
+        <dl class="list">
+            <dt>
+                <span>物品</span>
+                <span>价格</span>
+                <span>是否购买</span>
+            </dt>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" checked name="" id=""></span>
+            </dd>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" name="" id=""></span>
+            </dd>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" name="" id=""></span>
+            </dd>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" name="" id=""></span>
+            </dd>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" name="" id=""></span>
+            </dd>
+            <dd>
+                <span>棉被</span>
+                <span>200元</span>
+                <span><input type="checkbox" name="" id=""></span>
+            </dd>
+        </dl>
+        <p class="count">
+            小计:<span>200元</span>
+        </p>
+        <div class="dormitoryNum">
+            <p>宿舍号</p>
+            <p>8月28日后查看宿舍分配情况</p>
+        </div>
+    </div>
+    <div class="btns">
+        <p id="goback">上一步</p>
+        <p id="submit">提交</p>
+    </div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+     let back = document.querySelector("#back");
+     let goback = document.querySelector("#goback");
+     let submit = document.querySelector("#submit");
+    // 点击返回上一页
+    back.onclick = function () {
+        window.history.go(-1);
+    }
+    goback.onclick = function () {
+        window.history.go(-1);
+    }
+
+    submit.onclick = function () {
+        window.location.href = "index.html";
+    }
+</script>

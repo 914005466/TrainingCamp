@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页</title>
+</head>
+<body>
+    <label for="">用户名</label>
+    <input type="text" id="name" placeholder="请输入用户名"><br>
+    <label for="">密码</label>
+    <input type="password" id="pwd" placeholder="请输入密码"><br>
+    <button id="btn">登录</button>
+    <hr>
+    
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    function $(ele){
+        return document.querySelector(ele)
+    }
+    $('#btn').addEventListener('click', function(){
+        axios.post('/login',{
+            name:$('#name').value,
+            pwd:$('#pwd').value
+        }).then(res=>{
+            console.log(res.data);
+            //把Token存到本地
+            localStorage.setItem('token', res.data.token)
+        })
+    })
+</script>

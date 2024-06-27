@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./aa.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="./info.html">跳转</a>
+    <div class="wp"></div>
+    <input id="username" type="text" placeholder="用户名">
+    <input id="age" type="text" placeholder="年龄">
+    <button id="btn">提交</button>
+    <button id="btn2">点击</button>
+    <button id="btn3">post提交</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    function $(ele){
+        return document.querySelector(ele)
+    }
+    $('#btn').onclick=()=>{
+        axios.get(`/userInfo?name=${$('#username').value}&age=${$('#age').value}`).then(res=>{
+            console.log(res.data);
+        })
+    }
+    $('#btn2').onclick=()=>{
+        let v1 = $('#username').value
+        let v2 = $('#age').value
+        axios.get(`/msg/${v1}/${v2}`).then(res=>{
+            console.log(res.data);
+        });
+    }
+    $('#btn3').onclick=()=>{
+        let v1 = $('#username').value
+        let v2 = $('#age').value
+        axios.post('/post',{name:v1,age:v2}).then(res=>{
+            console.log(res.data);
+        })
+    }
+</script>

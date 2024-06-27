@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token使用案例</title>
+</head>
+<body>
+    <button  id="btn">使用案例</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+ function $(ele){
+        return document.querySelector(ele)
+    }
+    $('#btn').onclick = ()=>{
+        let token = localStorage.getItem('token');
+        //请求验证token的时候,需要在请求头设置属性Authorization 他的值是Bearer 空格+token
+        axios.get('/getData',{
+            headers:{
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res=>{
+            console.log(res.data);
+        })
+    }
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Informal</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/selfInformal.css">
+</head>
+
+<body>
+    <header>
+       <div class="header_left" id="back">
+            <img  src="../image/left.svg" alt="logo">
+               <span>返回</span>
+                 </div>
+         <div class="header_center">信息填报</div>
+       </header>
+    <div class="cont1">
+     <div class="cont1_1">
+         <img src="../image/cir2.svg" alt="" class="cir">
+             <span></span>
+             <img src="../image/cir1.svg" alt="" class="cir1">
+                 <span></span>
+                 <img src="../image/cir1.svg" alt="" class="cir1">
+    </div>
+    <div class="cont1_2">
+        <span>基本信息</span>
+        <span>家庭信息</span>
+        <span>宿舍相关</span>
+    </div>
+</div>
+<div class="cont2">
+    <ul class="contair">
+        <li>
+                <p>证件照</p>
+                <span>200k大小 一寸证件照</span>
+                <div class="box">+</div>
+        </li>
+        <li>
+            <p>姓名</p>
+            <span>周艺轩</span>
+        </li>
+        <li>
+            <p>姓名拼音</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>英文名</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li >
+            <p>性别</p>
+            <p id="sex">
+                <span class="bar">男</span>
+                <span>女</span>
+            </p>
+        </li>
+        <li>
+            <p>出生日期</p>
+            <span>1999-01-01</span>
+        </li>
+        <li>
+            <p>民族</p>
+            <input type="text" placeholder="请选择">
+        </li>
+        <li>
+            <p>身份证号</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>移动电话</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>微信号</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>身高(cm)</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>体重(kg)</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>腰围(cm)</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>胸围(cm)</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>鞋码(用于订购军训胶鞋)</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>爱好特长</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>所得荣誉</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>户籍所在地</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>生源地</p>
+            <input type="text" placeholder="请输入">
+        </li>
+        <li>
+            <p>是否有意愿当班干部</p>
+            <p id="bgb">
+                <span class="bar">是</span>
+                <span>否</span>
+            </p>
+        </li>
+        <li>
+            <p>是否迁移户口</p>
+            <p id="hk">
+                <span class="bar">是</span>
+                <span>否</span>
+            </p>
+        </li>
+        <li>
+            <p>政治面貌</p>
+            <input type="text" placeholder="群众">
+        </li>
+        <li>
+            <p>宗教信仰</p>
+            <input type="text" placeholder="基督教">
+        </li>
+       
+    </ul>
+</div>
+<div class="cont3">
+    <button>下一步</button>
+</div>
+</body>
+
+</html>
+<script src="../js/axios.min.js"></script>
+<script src="../js/base.js"></script>
+<script>
+    let sex = document.querySelectorAll("#sex span");
+    let bg = document.querySelectorAll("#bgb span");
+    let hk = document.querySelectorAll("#hk span");
+    let back = document.querySelector("#back");
+    // 点击返回上一页
+    back.onclick = function () {
+        window.history.go(-1);
+    }
+    function bar(data){
+        for (let i = 0; i < data.length; i++) {
+            data[i].index = i;
+            data[i].onclick = function () {
+            for (let j = 0; j < data.length; j++) {
+                if (j == this.index) {
+                    data[j].classList.add("bar");
+                } else {
+                    data[j].classList.remove("bar");
+                }
+            }
+        }
+    }
+    }
+   bar(sex);
+   bar(bg);
+   bar(hk);
+</script>

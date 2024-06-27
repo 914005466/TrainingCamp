@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+    <button id="btn">点击获取数据</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+let btn = document.querySelector('#btn');
+
+//重新生成token的方法
+let refresh = ()=>{
+    //获取refreshToken，传入后台，判断，如果refreshToken失效，则重新登录，否则重新生成token和refreshToken，返回前台
+    let refreshToken = localStorage.getItem('refreshToken');
+    axios.post('/refresh',{
+        refreshToken
+    }).then(res=>{
+        console.log( res.data );
+        //将token和refreshToken存入localStorage
+        LocalStorage.setItem('refreshToken',res.data.refreshToken);
+        LocalStorage.setItem('token',res.data.token);
+        
+    });
+};
+
+btn.onclick = ()=>{
+    let token = localStorage.getItem('token');
+    axios.get('/aa',{
+        headers:{
+            Authorization:'Bearer '+token
+        }
+    }).then(res => {
+        // console.log( res.data );
+        //如果token失效，重新生成token
+        if(res.data.status==401){
+            refresh();
+        }else{
+            console.log( res.data );
+        }
+    }).catch(err => {
+        console.log( err );
+    });
+};
+</script>

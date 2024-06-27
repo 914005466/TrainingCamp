@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function romdon(m,n){
+        return Math.floor(Math.random()*(n-m+1)+m);
+    };
+    //随机生成10个10-100之间的整数
+    let arr=[];
+    for(let i=0;i<10;i++){
+        //数组去除重复值，防止出现相同的数字
+       let num = romdon(10,100);
+       while(arr.indexOf(num)!=-1){
+           num = romdon(10,100);
+       }
+        arr.push(num);
+        
+    }
+    console.log(arr);
+
+    //数组排序
+    arr.sort(function(a,b){
+        return a-b;
+    });
+    console.log(arr);
+    
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="./abc.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wp{
+            width: 200px;
+            height: 200px;
+            background-color: papayawhip;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+
+    </div>
+    
+        <input type="text" name="username" id="username">
+        <input type="password" name="password" id="password">
+        <input type="submit" value="登录" id="submit">
+    
+</body>
+</html>
+<script src="./axios.min.js"></script>
+<script>
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let submit = document.getElementById('submit');
+    submit.onclick = function(){
+        axios.get('/abc',{
+        params:{
+            username:username.value,
+            password:password.value
+        }
+    }).then(res=>{
+        console.log(res.data);
+    })
+    }
+   
+</script>

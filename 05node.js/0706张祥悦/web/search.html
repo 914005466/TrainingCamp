@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin:0 2rem; 
+        }
+        body{
+            background-color: #F4F4F4;
+        }
+        header{
+            width: 100%;
+            height: 10rem;
+            background-color: #000;
+        }
+        .box_header{
+            height: 10rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .box_header img:nth-child(1){
+            width: 2.5rem;
+            height: 4.5rem;
+        }
+        .box_header img:nth-child(2){
+            width: 4.3rem;
+            height: 4rem;
+        }
+        .box_header span{
+            font-family: SimHei;
+            font-weight: 400;
+            font-size: 3.4rem;
+            color: #FFFFFF;
+        }
+        .box_search{
+            background-color: #F4F4F4;
+            position: relative;
+            
+        }
+        .box_search input{
+            height: 7rem;
+            width: 60rem;
+            margin-top: 2rem;
+            background: #fff;
+            border-radius: 2px;
+            border: 1px solid #D2D2D2;
+            font-weight: 400;
+            font-size: 2.4rem;
+            color: #999999;
+            text-indent: 2rem;
+            margin-bottom: 2rem;
+        }
+        .box_search img{
+            width: 3.5rem;
+            height: 3.5rem;
+            position: absolute;
+            top: 3.5rem;
+            right: 3rem;
+
+        }
+       .hot{
+            background-color: #FFFFFF;
+            height: 7rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid #D2D2D2;
+            position: relative;
+            font-size: 2.4rem;
+            color: #999999;
+        }
+        .hot img{
+            position: absolute;
+            width: 1.7rem;
+            height: 3rem;
+            right: 2rem;
+            top: 2rem;
+        }
+        .hot span{
+            width: 14.2rem;
+            height: 7rem;
+            background: #EEEEEE;
+            border-radius: 2px;
+            border: 1px solid #D2D2D2;
+            font-size: 2.4rem;
+            color: #666666;
+            line-height: 7rem;
+            text-indent: 2.7rem;
+            margin-right: 9rem;
+        }
+        .box_hot{
+            height: 8.8rem;
+            border-bottom: 2px solid #666;
+            position: relative;
+        }    
+        .box_hot span{
+            position: absolute;
+            bottom:2rem;
+            left:0;
+            font-size: 3rem;
+            color: #222222;
+        }   
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        } 
+        li{
+            width: 13.5rem;
+            height: 6rem;
+            background: #8BB874;
+            border-radius: 2px;
+            color: #FFFFFF;
+            font-size: 2.4rem;
+            line-height: 6rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="box_header container">
+            <img src="./images/prev.png" alt="">
+            <span>
+                搜索
+            </span>
+            <img src="./images/mulu.png" alt="">
+        </div>
+       
+    </header>
+    <div class="container box_search">
+        <input type="text" placeholder="请输入关键字">
+        <img src="./images/搜索.png" alt="">
+        <p class="hot"><span>有声书</span>1250本<img src="./images/toRight.png" alt=""></p>
+        <p class="hot"><span>电台</span>152个<img src="./images/toRight.png" alt=""></p>
+        <p class="hot"><span>播者</span>684位<img src="./images/toRight.png" alt=""></p>
+        <div class="box_hot">
+            <span>热门关键字</span>
+        </div>
+        <ul>
+            <li>鬼吹灯</li>
+            <li>武侠</li>
+            <li>言情</li>
+            <li>偶像剧</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+            <li>鬼吹灯</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script src="./js/axios.min.js"></script>

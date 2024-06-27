@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        header{
+            width: 100%;
+            height: 16.2rem;
+            background-color: #E4E4E4 ;
+            font-size: 5.8rem;
+        }
+        .contatiner{
+            margin: 0 50px;
+        }
+        .contatiner1{
+            margin: 0 7.4rem;
+        }
+        header div{
+            height: 16.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #696969;
+        }
+        header div img:nth-child(1){
+            width: 3.7rem;
+            height: 5.5rem;
+        }
+        header div img:nth-child(3){
+            width: 5.9rem;
+            height: 5.5rem;
+        }
+        .box{
+            width: 100%;
+        }
+        ul{
+            background-color: #fff;
+            margin-top: 2rem;
+            position: relative;
+            
+        }
+        li{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            font-size: 4rem;
+            height: 26rem;
+            overflow: hidden;
+            padding-bottom: 3rem;
+            
+        }
+        li div{
+            
+            display: flex;
+            flex: 1;
+            align-items: center;
+        }
+        .box .top .left img{
+            width: 5.6rem;
+            height: 6.6rem;
+        }
+        .box .top .right img{
+            width: 3.7rem;
+            height: 6.6rem;
+        }
+        .img{
+            position: absolute;
+            right: 5.7rem;
+            top: 11rem;
+            width: 6.3rem;
+            height: 3.3rem;
+            display: none;
+        }
+        #add{
+            margin-top: 3rem;
+            width: 100%;
+            height: 15rem;
+            border: none;
+            background-color: #fff;
+            box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.08);
+            font-size: 4rem;
+            color: #F9690E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="contatiner">
+            <img src="./img/fh.png" alt="">
+            <span>地址</span>
+            <img src="./img/bj.png" alt="">
+        </div>
+    </header>
+       <div class="box">
+        <ul id="list">
+            <li>
+                
+                    <div class="top">
+                        <div class="left">
+                            <img src="./img/lxr.png" alt="">
+                            贝贝安
+                        </div>
+                        <div class="right">
+                            <img src="./img/sj.png" alt="">
+                            13829880066
+                        </div>
+                        <img class="img" src="./img/dj.png" alt="">
+                    </div>
+                    <div class="bottom">
+                        <span>北京市朝阳区三里屯街道</span>
+                    </div>
+                </div>
+
+                
+            </li>
+        </ul>
+       </div>
+    <button id="add">新建地址</button>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script src="./js/axios.min.js"></script>
+
+<script>
+let li = document.querySelectorAll('li');
+let img = document.querySelectorAll('li .img');
+
+
+ 
+function $(ele){
+        return document.querySelector(ele);
+    }
+axios.get('/address/res').then(res=>{
+    console.log(res.data);
+    var arr = res.data.list;
+    $('#list').innerHTML ='';
+    let html= '';
+    for (let i = 0; i < arr.length; i++) {
+        html+=`
+        <li class="contatiner1">
+                <div class="top">
+                    <div class="left">
+                        <img src="./img/lxr.png" alt="">
+                        ${arr[i].name}
+                    </div>
+                    <div class="right">
+                        <img src="./img/sj.png" alt="">
+                        ${arr[i].phone}
+                    </div>
+                    <img class="img" src="./img/dj.png" alt="">
+                </div>
+                <div class="bottom">
+                    <span>${arr[i].address}</span>
+                </div>
+            </li>
+        `;
+   
+        
+    }
+    $('#list').innerHTML = html;
+
+     
+    // console.log(html);
+})
+$('#add').addEventListener('click',()=>{
+    location.href = './xiugai.html';
+})
+</script>

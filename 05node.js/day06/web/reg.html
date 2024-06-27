@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+</head>
+<body>
+    <label>用户名</label>
+    <input type="text" id="username"><br>
+    <label>密码</label>
+    <input type="text" id="pwd1"><br>
+    <label>确认密码</label>
+    <input type="text" id="pwd2"><br>
+    <label>手机号</label>
+    <input type="text" id="tel"><br>
+    <label>邮箱</label>
+    <input type="text" id="email"><br>
+    <button id="btn">注册</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+function $(ele){
+    return document.querySelector(ele)
+}
+$('#btn').onclick=function(){
+    let v1 = $('#pwd1').value.trim();
+    let v2 = $('#pwd2').value.trim();
+    if(v1!=v1||v1==''||v2==''){
+        alert('两次密码不一致')
+        return
+    }
+        axios({
+            method: 'post',
+            url: '/reg',
+            data:{
+                name: $('#username').value.trim(),
+                pwd: v1,
+                tel: $( '#tel').value.trim(),
+                email: $('#email') .value.trim()
+    }
+    }).then(res=>{
+        console.log(res.data);
+        if(res.data.code==200){
+            alert(res.data.msg)
+        }
+    })
+    }
+</script>

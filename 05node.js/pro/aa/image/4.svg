@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="28px" viewBox="0 0 59 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>本人</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06宿舍信息" transform="translate(-539.000000, -824.000000)">
+            <g id="06" transform="translate(385.000000, 809.000000)">
+                <g id="本人" transform="translate(154.000000, 15.000000)">
+                    <path d="M14,0 L43,0 C51.836556,-1.623249e-15 59,7.163444 59,16 L59,28 L59,28 L14,28 C6.2680135,28 9.46895252e-16,21.7319865 0,14 C-9.46895252e-16,6.2680135 6.2680135,1.42034288e-15 14,0 Z" id="矩形" fill="#FFCA00" transform="translate(29.500000, 14.000000) scale(-1, 1) translate(-29.500000, -14.000000) "></path>
+                    <text font-family="PingFangSC-Regular, PingFang SC" font-size="18" font-weight="normal" fill="#333333">
+                        <tspan x="12" y="21">本人</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

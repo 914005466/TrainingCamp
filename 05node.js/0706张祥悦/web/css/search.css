@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f4f4f4;
+}
+header{
+    height: 8.6rem;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2.1rem;
+}
+header span{
+    display: inline-block;
+    color: #fff;
+    font-size: 3.4rem;
+}
+header span:nth-of-type(1) img{
+    width: 2.5rem;
+    height: 4.5rem;
+}
+header span:nth-of-type(3) img{
+    width: 4.3rem;
+    height: 4rem;
+}
+
+/* 搜索框 */
+.search_box{
+    padding-left: 2rem;
+    padding-right: 2rem
+}
+.search{
+    width: 60rem;
+    height: 7rem;
+    margin-top: 2rem;
+    position: relative;
+}
+.search input{
+    width: 60rem;
+    background: #fff;
+    height: 7rem;
+    border: 0;
+    border-radius: 0.2rem;
+    text-indent: 2.7rem;
+    font-size: 2.4rem;
+}
+.search span{
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.search img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+/* ------------ */
+.list{
+    list-style-type: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.list li{
+    width: 60rem;
+    height: 7rem;
+    line-height: 7rem;
+    position: relative;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.2rem;
+    display: flex;
+    font-size: 2.4rem;
+}
+.list li span{
+    background: #fff;
+    color: #666;
+}
+.list li span:nth-of-type(1){
+    text-align: center;
+    background: #eeeeee;
+    width: 14.2rem;
+    border-right: 1px solid #d2d2d2;
+}
+.list li span:nth-of-type(2){
+    flex: 1;
+    padding-left: 9rem;
+}
+.list li span:nth-of-type(3){
+    width: 4rem;
+    height: 5rem;
+    display: inline-block;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    position: absolute;
+    top: 0rem;
+    right: 0;
+    cursor: pointer;
+}
+.list li span:nth-of-type(3) img{
+    width: 1.7rem;
+    height: 3rem;
+}
+
+/* 热门关键字 */
+.search_box>p{
+    height: 7rem;
+    line-height: 7rem;
+    font-size: 3rem;
+    color: #222;
+    border-bottom: 1px solid #222;
+}
+
+/* 关键字列表 */
+.keywords{
+    display: flex;
+    flex-wrap: wrap;
+}
+.keywords p{
+    width: 13.5rem;
+    height: 6rem;
+    background: #8bb874;
+    color: #fff;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 6rem;
+    border-radius: 0.2rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}

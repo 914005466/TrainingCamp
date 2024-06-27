@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+    <input type="text" id="usrename" >
+    <button id="btn1">点击post提交数据</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#btn').onclick = ()=>{
+    axios.get('/abc').then(res=>{
+        console.log(res.data);
+    })
+}
+$('#btn1').onclick = ()=>{
+    axios.post('api/abc',{
+        name:'朱楷',
+        age:75
+    }).then(res=>{
+        console.log(res.data);
+    })
+}
+</script>

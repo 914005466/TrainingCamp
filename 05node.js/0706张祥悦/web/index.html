@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin:0 2rem; 
+        }
+        header{
+            width: 100%;
+            height: 10rem;
+            background-color: #000;
+        }
+        .box_header{
+            height: 10rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .box_header img:nth-child(1){
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+        .box_header img:nth-child(3){
+            width: 4.3rem;
+            height: 4rem;
+        }
+        .box_header img:nth-child(2){
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+        .box_header span{
+            width: 41.1rem;
+            height: 5.2rem;
+            border-radius: 26px;
+            border: 1px solid #4C4C4C;
+            position: relative;
+            background-color: #4C4C4C;
+            display: flex;
+            align-items: center;
+        }
+        .box_header span img{
+            position: absolute;
+            right: 1rem;
+        }
+        nav{
+            width: 100%;
+        }
+        nav img{
+            width: 100%;
+            height: 24rem;
+        }
+        .box_btn{
+            width: 100%;
+            height: 19.5rem;
+            background-color: #eee;
+        }
+        .container1{
+            height: 16.5rem;
+            margin: 0 3.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style-type: none;
+        
+        }
+        .container1 li{
+            width: 11.8rem;
+            height: 11.6rem;  
+            background: #8BB874;
+            border-radius: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container1 li:nth-child(1){
+            background: #6BA44E;
+        }
+        .box_fenye{
+            width: 100%;
+            height: 3.5rem;
+            display: flex;
+            justify-content: center;
+            
+        }
+        .box_fenye span{
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            margin-left: 1rem;
+            background-color: #DDD;
+        }
+        .box_fenye span:nth-child(1){
+            background-color: #FAB338;
+            margin-left: 0 ;
+        }
+        .box_nav{
+            width: 100%;
+            height: 36rem;
+
+        }
+        .box_nav ul{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        .box_nav ul li{
+            height: 18rem;
+            width:15.9rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #666666;
+            border-bottom: 1px solid #666666;
+            border-right: 1px solid #666666;
+            font-size: 2.4rem;
+            color: #222222;
+        }
+        .box_nav ul li:nth-child(1){
+            background-color: #eee;
+        }
+        .box_nav ul li:nth-child(5),
+        .box_nav ul li:nth-child(6),
+        .box_nav ul li:nth-child(7),
+        .box_nav ul li:nth-child(8){
+            border-top: none;
+        }
+        .box_nav ul li:nth-child(4),
+        .box_nav ul li:nth-child(8){
+            border-right: none;
+        }
+        p{
+            width: 100%;
+            height: 2rem;
+            background-color: #eee;
+        }
+        .box_like{
+            width: 100%;
+            height: 52rem;
+        }
+
+        .like{
+            height: 8.5rem;
+            border-bottom: 2px solid #666666;
+            position: relative;
+        }
+        .like span{
+            position: absolute;
+            font-family: SimHei;
+            font-weight: 400;
+            font-size: 3rem;
+            color: #444444;
+            bottom: 2rem;
+
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="box_header container">
+            <img src="./images/geren.png" alt="">
+            <span>
+                <img src="./images/sousuo.png" alt="">
+            </span>
+            <img src="./images/mulu.png" alt="">
+        </div>
+       
+    </header>
+    <nav>
+        <img src="./images/bg.png" alt="">
+    </nav>
+    <div class="box_btn">
+        <ul class="container1">
+            <li><img src="./images/shoudian.png" alt=""></li>
+            <li><img src="./images/jishi.png" alt=""></li>
+            <li><img src="./images/jisuanqi.png" alt=""></li>
+            <li><img src="./images/xiangji.png" alt=""></li>
+        </ul>
+        <div class="box_fenye">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="box_nav">
+        <ul>
+            <li><img src="./images/有声小说.png" alt=""><span>有声小说</span></li>
+            <li><img src="./images/情感.png" alt=""><span>情感</span></li>
+            <li>
+                <img src="./images/综艺戏曲.png" alt="">
+                <span>综艺戏曲</span>
+            </li>
+            <li><img src="./images/儿童故事.png" alt=""><span>儿童故事</span></li>
+            <li><img src="./images/军事历史.png" alt=""><span>军事历史</span></li>
+            <li><img src="./images/经典名著.png" alt=""><span>经典名著</span></li>
+            <li><img src="./images/人文社科.png" alt=""><span>人文社科</span></li>
+            <li><img src="./images/更多.png" alt=""><span>更多</span></li>
+        </ul>
+    </div>
+    <p></p>
+    <div class="box_like">
+        <div class="like container">
+            <span>猜你喜欢</span>
+        </div>
+        <ul>
+            <li><img src="" alt="">
+            <div class="li_box">
+                <h3>云殇倾城</h3>
+                
+            </div>
+            </li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script src="./js/base.js"></script>

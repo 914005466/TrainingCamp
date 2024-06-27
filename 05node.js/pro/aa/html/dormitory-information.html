@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宿舍信息</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/dormitory-information.css">
+</head>
+<body>
+    <header>
+        <h1>
+           <div id="back">
+            <img src="../image/left.svg" alt="">
+            <span>返回</span>
+           </div>
+            宿舍信息
+        </h1>
+    </header>
+     <div class="wp">
+        <h2>
+            我的宿舍<span>(如未显示宿舍信息请到规定日期后查看)</span>
+        </h2>
+        <div class="head">
+            <div><span id="a1">0</span><span>宿舍楼</span></div>
+            <div><span id="a2">0</span><span>宿舍号</span></div>
+            <div><span id="a3">0</span><span>床位号</span></div>
+            <div><span id="a4">0</span><span>宿舍人数</span></div>
+        </div>
+     </div>
+     <ul class="list">
+        <!-- <li>
+            <h3 class="active">1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li>
+        <li>
+            <h3>1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li>
+        <li>
+            <h3>1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li>
+        <li>
+            <h3>1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li>
+        <li>
+            <h3>1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li>
+        <li>
+            <h3>1号床上 </h3>
+            <p>张三 </p>
+            <p>24岁 </p>
+        </li> -->
+     </ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+    let List=document.querySelector('.list');
+    let a1 = document.getElementById('a1');
+    let a2 = document.getElementById('a2');
+    let a3 = document.getElementById('a3');
+    let a4 = document.getElementById('a4');
+    let back = document.getElementById('back');
+    back.addEventListener('click', function() {
+        window.history.go(-1);
+    })
+    axios.get('/getInfo').then(res=>{
+        console.log(res.data);
+        let list = res.data.list;
+        a1.innerHTML=res.data.floor;
+        a2.innerHTML=res.data.num;
+        a3.innerHTML=res.data.n;
+        a4.innerHTML=res.data.count;
+        List.innerHTML='';
+        let html = '';
+        for(let i=0;i<list.length;i++){
+            html+=`
+            <li>
+            <h3 class="${list[i].bol&&'active'}">${list[i].num}号床上 </h3>
+            <p>${list[i].name} </p>
+            <p>${list[i].age}岁 </p>
+        </li>
+            `;
+        }
+        List.innerHTML=html;
+    })
+</script>

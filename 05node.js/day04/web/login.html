@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+</head>
+<body>
+    <label>手机号</label>
+    <input type="text" value="admin" id="tel" ><br/>
+    <label>密码</label>
+    <input type="text" value="111111" id="pwd" ><br/>
+    <button id="btn">登录</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+/*
+双token认证流程(又叫 token无感刷新，也叫 token续命)
+1. 登录成功后，将token存储到本地，后台同时也生成了一个refreshToken，也要存储到本地，token的过期时间较短，refreshToken的过期时间较长
+2. 每一次请求接口的时候，把token放到请求头中传到后台
+3. 后台根据前台传入的token判断其是否有效
+4. 如果token无效，返回401，前端捕获到401，需要删除掉本地的token，同时发送refreshToken给后台
+5. 后台根据前台传入的refreshToken判断其是否有效，如果有效则重新生成 token 和 refreshToken给前台
+6. 前台拿到token 和 refreshToken 并且存储到本地
+7. 然后再重新调取刚刚的接口，执行后续操作
+8. 如果后台检测到refreshToken无效，则必须重新登录
+*/ 
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#btn').onclick = ()=>{
+    axios({
+        method:'post',
+        url:'/login',
+        data:{
+            tel: $('#tel').value,
+            pwd: $('#pwd').value
+        }
+    }).then(res=>{
+        console.log(res.data);
+        if(res.data.status==200){
+            localStorage.setItem('token',res.data.token);
+            localStorage.setItem('refreshToken',res.data.refreshToken);
+        }
+    });
+};
+</script>

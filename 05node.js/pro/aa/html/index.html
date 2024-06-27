@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header>
+        <span id="back"><img src="../image/left.svg" alt="">返回</span>
+        <p>主页</p>
+    </header>
+    <div class="myInfo">
+        <img src="../image/touxiang.svg" alt="">
+        <div>
+            <p>周艺轩</p>
+            <p>视觉传达专业</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="tab">
+            <p id="infoFill_dormitory">
+                <span><img src="../image/infoFilling.svg" alt=""></span>
+                <span>信息填报</span>
+            </p>
+            <p >
+                <span><img src="../image/newStudent.svg" alt=""></span>
+                <span>新生引导</span>
+            </p>
+            <p id="question">
+                <span><img src="../image/question.svg" alt=""></span>
+                <span>常见问题</span>
+            </p>
+            <p id="dormitory-information">
+                <span><img src="../image/myDormitory.svg" alt=""></span>
+                <span>我的宿舍</span>
+            </p>
+        </div>
+        <!-- 通知公告 -->
+        <div class="notice">
+            <p>
+                <span>通知公告</span>
+                <span id="moreNotice">查看更多</span>
+            </p>
+            <p>
+                <span>新生报到通知</span>
+                <span>2020.5.21 15:23</span>
+            </p>
+            <p>
+                <span>新生安全防范手册</span>
+                <span>2020.5.21 15:23</span>
+            </p>
+            <p>
+                <span>新生宿舍安排情况</span>
+                <span>2020.5.21 15:23</span>
+            </p>
+        </div>
+        <!-- 校园导航 -->
+        <div class="schoolMap">
+            <p>校园导航</p>
+            <p>
+                <img src="../image/schoolMap.png" alt="">
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+    let infoFill_dormitory = document.querySelector("#infoFill_dormitory");
+    let question = document.querySelector("#question");
+    let dormitory_information = document.querySelector("#dormitory-information");
+     let back = document.querySelector("#back");
+     let moreNotice = document.querySelector("#moreNotice");
+    // 点击返回上一页
+    back.onclick = function () {
+        window.history.go(-1);
+    }
+    // 点击信息填报
+    infoFill_dormitory.onclick = function () {
+        window.location.href = "infoFill_dormitory.html";
+    }
+    // 点击常见问题
+    question.onclick = function () {
+        window.location.href = "question.html";
+    }
+    // 点击我的宿舍
+    dormitory_information.onclick = function () {
+        window.location.href = "dormitory-information.html";
+    }
+    // 点击查看更多
+    moreNotice.onclick = function () {
+        window.location.href = "notice.html";
+    }
+</script>

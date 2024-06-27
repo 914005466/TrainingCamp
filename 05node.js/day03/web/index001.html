@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+    <h1>
+        首页
+    </h1>
+    <label>用户名</label>
+
+    <input type="text" id="username"><br>
+    <label>手机号</label>
+    <input type="txt" id="phone"><br>
+    <label>头像</label>
+    <input type="file" id="avatar"><br>
+    <button id="submit">提交</button>
+    <hr>
+    <button id="btn1">点击获取信息</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    let username = document.getElementById('username');
+    let phone = document.getElementById('phone');
+    let avatar = document.getElementById('avatar');
+    let submit = document.getElementById('submit');
+    let btn1 = document.getElementById('btn1');
+
+    submit.addEventListener('click', function() {
+        console.log( 123123);
+        let form=new FormData();
+        // 上传文件需要使用文件的files属性，一般都是files[0]
+        form.append('name', username.value);
+        form.append('phone', phone.value);
+        form.append('avatar', avatar.files[0]);
+        axios.post('/info', form ).then(res=>{
+            console.log(res.data)
+        })
+    })
+
+    btn1.addEventListener('click', function() {
+        axios.get('http://127.0.0.1:8081/abc').then(res=>{
+            console.log(res.data);
+        });
+    })
+</script>

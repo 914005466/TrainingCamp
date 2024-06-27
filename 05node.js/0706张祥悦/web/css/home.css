@@ -1,0 +1,440 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f4f4f4;
+    overflow-x: hidden;
+}
+.wp{
+    width: calc(100% + 55rem);
+    display: flex;
+    transform: translateX(-55rem);
+    transition: all 0.5s;
+}
+
+/* 左侧侧边栏 */
+
+.navLift{
+    width: 42rem;
+    height: 100vh;
+    background: #333;
+    padding-left: 6rem;
+    padding-right: 7rem;
+    padding-top: 2rem;
+    position: relative;
+}
+
+/* 头像 */
+.navLift .touxiang{
+    height: 17.7rem;
+    margin-top: 3rem;
+    font-size: 3.4rem;
+    color: #fff;
+    border-bottom: solid 2px #555555;
+    display: flex;
+    align-items: center;
+}
+.navLift .touxiang span:nth-of-type(1){
+    width: 11.4rem;
+    height: 11.4rem;
+    margin-right: 2.2rem;
+}
+.touxiang span:nth-of-type(1) img{
+    width: 11.4rem;
+    height: 11.4rem;
+    border-radius: 50%;
+    border: solid 2px #fff;
+}
+.navLift_option{
+    margin-top: 5rem;
+}
+.navLift_option p{
+    font-size: 2.8rem;
+    height: 8rem;
+    line-height: 8rem;
+    color: #fff;
+    position: relative;
+    padding-left: 7rem;
+}
+.navLift_option p:nth-of-type(1)::before{
+    content: '';
+    width: 3.1rem;
+    height: 4.5rem;
+    background: url(../images/shuqian2.png) no-repeat 0 0 /100%;
+    position: absolute;
+    display: inline-block;
+    left: 0rem;
+    top: 1.5rem;
+}
+.navLift_option p:nth-of-type(2)::before{
+    content: '';
+    width: 4.5rem;
+    height: 6rem;
+    background: url(../images/jilu.png) no-repeat 0 0 /100%;
+    position: absolute;
+    display: inline-block;
+    left: -0.5rem;
+    top: 1.5rem;
+}
+.navLift_option p:nth-of-type(3)::before{
+    content: '';
+    width: 3.8rem;
+    height: 4.7rem;
+    background: url(../images/xaizai2.png) no-repeat 0 0 /100%;
+    position: absolute;
+    display: inline-block;
+    left: -0.5rem;
+    top: 1.5rem;
+}
+
+/* 底部按钮 */
+.navLift_bottom{
+    border-top: solid 2px #555555;
+    margin-left: 6rem;
+    margin-right: 7rem;
+    height: 11.3rem;
+    width: 42rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    font-size: 2.8rem;
+    color: #aaaaaa;
+    display: flex;
+    align-items: center;
+    
+}
+.navLift_bottom p{
+    flex: 1;
+    padding-left: 5.2rem;
+}
+
+
+/* 主页内容 */
+.cont{
+    width: 100vw;
+}
+header{
+    height: 8.6rem;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.1rem;
+}
+header span{
+    display: inline-block;
+}
+header span:nth-of-type(1) img{
+    width: 4.5rem;
+    height: 4.5rem;
+}
+header input{
+    width: 41rem;
+    height: 5.2rem;
+    border-radius: 2.6rem;
+    background: rgba(255,255,255,0.17);
+    border: solid 1px #4c4c4c;
+    color: #fff;
+    font-size: 2.8rem;
+    text-indent: 2rem;
+    
+}
+header span:nth-of-type(2){
+    position: relative;
+}
+header span:nth-of-type(2) img{
+    width: 2.8rem;
+    height: 3rem;
+    position: absolute;
+    right: 3rem;
+    top: 1.3rem;
+}
+header span:nth-of-type(3) img{
+    width: 4.3rem;
+    height: 4rem;
+}
+
+
+
+
+/* banner图 */
+.banner{
+    height: 24rem;
+}
+.banner img{
+    height: 24rem;
+    width: 100%
+}
+/* 导航功能区 */
+.btns{
+    display: flex;
+    height: 19.5rem;
+}
+.btns p{
+    width: 11.8rem;
+    height: 11.6rem;
+    background: #6ba44e;
+    border-radius: 2.6rem;
+    margin-left: 3.3rem;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btns p:nth-of-type(n+2){
+    background: #8bb874;
+}
+.btns p:nth-of-type(1) img{
+    width: 2.8rem;
+    height: 7.2rem;
+}
+.btns p:nth-of-type(2) img{
+    width: 5.8rem;
+    height: 5.8rem;
+}
+.btns p:nth-of-type(3) img{
+    width: 4.2rem;
+    height: 5.8rem;
+}
+.btns p:nth-of-type(4) img{
+    width: 6.2rem;
+    height: 4.6rem;
+}
+
+.tabList{
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    margin-bottom: 2rem;
+}
+.tabList p{
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.4rem;
+    color: #222;
+    position: relative;
+    cursor: pointer;
+}
+.tabList p:nth-of-type(1),.tabList p:nth-of-type(5){
+    width: 15.9rem;
+    height: 17.8rem;
+    border-left: none;
+}
+.tabList p:nth-of-type(2),.tabList p:nth-of-type(6){
+    width: 15rem;
+    height: 17.8rem;
+}
+.tabList p:nth-of-type(3),.tabList p:nth-of-type(7){
+    width: 15.3rem;
+    height: 17.8rem;
+}
+.tabList p:nth-of-type(4),.tabList p:nth-of-type(8){
+    width: 17.6rem;
+    height: 17.8rem;
+}
+
+.tabList p span{
+    display: block;
+}
+.tabList p:nth-of-type(1){
+    background: #eeeeee;
+}
+.tabList p:nth-of-type(1) span:nth-of-type(1){
+    width: 6.6rem;
+    height: 6rem;
+    position: absolute;
+    top: 4.3rem;
+    left: 5.2rem;
+}
+.tabList p:nth-of-type(1) span:nth-of-type(1) img{
+    width: 6.6rem;
+    height: 6rem;
+}
+.tabList p:nth-of-type(1) span:nth-of-type(2){
+    position: absolute;
+    bottom: 2.7rem;
+    left: 3.7rem;
+}
+.tabList p:nth-of-type(2) span:nth-of-type(1){
+    width: 5rem;
+    height: 5.5rem;
+    position: absolute;
+    top: 4.7rem;
+    left: 5.7rem;
+}
+.tabList p:nth-of-type(2) span:nth-of-type(1) img{
+    width: 5rem;
+    height: 5.5rem;
+}
+.tabList p:nth-of-type(2) span:nth-of-type(2){
+    position: absolute;
+    bottom: 2.7rem;
+    left: 5.4rem;
+}
+.tabList p:nth-of-type(3) span:nth-of-type(1){
+    width: 7.1rem;
+    height: 7.4rem;
+    position: absolute;
+    top: 3.7rem;
+    left: 4.1rem;
+}
+.tabList p:nth-of-type(3) span:nth-of-type(1) img{
+    width: 7.1rem;
+    height: 7.4rem;
+}
+.tabList p:nth-of-type(3) span:nth-of-type(2){
+    position: absolute;
+    bottom: 2.7rem;
+    left: 3.2rem;
+}
+.tabList p:nth-of-type(4) span:nth-of-type(1){
+    width: 7.2rem;
+    height: 7.2rem;
+    position: absolute;
+    top: 4rem;
+    left: 5.6rem;
+}
+.tabList p:nth-of-type(4) span:nth-of-type(1) img{
+    width: 7.2rem;
+    height: 7.2rem;
+}
+.tabList p:nth-of-type(4) span:nth-of-type(2){
+    position: absolute;
+    bottom: 2.7rem;
+    left: 4.7rem;
+}
+.tabList p:nth-of-type(5) span:nth-of-type(1){
+    width: 7rem;
+    height: 6.5rem;
+    position: absolute;
+    top: 3rem;
+    left: 4.9rem;
+}
+.tabList p:nth-of-type(5) span:nth-of-type(1) img{
+    width: 7rem;
+    height: 6.5rem;
+}
+.tabList p:nth-of-type(5) span:nth-of-type(2){
+    position: absolute;
+    bottom: 3.5rem;
+    left: 3.4rem;
+}
+.tabList p:nth-of-type(6) span:nth-of-type(1){
+    width: 8.1rem;
+    height: 7rem;
+    position: absolute;
+    top: 2.7rem;
+    left: 3.7rem;
+}
+.tabList p:nth-of-type(6) span:nth-of-type(1) img{
+    width: 8.1rem;
+    height: 7rem;
+}
+.tabList p:nth-of-type(6) span:nth-of-type(2){
+    position: absolute;
+    bottom: 3.5rem;
+    left: 3rem;
+}
+.tabList p:nth-of-type(7) span:nth-of-type(1){
+    width: 7.1rem;
+    height: 7.1rem;
+    position: absolute;
+    top: 2.7rem;
+    left: 4.3rem;
+}
+.tabList p:nth-of-type(7) span:nth-of-type(1) img{
+    width: 7.1rem;
+    height: 7.1rem;
+}
+.tabList p:nth-of-type(7) span:nth-of-type(2){
+    position: absolute;
+    bottom: 3.5rem;
+    left: 3rem;
+}
+.tabList p:nth-of-type(8) span:nth-of-type(1){
+    width: 6.5rem;
+    height: 7rem;
+    position: absolute;
+    top: 3rem;
+    left: 6.2rem;
+}
+.tabList p:nth-of-type(8) span:nth-of-type(1) img{
+    width: 6.5rem;
+    height: 7rem;
+}
+.tabList p:nth-of-type(8) span:nth-of-type(2){
+    position: absolute;
+    bottom: 3.5rem;
+    left: 7rem;
+}
+
+/* 猜你喜欢 */
+
+.cainnixihuan{
+    background: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1.4rem;
+}
+.cainnixihuan>p{
+    font-size: 3rem;
+    color: #222;
+    height: 7rem;
+    line-height: 7rem;
+    border-bottom: 1px solid #333;
+}
+.list{
+    list-style-type: none;
+    padding-bottom: 3rem;
+}
+.list li{
+    margin-top: 3rem;
+    display: flex;
+}
+.left{
+    width: 17rem;
+    height: 17rem;
+    margin-right: 2rem;
+}
+.left img{
+    width: 17rem;
+    height: 17rem;
+}
+.title{
+    font-size: 3rem;
+    color: #222;
+}
+.rightCont{
+    width: 41rem;
+    display: flex;
+    justify-content: space-between;
+}
+.rightCont_info{
+    font-size: 2.4rem;
+}
+.rightCont_info p:nth-of-type(1){
+    height: 5rem;
+    line-height: 5rem;
+}
+.rightCont_info p:nth-of-type(1) span,.rightCont_info p:nth-of-type(1) span img{
+    width: 2.8rem;
+    height: 2.7rem;
+}
+.rightCont_info p{
+    height: 4rem;
+    line-height: 4rem;
+}
+.pingfen{
+    font-size: 2.8rem;
+    color: #222;
+}
+.pingfen span{
+    height: 12rem;
+    line-height: 12rem;
+    font-size: 6rem;
+    color: #ffbe41;
+}

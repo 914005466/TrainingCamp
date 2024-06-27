@@ -1,0 +1,207 @@
+html{
+    background: #f0f0f0;
+}
+
+header{
+    padding: auto;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3.2rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #fff;
+}
+header span{
+    margin-left: 1rem;
+    font-size: 2.6rem;
+    height: 10rem;
+}
+header span img{
+    height: 4rem;
+    margin-top: 2.8rem;
+}
+header p{
+    text-align: center;
+    position: absolute;
+    top: 0rem;
+    left: 41%
+}
+
+/* 进度 */
+.progress{
+    background: #fff;
+    height: 16rem;
+    margin-bottom: 2rem;
+}
+.icon{
+    height: 5.5rem;
+    border-bottom: 1px solid #0aaaa4;
+    margin-left: 14.2rem;
+    margin-right: 14.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+.icon span{
+    position: relative;
+    
+}
+.icon span img{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    z-index: 10;
+}
+.icon span:nth-of-type(3) img{
+    width: 3rem;
+    height: 3rem;
+    bottom: -1.5rem;
+    left: -0.7rem;
+}
+.progress div:nth-of-type(2){
+    margin-left: 11.3rem;
+    margin-right: 11.3rem;
+    height: 9.6rem;
+    line-height: 9.6rem;
+    color: #333;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+/* 购买床上用品 */
+.buy{
+    background: #fff;
+    padding-top: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.buy>p:nth-child(1){
+    font-size: 2.2rem;
+    color: #666;
+    line-height: 3.8rem;
+    height: 3.8rem;
+}
+.buy>p:nth-child(1)::before{
+    content: '';
+    width: 2.2rem;
+    height: 2rem;
+    background: url(../image/buy\ \(1\).svg) no-repeat 0 0/100%;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+dl dt{
+    height: 6.8rem;
+    background: rgba(10, 170, 164, 0.08);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+dl dt span{
+    font-size: 2.6rem;
+    color: rgb(10, 170, 164);
+}
+dl dd{
+    height: 7.7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+dl dd span{
+    font-size: 2.6rem;
+    color: #333;
+}
+dl dt span:nth-of-type(1){
+    width: 5.5rem;
+}
+dl dd span:nth-of-type(1){
+    width: 5.5rem;
+}
+
+dl dt span:nth-of-type(2){
+    width: 7.5rem;
+    text-align: center;
+}
+dl dd span:nth-of-type(2){
+    width: 7.5rem;
+    text-align: center;
+}
+dl dt span:nth-of-type(3){
+    width: 10.5rem;
+}
+dl dd span:nth-of-type(3){
+    width: 10.5rem;
+    text-align: center;
+}
+dl dd span:nth-of-type(3) input[type="checkbox"]{
+    /* 取消单选框默认样式 */
+    appearance: none;
+    width: 3.4rem;
+    height: 3.4rem;
+    background: url(../image/cir1.svg) no-repeat 0 0/100%;
+}
+dl dd span:nth-of-type(3) input[type="checkbox"]:checked{
+    background: url(../image/cir2.svg) no-repeat 0 0/100%;
+}
+
+.count{
+    height: 10.3rem;
+    font-size: 2.4rem;
+    color: #333;
+    line-height: 6.8rem;
+    border-bottom: 1px solid #ccc;
+}
+.dormitoryNum{
+    height: 14.3rem;
+    border-bottom: 1px solid #ccc;
+}
+.dormitoryNum p:nth-of-type(1){
+    height: 6.8rem;
+    line-height: 6.8rem;
+    font-size: 2.2rem;
+    color: #666;
+}
+.dormitoryNum p:nth-of-type(1)::before{
+    content: '';
+    width: 2.2rem;
+    height: 2.2rem;
+    background: url(../image/buy\ \(2\).svg) no-repeat 0 0/100%;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+.dormitoryNum p:nth-of-type(2){
+    color: #333;
+    font-size: 2.6rem;
+    height: 6.8rem;
+    line-height: 6.8rem;
+}
+.btns{
+    padding: 6rem 16rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+.btns p{
+    width: 16.4rem;
+    height: 6.6rem;
+    border-radius: 3.3rem;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 6.6rem;
+}
+.btns p:nth-child(1){
+    background: #f5f5f5;
+    color: #8c8c8c;
+}
+.btns p:nth-child(2){
+    background: #0aaaa4;
+    color: #fff;
+}

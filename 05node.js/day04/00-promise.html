@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    //封装一个promise函数
+    
+    function myPromise(executor) {
+        let resolve, reject;
+        let promise = new Promise((_resolve, _reject) => {   //Promise构造函数
+            resolve = _resolve;
+            reject = _reject;
+        });   //返回一个promise对象
+        executor(resolve, reject);   //执行传入的executor函数
+        return promise;   //返回promise对象
+    }
+    
+    //测试用例
+    
+    let p1 = myPromise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success');
+        }, 2000);
+    });
+    
+    p1.then(data => {
+        console.log(data);
+    });
+    
+    let p2 = myPromise((resolve, reject) => {
+        setTimeout(() => {
+            reject('error');
+        }, 2000);
+    });
+    
+    p2.catch(error => {
+        console.log(error);
+    });
+</script>

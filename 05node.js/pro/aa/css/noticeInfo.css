@@ -1,0 +1,96 @@
+header{
+    padding: auto;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3.2rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #fff;
+}
+header span{
+    margin-left: 1rem;
+    font-size: 2.6rem;
+    height: 10rem;
+}
+header span img{
+    height: 4rem;
+    margin-top: 2.8rem;
+}
+header p{
+    text-align: center;
+    position: absolute;
+    top: 0rem;
+    left: 41%
+}
+
+.search{
+    margin-top: 2rem;
+    width: 68.6rem;
+    height: 6.8rem;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    position: relative;
+}
+.search input{
+    display: inline-block;
+    width: 100%;
+    height: 6.8rem;
+    border-radius: 1.6rem;
+    font-size: 2.4rem;
+}
+
+/* -------------- */
+.info{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.info>div:nth-of-type(1){
+    height: 14.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2.6rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+.info>div:nth-of-type(1) p:nth-of-type(1){
+    width: 28.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+.info>div:nth-of-type(1) p:nth-of-type(2){
+    font-size: 2.2rem;
+    color: #999;
+    height: 4.8rem;
+    line-height: 4.8rem;
+}
+.info div:nth-of-type(2) .img1,.info div:nth-of-type(2) .img2{
+    padding: 3rem;
+    width: 63rem;
+    height: 32.6rem;
+}
+.info div:nth-of-type(2) .img1 img{
+    width: 63rem;
+    height: 32.6rem;
+}
+.info div:nth-of-type(2) .img2 img{
+    width: 63rem;
+    height: 32.6rem;
+}
+.info div:nth-of-type(2) h4{
+    font-size: 2.8rem;
+    line-height: 4.2rem;
+    font-weight: 700;
+}
+
+.info div:nth-of-type(2) .cont{
+    font-size: 2.4rem;
+    color: #000;
+    line-height: 4.2rem;
+    text-align: justify;
+}

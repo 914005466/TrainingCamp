@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin:0 2rem; 
+        }
+        header{
+            height: 12.7rem;
+            width: 100%;
+            font-weight: 400;
+            font-size: 3rem;
+            color: #333333;
+            
+        }
+        .box{
+            position: relative;
+            height: 12.7rem;
+            border-bottom: 2px solid #555;
+        }
+        .box span{
+            position: absolute;
+            bottom: 2rem;
+            left: 0.6rem;
+        }
+        .login{
+            margin-top: 3rem;
+            
+        }
+        .login .top ,.login .bottom{
+            height: 7rem;
+            border: 1px solid #D2D2D2;
+            display: flex;
+            align-items: center;
+        }
+        .login .top {
+            border-bottom: none;
+        }
+        .login .top span,.login .bottom span{
+            height: 3.4rem;
+            width: 8.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #D2D2D2;
+            
+        }
+        .login .top span img{
+            width: 3rem;
+            height: 2.2rem;
+        }
+        .login .bottom span img{
+            width: 2.6rem;
+            height: 3.3rem;
+        }
+        input{
+            border: none;
+            font-size: 2.4rem;
+            color: #999999;
+            margin-left: 3rem;
+        }
+        input:focus{
+            outline: none;
+            border: none;
+        }
+        .btn{
+             margin-top: 3rem;
+            width: 60rem;
+            height: 7rem;
+            background: #8BB874;
+            border-radius: 2px;
+            color: #fff;
+            font-weight: 400;
+            font-size: 3rem;
+            border: none;
+        }
+        .btn:active{
+            background-color: #669901;
+        }
+        .login_shejiao{
+            width: 100%;
+            height: 10.8rem;
+        }
+        .box_shejiao{
+            position: relative;
+            height: 10.8rem;
+            font-weight: 400;
+            font-size: 3rem;
+            color: #333333;
+            border-bottom: 2px solid #555;
+        }
+        .box_shejiao span{
+            position: absolute;
+            bottom: 2rem;
+            left: 0.6rem;
+        }
+        .box_logo{
+            margin-top:2.2rem; ;
+            height: 10rem;
+        }
+        .box_logo ul{
+            display: flex;
+            list-style-type: none;
+            justify-content: space-between;
+            height: 10rem;
+        }
+
+        .box_logo li{
+            height: 10rem;
+            width: 18.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 11px;
+        }
+        .box_logo li:nth-child(1){
+            background-color: #5771D0;
+        }
+        .box_logo li:nth-child(2){
+            background-color: #35B5EB ;
+        }
+        .box_logo li:nth-child(3){
+            background-color: #CB2027  ;
+        }
+        .box_other{
+            margin-top: 5rem;
+            font-size: 3rem;
+        }
+        a{
+            color: #669901;
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <div class="container box">
+            <span>已有登录账号</span>
+            
+        </div>
+     </header>
+     <div class="login container">
+        <div class="top">
+            <span><img src="./images/email.png" alt=""></span>
+            <input type="text" id="eamil" placeholder="邮箱地址">
+        </div>
+        <div class="bottom">
+            <span><img src="./images/mima.png" alt=""></span>
+            <input type="password" id="password" placeholder="密码">
+        </div>
+     </div>
+     <button class="btn container">登 录</button>
+     <div class="login_shejiao">
+        <div class="box_shejiao container">
+            <span>社交社交登录</span>
+        </div>
+        
+     </div>
+     <div class="box_logo">
+        <ul class="container">
+            <li><img src="./images/facebook.png" alt="">
+            </li>
+            <li>
+                <img src="./images/twitter.png" alt="">
+            </li>
+            <li>
+                <img src="./images/weibo.png" alt="">
+            </li>
+        </ul>
+     </div>
+     <div class="box_other container">
+        还没有遨播账号? <a href="register.html">立即注册</a>
+     </div>
+</body>
+</html>
+<script src="./js/base.js"></script>
+<script src="./js/axios.min.js"></script>
+<script>
+    
+</script>
