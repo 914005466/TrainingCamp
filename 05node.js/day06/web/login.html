@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+</head>
+<body>
+    <label>用户名</label>
+    <input type="text" id="username"><br>
+    <label>密码</label>
+    <input type="text" id="pwd1"><br>
+    <button id="btn">登录</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    function $(ele){
+    return document.querySelector(ele)
+}
+$('#btn').onclick=function(){
+    let name=$('#username').value
+    let pwd1=$('#pwd1').value
+    let data={
+        name,
+        pwd:pwd1
+    }
+    axios.post('/login',data).then(res=>{
+        if(res.data.code==200){
+            alert('登录成功')
+        }else{
+            alert('登录失败')
+        }
+
+    })
+}
+</script>

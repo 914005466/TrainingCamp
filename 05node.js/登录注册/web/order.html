@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如益城订单页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #fafafa;
+        }
+        
+        .cont{
+            display: flex;
+            justify-content: space-between;
+            width: 1180px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .left{
+            width: 200px;
+            height: 360px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 58px;
+            border-top: 2px solid #e13045;
+        }
+        .left p{
+            width: 160px;
+            height: 58px;
+            border-bottom: 1px solid #ccc;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        .left p:nth-of-type(1){
+            height: 63px;
+        }
+        .left p:nth-last-of-type(1){
+            border-bottom: none;
+        }
+        .right{
+            width: 940px;
+       
+            border: 1px solid #ccc;
+        }
+        .tab{
+            height: 60px;
+            border-bottom: 1px solid #ccc;
+            line-height: 60px;
+            padding-left: 20px;
+            font-size: 18px;
+        }
+        .tab span{
+            text-align: center;
+            width: 92px;
+            margin-right: 60px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .act{
+            height: 58px;
+            border-bottom: 2px solid #e13045;
+        }
+        .list{
+            padding-left: 18px;
+            padding-right: 20px;
+            list-style-type: none;
+        }
+        .list li{
+            height: 190px;
+            border-bottom: 1px solid skyblue;
+            display: flex;
+            align-items: center;
+        }
+        .list li:nth-last-of-type(1){
+            border-bottom: none;
+        }
+        .list li>p{
+            width: 150px;
+            height: 150px;
+            border: 1px solid skyblue;
+            margin-right: 20px;
+            padding: 1px;
+        }
+        .list li>p img{
+            width: 148px;
+            height: 148px;
+        }
+        .list li>div{
+            height: 130px;
+        }
+        .list li>div p:nth-of-type(1){
+            font-size: 18px;
+            height: 20px;
+            
+        }
+        .list li>div p:nth-of-type(2){
+            font-size: 24px;
+            color: #e13045;
+            height: 60px;
+            line-height: 60px;
+        }
+        .list li>div p:nth-of-type(3){
+            font-size: 18px;
+            height: 20px;
+            color: #666;
+            line-height: 20px;
+        }
+        .list li>div .btns{
+            text-align: center;
+            height: 30px;
+            width: 730px;
+            display: flex;
+            justify-content: end;
+        }
+        .list li>div .btns span{
+            width: 100px;
+            color: #666;
+            display: inline-block;
+            line-height: 30px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .list li>div .btns span:nth-of-type(2){
+            margin-left: 20px;
+            color: #e13045;
+            border: 1px solid #e13045;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="left">
+            <p>个人中心</p>
+            <p>收货地址</p>
+            <p style="color: #e13045;">我的订单</p>
+            <p>我的余额</p>
+            <p>我的积分</p>
+            <p>我的分销</p>
+        </div>
+        <div class="right">
+            <p class="tab">
+                <span class="act">全部订单</span>
+                <span>待支付</span>
+                <span>已完成</span>
+            </p>
+            <ul class="list">
+                <!-- <li>
+                    <p><img src="./images/bg9.jpg" alt=""></p>
+                    <div>
+                        <p>科沃斯（Ecovacs）地宝玲珑（BFD-wsq）</p>
+                        <p>￥2480.00</p>
+                        <p>×1</p>
+                        <p class="btns">
+                            <span>删除订单</span>
+                            <span>立即支付</span>
+                        </p>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script src="./api/api.js"></script>
+<script>
+    // const token = localStorage.getItem('token')
+    let list = document.querySelector('.list')
+    api.get('/getInfo').then(res=>{
+        console.log(res.data)
+         list.innerHTML   = '';
+        let html = '';
+        for(let i=0;i<3;i++){
+            html += `
+            <li>
+                    <p><img src="${res.data.src[i]}" alt=""></p>
+                    <div>
+                        <p>${res.data.tit}</p>
+                        <p>￥${res.data.price}</p>
+                        <p>×${res.data.count}</p>
+                        <p class="btns">
+                            <span>删除订单</span>
+                            <span>立即支付</span>
+                        </p>
+                    </div>
+                </li>
+            `;
+        }
+       
+        list.innerHTML = html;
+    })
+</script>

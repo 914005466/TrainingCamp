@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知公告详情</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/noticeInfo.css">
+</head>
+<body>
+    <header>
+        <span id="back"><img  src="../image/left.svg" alt="">返回</span>
+        <p>通知公告</p>
+    </header>
+    <div class="info">
+        <div>
+            <p>清明假日放假通知</p>
+            <p>2021年4月2日</p>
+        </div>
+        <div>
+            <p class="img1">
+                <img src="../image/notice1.png" alt="">
+            </p>
+            <p class="cont">
+                根据《国务院办公厅关于2021年部分节假日安排的通知》:2021年清明节，4月3日至5日放假。
+                其中，2021年4月4日清明节当天，属于法定节假日。
+            </p>
+            <p class="cont">
+                清明节当天也就是4月4日加班另支付3倍日工资；4月3日、4月5日加班给予补休或者另支付2倍日工资。
+            </p>
+            <p class="img2">
+                <img src="../image/notice5.png" alt="">
+            </p>
+            <h4>清明节的由来</h4>
+            <p class="cont">
+            清明节的起源，据传始于古代帝王将相“墓祭”之礼，后来民间亦相效仿，于此日祭祖扫墓，历代沿袭而成为中华民族一种固定的风俗。本来，寒食节与清明节是两个不同的节日，到了唐朝，将祭拜扫墓的日子定为寒食节。
+            </p>
+            <p class="cont">
+                “清明节”的得名还源于我国农历24节气中的清明节气。冬至后第105天就是清明节气。清明节气共有15天。作为节气的清明，时间再春分之后。这时冬天已去，春意盎然，天气清朗，四野明净，大自然处处显示出勃勃生机。用“清明”称这个时期，是再恰当不过的一个词。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+     let back = document.querySelector("#back");
+    // 点击返回上一页
+    back.onclick = function () {
+        window.history.go(-1);
+    }
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发表评论</title>
+    <link rel="stylesheet" href="../css/writeComments.css">
+</head>
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>发表评论</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+    <p class="pinglun" id="speakers">
+        <i>播讲：</i>
+        <span class="act"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+    <p class="pinglun" id="content">
+        <i>内容：</i>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+    <p class="pinglun aa" id="arrange">
+        <i>编排：</i>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+    <p class="pinglunCont">
+        <textarea name="" placeholder="评论内容"id="comment" cols="30" rows="5"></textarea>
+    </p>
+
+    <div class="btnBox">
+        <p class="btn">发表评论</p>
+    </div>
+</body>
+</html>
+<script src="../js/axios.min.js"></script>
+<script src="../js/base.js"></script>
+<script>
+let star1 = document.querySelectorAll('#speakers span');
+let star2 = document.querySelectorAll('#content span');
+let star3 = document.querySelectorAll('#arrange span');
+
+let num1;
+let num2;
+let num3;
+
+
+function $(ele){
+        return document.querySelector(ele);
+    }
+    $('#prev').onclick = function () {
+        history.back();
+    }
+function setStars(str,n){
+    str.forEach((item,index)=>{
+        item.onclick = ()=>{
+            str.forEach((ele,i)=>{ele.className = i<=index?'act':'';});
+            n = index+1;
+            console.log(n);
+            return n;
+        }
+    })
+}
+setStars(star1,num1);
+setStars(star2,num2);
+setStars(star3,num3);
+//点击btn获取数据
+$('.btn').onclick = function () {
+    let num1 = document.querySelectorAll('#speakers span.act').length;
+    let num2 = document.querySelectorAll('#content span.act').length;
+    let num3 = document.querySelectorAll('#arrange span.act').length;
+    let comments = $('#comment').value;
+    axios.post('/user/addComment',{
+        star1:num1,
+        star2:num2,
+        star3:num3,
+        comments:comments
+    })
+}
+</script>

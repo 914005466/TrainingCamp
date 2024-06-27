@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.all{
+    padding: 5.8rem 2rem 0 2rem;
+}
+.zhanghao{
+    font-size: 3rem;
+    color: #333;
+    height: 7rem;
+    line-height: 7rem;
+    border-bottom: 1px solid #333;
+}
+.login{
+    border: 1px solid #d2d2d2;
+    border-radius: 0.2rem;
+    background: #f4f4f4;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.login p span{
+    display: inline-block;
+    width: 8.7rem;
+    text-align: center;
+    border-right: 1px solid #d2d2d2;
+}
+.login p input{
+    display: inline-block;
+    width: 49rem;
+    height: 6.8rem;
+    line-height: 6.8rem;
+    font-size: 2.4rem;
+    color: #999;
+    border: none;
+    outline: none;
+    background: #f4f4f4;
+    text-indent: 3rem;
+}
+.email{
+    height: 7rem;
+    border-bottom: 1px solid #d2d2d2;
+}
+.email span img{
+    width: 3rem;
+    height: 2.2rem;
+}
+.pwd span img{
+    width: 3rem;
+    height: 3.3rem;
+}
+
+#btn{
+    height: 7rem;
+    background: #8bb874;
+    text-align: center;
+    line-height: 7rem;
+    border-radius: 0.2rem;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 4rem;
+}
+.qita{
+    margin-top: 2.2rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.qita p{
+    width: 18.6rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.4rem;
+}
+.qita p:nth-of-type(1){
+    background: #5771d0;
+    
+}
+.qita p:nth-of-type(2){
+    background: #35b5eb;
+}
+.qita p:nth-of-type(3){
+    background: #cb2027;
+}
+
+.qita p:nth-of-type(1) img{
+    width: 2.4rem;
+    height: 5.2rem;
+}
+.qita p:nth-of-type(2) img{
+    width: 5.4rem;
+    height: 4.5rem;
+}
+.qita p:nth-of-type(3) img{
+    width: 6.5rem;
+    height: 6.5rem;
+}
+.all p:last-child{
+    font-size: 3rem;
+    color: #666;
+}
+a{
+    color: #8bb874;
+}

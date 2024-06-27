@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <link rel="stylesheet" href="../css/search.css">
+</head>
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>搜索</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+    <div class="search_box">
+        <div class="search">
+            <input type="text" placeholder="请输入关键字">
+            <span><img src="../images/sousuo.png" alt=""></span>
+        </div>
+        <ul class="list">
+            <li class="audioBook">
+                <span>有声书</span>
+                <span>1250本</span>
+                <span><img src="../images/toRight.png" alt=""></span>
+            </li>
+            <li>
+                <span>电台</span>
+                <span>152个</span>
+                <span><img src="../images/toRight.png" alt=""></span>
+            </li>
+            <li> 
+                <span>播者</span>
+                <span>684位</span>
+                <span><img src="../images/toRight.png" alt=""></span>
+            </li>
+        </ul>
+
+        <p>热门关键字</p>
+    </div>
+    <div class="keywords">
+        <p>鬼吹灯</p>
+        <p>武侠</p>
+        <p>言情</p>
+        <p>偶像剧</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+        <p>鬼吹灯</p>
+    </div>
+
+
+</body>
+</html>
+<script src="../js/axios.min.js"></script>
+<script src="../js/base.js"></script>
+<script>
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#prev').onclick=function(){
+    window.history.back();
+}
+
+$('.audioBook').onclick=function(){
+    window.location.href='./audioBook.html';
+}
+</script>

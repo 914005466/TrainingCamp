@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            list-style-type: none;
+            padding: 20px;
+        }
+        .list li{
+            background: #f0f0f0;
+            height: 50px;
+            overflow: hidden;
+        }
+        .move{
+            width: calc(100% + 70px);
+            display: flex;
+            align-items: center;
+            height: 50px;
+            transition: all 0.3s ease-in-out;
+        }
+        .move p {
+            flex: 1;
+        }
+        .move span{
+            width: 50px;
+            margin: 0 10px;
+            height: 30px;
+            background-color: red;
+
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li>
+            <div class="move">
+                <p>睡觉大都是留给死人的,被窝是青春的坟墓</p>
+                <span>删除</span>
+            </div>
+
+        </li>
+    </ul>
+</body>
+</html>
+<script>
+let move =document.querySelector('.move');
+move.addEventListener('touchstart', function(){
+    console.log(event.touches[0].clientX);
+    x = event.touches[0].clientX
+})
+move.addEventListener('touchend', function(){
+    console.log(event.changedTouches[0].clientX);
+    let x1 = event.changedTouches[0].clientX;
+    if(x1-x>50){//右滑
+        move.style.transform = 'translateX(0px)';
+    }
+    if(x1-x<-50){//左滑
+        move.style.transform = 'translateX(-70px)';
+    }
+})
+</script>

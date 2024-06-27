@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let arr1= [1,2,31,1,4123,24,2,6]
+    let arr2= []
+    function arr(){
+        let arr = [1,2,3,4,5,6,7,8,9,10];  
+    }
+    arr.prototype.unique = function(){
+        for(let i=0;i<arr1.length;i++){
+            for(let j=1;j<arr1.length;j++){
+                if(arr1[i]==arr1[j]){
+                    arr2.push(arr1[j])
+                 
+                }
+                }
+        }
+    }
+    console.log(arr2);
+
+    //编写一个原型方法,返回一个去除数组内重复元素的新数组
+        let arr3 = [1,2,31,1,4123,24,2,6];
+        let uniqueArr = [];
+        for(let i = 0; i < arr3.length; i++) {
+            if(uniqueArr.indexOf(arr3[i]) === -1) {
+                uniqueArr.push(arr3[i]);
+            }
+        return uniqueArr;
+    }
+</script> 
+
+

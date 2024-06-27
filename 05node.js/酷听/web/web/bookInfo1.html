@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有声小说详情</title>
+    <link rel="stylesheet" href="../css/bookInfo.css">
+</head>
+
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>有声小说详情</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+    <!-- 播放区域 -->
+    <div class="bg">
+        <img src="../images/musicImg/2.jpg" alt="" id="bgImg">
+        <span class="pericopes"><img src="../images/liebiao1.png" alt=""></span>
+        <p class="bf">
+            <span id="skipForward"><img src="../images/toPrev.png" alt=""></span>
+            <span id="pause"><img src="../images/bofang2.png" alt=""></span>
+            <span id="skipBackward"><img src="../images/toNext.png" alt=""></span>
+        </p>
+    </div>
+    <!-- 音乐播放器 -->
+    <audio id="audioTag"></audio>
+    <!-- 进度条信息 -->
+    <div class="progress">
+        <div class="progress_bar"></div>
+    </div>
+    <!-- 时间信息 -->
+    <div class="time">
+        <span class="time_left">00:00</span>
+        <span class="time_right">00:00</span>
+    </div>
+    <!-- 功能选项 -->
+    <p class="btns">
+        <span><img src="../images/fenxiang.png" alt=""></span>
+        <span id="comment"><img src="../images/xiaoxi.png" alt=""></span>
+        <span><img src="../images/xiazai1.png" alt=""></span>
+        <span id="settime">15:36</span>
+        <span><img src="../images/shuqian1.png" alt=""></span>
+    </p>
+    <div class="content">
+        <!-- 作品简介 -->
+        <p class="title">作品简介：</p>
+        <div class="introduce">
+            <div class="text_content" id="textContent">
+                千年前,那惊鸿一瞥,让我倾尽所有的一切,只为了爱你,只可惜,你负我一世的深情。千年来,要让你用生生世世的情来还我那一世的伤心。千年后,我用漠然辜负你深情的呵护,今生,我负你,我便用我的生命来忏悔是的的便用我的生命来忏悔是的的便用我的生命来忏悔是的的
+            </div>
+            <span>
+                <img class="read_more" id="readMore" src="../images/toDown.png"></img>
+            </span>
+        </div>
+        <!-- 播者 -->
+        <p class="title">播者：</p>
+        <div class="authors">
+            <p>
+                <span><img src="../images/touxiang.png" alt=""></span>
+                <span>张宇飞</span>
+            </p>
+            <p>
+                <span><img src="../images/touxiang.png" alt=""></span>
+                <span>艾迪斯</span>
+            </p>
+            <p>
+                <span><img src="../images/touxiang.png" alt=""></span>
+                <span>尼古拉斯</span>
+            </p>
+        </div>
+        <!-- 评论 -->
+        <p class="title">评论：</p>
+        <div>
+            <ul class="list">
+                <li>
+                    <div class="left"><img src="../images/touxiang.png" alt=""></div>
+                    <div class="right">
+                        <div class="rightCont">
+                            <p class="top">
+                                <span>张宇飞</span>
+                                <span>2014-10-27</span>
+                            </p>
+                            <p class="pingfen">
+                                <span><img src="../images/star1.png" alt=""></span>
+                                <span><img src="../images/star1.png" alt=""></span>
+                                <span><img src="../images/star1.png" alt=""></span>
+                                <span><img src="../images/star1.png" alt=""></span>
+                                <span><img src="../images/star1.png" alt=""></span>
+                                <i>9.0</i><span>分</span>
+                            </p>
+                            <p>
+                                评论内容那惊鸿一瞥,让我倾尽所有的一切只为了爱你一世的伤心。
+                            </p>
+                        </div>
+                        <p class="toRight"><img src="../images/toRight.png" alt=""></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 音乐列表 -->
+    <div class="mulu">
+        <div class="mulu_title">
+            <div class="title_left">目录</div>
+            <div class="title_right">书签</div>
+        </div>
+        <div class="allList">
+            <div><span>共105章</span></div>
+            <div><span>全部下载</span></div>
+        </div>
+        <ul class="mulu_cont">
+            <li>
+                <span>关于郑州的记忆</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>不能说的秘密</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>彩虹</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>花海</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>花海</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>彩虹</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>不能说的秘密</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>不能说的秘密</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>关于郑州的记忆</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>关于郑州的记忆</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+            <li>
+                <span>不能说的秘密</span>
+                <span></span>
+                <span>10:34</span>
+                <span></span>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+</body>
+
+</html>
+<script src="../js/axios.min.js"></script>
+<script src="../js/base.js"></script>
+<script>
+    function $(ele) {
+        return document.querySelector(ele);
+    }
+    $('#prev').onclick = function () {
+        history.back();
+    }
+
+    $('#readMore').addEventListener('click', function () {
+        var textContent = document.getElementById('textContent');
+        if (textContent.style.webkitLineClamp === '4') {
+            textContent.style.webkitLineClamp = 'unset';
+            this.src = '../images/toUp.png';
+        } else {
+            textContent.style.webkitLineClamp = '4';
+            this.src = '../images/toDown.png';
+        }
+    });
+    $('#comment').addEventListener('click', function () {
+        location.href = 'comment.html';
+    });
+    $('#settime').addEventListener('click', function () {
+        location.href = 'timeSet.html';
+    });
+    // 章节目录
+    let pericopes = $('.pericopes');
+    let flag = true;
+    let body = $('body');
+    let mulu = $('.mulu');
+    //点击按钮平移整个页面,再点回到原来的位置
+
+    pericopes.addEventListener('click', function () {
+        if (flag) {
+            body.style.transform = 'translateX(-55rem)';
+            mulu.style.display = 'block';
+            flag = false;
+        } else {
+            body.style.transform = 'translateX(0)';
+            // 定时器0.5秒后隐藏
+            setTimeout(function () {
+                mulu.style.display = 'none';
+            }, 500);
+            flag = true;
+        }
+    });
+     // 暂停/播放功能实现
+    $('#pause').addEventListener('click', function () {
+        if (audio.paused) {
+            audio.play();
+            $('#pause img').src = '../images/暂停.png';
+        } else {
+            audio.pause();
+            $('#pause img').src = '../images/bofang2.png';
+        }
+    })
+    // 进度条
+    let progressTotal = $('.progress');
+    let progress = $('.progress_bar');
+    let audio = $('#audioTag');
+    let playedTime = $('.time_left');
+    let totalTime = $('.time_right');
+   
+
+    audio.addEventListener('timeupdate', updateProgress); // 监听音频播放时间并更新进度条
+    function updateProgress() {
+        var value = audio.currentTime / audio.duration;
+        progress.style.width = value * 100 + '%';
+        playedTime.innerText = transTime(audio.currentTime);
+    }
+    //音频播放时间换算
+    function transTime(value) {
+        var time = "";
+        var h = parseInt(value / 3600);
+        value %= 3600;
+        var m = parseInt(value / 60);
+        var s = parseInt(value % 60);
+        if (h > 0) {
+            time = formatTime(h + ":" + m + ":" + s);
+        } else {
+            time = formatTime(m + ":" + s);
+        }
+
+        return time;
+    }
+
+    // 格式化时间显示，补零对齐
+    function formatTime(value) {
+        var time = "";
+        var s = value.split(':');
+        var i = 0;
+        for (; i < s.length - 1; i++) {
+            time += s[i].length == 1 ? ("0" + s[i]) : s[i];
+            time += ":";
+        }
+        time += s[i].length == 1 ? ("0" + s[i]) : s[i];
+
+        return time;
+    }
+
+    
+
+    
+    progressTotal.addEventListener('mousedown', function (event) {
+        // 只有音乐开始播放后才可以调节，已经播放过但暂停了的也可以
+        if (!audio.paused || audio.currentTime != 0) {
+            var pgsWidth = parseFloat(window.getComputedStyle(progressTotal, null).width.replace('px', ''));
+            var rate = event.offsetX / pgsWidth;
+            audio.currentTime = audio.duration * rate;
+            updateProgress(audio);
+        }
+    });
+    // 存储当前播放的音乐序号
+var musicId = 0;
+var imgurl = 0
+// 后台音乐列表
+let musicData = [['关于郑州的记忆'], ['不能说的秘密'], ['彩虹'], ['花海']];
+
+// 初始化音乐
+function initMusic() {
+   
+    audio.src = `../mp3/music${musicId}.flac`;
+    audio.load();
+    audio.ondurationchange = function () {
+        totalTime.innerText = transTime(audio.duration);
+        //重置进度条
+        audio.currentTime = 0;
+        updateProgress();
+    }
+}
+initMusic();
+// 初始化并播放
+function playMusic() {
+    initMusic();
+    audio.play();
+    $('#pause img').src = '../images/暂停.png';
+}
+//上一首
+$('#skipBackward').addEventListener('click', function () {
+    musicId = musicId - 1;
+    imgurl = imgurl-1;
+    if (musicId < 0) {
+        musicId = musicData.length - 1;
+        imgurl = 3;
+    }
+    $('#bgImg').src = `../images/musicImg/${imgurl}.jpg`;
+    playMusic();
+
+});
+//下一首
+$('#skipForward').addEventListener('click', function () {
+    musicId = musicId + 1;
+    imgurl = imgurl +1;
+    if (musicId > musicData.length) {
+        musicId = 0;
+        imgurl = 0;
+    }
+    $('#bgImg').src = `../images/musicImg/${imgurl}.jpg`;
+    playMusic();
+});
+//播放结束后自动下一首
+audio.addEventListener('ended', function () {
+    musicId = musicId + 1;
+    imgurl = imgurl +1;
+    if (musicId > musicData.length) {
+        musicId = 0;
+        imgurl = 0;
+    }
+    $('#bgImg').src = `../images/musicImg/${imgurl}.jpg`;
+    playMusic();
+});
+// 获取音乐列表并绑定事件
+let musicList = document.querySelectorAll('.mulu_cont li');
+musicList.forEach(function (item, index) {
+    item.addEventListener('click', function () {
+        musicId = index;
+        playMusic();
+    });
+});
+
+let timer;
+        // 把秒数转换成分钟数
+    function formatTime1(t) {
+        let m = Math.floor(t / 60);
+        let s = t % 60;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        return `${m}:${s}`;
+    }
+         
+    $('#settime').addEventListener('click', function () {
+       //获取本地存储的定时器时间
+       var t=localStorage.getItem('time');
+        clearInterval(timer);
+        location.href = 'timeSet.html';
+    
+        timer=setInterval(() => {
+                t--;
+                $('#settime').innerHTML = formatTime1(t);
+                if (t <= 0) {
+                    clearInterval(timer);
+                    $('#settime').innerHTML = '00:00';
+                }
+        }, 1000);
+           
+    });
+
+
+
+</script>

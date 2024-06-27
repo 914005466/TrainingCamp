@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有声小说</title>
+    <link rel="stylesheet" href="../css/audioBook.css">
+</head>
+<body>
+    <header>
+        <span id="geren"><img src="../images/geren.png" alt=""></span>
+        <span>有声小说</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+    <div class="tab">
+        <p>子分类</p>
+        <p class="orderBy">排序</p>
+    </div>
+    <div class="orderByCont">
+        <p>人气最高</p>
+        <p>浏览最多</p>
+        <p>最新发布</p>
+        <p>评分最高</p>
+    </div>
+    <ul class="list">
+        <li>
+            <div class="left"><img src="../images/1.png" alt=""></div>
+            <div class="right">
+                <p class="title">云殇倾城云殇倾城云殇倾城</p>
+                <div class="rightCont">
+                    <div class="rightCont_info">
+                        <p>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                        </p>
+                        <p>播音：李刚</p>
+                        <p>播放：2536次</p>
+                    </div>
+                    <p class="pingfen"><span>9.0</span>分</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="left"><img src="../images/2.png" alt=""></div>
+            <div class="right">
+                <p class="title">心上刺青</p>
+                <div class="rightCont">
+                    <div class="rightCont_info">
+                        <p>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                        </p>
+                        <p>播音：李刚</p>
+                        <p>播放：246次</p>
+                    </div>
+                    <p class="pingfen"><span>10</span>分</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="left"><img src="../images/2.png" alt=""></div>
+            <div class="right">
+                <p class="title">心上刺青</p>
+                <div class="rightCont">
+                    <div class="rightCont_info">
+                        <p>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                        </p>
+                        <p>播音：李刚</p>
+                        <p>播放：246次</p>
+                    </div>
+                    <p class="pingfen"><span>10</span>分</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="../js/axios.min.js"></script>
+<script src="../js/base.js"></script>
+<script>
+let orderBy = document.querySelector('.orderBy');
+let orderByCont = document.querySelector('.orderByCont');
+
+let n=true;
+orderBy.onclick = function(){
+    if(n){
+        orderByCont.style.display = 'block';
+        n=false;
+    }else{
+        orderByCont.style.display = 'none';
+        n=true;
+    }
+    
+}
+let geren = document.querySelector('#geren');
+geren.onclick = function(){
+    window.location.href = 'index.html';
+}
+function $(ele){
+    return document.querySelector(ele);
+}
+axios.get('/user/getData').then(res=>{
+    console.log(res.data);
+    let arr = res.data.data;
+    $('.list').innerHTML = '';
+    let html = '';
+    for(let i=0;i<arr.length;i++){
+        html += `
+        <li onclick="location.href='./bookInfo.html'">
+            <div class="left"><img src="${arr[i].img1}" alt=""></div>
+            <div class="right">
+                <p class="title">${arr[i].tit}</p>
+                <div class="rightCont">
+                    <div class="rightCont_info">
+                        <p>
+                            <span><img src="${arr[i].img3}" alt=""></span>
+                            <span><img src="${arr[i].img3}" alt=""></span>
+                            <span><img src="${arr[i].img3}" alt=""></span>
+                            <span><img src="${arr[i].img3}" alt=""></span>
+                            <span><img src="${arr[i].img3}" alt=""></span>
+                        </p>
+                        <p>播音：${arr[i].author}</p>
+                        <p>播放：${arr[i].pic}次</p>
+                    </div>
+                    <p class="pingfen"><span>${arr[i].score}</span>分</p>
+                </div>
+            </div>
+        </li>
+        `;
+    }
+    $('.list').innerHTML = html;
+
+})
+</script>

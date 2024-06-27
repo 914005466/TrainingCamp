@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置</title>
+    <link rel="stylesheet" href="../css/setUp.css">
+</head>
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>设置</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+
+    <ul class="list">
+        <li>网络设置</li>
+        <li id="timeSet">时间设置</li>
+        <li id="changePassword">修改密码</li>
+        <li>清除缓存</li>
+    </ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#prev').onclick = function () {
+    history.back();
+}
+
+// 时间设置
+$('#timeSet').onclick = function () {
+    location.href = './timeSet.html';
+}
+// 修改密码
+$('#changePassword').onclick = function () {
+    location.href = './changePassword.html';
+}
+
+
+</script>

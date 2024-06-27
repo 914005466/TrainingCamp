@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f4f4f4;
+}
+header{
+    height: 8.6rem;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2.1rem;
+}
+header span{
+    display: inline-block;
+    color: #fff;
+    font-size: 3.4rem;
+}
+header span:nth-of-type(1) img{
+    width: 2.5rem;
+    height: 4.5rem;
+}
+header span:nth-of-type(3) img{
+    width: 4.3rem;
+    height: 4rem;
+}
+
+/* 小说列表 */
+.list{
+    list-style-type: none;
+    padding-bottom: 5rem;
+}
+.list li{
+    padding: 2rem 5rem 2rem 2rem;
+    background: #fff;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.left{
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2rem;
+}
+.left img{
+    width: 10rem;
+    height: 10rem;
+}
+
+.right{
+    width: 44rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 2.8rem;
+    color: #222;
+}
+.pingfen>span{
+    width: 2.6rem;
+    height: 2.5rem;
+}
+.pingfen>span img{
+    width: 2.6rem;
+    height: 2.5rem;
+}
+.pingfen i{
+    margin-left: 1rem;
+    font-size: 3rem;
+    color: #ffbe41;
+    font-style: normal
+}
+.pingfen span:last-child{
+    color: #666;
+    font-size: 2rem;
+}
+
+.rightCont p:last-child{
+    color: #666;
+    font-size: 2rem;
+}
+
+/* 日期记录 */
+.dateRecord{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    height: 7rem;
+    line-height: 7rem;
+    font-size: 3rem;
+    color: #222;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+}
+.dateRecord span:last-child{
+    width:3rem;
+    height: 1.7rem;
+}
+.dateRecord span:last-child img{
+    width:3rem;
+    height: 1.7rem;
+}
+
+/* 滑动删除 */
+.content {
+    flex: 1;
+    display: flex;
+    transition: transform 0.3s;
+}
+
+.delete-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 13rem;
+    background-color: #669901;
+    color: #fff;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+}
+.item.swiped .content {
+    transform: translateX(-13rem);
+}
+.item.swiped .delete-btn {
+    transform: translateX(0);
+}

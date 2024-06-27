@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知公告</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/notice.css">
+</head>
+<body>
+    <header>
+        <span id="back"><img  src="../image/left.svg" alt="">返回</span>
+        <p>通知公告</p>
+    </header>
+    <div class="search">
+        <input type="text" name="" id="" placeholder="搜索">
+        <img src="../image/search.svg" alt="">
+    </div>
+
+    <ul class="list">
+        <li id="notice1">
+            <div>
+                <p>清明假日放假通知</p>
+                <p>2021年4月2日</p>
+            </div>
+            <div>
+                <img src="../image/notice1.png" alt="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <p>新生报到须知</p>
+                <p>2021年1月9日</p>
+            </div>
+            <div>
+                <img src="../image/notice2.png" alt="">
+            </div>
+        </li>
+        <li>
+            <div>
+                <p>新型冠状病毒肺炎预防须知</p>
+                <p>2021年1月9日</p>
+            </div>
+            <div>
+                <img src="../image/notice3.png" alt="">
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script>
+     let back = document.querySelector("#back");
+     let notice1 = document.querySelector("#notice1");
+    // 点击返回上一页
+    back.onclick = function () {
+        window.history.go(-1);
+    }
+    // 点击通知公告跳转到通知详情页
+    notice1.onclick = function () {
+        window.location.href = "noticeInfo.html";
+    }
+</script>

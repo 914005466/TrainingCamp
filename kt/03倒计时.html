@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .time{
+            list-style-type: none;
+
+        }
+        .time li{
+            height: 40px;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+            line-height: 40px;
+            padding-left: 12px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <p>50:50</p>
+    <ul class="time">
+        <li aa="600"><span >10</span>分钟</li>
+        <li aa="5400"><span >1.5</span>小时</li>
+    </ul>
+</body>
+</html>
+<script>
+    let t = 0;
+    let lis = document.querySelectorAll('.time li');
+    let p = document.querySelector('p');
+    let timer;
+    lis.forEach(item=>{
+        item.onclick=()=>{
+            //getAttribute() 方法可返回元素的属性值。
+            clearInterval(timer);
+            t = item.getAttribute('aa');
+            timer = setInterval(()=>{
+                t--;
+                p.innerHTML = change(t);
+            },1000)
+        }
+       
+    })
+    //把秒转化为分钟
+    function change(t){
+        let m = Math.floor(t/60);
+        let s = t%60;
+
+        m = m<10?'0'+m:m;
+        s = s<10?'0'+s:s;
+        return m+':'+s;
+    }
+</script>

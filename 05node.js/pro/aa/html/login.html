@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <header>
+        <h1>
+            宿舍信息
+        </h1>
+    </header>
+    <div class="img">
+        <img src="../image/5.png" alt="">
+    </div>
+    <div class="logn">
+        <div class="login">
+            <div>
+                <h3>姓名</h3>
+                <input type="text" placeholder="请输入姓名" id="username">
+            </div>
+            <div>
+                <h3>身份证号</h3>
+                <input type="text" placeholder="请输入身份证号" id="IDcard"> 
+            </div>
+           
+                <p id="loginBtn">立即登录</p>
+           
+        </div>
+        <h4>填写说明</h4>
+        <div class="instructions">
+            <p>1.请于8月15日以后登录填写信息，如需更新，请修改。</p>
+            <p>2.请准备好50k-200k一寸近期证件照电子版，便于照片上传。</p>
+            <p>3.本报名系统内所有项均为必填项，可以多次填写及修改，每次填写完成后点击下一步或者提交均可保存已填写内容。</p>
+            <p>4.在公众号内回复“年级群”三个字即可推送年级群二维码，扫描即可加入
+                年级群内。</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+ let loginBtn = document.getElementById('loginBtn');
+ let username = document.getElementById('username');
+ let idCard = document.getElementById('IDcard');
+ loginBtn.addEventListener('click', function() {
+   
+    let v1=username.value;
+    let v2=idCard.value;
+    axios.get(`/login/${v1}/${v2}`).then(res=>{
+        console.log(res.data);
+        location.href = '../html/index.html';
+    })
+ })
+ 
+</script>

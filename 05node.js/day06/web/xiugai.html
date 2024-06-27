@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改地址</title>
+    <style>
+             *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #eee;
+        }
+        header{
+            width: 100%;
+            height: 16.2rem;
+            background-color: #E4E4E4 ;
+            font-size: 5.8rem;
+            margin-bottom: 2rem;
+        }
+        header div{
+            height: 16.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #696969;
+        }
+        header div img:nth-child(1){
+            width: 3.7rem;
+            height: 5.5rem;
+        }
+        header div img:nth-child(3){
+            width: 5.9rem;
+            height: 5.5rem;
+        }
+        .contatiner{
+            margin: 0 50px;
+        }
+        .contatiner1{
+            margin: 0 7.4rem;
+        }
+        li{
+            width: 100%;
+            height: 15rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            font-size: 4rem;
+            color: #4C4C4C;
+        }
+        li input{
+            border: none;
+            font-size: 4rem;
+        }
+        input:focus, input:active {
+            outline: none;
+             border: none;
+             box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="contatiner">
+            <img src="./img/fh.png" alt="">
+            <span>修改地址</span>
+            <img src="./img/bc.png" alt="" id="add">
+        </div>
+    </header>
+    <ul>
+        <li>
+            <div class="contatiner1">
+                <span>收货人:</span>
+                <input type="text" id="name">
+            </div>
+        </li>
+        <li>
+            <div class="contatiner1">
+                <span>手机号:</span>
+                <input type="text" id="phone">
+            </div>
+        </li>
+        <li>
+            <div class="contatiner1">
+                <span>详细地址:</span>
+                <input type="text" id="address">
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script src="./js/base.js"></script>
+<script>
+    function $(ele){
+        return document.querySelector(ele);
+    }
+    $('#add').onclick =()=>{
+    let obj = {
+        name:$('#name').value,
+        phone:$('#phone').value,
+        address:$('#address').value,
+    };
+    axios.post('/address/add',obj).then(res=>{
+        console.log(res.data);
+        if(res.data.code==200){
+            location.href = './address.html';
+        }
+        $('#name').value='';
+        $('#phone').value='';
+        $('#address').value='';
+    })
+}
+</script>

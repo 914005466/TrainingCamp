@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址列表</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+
+        }
+        ul li{
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 20px
+        }
+        ul .act{
+            background-color: #f60;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>
+            <h4></h4>
+            <p></p>
+            <p></p>
+        </li>
+    </ul>
+    <a href="./create.html">新建地址</a>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    function $(ele){
+        return document.querySelector(ele);
+    }
+    function setList(){
+        axios.get('/address/list').then(res=>{
+        console.log(res.data);
+        let arr = res.data.list;
+        let html = ''
+        for(let i=0;i<arr.length;i++){
+            html+=` 
+             <li onclick="change(${arr[i].id})" class="${arr[i].cd==1&&'act'}">
+                <h4>${arr[i].name}</h4>
+                <p>${arr[i].phone}</p>
+                <p>${arr[i].address}</p>
+        </li>
+            `
+        }
+        list.innerHTML = html;
+    })
+    }
+   setList();
+    function change(id){
+        axios.get('/address/change/'+id).then(res=>{
+            if(res.data.code==200){
+                setList();
+            }
+        })
+    }
+</script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的书签</title>
+    <link rel="stylesheet" href="../css/myBookmark.css">
+</head>
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>我的书签</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+
+    <ul class="list">
+        <li class="item" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+            <div class="delete-btn" onclick="deleteItem(this)"><p>删除</p></div>
+            <div class="content">
+                <div class="left"><img src="../images/1.png" alt=""></div>
+                <div class="right">
+                    <div class="rightCont">
+                        <p class="title">云殇倾城云殇倾城云殇倾城</p>
+                        <p class="pingfen">
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <i>9.0</i><span>分</span>
+                        </p>
+                        <p>播音：李刚</p>
+                    </div>
+                    <p class="bofang"><img src="../images/bofang2.png" alt=""></p>
+                </div>
+            </div>
+        </li>
+        <li class="item" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+            <div class="delete-btn" onclick="deleteItem(this)"><p>删除</p></div>
+            <div class="content">
+                <div class="left"><img src="../images/1.png" alt=""></div>
+                <div class="right">
+                    <div class="rightCont">
+                        <p class="title">云殇倾城云殇倾城云殇倾城</p>
+                        <p class="pingfen">
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <span><img src="../images/star1.png" alt=""></span>
+                            <i>9.0</i><span>分</span>
+                        </p>
+                        <p>播音：李刚</p>
+                    </div>
+                    <p class="bofang"><img src="../images/bofang2.png" alt=""></p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#prev').onclick = function () {
+    history.back();
+}
+let startX = 0;
+let startY = 0;
+
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+}
+
+function handleTouchEnd(event) {
+    const endX = event.changedTouches[0].clientX;
+    const endY = event.changedTouches[0].clientY;
+    const deltaX = startX - endX;
+    const deltaY = startY - endY;
+
+    const item = event.currentTarget;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) {
+        if (deltaX > 0) {
+            item.classList.add('swiped');
+        } else {
+            item.classList.remove('swiped');
+        }
+    }
+}
+function deleteItem(btn) {
+    const item = btn.parentElement;
+    item.remove();
+}
+</script>

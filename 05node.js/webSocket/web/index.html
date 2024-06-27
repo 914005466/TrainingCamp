@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天室</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            list-style-type: none;
+            margin:30px auto;
+            width: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <p id="tips"></p>
+    用户名<input type="text" id="username"> 内容 <textarea  id="cont"></textarea>
+    <br>
+    <button id="send">发送</button><button id="exit">退出</button>
+    <ul class="list" id="list">
+
+    </ul>
+</body>
+</html>
+<script>
+    /* 
+    Websocket 他是一种网络通讯协议
+    http的缺陷,所有的通讯只能通过客户端发起,只能链接一次,通讯完成后会自动断开
+    如果需要不间断的需求,则需要使用轮询,也就是通过计时器发送请求
+    websocket 协议诞生于2008年,2011年称为标准,现在所有浏览器都支持
+    特点:一旦连接成功,客户端可以向服务端发起请求,服务端也可以主动向客户端发数据,完成了客户端和服务端的平等对话,也是服务端一个典型的推送技术 
+
+    websocket 其实是一个构造函数.可以用来新建websocket实例
+    let ws = new WebSocket(
+        ws服务器的url
+   
+     )
+    使用方式,通过判断websocket.readyState变化,来判断传输状态
+    值的含义
+    0: 表示正在链接
+    1: 表示连接成功
+    2: 表示连接关闭
+    3: 表示正在关闭连接 
+    */
+   //新建websicket 实例
+   let ws = new WebSocket(
+        'ws://127.0.0.1:3000'
+   )
+/* 
+ws.onopen 建立连接成功的时候触发的事件
+ws.onmessage 接收到服务端数据的时候触发的事件
+ws.onerror 出现错误的时候触发的事件
+ws.onclose 连接关闭的时候触发的事件
+ws.send() 使用链接发送数据
+ws.close() 关闭链接
+*/
+function $(ele){
+    return document.querySelector(ele);
+}
+   ws.onopen = function(){
+    //建立链接成功的时候触发的
+    let state = ws.readyState==1?'链接成功':'失败';
+    $('#tips').innerHTML = '链接状态:'+state;
+   }
+   //接受信息
+   ws.onmessage = data =>{
+    $('#list').innerHTML += '<li>'+data.data+'</li>';
+   }
+   //关闭
+   ws.onclose = function(){
+
+        console.log('链接关闭',data);
+   };
+   //错误的时候
+   ws.onerror = function(err){
+        console.log('出现错误',err);
+   };
+   //发送信息
+   $('#send').onclick = function(){
+       let cont = $('#cont').value.trim();
+       let name = $('#username').value.trim();
+       if(name==''||cont==''){
+           alert('用户名或内容不能为空');
+           return;
+       }
+       let json = `{
+           "name":"${name}",
+           "content":"${cont}"
+       }`;
+       ws.send(json);
+       $('#cont').value = '';
+   }
+   //退出
+   $('#exit').onclick = function(){
+       ws.close();
+   }
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .star{
+            display: flex;
+        }
+        .star span{
+            width: 28px;
+            height: 27px;
+            background: url(./images/star1.png) no-repeat 0 0;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .star .act{
+            background: url(./images/star2.png) no-repeat 0 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>点亮星</h2>
+    <div class="star" id="star1">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <h2>渲染星</h2>
+    <div class="star" id="star2">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+</body>
+</html>
+<script>
+    let starBox = document.querySelectorAll('#star1 span');
+    let starBox2 = document.getElementById('star2');
+    let num = 0;
+    starBox.forEach((item,index)=>{
+        item.onclick = ()=>{
+            starBox.forEach((ele,i)=>{ele.className = i<=index?'act':'';});
+        }
+    })
+    //             if(i<=index){
+    //                 ele.classList.add('act');
+    //             }else{
+    //                 ele.classList.remove('act');
+    //             }
+    //         })
+    //     }
+    // })
+    let n = 4;
+    function renderStar( class_star,num ){
+        class_star.innerHTML = '';
+    let html = '';
+    for(let i=1;i<=5;i++){
+        html += `<span class="${i<=num?'act':''}"></span>`;
+    }
+    class_star.innerHTML = html; 
+    }
+    renderStar(starBox2,n);
+</script>

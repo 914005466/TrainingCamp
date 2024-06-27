@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时停止播放</title>
+    <link rel="stylesheet" href="../css/timeSet.css">
+</head>
+<body>
+    <header>
+        <span id="prev"><img src="../images/prev.png" alt=""></span>
+        <span>定时停止播放</span>
+        <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+    </header>
+    <div class="time">
+        <p>
+            <span>定时停止播放</span>
+            <span class="switch1"><i>×</i></span>
+        </p>
+        <p>
+            <span ><em id="timerDisplay">59:59</em>后停止播放</span>
+            <span class="switch2"><i><img src="../images/xuanzhong2.png" alt=""></i></span>
+        </p>
+    </div>
+
+    <ul class="list">
+        <li data-time="600">10分钟</li>
+        <li data-time="1200">20分钟</li>
+        <li data-time="1800">30分钟</li>
+        <li data-time="2700">45分钟</li>
+        <li data-time="3600">1小时</li>
+        <li data-time="5400">1.5小时</li>
+        <li data-time="7200">2小时</li>
+    </ul>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+
+function $(ele){
+    return document.querySelector(ele);
+}
+$('#prev').onclick = function () {
+ history.go(-1);
+
+}
+const timerDisplay = $('#timerDisplay');
+let lis = document.querySelectorAll('.list li');
+let timer;
+lis.forEach(item => {
+        item.addEventListener('click', () => {
+            clearInterval(timer);
+            // 删除本地存储的定时时间
+            // localStorage.removeItem('time');
+            // getAttribute() 方法可返回自定义属性的属性值。
+            t = item.getAttribute('data-time');
+
+            timerDisplay.innerHTML = formatTime(t);
+            //存储到本地
+            localStorage.setItem('time', t);
+            timer = setInterval(() => {
+                t--;
+                timerDisplay.innerHTML = formatTime(t);
+                if (t <= 0) {
+                    clearInterval(timer);
+                    timerDisplay.innerHTML = '00:00';
+                }
+            }, 1000);
+        })
+    })
+    
+
+   // 把秒数转换成分钟数
+   function formatTime(t) {
+        let m = Math.floor(t / 60);
+        let s = t % 60;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+        return `${m}:${s}`;
+    }
+
+</script>

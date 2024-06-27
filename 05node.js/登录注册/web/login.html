@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如益城登录页</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #fafafa;
+        }
+        header{
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            border-bottom: 1px solid #ccc;
+            padding-left: 370px;
+            padding-right: 370px;
+            box-shadow: 0px 0px 5px 2px #00aaee;
+        }
+        header p:nth-of-type(1){
+            color: #f00;
+            font-size: 30px;
+            font-weight: 700;
+            font-style: oblique;
+        }
+        header p:nth-of-type(2){
+            color: #333;
+            font-size: 18px;
+        }
+        .cont{
+            margin: 100px auto;
+            width: 700px;
+            height: 412px;
+            background: #fff;
+            box-shadow: 0 0 5px 2px #ccc;
+        }
+        .cont:hover{
+            box-shadow: 0 0 10px 5px #ccc;
+        }
+        .cont div:nth-of-type(1){
+            border-bottom: 1px solid #ccc;
+        }
+        .tab{
+            height: 84px;
+            line-height: 84px;
+            display: flex;
+            width: 300px;
+            justify-content: space-around;
+            margin: 0 auto;
+            font-size: 24px;
+            
+        }
+        .tab span{
+            width: 88px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .act{
+            color: #e81252;
+            border-bottom: 8px solid #e81252;
+        }
+        .loginCont{
+            width: 300px;
+            margin: 40px auto;
+        }
+        .loginCont input{
+            display: block;
+            width: 296px;
+            height: 36px;
+            margin-bottom: 30px;
+            text-indent: 10px;
+        }
+        #btn{
+            margin-top: 10px;
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            font-size: 18px;
+            background: #e13045;
+            border-radius: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .loginCont span{
+            display: flex;
+            margin-top: 20px;
+            justify-content: end;
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>如益城</p>
+        <p>返回首页</p>
+    </header>
+    <div class="cont">
+        <div>
+            <p class="tab">
+                <span class="act">登录</span>
+                <span>注册</span>
+            </p>
+        </div>
+        
+        <div class="loginCont">
+            <input type="text" placeholder="请输入手机号" id="tel">
+            <input type="password" name="" id="pwd" placeholder="请输入密码">
+            <p id="btn">登录</p>
+            <span>忘记密码?找回</span>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script>
+    function $(ele){
+    return document.querySelector(ele);
+}
+$('#btn').onclick = function(){
+    var tel = $('#tel').value;
+    var pwd = $('#pwd').value;
+    if(tel == '' || pwd == ''){
+        alert('手机号或密码不能为空');
+        return;
+    }
+    axios({
+        method:'post',
+        url:'/login',
+        data:{
+            tel: tel,
+            pwd: pwd
+        }
+    }).then(res=>{
+        console.log(res.data);
+        if(res.data.status==200){
+            localStorage.setItem('token',res.data.token);
+            localStorage.setItem('refreshToken',res.data.refreshToken);
+            location.href = '/order.html';
+        }
+    });
+   
+    
+
+
+    }
+</script>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <div class="wp">
+        <!-- 左侧侧边栏 -->
+        <div class="navLift">
+            <p class="touxiang">
+                <span><img src="../images/touxiang.png" alt=""></span>
+                <span>用户昵称</span>
+            </p>
+            <div class="navLift_option">
+                <p id="myBookmark">我的书签</p>
+                <p id="listenRecords">收听记录</p>
+                <p id="offlineChapter">离线章节</p>
+            </div>
+            <div class="navLift_bottom">
+                <p>
+                    <span><img src="../images/tuichu.png" alt=""></span>
+                    <span>切换账号</span>
+                </p>
+                <p id="setUp">
+                    <span><img src="../images/shezhi.png" alt=""></span>
+                    <span>设置</span>
+                </p>
+            </div>
+        </div>
+        <!-- 主页面 -->
+        <div class="cont">
+            <header>
+                <span id="geren"><img src="../images/geren.png" alt=""></span>
+                <span>
+                    <input type="text" name="" id="search">
+                    <img src="../images/sousuo.png" alt="">
+                </span>
+                <span id="mulu"><img src="../images/mulu.png" alt=""></span>
+            </header>
+            <div class="banner">
+                <img src="../images/bg.png" alt="">
+            </div>
+            <div class="btns">
+                <p><img src="../images/shoudian.png" alt=""></p>
+                <p><img src="../images/jishi.png" alt=""></p>
+                <p><img src="../images/jisuanqi.png" alt=""></p>
+                <p><img src="../images/xiangji.png" alt=""></p>
+            </div>
+            <div class="tabList">
+                <p id="audioBook">
+                    <span><img src="../images/有声小说.png" alt=""></span>
+                    <span>有声小说</span>
+                </p>
+                <p>
+                    <span><img src="../images/电台.png" alt=""></span>
+                    <span>电台</span>
+                </p>
+                <p>
+                    <span><img src="../images/综艺戏曲.png" alt=""></span>
+                    <span>综艺戏曲</span>
+                </p>
+                <p>
+                    <span><img src="../images/儿童故事.png" alt=""></span>
+                    <span>儿童故事</span>
+                </p>
+                <p>
+                    <span><img src="../images/军事历史.png" alt=""></span>
+                    <span>历史军事</span>
+                </p>
+                <p>
+                    <span><img src="../images/经典名著.png" alt=""></span>
+                    <span>经典名著</span>
+                </p>
+                <p>
+                    <span><img src="../images/人文社科.png" alt=""></span>
+                    <span>人文社科</span>
+                </p>
+                <p id="more">
+                    <span><img src="../images/更多.png" alt=""></span>
+                    <span>更多</span>
+                </p>
+            </div>
+            <div class="cainnixihuan">
+                <p>猜你喜欢</p>
+                <ul class="list">
+                    <li class="bookInfo">
+                        <div class="left"><img src="../images/1.png" alt=""></div>
+                        <div class="right">
+                            <p class="title">云殇倾城云殇倾城云殇倾城</p>
+                            <div class="rightCont">
+                                <div class="rightCont_info">
+                                    <p><span><img src="../images/star1.png" alt=""></span></p>
+                                    <p>播音：李刚</p>
+                                    <p>播放：2536次</p>
+                                </div>
+                                <p class="pingfen"><span>9.0</span>分</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../js/base.js"></script>
+<script src="../js/axios.min.js"></script>
+<script>
+function $(ele){
+    return document.querySelector(ele);
+}
+// 点击进入有声小说页面
+$('#audioBook').onclick=function(){
+    location.href='./audioBook.html'
+}
+// 点击更多进入搜索页面
+$('#more').onclick=function(){
+    location.href='./search.html'
+}
+
+// 进入有声小说详情页
+bookInfo = function(){
+    location.href='./bookInfo.html'
+}
+
+
+
+
+/*
+点击或折叠左侧侧边栏
+*/
+let n=true;
+$('#geren').onclick = function(){
+    if(n){
+        $('.wp').style.transform = 'translateX(0)';
+        // $('body').style.overflowY = 'hidden';
+        n = false;
+    }else{
+        $('.wp').style.transform = 'translateX(-55rem)';
+        // $('.cont').style.overflowY = 'visible';
+        n=true;
+    }   
+}
+// 点击我的书签进入我的书签页面
+$('#myBookmark').onclick=function(){
+    location.href='./myBookmark.html'
+}
+//点击收听记录进入收听记录页面
+$('#listenRecords').onclick=function(){
+    location.href='./listenRecords.html'
+}
+//点击离线章节进入离线章节页面
+$('#offlineChapter').onclick=function(){
+    location.href='./offlineChapter.html'
+}
+//点击设置进入设置页面
+$('#setUp').onclick=function(){
+    location.href='./setUp.html'
+}
+
+function audioPlay(){
+    axios.get('/user/audioPlay').then(res=>{
+        console.log(res.data);
+        let arr = res.data.data;
+        let ul = $('.list');
+        ul.innerHTML = '';
+        let html = '';
+        for(let i=0;i<arr.length;i++){
+            html += `<li onclick=bookInfo() class="bookInfo">
+            <div class="left"><img src="${arr[i].img}" alt=""></div>
+            <div class="right">
+                <p class="title">${arr[i].title}</p>
+                <div class="rightCont">
+                    <div class="rightCont_info">
+                        <p>
+                            <span><img src="../images/star2.png" alt=""></span>
+                            <span><img src="../images/star2.png" alt=""></span>
+                            <span><img src="../images/star2.png" alt=""></span>
+                            <span><img src="../images/star2.png" alt=""></span>
+                            <span><img src="../images/star2.png" alt=""></span>
+                        </p>
+                        <p>播音：<span>${arr[i].author}</span></p>
+                        <p>播放：<span>${arr[i].playnum}</span>次</p>
+                    </div>
+                    <p class="pingfen"><span>${arr[i].score}</span>分</p>
+                </div>
+            </div>
+        </li>`;
+        }
+        ul.innerHTML = html;
+
+        for(let i=0;i<arr.length;i++){
+            let star = arr[i].star;
+            console.log(star);
+            let html2 = '';
+            for(let j=0;j<star;j++){
+                html2 += `<span><img src="../images/star2.png" alt=""></span>`;
+            }
+            $('.list li:nth-child('+(i+1)+') .rightCont_info p:nth-child(1)').innerHTML = html2;
+            for(let j=0;j<5-star;j++){
+                html2 += `<span><img src="../images/star1.png" alt=""></span>`;
+            }
+            $('.list li:nth-child('+(i+1)+') .rightCont_info p:nth-child(1)').innerHTML = html2;
+        }
+            
+    })
+}
+audioPlay();
+</script>

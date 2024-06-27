@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拦截器使用案例</title>
+</head>
+<body>
+    <button id="btn">点击获取数据</button>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script src="./api/api.js"></script>
+<script>
+    btn.onclick = ()=>{
+        
+      api.get('/aa').then(res=>{
+        console.log(res.data);
+      })  
+    }
+
+ </script>

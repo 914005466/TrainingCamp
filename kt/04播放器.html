@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播放器</title>
+</head>
+<body>
+    <audio src=""></audio>
+    <img src="" alt="" width="200">
+    <hr>
+    <button id="prev">上一首</button>
+    <button id="play">播放</button>
+    <button id="next">下一首</button>
+    <hr>
+    <p>当前时间<span id="curr">00:00</span></p>
+    <p>总时间<span id="total">04:00</span></p>
+</body>
+</html>
+<script>
+let arr = [
+    {
+        pic:'./music/musicImg/1.jpg',
+        url:'./music/music0.mp3'
+    },
+    {
+        pic:'./music/musicImg/2.jpeg',
+        url:'./music/music1.mp3'
+    },
+    {
+        pic:'./music/musicImg/3.jpeg',
+        url:'./music/music2.mp3'
+    },
+    {
+        pic:'./music/musicImg/1.jpg',
+        url:'./music/music0.mp3'
+    }
+]
+function $(ele){
+    return document.querySelector(ele)
+}
+//设置倒计时
+let timer = null;
+var p = 0;
+$('audio').src = arr[p].url;
+$('img').src = arr[p].pic;
+ $('#play').onclick = ()=>{
+    //监听音乐资源是否能加载完成
+    if($('#play').innerHTML=='播放'){
+        // $('audio').addEventListener('canplaythrough',function(){
+        $('audio').play();
+        $('#play').innerHTML= '暂停'
+        $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+        $('#total').innerHTML = change($('audio').duration)//设置总播放时间
+    // })
+    timer = setInterval(function(){
+        $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+    },1000)
+    }else{
+        $('audio').pause();
+        $('#play').innerHTML= '播放'
+    }
+  
+ }
+     //把秒转化为分钟
+ function change(t){
+        let m = Math.floor(t/60);
+        let s = parseInt(t%60);
+
+        m = m<10?'0'+m:m;
+        s = s<10?'0'+s:s;
+        return m+':'+s;
+    }
+
+    $('#next').onclick = function(){
+        p++;
+        if(p==arr.length){
+            alert('已经是最后一首了')
+            return
+        }
+        $('audio').src = arr[p].url;
+        $('img').src = arr[p].pic;
+        clearInterval(timer);
+        $('audio').addEventListener('canplaythrough',function(){
+            $('audio').play();
+            $('#play').innerHTML= '暂停'
+            $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+            $('#total').innerHTML = change($('audio').duration)//设置总播放时间
+
+            timer = setInterval(function(){
+                $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+            },1000)
+        })
+    };
+    $('#prev').onclick = function(){
+        p--;
+        if(p<0){
+            p=0;
+            alert('已经是第一首了')
+            return
+        }
+        $('audio').src = arr[p].url;
+        $('img').src = arr[p].pic;
+        clearInterval(timer);
+        $('audio').addEventListener('canplaythrough',function(){
+            $('audio').play();
+            $('#play').innerHTML= '暂停'
+            $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+            $('#total').innerHTML = change($('audio').duration)//设置总播放时间
+
+            timer = setInterval(function(){
+                $('#curr').innerHTML = change($('audio').currentTime)//设置当前播放时间
+            },1000)
+        })
+    };
+</script>

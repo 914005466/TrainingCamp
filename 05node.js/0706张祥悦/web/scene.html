@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>场景</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin:0 2rem; 
+        }
+        body{
+            background-color: #F4F4F4;
+        }
+        header{
+            width: 100%;
+            height: 10rem;
+            background-color: #000;
+        }
+        .box_header{
+            height: 10rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .box_header img:nth-child(1){
+            width: 2.5rem;
+            height: 4.5rem;
+        }
+        .box_header img:nth-child(2){
+            width: 4.3rem;
+            height: 4rem;
+        }
+        .box_header span{
+            font-family: SimHei;
+            font-weight: 400;
+            font-size: 3.4rem;
+            color: #FFFFFF;
+        }
+        .box_search{
+            background-color: #F4F4F4;
+            position: relative;
+            
+        }
+        .box_search input{
+            height: 7rem;
+            width: 60rem;
+            margin-top: 2rem;
+            background: #fff;
+            border-radius: 2px;
+            border: 1px solid #D2D2D2;
+            font-weight: 400;
+            font-size: 2.4rem;
+            color: #999999;
+            text-indent: 2rem;
+            margin-bottom: 2rem;
+        }
+        .box_search img{
+            width: 3.5rem;
+            height: 3.5rem;
+            position: absolute;
+            top: 3.5rem;
+            right: 3rem;
+
+        }
+        .box_bar{
+            height: 7.2rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .box_bar span{
+            flex:1;
+            border-right: 2px solid #333;
+            font-size: 2.4rem;
+            color: #222222;
+            text-align: center;
+        }
+        .box_bar span:nth-child(2){
+            border: none;
+        }
+        .box_img img{
+            width: 100%;
+            height: 24rem;
+        }
+        .box_img{
+            margin-bottom: 2rem;
+        }
+        .box_book ul{
+            list-style-type: none;
+
+        }
+        .box_book ul li{
+            display: flex;
+            background-color: #FFFFFF;
+            position: relative;
+            margin-bottom: 2rem;
+            height: 23.1rem;
+            align-items: center;
+        }
+        .box_book ul li img{
+             margin-right: 2rem;
+             width: 17rem;
+             height: 17rem;
+             
+        }
+        .box_book ul li h3{
+            font-weight: 400;
+            font-size: 3rem;
+            color: #222222;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+        .box_book ul li .star img{
+            width: 2.8rem;
+            height: 2.7rem;
+            margin-bottom: 1.5rem;
+        }
+        .box_book ul li span{
+            font-size: 2.4rem;
+            color: #222222;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .box_book ul li p{
+            position: absolute;
+            right: 2rem;
+            top:4rem;
+            font-weight: normal;
+            font-size: 7.9rem;
+            color: #FFBE41;
+            font-family: HelveticaNeueLTStd;
+        }
+        .box_book ul li p i{
+            font-size: 2.4rem;
+            color:#999999
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div class="box_header container">
+            <img src="./images/prev.png" alt="">
+            <span>
+                场景
+            </span>
+            <img src="./images/mulu.png" alt="">
+        </div>
+       
+    </header>
+    <div class="box_bar">
+        <span>分类 <img src="./images/toDown.png" alt=""></span>
+        <span>排序 <img src="./images/toDown.png" alt=""></span>
+    </div>
+    <div class="box_img">
+        <img src="./images/bg.png" alt="">
+    </div>
+    <div class="box_book">
+        <ul class="container">
+            <li><img src="./images/1.png" alt="">
+                <div class="box_book_right">
+                    <h3>云殇倾城</h3>
+                    <div class="star">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                    </div>
+                    <span>播音:李刚</span>
+                    <span>播放:2536次</span>
+                    <p>10<i>分</i></p>
+                </div> 
+            </li>
+            <li>
+                <img src="./images/2.png" alt="">
+                <div class="box_book_right">
+                    <h3>心上刺青</h3>
+                    <div class="star">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                        <img src="./images/star1.png" alt="">
+                    </div>
+                    <span>播音:李刚</span>
+                    <span>播放:246次</span>
+                    <p>9.0<i>分</i></p>
+                </div> 
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="./js/axios.min.js"></script>
+<script src="./js/base.js"></script>
